@@ -1,0 +1,181 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_LuminanceLevel_01" pouType="functionBlock" pouGroup="Lumgate" lastChange="2016-07-14T11:07:27">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iValueSelection" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xPulseSecond" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iDelay" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="arrValue" group="Input parameter">
+							<type>
+								<derived name="arr_1_11_udtInput"/>
+							</type>
+						</variable>
+						<variable name="arrLevels" group="Input parameter">
+							<type>
+								<derived name="ARR_I_1_24"/>
+							</type>
+						</variable>
+						<variable name="arrScenarioActive" group="Input parameter">
+							<type>
+								<derived name="ARR_X_1_25"/>
+							</type>
+						</variable>
+						<variable name="iHysteric" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+							<initialValue>
+								<simpleValue value="3"/>
+							</initialValue>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="iLevel" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xValid" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="xSelectScene" group="In- Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="iCalculation" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTempCountValue" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xCountLevelUp" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xCountLevelDown" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xDelayReached" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iCurrentValue" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iHighLevel" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLowLevel" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="rNextLevel" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rCurrentValue" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_LuminanceLevel_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">If not xActivate then<br/>	iCalculation	:=	0;<br/>	iTempCountValue	:=	0;<br/>	iLevel			:=	0;<br/>	xCountLevelUp	:=	False;<br/>	xCountLevelDown	:=	False;<br/>	xDelayReached	:=	False;<br/>End_If;<br/>
+									<br/>iValueSelection		:= 	Limit_Int(1,iValueSelection,11);	(* Set to 1 *)<br/>iCurrentValue		:= 	real_to_int(arrValue[iValueSelection].rValue);<br/>xValid				:= 	arrValue[iValueSelection].xValid;<br/>
+									<br/>Case iCalculation of<br/>	0:<br/>		If xActivate then<br/>			iCalculation	:=	5;<br/>		End_If;<br/>
+									<br/>	5:<br/>		iLevel	:=	1;<br/>		For iLoop := 1 to 24 do<br/>			iLoop2		:=	iLoop + 1;<br/>			(* Jump to the next Scenario, if the actual analog value is higher then the next threshold *)<br/>			If iCurrentValue &gt; arrLevels[iLoop] and arrLevels[iLoop] &gt; 0 and arrScenarioActive[iLoop2] then<br/>				iLevel	:= 	iLoop2;<br/>			Else<br/>				Exit;<br/>			End_If;<br/>		End_For;<br/>		iCalculation	:= 	10;<br/>
+									<br/>	10:<br/>		iHighLevel		:= 	iLevel + 1;	(* upper threshold *)<br/>		iLowLevel		:= 	iLevel - 1;	(* lower threshold *)<br/>		xSelectScene	:= 	True;<br/>		iCalculation	:= 	20;<br/>
+									<br/>	20:<br/>		xCountLevelUp	:= 	False;<br/>		If iHighLevel &lt;= 25 then<br/>			(* reduce the current value with the hysteresic *)<br/>			rCurrentValue	:=	int_to_real(iCurrentValue) * (1.0 - (int_to_real(iHysteric) / 100.0));<br/>			rNextLevel		:=	int_to_real(arrLevels[iLevel]);<br/>			If rCurrentValue &gt;= rNextLevel and arrScenarioActive[iHighLevel] then	(* check next threshold *)<br/>				xCountLevelUp	:= 	True;<br/>			End_If;<br/>		End_If;<br/>
+									<br/>		xCountLevelDown	:= 	False;<br/>		If iLowLevel &gt;= 1 then<br/>			(* add the hysteresic to the current value *)<br/>			rCurrentValue	:=	int_to_real(iCurrentValue) * ((int_to_real(iHysteric) / 100.0) + 1.0);<br/>			rNextLevel		:=	int_to_real(arrLevels[iLowLevel]);<br/>			If (rCurrentValue &lt;= rNextLevel) or not arrScenarioActive[iLevel] then	(* check next threshold *)<br/>				xCountLevelDown	:= 	True;<br/>			End_If;<br/>		End_If;<br/>
+									<br/>		If xDelayReached then	(* Wait for "Delay between switching scenes" *)<br/>			xDelayReached	:= 	False;<br/>			iTempCountValue	:= 	0;<br/>		<br/>			If xCountLevelUp then<br/>				iLevel			:= 	iLevel + 1;<br/>			End_If;<br/>
+									<br/>			If xCountLevelDown then<br/>				iLevel			:= 	iLevel - 1;<br/>			End_If;<br/>			iCalculation		:= 	10;<br/>		End_If;<br/>End_Case;<br/>
+									<br/>
+									<br/>If xCountLevelUp or xCountLevelDown then	(* Start delay counter *)<br/>	If xPulseSecond then<br/>		iTempCountValue		:= 	iTempCountValue + 1;<br/>
+									<br/>		If iTempCountValue &gt;= iDelay then<br/>			xDelayReached	:= 	True;<br/>		End_If;<br/>	End_If;<br/>Else<br/>	iTempCountValue	:= 	0;<br/>End_If;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_LuminanceLevel_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

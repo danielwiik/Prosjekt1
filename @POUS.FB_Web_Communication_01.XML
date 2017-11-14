@@ -1,0 +1,933 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:35" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666355" modificationDateTime="2017-11-14T14:32:35" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_Web_Communication_01" pouType="functionBlock" pouGroup="Interface" lastChange="2016-11-01T14:33:05">
+				<interface>
+					<inOutVars retain="false">
+						<variable name="udtLumgate" group="Output Parameter">
+							<type>
+								<derived name="udtWebLumgate"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Dataset to display one Lumgate</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<outputVars retain="false">
+						<variable name="iTotalLumgatesRBT" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Count of Lumgates at the selected RBT</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrLumgateWeb" group="Output Parameter">
+							<type>
+								<derived name="Arr_I_0_9"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Module Numbers of selected Lumgate range</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrSelectedConfiguration" group="Output Parameter">
+							<type>
+								<derived name="ARR_1_25_1_5_Int"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">?</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrActiveScenario" group="Output Parameter">
+							<type>
+								<derived name="ARR_X_1_25"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Enabled Scenarios of the selectet table</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectedScenario" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Active Scenario in the selected table</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectedScene" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Active Scene in selected Lumgate</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iChosedScene" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Selected  Scene option 1 - 5 after hour balance</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arr5Lumgate" group="Output Parameter">
+							<type>
+								<derived name="ARR_X_0_9"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Availibility of the selected Lumgate range</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arr5LumgateValues" group="Output Parameter">
+							<type>
+								<derived name="Arr_I_0_9"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Output vlaues of the selected Lumgate range</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="rAnalogValue" group="Output Parameter">
+							<type>
+								<REAL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">?</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wAnalogDiag" group="Output Parameter">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">?</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strCloState" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">CLO State (On / Off)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strMaintenanceState" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Maintenance State (On / Off)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrCurrentDiagram" group="Output Parameter">
+							<type>
+								<derived name="ARR_I_1_22"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagrm curve - measured current</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iCurrentActual" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagram dot - y position</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iActualPosition" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagram dot - x position</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrCurrentDiagramWarningMin" group="Output Parameter">
+							<type>
+								<derived name="ARR_I_1_22"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagram curve - current - warning deviation</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrCurrentDiagramWarningMax" group="Output Parameter">
+							<type>
+								<derived name="ARR_I_1_22"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagram curve - current + warning deviation</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrCurrentDiagramAlarmMin" group="Output Parameter">
+							<type>
+								<derived name="ARR_I_1_22"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagram curve - current - alarm deviation</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrCurrentDiagramAlarmMax" group="Output Parameter">
+							<type>
+								<derived name="ARR_I_1_22"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagram curve - current + alarm deviation</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xLumgateEditable" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - editable</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strLumgateState" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - state (Mode)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strDiag" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">?</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrScale" group="Output Parameter">
+							<type>
+								<derived name="Arr_I_0_4"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagram y scale text</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xShowMenue1" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Background 1 active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xShowMenue2" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Background 2 active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iDelay" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">?</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrAnalogDiag" group="Output Parameter">
+							<type>
+								<derived name="ARR_W_1_4"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Discrete elements - Analog Input diagnostic</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xShowMenue3" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Background 3 active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectedRBT" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Feedback, selected RBT</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<localVars retain="false">
+						<variable name="xR2Old" redundant="true" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xR1Old" redundant="true" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<outputVars retain="false">
+						<variable name="iTempSelectedLumgate" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">?</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inputVars retain="false">
+						<variable name="iSelectRBT" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Select RBT</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectLumgateSeite" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Select Lumgate Range (--- first 10 +++)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectLumgateDevice" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate of Selected Range ( 1 - 10 )</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iLumgateSeite" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">? - == iSelectLumgateSeite</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectSensor" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Select Thrashold table</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrAnalogValues" group="Input Parameter">
+							<type>
+								<derived name="arr_1_4_udtAnalogInput"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">raw analog values to display in an overview</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<inOutVars retain="false">
+						<variable name="xFailMode" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - fail mode (failsafe / hold)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtProject" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataProjectSettings"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Communication structure "System settings"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtL20Config" group="In- Output Parameter">
+							<type>
+								<derived name="udtL20Input"/>
+							</type>
+						</variable>
+						<variable name="xMenue1" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate menue 1</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xMenue2" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate menue 2</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xMenue3" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate menue 3</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtScenesHours" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataScenesHour"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Web structure "Sene hours"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtCLO" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataLumgateCLO"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Web structure "CLO"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtCurrent" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataLumgateCurrent"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Web structure "Current consumption"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtScenes" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataLumgateScenes"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Web structure "Lumgate Scenes"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtSource" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataSource"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Web structure "Analog sources"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtThreshold" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataThreshold"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Web structure "Threshold table"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrSceneHourCounter" group="In- Output Parameter">
+							<type>
+								<derived name="arr_1_50_udtLumgatePart1"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scene hour counter communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrSelectedSensor" group="In- Output Parameter">
+							<type>
+								<derived name="ARR_R_1_24"/>
+							</type>
+						</variable>
+						<variable name="arrSelectedScenario" group="In- Output Parameter">
+							<type>
+								<derived name="ARR_I_1_5"/>
+							</type>
+						</variable>
+						<variable name="arrLumgates" group="In- Output Parameter">
+							<type>
+								<derived name="arr_1_240_udtLumgate"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate communicaation structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtLumgateData" group="In- Output Parameter">
+							<type>
+								<derived name="udtLumgateVisu"/>
+							</type>
+						</variable>
+						<variable name="udtLumgateScenario" group="In- Output Parameter">
+							<type>
+								<derived name="udtWebLGScenario"/>
+							</type>
+						</variable>
+						<variable name="udtLumgateSpecialScenario" group="In- Output Parameter">
+							<type>
+								<derived name="udtWebLGSpecialScenario"/>
+							</type>
+						</variable>
+						<variable name="udtScenarioMode" group="In- Output Parameter">
+							<type>
+								<derived name="udtScene"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scene mode communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtLumgateCurrentConsumption" group="In- Output Parameter">
+							<type>
+								<derived name="udtWebLGCurrentConsumption"/>
+							</type>
+						</variable>
+						<variable name="arrScenarioConfiguration" group="In- Output Parameter">
+							<type>
+								<derived name="ARR_I_1_4_1_25_1_5"/>
+							</type>
+						</variable>
+						<variable name="arrLevelConfiguration" group="In- Output Parameter">
+							<type>
+								<derived name="ARR_UDT_L20Config"/>
+							</type>
+						</variable>
+						<variable name="xSetManualLumgate" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - manual mode</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xEnableLumgateEdit" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - enable edit Lumgate site</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xSafeLumgate" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - safe Lumgate dataset</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xCancelLumgate" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - cancel Lumgate dataset</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strLumgateDescription" group="In- Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - description field</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="rLevelFailsafe" group="In- Output Parameter">
+							<type>
+								<REAL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - failsafe value</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="rManuelOutput" group="In- Output Parameter">
+							<type>
+								<REAL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate structure - manual output value</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtLumgateMain" group="In- Output Parameter">
+							<type>
+								<derived name="udtWebLG_Main"/>
+							</type>
+						</variable>
+					</inOutVars>
+					<localVars retain="true">
+						<variable name="strUnit" group="Default">
+							<type>
+								<string length="80"/>
+							</type>
+							<initialValue>
+								<simpleValue value="[cd/m²]"/>
+							</initialValue>
+						</variable>
+					</localVars>
+					<localVars retain="false">
+						<variable name="iTempSelectedLumgateOld" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iSelectSensorOld" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iScaleValue" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTempValue" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTempLevel" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="wSpecialScenario" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="iSelectLumgate" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iSelect" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTemp" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_Failsafe" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_Config1" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_Config2" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_Config3" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_Config4" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_Web_Communication_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Web_Communication *)<br/>If xMenue1 then		(* Select symbolic top menue "System" *)<br/>	xMenue1		:=	False;<br/>	xShowMenue1	:=	True;<br/>	xShowMenue2	:=	False;<br/>	xShowMenue3	:=	False;<br/>Elsif xMenue2 then	(* Select symbolic top menue "Project" *)<br/>	xMenue2		:=	False;<br/>	xShowMenue2	:=	True;<br/>	xShowMenue1	:=	False;<br/>	xShowMenue3	:=	False;<br/>Elsif xMenue3 then	(* Select symbolic top menue "Home" *)<br/>	xMenue3		:=	False;<br/>	xShowMenue2	:=	False;<br/>	xShowMenue1	:=	False;<br/>	xShowMenue3	:=	True;<br/>Elsif not xShowMenue1 and not xShowMenue2 and not xShowMenue3 then<br/>	xShowMenue1	:=	False;<br/>	xShowMenue2	:=	False;<br/>	xShowMenue3	:=	True;<br/>End_if;<br/>iSelectedRBT	:=	iSelectRBT + 1;<br/>(* Calculate amount Lumgates per RBT *)<br/>	udtLumgateMain.arrAmountLumgates[1]	:=	0;<br/>	udtLumgateMain.arrAmountLumgates[2]	:=	0;<br/>	udtLumgateMain.arrAmountLumgates[3]	:=	0;<br/>	udtLumgateMain.arrAmountLumgates[4]	:=	0;<br/>	For iLoop := 1 to 240 do<br/>		If arrLumgates[iLoop].iModuleLevel = 0 and arrLumgates[iLoop].xAvailable then<br/>			udtLumgateMain.arrAmountLumgates[1]	:=	udtLumgateMain.arrAmountLumgates[1] + 1;<br/>		End_If;<br/>		If arrLumgates[iLoop].iModuleLevel = 1 and arrLumgates[iLoop].xAvailable then<br/>			udtLumgateMain.arrAmountLumgates[2]	:=	udtLumgateMain.arrAmountLumgates[2] + 1;<br/>		End_If;<br/>		If arrLumgates[iLoop].iModuleLevel = 2 and arrLumgates[iLoop].xAvailable then<br/>			udtLumgateMain.arrAmountLumgates[3]	:=	udtLumgateMain.arrAmountLumgates[3] + 1;<br/>		End_If;<br/>		If arrLumgates[iLoop].iModuleLevel = 3 and arrLumgates[iLoop].xAvailable then<br/>			udtLumgateMain.arrAmountLumgates[4]	:=	udtLumgateMain.arrAmountLumgates[4] + 1;<br/>		End_If;<br/>	End_For;<br/>(* Select data to display Lumgates in a branch (Select a Lumgate) *)<br/>For iLoop := 0 to 9 do	(* Voltage output *)<br/>	iTemp						:=	iLumgateSeite + iLoop;<br/>	arrLumgateWeb[iLoop]		:=	iTemp;<br/>	For iLoop2 := 1 to 240 do<br/>		If arrLumgates[iLoop2].iModuleLevel = iSelectRBT and arrLumgates[iLoop2].iModuleNumber = iTemp then<br/>			arr5LumgateValues[iLoop]	:=	arrLumgates[iTemp].iActualOutputLevel;<br/>		End_if;<br/>	End_for;<br/>End_for;<br/>(* Select data to display a single Lumgates *)<br/>iSelectLumgate	:=	iSelectLumgateDevice + iSelectLumgateSeite - 1;<br/>If iSelectRBT &gt;= 0 and iSelectRBT &lt; 4 and iSelectLumgate &gt; 0 and iSelectLumgate &lt; 240 then<br/>	For iLoop := 1 to 240 do<br/>		If arrLumgates[iLoop].iModuleLevel = iSelectRBT and arrLumgates[iLoop].iModuleNumber = iSelectLumgate then<br/>			iTempSelectedLumgate	:=	iLoop;<br/>			Exit;<br/>		End_if;<br/>	End_for;<br/>	If iTempSelectedLumgate &gt; 0 and iTempSelectedLumgate &lt; 241 then<br/>		udtLumgate.arrDimmingScene 				:=	arrLumgates[iTempSelectedLumgate].arrDimmingScene;<br/>
+									<br/>		If arrLumgates[iTempSelectedLumgate].xRelay1 &lt;&gt; xR1Old<br/>		or arrLumgates[iTempSelectedLumgate].xRelay2 &lt;&gt; xR2Old then<br/>			xR1Old	:=	arrLumgates[iTempSelectedLumgate].xRelay1;<br/>			xR2Old	:=	arrLumgates[iTempSelectedLumgate].xRelay2;<br/>			If arrLumgates[iTempSelectedLumgate].xRelay1 and arrLumgates[iTempSelectedLumgate].xRelay2 then<br/>				udtLumgate.arrPowerConsumption   	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption_11;<br/>			Elsif arrLumgates[iTempSelectedLumgate].xRelay1 and not arrLumgates[iTempSelectedLumgate].xRelay2 then<br/>				udtLumgate.arrPowerConsumption   	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption_10;<br/>			Elsif not arrLumgates[iTempSelectedLumgate].xRelay1 and arrLumgates[iTempSelectedLumgate].xRelay2 then<br/>				udtLumgate.arrPowerConsumption   	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption_01;<br/>			Elsif not arrLumgates[iTempSelectedLumgate].xRelay1 and not arrLumgates[iTempSelectedLumgate].xRelay2 then<br/>				udtLumgate.arrPowerConsumption  	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption;<br/>			End_if;<br/>			udtCurrent.xRelay1	:=	arrLumgates[iTempSelectedLumgate].xRelay1;<br/>			udtCurrent.xRelay2	:=	arrLumgates[iTempSelectedLumgate].xRelay2;<br/>		Else<br/>			If udtCurrent.xRelay1 and udtCurrent.xRelay2 then<br/>				udtLumgate.arrPowerConsumption   	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption_11;<br/>			Elsif udtCurrent.xRelay1 and not udtCurrent.xRelay2 then<br/>				udtLumgate.arrPowerConsumption   	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption_10;<br/>			Elsif not udtCurrent.xRelay1 and udtCurrent.xRelay2 then<br/>				udtLumgate.arrPowerConsumption   	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption_01;<br/>			Elsif not udtCurrent.xRelay1 and not udtCurrent.xRelay2 then<br/>				udtLumgate.arrPowerConsumption  	:= arrLumgates[iTempSelectedLumgate].arrPowerConsumption;<br/>			End_if;<br/>		End_if;<br/>		If arrLumgates[iTempSelectedLumgate].xRelay1 = udtCurrent.xRelay1 and arrLumgates[iTempSelectedLumgate].xRelay2 = udtCurrent.xRelay2 then<br/>			udtCurrent.xRelaysEqual	:=	True;<br/>		Else<br/>			udtCurrent.xRelaysEqual	:=	False;<br/>		End_if;<br/>		<br/>		udtLumgate.arrSpecialScene				:=	arrLumgates[iTempSelectedLumgate].arrSpecialScene;<br/>		udtLumgate.iMode						:=	arrLumgates[iTempSelectedLumgate].iMode;<br/>		udtLumgate.iModuleLevel					:=	arrLumgates[iTempSelectedLumgate].iModuleLevel;<br/>		udtLumgate.iModuleNumber				:=	arrLumgates[iTempSelectedLumgate].iModuleNumber;<br/>		udtLumgate.iModuleNumberGeneral			:=	arrLumgates[iTempSelectedLumgate].iModuleNumberGeneral;<br/>		udtLumgate.rActualOutputLevel			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iActualOutputLevel) / 10.0;<br/>		udtLumgate.rMeasurement					:=	int_to_real(arrLumgates[iTempSelectedLumgate].iMeasurement);<br/>		udtLumgate.rOutputLevelFailsave			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelFailsave) / 10.0;<br/>		udtLumgate.rOutputLevelManual			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelManual) / 10.0;<br/>		udtLumgate.rOutputLevelScenario			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelScenario) / 10.0;<br/>		udtLumgate.rOutputLevelScenarioWithClo	:=	int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelScenarioWithClo) / 10.0;<br/>		udtLumgate.rOutputLevelTeach			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelTeach) / 10.0;<br/>		udtLumgate.rTargetOutputLevel			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iTargetOutputLevel) / 10.0;<br/>		udtLumgate.udtCloLed.rAmountDecrease 	:=	int_to_real(arrLumgates[iTempSelectedLumgate].udtCloLed.iAmountDecrease) / 10.0;<br/>		udtLumgate.udtCloMaintenance.rAmountDecrease :=	int_to_real(arrLumgates[iTempSelectedLumgate].udtCloMaintenance.iAmountDecrease ) / 10.0;<br/>		udtLumgate.udtCurrentCheck				:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck;<br/>		udtLumgate.udtHourCounter20_50			:=	arrLumgates[iTempSelectedLumgate].udtHourCounter20_50;<br/>		udtLumgate.udtHourCounter50_75			:=	arrLumgates[iTempSelectedLumgate].udtHourCounter50_75;<br/>		udtLumgate.udtHourCounter75_100			:=	arrLumgates[iTempSelectedLumgate].udtHourCounter75_100;<br/>		udtLumgate.udtHourCounterGeneral		:=	arrLumgates[iTempSelectedLumgate].udtHourCounterGeneral;<br/>		udtLumgate.udtHourCounterMaintenance	:=	arrLumgates[iTempSelectedLumgate].udtHourCounterMaintenance;<br/>		udtLumgate.udtInternal					:=	arrLumgates[iTempSelectedLumgate].udtInternal;<br/>		udtLumgate.rSourceOutputLevel			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iSourceOutputLevel) / 10.0;<br/>		udtLumgate.xAvailable					:=	arrLumgates[iTempSelectedLumgate].xAvailable;<br/>		udtLumgate.xInput1						:=	arrLumgates[iTempSelectedLumgate].xInput1;<br/>		udtLumgate.xInput2						:=	arrLumgates[iTempSelectedLumgate].xInput2;<br/>		udtLumgate.xRelay1						:=	arrLumgates[iTempSelectedLumgate].xRelay1;<br/>		udtLumgate.xRelay2						:=	arrLumgates[iTempSelectedLumgate].xRelay2;<br/>		udtLumgate.xSafeFinish					:=	arrLumgates[iTempSelectedLumgate].xSafeFinish;<br/>		udtLumgate.xSafeSet						:=	arrLumgates[iTempSelectedLumgate].xSafeSet;<br/>		udtLumgate.xTeachConsumption			:=	arrLumgates[iTempSelectedLumgate].xTeachConsumption;<br/>		udtLumgate.xTeachFailsave				:=	arrLumgates[iTempSelectedLumgate].xTeachFailsave;<br/>	End_if;<br/>End_if;<br/>
+									<br/>(* Display count of Lumgates at selected branch *)<br/>If iSelectRBT &gt;= 0 and iSelectRBT &lt; 4 then<br/>	iSelect				:=	iSelectRBT + 1;<br/>	iTotalLumgatesRBT	:=	udtLumgateMain.arrAmountLumgates[iSelect];<br/>End_if;<br/>
+									<br/>(* Hide Lumgates in the selected area wich are not available *)<br/>For iLoop := 0 to 9 do<br/>	If iTotalLumgatesRBT &gt;= arrLumgateWeb[iLoop] then<br/>		arr5Lumgate[iLoop]	:=	True;<br/>	Else<br/>		arr5Lumgate[iLoop]	:=	False;<br/>	End_if;<br/>End_for;<br/>
+									<br/>(* Old *)<br/>For iLoop := 1 to 4 do<br/>	If udtLumgateMain.arrSelectNumber[iLoop] &lt; 1 or udtLumgateMain.arrSelectNumber[iLoop] &gt; udtLumgateMain.arrAmountLumgates[iLoop] then<br/>		udtLumgateMain.arrColorSelectNumber[iLoop]	:=	True;<br/>	Else<br/>		udtLumgateMain.arrColorSelectNumber[iLoop]	:=	False;<br/>	End_If;<br/>
+									<br/>	If udtLumgateMain.arrButtonSelectNumber[iLoop] then<br/>		udtLumgateMain.arrButtonSelectNumber[iLoop]	:=	False;<br/>		iTempLevel	:=	iLoop - 1;<br/>		For iLoop2 := 1 to 240 do<br/>			If arrLumgates[iLoop2].iModuleLevel = iTempLevel and arrLumgates[iLoop2].iModuleNumber = udtLumgateMain.arrSelectNumber[iLoop] then<br/>				iTempSelectedLumgate	:=	iLoop2;<br/>				Exit;<br/>			End_If;<br/>		End_For;<br/>	End_If;<br/>End_For;<br/>
+									<br/>iTempSelectedLumgate				:=	Limit_Int(1,iTempSelectedLumgate,240);<br/>
+									<br/>udtLumgateData.iModuleLevel			:=	arrLumgates[iTempSelectedLumgate].iModuleLevel + 1;<br/>udtLumgateData.iModuleNumber		:=	arrLumgates[iTempSelectedLumgate].iModuleNumber;<br/>udtLumgateData.iModuleNumberGeneral	:=	arrLumgates[iTempSelectedLumgate].iModuleNumberGeneral;<br/>
+									<br/>For iLoop := 1 to 50 do<br/>	udtLumgateScenario.arrScenarioActive[iLoop]	:=	False;<br/>	udtLumgateScenario.arrScenarioUsed[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].xUsed;<br/>	udtLumgateScenario.arrScenarioValue[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].iValue;<br/>End_For;<br/>
+									<br/>For iLoop := 1 to 15 do<br/>	udtLumgateSpecialScenario.arrScenarioUsed[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].xUsed;<br/>	udtLumgateSpecialScenario.arrScenarioValue[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].iValue;<br/>End_For;<br/>
+									<br/>If udtScenarioMode.arrActualScene[1] &gt; 0 then<br/>	iTempValue											:=	udtScenarioMode.arrActualScene[1];<br/>	udtLumgateScenario.arrScenarioActive[iTempValue]	:=	True;<br/>End_If;<br/>If udtScenarioMode.arrActualScene[2] &gt; 0 then<br/>	iTempValue											:=	udtScenarioMode.arrActualScene[2];<br/>	udtLumgateScenario.arrScenarioActive[iTempValue]	:=	True;<br/>End_If;<br/>If udtScenarioMode.arrActualScene[3] &gt; 0 then<br/>	iTempValue											:=	udtScenarioMode.arrActualScene[3];<br/>	udtLumgateScenario.arrScenarioActive[iTempValue]	:=	True;<br/>End_If;<br/>If udtScenarioMode.arrActualScene[4] &gt; 0 then<br/>	iTempValue											:=	udtScenarioMode.arrActualScene[4];<br/>	udtLumgateScenario.arrScenarioActive[iTempValue]	:=	True;<br/>End_If;<br/>
+									<br/>(* Old *)<br/>If udtLumgateScenario.iEdit &lt;&gt; 0 then<br/>	udtLumgateScenario.iEditSet		:=	udtLumgateScenario.iEdit;<br/>	iTempValue						:=	udtLumgateScenario.iEditSet;<br/>	udtLumgateScenario.iEdit		:=	0;<br/>	udtLumgateScenario.iValueSet	:=	udtLumgateScenario.arrScenarioValue[iTempValue];<br/>	udtLumgateScenario.xUsedSetView	:=	udtLumgateScenario.arrScenarioUsed[iTempValue];<br/>End_If;<br/>(* Old *)<br/>If udtLumgateScenario.xUsedSet then<br/>	udtLumgateScenario.xUsedSet		:=	False;<br/>	udtLumgateScenario.xUsedSetView	:=	not udtLumgateScenario.xUsedSetView;<br/>End_If;<br/>(* Old *)<br/>If udtLumgateScenario.xSet then<br/>	udtLumgateScenario.xSet			:=	False;<br/>	iTempValue						:=	udtLumgateScenario.iEditSet;<br/>	udtLumgateScenario.iEditSet		:=	0;<br/>	udtLumgateScenario.iValueSet	:=	Limit_Int(0,udtLumgateScenario.iValueSet,1070);<br/>
+									<br/>	arrLumgates[iTempSelectedLumgate].arrDimmingScene[iTempValue].xUsed	:=	udtLumgateScenario.xUsedSetView;<br/>	arrLumgates[iTempSelectedLumgate].arrDimmingScene[iTempValue].iValue	:=	udtLumgateScenario.iValueSet;<br/>End_If;<br/>(* Old *)<br/>udtLumgateScenario.xColorValue:= udtLumgateScenario.iValueSet &gt; 1070 or udtLumgateScenario.iValueSet &lt; 0;<br/>(* Old *)<br/>If udtLumgateSpecialScenario.iEdit &lt;&gt; 0 then<br/>	udtLumgateSpecialScenario.iEditSet		:=	udtLumgateSpecialScenario.iEdit;<br/>	iTempValue								:=	udtLumgateSpecialScenario.iEditSet;<br/>	udtLumgateSpecialScenario.iEdit			:=	0;<br/>	udtLumgateSpecialScenario.iValueSet		:=	udtLumgateSpecialScenario.arrScenarioValue[iTempValue];<br/>	udtLumgateSpecialScenario.xUsedSetView	:=	udtLumgateSpecialScenario.arrScenarioUsed[iTempValue];<br/>End_If;<br/>(* Old *)<br/>If udtLumgateSpecialScenario.xUsedSet then<br/>	udtLumgateSpecialScenario.xUsedSet		:=	False;<br/>	udtLumgateSpecialScenario.xUsedSetView	:=	not udtLumgateSpecialScenario.xUsedSetView;<br/>End_If;<br/>(* Old *)<br/>If udtLumgateSpecialScenario.xSet then<br/>	udtLumgateSpecialScenario.xSet			:=	False;<br/>	iTempValue								:=	udtLumgateSpecialScenario.iEditSet;<br/>	udtLumgateSpecialScenario.iEditSet		:=	0;<br/>	udtLumgateSpecialScenario.iValueSet		:=	Limit_Int(0,udtLumgateSpecialScenario.iValueSet,1070);<br/>
+									<br/>	arrLumgates[iTempSelectedLumgate].arrSpecialScene[iTempValue].xUsed	:=	udtLumgateSpecialScenario.xUsedSetView;<br/>	arrLumgates[iTempSelectedLumgate].arrSpecialScene[iTempValue].iValue	:=	udtLumgateSpecialScenario.iValueSet;<br/>End_If;<br/>(* Old *)<br/>udtLumgateSpecialScenario.xColorValue	:=	udtLumgateSpecialScenario.iValueSet &gt; 1070 or udtLumgateSpecialScenario.iValueSet &lt; 0;<br/>
+									<br/>udtLumgateSpecialScenario.arrScenarioActive[1]	:=	wSpecialScenario.X0;<br/>udtLumgateSpecialScenario.arrScenarioActive[2]	:=	wSpecialScenario.X1;<br/>udtLumgateSpecialScenario.arrScenarioActive[3]	:=	wSpecialScenario.X2;<br/>udtLumgateSpecialScenario.arrScenarioActive[4]	:=	wSpecialScenario.X3;<br/>udtLumgateSpecialScenario.arrScenarioActive[5]	:=	wSpecialScenario.X4;<br/>udtLumgateSpecialScenario.arrScenarioActive[6]	:=	wSpecialScenario.X5;<br/>udtLumgateSpecialScenario.arrScenarioActive[7]	:=	wSpecialScenario.X6;<br/>udtLumgateSpecialScenario.arrScenarioActive[8]	:=	wSpecialScenario.X7;<br/>udtLumgateSpecialScenario.arrScenarioActive[9]	:=	wSpecialScenario.X8;<br/>udtLumgateSpecialScenario.arrScenarioActive[10]	:=	wSpecialScenario.X9;<br/>udtLumgateSpecialScenario.arrScenarioActive[11]	:=	wSpecialScenario.X10;<br/>udtLumgateSpecialScenario.arrScenarioActive[12]	:=	wSpecialScenario.X11;<br/>udtLumgateSpecialScenario.arrScenarioActive[13]	:=	wSpecialScenario.X12;<br/>udtLumgateSpecialScenario.arrScenarioActive[14]	:=	wSpecialScenario.X13;<br/>udtLumgateSpecialScenario.arrScenarioActive[15]	:=	wSpecialScenario.X14;<br/>
+									<br/>For iLoop := 1 to 22 do<br/>	udtLumgateCurrentConsumption.arrActualOutput[iLoop]	:=	False;<br/>End_For;<br/>
+									<br/>(* Current consumption *)<br/>iTempValue	:=	arrLumgates[iTempSelectedLumgate].iActualOutputLevel;<br/>Case iTempValue of<br/>	0:<br/>		iActualPosition										:=	-15;	(* Position pointer *)<br/>	1..49:<br/>	 	udtLumgateCurrentConsumption.arrActualOutput[1]		:=	True; (* 0,01 *)<br/>		iActualPosition										:=	0;<br/>	51..149:<br/>		udtLumgateCurrentConsumption.arrActualOutput[3]		:=	True; (* 1,0 *)<br/>		iActualPosition										:=	30;<br/>	151..249:<br/>		udtLumgateCurrentConsumption.arrActualOutput[5]		:=	True; (* 2,0 *)<br/>		iActualPosition										:=	60;<br/>	251..349:<br/>		udtLumgateCurrentConsumption.arrActualOutput[7]		:=	True; (* 3,0 *)<br/>		iActualPosition										:=	90;<br/>	351..449:<br/>		udtLumgateCurrentConsumption.arrActualOutput[9]		:=	True; (* 4,0 *)<br/>		iActualPosition										:=	120;<br/>	451..549:<br/>		udtLumgateCurrentConsumption.arrActualOutput[11]	:=	True; (* 5,0 *)<br/>		iActualPosition										:=	150;<br/>	551..649:<br/>		udtLumgateCurrentConsumption.arrActualOutput[13]	:=	True; (* 6,0 *)<br/>		iActualPosition										:=	180;<br/>	651..749:<br/>		udtLumgateCurrentConsumption.arrActualOutput[15]	:=	True; (* 7,0 *)<br/>		iActualPosition										:=	210;<br/>	751..849:<br/>		udtLumgateCurrentConsumption.arrActualOutput[17]	:=	True; (* 8,0 *)<br/>		iActualPosition										:=	240;<br/>	851..949:<br/>		udtLumgateCurrentConsumption.arrActualOutput[19]	:=	True; (* 9,0 *)<br/>		iActualPosition										:=	270;<br/>	951..1069:<br/>		udtLumgateCurrentConsumption.arrActualOutput[21]	:=	True; (* 10,0 *)<br/>		iActualPosition										:=	300;<br/>End_Case;<br/>
+									<br/>Case iTempValue of<br/>	2..99:<br/>		udtLumgateCurrentConsumption.arrActualOutput[2]		:=	True; (* 0,5 *)<br/>		iActualPosition										:=	15;<br/>	101..199:<br/>		udtLumgateCurrentConsumption.arrActualOutput[4]		:=	True; (* 1,5 *)<br/>		iActualPosition										:=	45;<br/>	201..299:<br/>		udtLumgateCurrentConsumption.arrActualOutput[6]		:=	True; (* 2,5 *)<br/>		iActualPosition										:=	75;<br/>	301..399:<br/>		udtLumgateCurrentConsumption.arrActualOutput[8]		:=	True; (* 3,5 *)<br/>		iActualPosition										:=	105;<br/>	401..499:<br/>		udtLumgateCurrentConsumption.arrActualOutput[10]	:=	True; (* 4,5 *)<br/>		iActualPosition										:=	135;<br/>	501..599:<br/>		udtLumgateCurrentConsumption.arrActualOutput[12]	:=	True; (* 5,5 *)<br/>		iActualPosition										:=	165;<br/>	601..699:<br/>		udtLumgateCurrentConsumption.arrActualOutput[14]	:=	True; (* 6,5 *)<br/>		iActualPosition										:=	195;<br/>	701..799:<br/>		udtLumgateCurrentConsumption.arrActualOutput[16]	:=	True; (* 7,5 *)<br/>		iActualPosition										:=	225;<br/>	801..899:<br/>		udtLumgateCurrentConsumption.arrActualOutput[18]	:=	True; (* 8,5 *)<br/>		iActualPosition										:=	255;<br/>	901..999:<br/>		udtLumgateCurrentConsumption.arrActualOutput[20]	:=	True; (* 9,5 *)<br/>		iActualPosition										:=	285;<br/>	1001..1070:<br/>		udtLumgateCurrentConsumption.arrActualOutput[22]	:=	True; (* 10,7 *)<br/>		iActualPosition										:=	315;<br/>End_Case;<br/>
+									<br/>(* Old *)<br/>udtLumgateCurrentConsumption.strVoltage			:=	Int_To_String(iTempValue,'%01d');<br/>(* Old *)<br/>Case iTempValue of<br/>	0..9:<br/>		udtLumgateCurrentConsumption.strVoltage	:=	Concat('0,0',udtLumgateCurrentConsumption.strVoltage);<br/>	<br/>	10..99:<br/>		udtLumgateCurrentConsumption.strVoltage	:=	Concat('0,',udtLumgateCurrentConsumption.strVoltage);<br/>
+									<br/>	100..999:<br/>		udtLumgateCurrentConsumption.strVoltage	:=	Insert(udtLumgateCurrentConsumption.strVoltage,',',1);<br/>
+									<br/>	1000..1070:<br/>		udtLumgateCurrentConsumption.strVoltage	:=	Insert(udtLumgateCurrentConsumption.strVoltage,',',2);<br/>End_Case;<br/>
+									<br/>If iTempValue &gt; 0 then<br/>	udtLumgateCurrentConsumption.iCurrent			:=	arrLumgates[iTempSelectedLumgate].iMeasurement;<br/>Else<br/>	udtLumgateCurrentConsumption.iCurrent			:=	0;<br/>End_If;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="LumgateState">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Edit Lumgate data *)<br/>If xEnableLumgateEdit then		(*Enable edit mode *)<br/>	xLumgateEditable	:=	True;<br/>	If xCancelLumgate or (iTempSelectedLumgate &lt;&gt; iTempSelectedLumgateOld) then	(* Exit edit mode, restore old date *)<br/>		xLumgateEditable	:=	False;<br/>		xEnableLumgateEdit	:=	False;<br/>		xSafeLumgate		:=	False;<br/>		xCancelLumgate		:=	False;<br/>	Else<br/>		(* Limit input values *)<br/>		rLevelFailsafe											:=	limit_real(0.0,rLevelFailsafe,107.0);<br/>		rManuelOutput											:=	limit_real(0.0,rManuelOutput,107.0);<br/>		arrLumgates[iTempSelectedLumgate].iOutputLevelManual	:=	real_to_int(rManuelOutput * 10.0);<br/>		arrLumgates[iTempSelectedLumgate].xManualRelay1			:=	udtLumgate.xManualRelay1;<br/>		arrLumgates[iTempSelectedLumgate].xManualRelay2			:=	udtLumgate.xManualRelay2;<br/>
+									<br/>		arrLumgates[iTempSelectedLumgate].xAutomaticManual		:=	xSetManualLumgate;	(* Change mode directly *)<br/>
+									<br/>		(* Detect fail mode changes, save the mode directly *)<br/>		If ((arrLumgates[iTempSelectedLumgate].xFailMode &lt;&gt; xFailMode)<br/>			or (arrLumgates[iTempSelectedLumgate].xFailsaveRelay1 &lt;&gt; udtLumgate.xFailsaveRelay1)<br/>			or (arrLumgates[iTempSelectedLumgate].xFailsaveRelay2 &lt;&gt; udtLumgate.xFailsaveRelay2)) then<br/>			arrLumgates[iTempSelectedLumgate].xFailMode				:=	xFailMode;<br/>			arrLumgates[iTempSelectedLumgate].xTeachFailsave		:=	True;<br/>			arrLumgates[iTempSelectedLumgate].xFailsaveRelay1		:=	udtLumgate.xFailsaveRelay1;<br/>			arrLumgates[iTempSelectedLumgate].xFailsaveRelay2		:=	udtLumgate.xFailsaveRelay2;<br/>		End_if;<br/>
+									<br/>		If xSafeLumgate then	(* Exit edit mode, save changed values *)<br/>			xLumgateEditable	:=	False;<br/>			xEnableLumgateEdit	:=	False;<br/>			xSafeLumgate		:=	False;<br/>			xCancelLumgate		:=	False;<br/>		<br/>			arrLumgates[iTempSelectedLumgate].xRelay1_NC	:=	udtLumgate.xRelay1_NC;<br/>			arrLumgates[iTempSelectedLumgate].xRelay2_NC	:=	udtLumgate.xRelay2_NC;<br/>
+									<br/>			If rLevelFailsafe &lt;&gt; int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelFailsave / 10) then<br/>				arrLumgates[iTempSelectedLumgate].xTeachFailsave		:=	True;<br/>				arrLumgates[iTempSelectedLumgate].iOutputLevelFailsave	:=	real_to_int(rLevelFailsafe * 10.0);<br/>				arrLumgates[iTempSelectedLumgate].xFailsaveRelay1		:=	udtLumgate.xFailsaveRelay1;<br/>				arrLumgates[iTempSelectedLumgate].xFailsaveRelay2		:=	udtLumgate.xFailsaveRelay2;<br/>			End_if;<br/>			arrLumgates[iTempSelectedLumgate].strDescription		:=	strLumgateDescription;<br/>		End_if;<br/>	End_if;<br/>Else<br/>	iTempSelectedLumgateOld	:=	iTempSelectedLumgate;<br/>	rManuelOutput			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelManual / 10);<br/>	xFailMode				:=	arrLumgates[iTempSelectedLumgate].xFailMode;<br/>	strLumgateDescription	:=	arrLumgates[iTempSelectedLumgate].strDescription;<br/>	xSetManualLumgate		:=	arrLumgates[iTempSelectedLumgate].xAutomaticManual;<br/>	rLevelFailsafe			:=	int_to_real(arrLumgates[iTempSelectedLumgate].iOutputLevelFailsave / 10);<br/>
+									<br/>	udtLumgate.xFailsaveRelay1				:=	arrLumgates[iTempSelectedLumgate].xFailsaveRelay1;<br/>	udtLumgate.xFailsaveRelay2				:=	arrLumgates[iTempSelectedLumgate].xFailsaveRelay2;<br/>	udtLumgate.xRelay1_NC					:=	arrLumgates[iTempSelectedLumgate].xRelay1_NC;<br/>	udtLumgate.xRelay2_NC					:=	arrLumgates[iTempSelectedLumgate].xRelay2_NC;<br/>	udtLumgate.xManualRelay1				:=	arrLumgates[iTempSelectedLumgate].xManualRelay1;<br/>	udtLumgate.xManualRelay2				:=	arrLumgates[iTempSelectedLumgate].xManualRelay1;<br/>	udtLumgate.strDescription				:=	arrLumgates[iTempSelectedLumgate].strDescription;<br/>	udtLumgate.xAutomaticManual				:=	arrLumgates[iTempSelectedLumgate].xAutomaticManual;<br/>End_if;<br/>
+									<br/>If arrLumgates[iTempSelectedLumgate].xAutomaticManual then<br/>	strLumgateState	:=	'Manuel mode';<br/>Elsif arrLumgates[iTempSelectedLumgate].xTeachConsumption then<br/>	strLumgateState	:=	'Teach current';<br/>Elsif arrLumgates[iTempSelectedLumgate].xError then<br/>	strLumgateState	:=	'Error';<br/>Elsif not arrLumgates[iTempSelectedLumgate].xAutomaticManual then<br/>	strLumgateState	:=	'Automatic mode';<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="CurrentConsumption">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Current Consuption - Diagram *)<br/>For iLoop := 1 to 22 do<br/>	iLoop2	:=	iLoop + 1;<br/>
+									<br/>	(* Scale diagram *)<br/>	If udtCurrent.xRelay1 and udtCurrent.xRelay2 then<br/>		udtLumgateCurrentConsumption.arrCurrentValue[iLoop]   := arrLumgates[iTempSelectedLumgate].arrPowerConsumption_11[iLoop2];<br/>	Elsif udtCurrent.xRelay1 and not udtCurrent.xRelay2 then<br/>		udtLumgateCurrentConsumption.arrCurrentValue[iLoop]   := arrLumgates[iTempSelectedLumgate].arrPowerConsumption_10[iLoop2];<br/>	Elsif not udtCurrent.xRelay1 and udtCurrent.xRelay2 then<br/>		udtLumgateCurrentConsumption.arrCurrentValue[iLoop]   := arrLumgates[iTempSelectedLumgate].arrPowerConsumption_01[iLoop2];<br/>	Elsif not udtCurrent.xRelay1 and not udtCurrent.xRelay2 then<br/>		udtLumgateCurrentConsumption.arrCurrentValue[iLoop]   := arrLumgates[iTempSelectedLumgate].arrPowerConsumption[iLoop2];<br/>	End_if;<br/>	<br/>	If udtLumgateCurrentConsumption.arrCurrentValue[5] &lt; udtLumgateCurrentConsumption.arrCurrentValue[1] then<br/>		iScaleValue	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 120.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[1]));<br/>	Elsif udtLumgateCurrentConsumption.arrCurrentValue[10] &lt; udtLumgateCurrentConsumption.arrCurrentValue[5] then<br/>		iScaleValue	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 120.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[5]));<br/>	Elsif udtLumgateCurrentConsumption.arrCurrentValue[15] &lt; udtLumgateCurrentConsumption.arrCurrentValue[10] then<br/>		iScaleValue	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 120.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[10]));<br/>	Elsif udtLumgateCurrentConsumption.arrCurrentValue[22] &lt; udtLumgateCurrentConsumption.arrCurrentValue[15] then<br/>		iScaleValue	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 120.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[15]));<br/>	Else<br/>		iScaleValue	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[22]));<br/>	End_if;<br/>	If iScaleValue &lt; 100 then		(* max current &lt; 100 mA *)<br/>		(* Measured current dots *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] * -1;<br/>		(* current - warning deviation *)<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) * -1;<br/>		(* current + warning deviation *)<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) * -1;<br/>		(* current - alarm deviation *)<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) * -1;<br/>		(* current + alarm deviation *)<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) * -1;<br/>		(* actual y position *)<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent * -1;<br/>		(* y scale *)<br/>		arrScale[0]							:=	100;<br/>		arrScale[1]							:=	100 * 4	/ 5;<br/>		arrScale[2]							:=	100 * 3	/ 5;<br/>		arrScale[3]							:=	100 * 2	/ 5;<br/>		arrScale[4]							:=	100 * 1	/ 5;<br/>	Elsif iScaleValue &lt; 200 then	(* max current &lt; 200 mA *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] / -2;<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -2;<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -2;<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -2;<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -2;<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent / -2;<br/>		arrScale[0]							:=	200;<br/>		arrScale[1]							:=	200 * 4	/ 5;<br/>		arrScale[2]							:=	200 * 3	/ 5;<br/>		arrScale[3]							:=	200 * 2	/ 5;<br/>		arrScale[4]							:=	200 * 1	/ 5;<br/>	Elsif iScaleValue &lt; 300 then	(* max current &lt; 300 mA *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] / -3;<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -3;<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -3;<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -3;<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -3;<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent / -3;<br/>		arrScale[0]							:=	300;<br/>		arrScale[1]							:=	300 * 4	/ 5;<br/>		arrScale[2]							:=	300 * 3	/ 5;<br/>		arrScale[3]							:=	300 * 2	/ 5;<br/>		arrScale[4]							:=	300 * 1	/ 5;<br/>	Elsif iScaleValue &lt; 500 then	(* max current &lt; 500 mA *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] / -5;<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -5;<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -5;<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -5;<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -5;<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent / -5;<br/>		arrScale[0]							:=	500;<br/>		arrScale[1]							:=	500 * 4	/ 5;<br/>		arrScale[2]							:=	500 * 3	/ 5;<br/>		arrScale[3]							:=	500 * 2	/ 5;<br/>		arrScale[4]							:=	500 * 1	/ 5;<br/>	Elsif iScaleValue &lt; 1000 then	(* max current &lt; 1 A *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] / -10;<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -10;<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -10;<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -10;<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -10;<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent / -10;<br/>		arrScale[0]							:=	1000;<br/>		arrScale[1]							:=	1000 * 4	/ 5;<br/>		arrScale[2]							:=	1000 * 3	/ 5;<br/>		arrScale[3]							:=	1000 * 2	/ 5;<br/>		arrScale[4]							:=	1000 * 1	/ 5;<br/>	Elsif iScaleValue &lt; 3000 then	(* max current &lt; 3 A *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] / -30;<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -30;<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -30;<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -30;<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -30;<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent / -30;<br/>		arrScale[0]							:=	3000;<br/>		arrScale[1]							:=	3000 * 4	/ 5;<br/>		arrScale[2]							:=	3000 * 3	/ 5;<br/>		arrScale[3]							:=	3000 * 2	/ 5;<br/>		arrScale[4]							:=	3000 * 1	/ 5;<br/>	Elsif iScaleValue &lt; 5000 then	(* max current &lt; 5 A *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] / -50;<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -50;<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -50;<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -50;<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -50;<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent / -50;<br/>		arrScale[0]							:=	5000;<br/>		arrScale[1]							:=	5000 * 4	/ 5;<br/>		arrScale[2]							:=	5000 * 3	/ 5;<br/>		arrScale[3]							:=	5000 * 2	/ 5;<br/>		arrScale[4]							:=	5000 * 1	/ 5;<br/>	Elsif iScaleValue &lt; 10000 then	(* max current &lt; 10 A *)<br/>		arrCurrentDiagram[iLoop]			:=	udtLumgateCurrentConsumption.arrCurrentValue[iLoop] / -100;<br/>		arrCurrentDiagramWarningMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -100;<br/>		arrCurrentDiagramWarningMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -100;<br/>		arrCurrentDiagramAlarmMin[iLoop]	:=	real_to_int(((100.0 - arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -100;<br/>		arrCurrentDiagramAlarmMax[iLoop]	:=	real_to_int(((arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError + 100.0) / 100.0) * int_to_real(udtLumgateCurrentConsumption.arrCurrentValue[iLoop])) / -100;<br/>		iCurrentActual						:=	udtLumgateCurrentConsumption.iCurrent / -100;<br/>		arrScale[0]							:=	10000;<br/>		arrScale[1]							:=	uint_to_int(uint#10000 * uint#4	/ uint#5);<br/>		arrScale[2]							:=	10000 * 3	/ 5;<br/>		arrScale[3]							:=	10000 * 2	/ 5;<br/>		arrScale[4]							:=	10000 * 1	/ 5;<br/>	End_if;<br/>End_For;<br/>
+									<br/>(* Execute current consuption for a single Lumgate *)<br/>If udtCurrent.xTeachCurrent then	(* Request curret teaching *)<br/>	If udtCurrent.xTeachConfirmation then		(* Confirm starting current teaching *)<br/>		udtCurrent.xTeachCurrent			:=	False;<br/>		udtCurrent.xTeachConfirmation		:=	False;<br/>		udtCurrent.xTeachNotConfirmation	:=	False;<br/>		arrLumgates[iTempSelectedLumgate].xTeachConsumption	:=	True;<br/>		strDiag												:=	'Starting current measurement';<br/>	Elsif udtCurrent.xTeachNotConfirmation then	(* Cancel starting current teaching *)<br/>		udtCurrent.xTeachCurrent			:=	False;<br/>		udtCurrent.xTeachConfirmation		:=	False;<br/>		udtCurrent.xTeachNotConfirmation	:=	False;<br/>	End_if;<br/>End_if;<br/>
+									<br/>(* Execute current consuption for all Lumgates *)<br/>If udtCurrent.xTeachAll then<br/>	If udtCurrent.xTeachConfirmation then<br/>		udtCurrent.xTeachAll				:=	False;<br/>		udtCurrent.xTeachConfirmation		:=	False;<br/>		udtCurrent.xTeachNotConfirmation	:=	False;<br/>		For iLoop := 1 to 240 do<br/>			If arrLumgates[iLoop].xAvailable then<br/>				arrLumgates[iLoop].xTeachConsumption	:=	True;<br/>			End_if;<br/>		End_for;<br/>		strDiag										:=	'Starting current measurement';<br/>	Elsif udtCurrent.xTeachNotConfirmation then<br/>		udtCurrent.xTeachAll				:=	False;<br/>		udtCurrent.xTeachConfirmation		:=	False;<br/>		udtCurrent.xTeachNotConfirmation	:=	False;<br/>	End_if;<br/>End_if;<br/>
+									<br/>(* Current consuption - Edit fields *)<br/>If udtCurrent.xEnableCurrentEdit then	(*Enable edit mode *)<br/>	udtCurrent.xEditableCurrent		:=	True;<br/>	If udtCurrent.xCancelCurrent or (iTempSelectedLumgate &lt;&gt; iTempSelectedLumgateOld) then(* Exit edit mode, restore old date *)<br/>		udtCurrent.xEditableCurrent		:=	False;<br/>		udtCurrent.xEnableCurrentEdit	:=	False;<br/>		udtCurrent.xSafeCurrent			:=	False;<br/>		udtCurrent.xCancelCurrent 		:=	False;<br/>	Else<br/>		(* Limit input values *)<br/>		udtCurrent.rDeviationError		:=	limit_real(0.0,udtCurrent.rDeviationError,100.0);<br/>		udtCurrent.rDeviationWarning	:=	limit_real(0.0,udtCurrent.rDeviationWarning,100.0);<br/>
+									<br/>		If udtCurrent.xSafeCurrent then	(* Exit edit mode, save changed values *)<br/>			udtCurrent.xEditableCurrent		:=	False;<br/>			udtCurrent.xEnableCurrentEdit	:=	False;<br/>			udtCurrent.xSafeCurrent			:=	False;<br/>			udtCurrent.xCancelCurrent 		:=	False;<br/>
+									<br/>			arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckWarning	:=	udtCurrent.xActivateWarning;<br/>			arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning			:=	udtCurrent.rDeviationWarning;<br/>			arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckError		:=	udtCurrent.xActivateError;<br/>			arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError				:=	udtCurrent.rDeviationError;<br/>		End_if;<br/>
+									<br/>	End_if;<br/>Else	(* Updating values... *)<br/>	iTempSelectedLumgateOld						:=	iTempSelectedLumgate;<br/>	udtCurrent.xActivateWarning					:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckWarning;<br/>	udtCurrent.xActivateError					:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckError;<br/>
+									<br/>	udtLumgateCurrentConsumption.xColorError	:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xError;<br/>	udtLumgateCurrentConsumption.xColorWarning	:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xWarning;<br/>	udtCurrent.rDeviationError					:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError;<br/>	udtCurrent.rDeviationWarning				:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning;<br/>End_if;<br/>
+									<br/>udtLumgateCurrentConsumption.strPercentageError		:=	Real_To_String(arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageError,'%01.2f');<br/>udtLumgateCurrentConsumption.strPercentageWarning	:=	Real_To_String(arrLumgates[iTempSelectedLumgate].udtCurrentCheck.rPercentageWarning,'%01.2f');<br/>udtLumgateCurrentConsumption.iLimitMaxError			:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.iLimitMaxError;<br/>udtLumgateCurrentConsumption.iLimitMinError			:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.iLimitMinError;<br/>udtLumgateCurrentConsumption.iLimitMaxWarning		:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.iLimitMaxWarning;<br/>udtLumgateCurrentConsumption.iLimitMinWarning		:=	arrLumgates[iTempSelectedLumgate].udtCurrentCheck.iLimitMinWarning;<br/>
+									<br/>If arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckError and arrLumgates[iTempSelectedLumgate].udtInternal.xPowerConsumptionCorrect then<br/>	udtLumgateCurrentConsumption.strStateError		:=	'On';<br/>Elsif not arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckError then<br/>	udtLumgateCurrentConsumption.strStateError		:=	'Off';<br/>Else<br/>	udtLumgateCurrentConsumption.strStateError		:=	'n.a.';<br/>End_If;<br/>
+									<br/>If arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckWarning and arrLumgates[iTempSelectedLumgate].udtInternal.xPowerConsumptionCorrect then<br/>	udtLumgateCurrentConsumption.strStateWarning	:=	'On';<br/>Elsif not arrLumgates[iTempSelectedLumgate].udtCurrentCheck.xActiveCurrentCheckWarning then<br/>	udtLumgateCurrentConsumption.strStateWarning	:=	'Off';<br/>Else<br/>	udtLumgateCurrentConsumption.strStateWarning	:=	'n.a.';<br/>End_If;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="ConstantLightOutput">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Edit CLO data *)<br/>If udtCLO.xEnableCLO_Edit then	(*Enable edit mode *)<br/>	udtCLO.xEditableCLO			:=	True;<br/>
+									<br/>	If udtCLO.xCancelCLO or (iTempSelectedLumgate &lt;&gt; iTempSelectedLumgateOld) then(* Exit edit mode, restore old date *)<br/>		udtCLO.xEditableCLO		:=	False;<br/>		udtCLO.xEnableCLO_Edit	:=	False;<br/>		udtCLO.xSafeCLO			:=	False;<br/>		udtCLO.xCancelCLO		:=	False;<br/>	Else<br/>		(* Limit input values *)<br/>		udtCLO.rDecreaseCLO				:=	limit_real(0.0,udtCLO.rDecreaseCLO,20.0);<br/>		udtCLO.rDecreaseMaintenance		:=	limit_real(0.0,udtCLO.rDecreaseMaintenance,20.0);<br/>
+									<br/>		arrLumgates[iTempSelectedLumgate].udtHourCounterGeneral.xReset		:=	udtCLO.xResetOperatingHours;<br/>		arrLumgates[iTempSelectedLumgate].udtHourCounterMaintenance.xReset	:=	udtCLO.xResetMaintenanceHours;<br/>		arrLumgates[iTempSelectedLumgate].udtHourCounter20_50.xReset		:=	udtCLO.xResetOperatingHours;<br/>		arrLumgates[iTempSelectedLumgate].udtHourCounter50_75.xReset		:=	udtCLO.xResetOperatingHours;<br/>		arrLumgates[iTempSelectedLumgate].udtHourCounter75_100.xReset		:=	udtCLO.xResetOperatingHours;<br/>
+									<br/>		If udtCLO.xSafeCLO then	(* Exit edit mode, save changed values *)<br/>			udtCLO.xEditableCLO		:=	False;<br/>			udtCLO.xEnableCLO_Edit	:=	False;<br/>			udtCLO.xSafeCLO			:=	False;<br/>			udtCLO.xCancelCLO		:=	False;<br/>
+									<br/>			arrLumgates[iTempSelectedLumgate].udtCloLed.xActive					:=	udtCLO.xActivateCLO;<br/>			If udtCLO.xActivateCLO then<br/>				arrLumgates[iTempSelectedLumgate].udtCloLed.rPercentage			:=	udtCLO.rDecreaseCLO;<br/>				arrLumgates[iTempSelectedLumgate].udtCloLed.udiHours			:=	udtCLO.udiHoursCLO;<br/>			Else<br/>				arrLumgates[iTempSelectedLumgate].udtCloLed.rPercentage			:=	0.0;<br/>				arrLumgates[iTempSelectedLumgate].udtCloLed.udiHours			:=	udint#0;<br/>			End_if;<br/>
+									<br/>			arrLumgates[iTempSelectedLumgate].udtCloMaintenance.xActive			:=	udtCLO.xActivateMaintenance;<br/>			If udtCLO.xActivateMaintenance then<br/>				arrLumgates[iTempSelectedLumgate].udtCloMaintenance.rPercentage	:=	udtCLO.rDecreaseMaintenance;<br/>				arrLumgates[iTempSelectedLumgate].udtCloMaintenance.udiHours	:=	udtCLO.udiHoursMaintenance;<br/>			Else<br/>				arrLumgates[iTempSelectedLumgate].udtCloMaintenance.rPercentage	:=	0.0;<br/>				arrLumgates[iTempSelectedLumgate].udtCloMaintenance.udiHours	:=	udint#0;<br/>			End_if;<br/>		End_if;<br/>
+									<br/>	End_if;<br/>Else<br/>	iTempSelectedLumgateOld		:=	iTempSelectedLumgate;<br/>	udtCLO.xActivateCLO			:=	arrLumgates[iTempSelectedLumgate].udtCloLed.xActive;<br/>	udtCLO.rDecreaseCLO			:=	arrLumgates[iTempSelectedLumgate].udtCloLed.rPercentage;<br/>	udtCLO.udiHoursCLO			:=	arrLumgates[iTempSelectedLumgate].udtCloLed.udiHours;<br/>
+									<br/>	udtCLO.xActivateMaintenance	:=	arrLumgates[iTempSelectedLumgate].udtCloMaintenance.xActive;<br/>	udtCLO.rDecreaseMaintenance	:=	arrLumgates[iTempSelectedLumgate].udtCloMaintenance.rPercentage;<br/>	udtCLO.udiHoursMaintenance	:=	arrLumgates[iTempSelectedLumgate].udtCloMaintenance.udiHours;<br/>
+									<br/>End_if;<br/>
+									<br/>If arrLumgates[iTempSelectedLumgate].udtCloLed.xActive then<br/>	strCloState			:=	'On';<br/>Else<br/>	strCloState			:=	'Off';<br/>End_If;<br/>
+									<br/>If arrLumgates[iTempSelectedLumgate].udtCloMaintenance.xActive then<br/>	strMaintenanceState	:=	'On';<br/>Else<br/>	strMaintenanceState	:=	'Off';<br/>End_If;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Scenes">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Web interface - Scenes *)<br/>If udtScenes.xEnableSceneEdit then	(*Enable edit mode *)<br/>	udtScenes.xEditableScenes	:=	True;<br/>
+									<br/>	If	udtScenes.xCancelScenes or (iTempSelectedLumgate &lt;&gt; iTempSelectedLumgateOld) then(* Exit edit mode, restore old date *)<br/>		udtScenes.xEnableSceneEdit	:=	False;<br/>		udtScenes.xEditableScenes	:=	False;<br/>		udtScenes.xCancelScenes		:=	False;<br/>		udtScenes.xSafeScenes		:=	False;<br/>	Else<br/>		(* Limit input values *)<br/>		udtScenes.iScene	:=	limit_int(1,udtScenes.iScene,50);<br/>		iTemp				:=	udtScenes.iScene;<br/>		(* en-/ disabel scenes directly *)<br/>		If udtScenes.xSet then<br/>			udtScenes.xSet	:=	False;<br/>			If arrLumgates[iTempSelectedLumgate].arrDimmingScene[iTemp].xUsed then<br/>				arrLumgates[iTempSelectedLumgate].arrDimmingScene[iTemp].xUsed	:=	False;<br/>			Else<br/>				arrLumgates[iTempSelectedLumgate].arrDimmingScene[iTemp].xUsed	:=	True;<br/>			End_if;<br/>		End_if;<br/>
+									<br/>		udtScenes.iSpecialScene	:=	limit_int(1,udtScenes.iSpecialScene,15);<br/>		iTemp					:=	udtScenes.iSpecialScene;<br/>		(* en-/ disabel special scenes directly *)<br/>		If udtScenes.xSetSpecial then<br/>			udtScenes.xSetSpecial	:=	False;<br/>			If arrLumgates[iTempSelectedLumgate].arrSpecialScene[iTemp].xUsed  then<br/>				arrLumgates[iTempSelectedLumgate].arrSpecialScene[iTemp].xUsed	:=	False;<br/>			Else<br/>				arrLumgates[iTempSelectedLumgate].arrSpecialScene[iTemp].xUsed	:=	True;<br/>			End_if;<br/>		End_if;<br/>
+									<br/>		If udtScenes.xSafeScenes then(* Exit edit mode, save changed values *)<br/>			udtScenes.xEnableSceneEdit	:=	False;<br/>			udtScenes.xEditableScenes	:=	False;<br/>			udtScenes.xCancelScenes		:=	False;<br/>			udtScenes.xSafeScenes		:=	False;<br/>
+									<br/>			For iLoop := 1 to 50 do<br/>				arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].iValue :=	limit(0,udtScenes.arrSceneValues[iLoop],107) * 10;<br/>				<br/>				(*	V2.01 changes: Editable scene relay state EPO-IS-268-1668 *)<br/>				arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].xRelay1	:=	udtScenes.arrSceneRelays1[iLoop];<br/>				arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].xRelay2	:=	udtScenes.arrSceneRelays2[iLoop];<br/>			End_for;<br/>			For iLoop := 1 to 15 do<br/>				arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].iValue :=	limit(0,udtScenes.arrSpecialSceneValues[iLoop],107) * 10;<br/>
+									<br/>				(*	V2.01 changes: Editable scene relay state EPO-IS-268-1668 *)<br/>				arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].xRelay1	:=	udtScenes.arrSpecialSceneRelays1[iLoop];<br/>				arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].xRelay2	:=	udtScenes.arrSpecialSceneRelays2[iLoop];<br/>			End_for;<br/>		End_if;<br/>
+									<br/>
+									<br/>	End_if;<br/>Else<br/>	iTempSelectedLumgateOld		:=	iTempSelectedLumgate;<br/>	For iLoop := 1 to 50 do<br/>		udtScenes.arrSceneValues[iLoop]		:=	arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].iValue / 10;<br/>
+									<br/>		(*	V2.01 changes: Editable scene relay state EPO-IS-268-1668 *)<br/>		udtScenes.arrSceneRelays1[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].xRelay1;<br/>		udtScenes.arrSceneRelays2[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrDimmingScene[iLoop].xRelay2;<br/>	End_for;<br/>	For iLoop := 1 to 15 do<br/>		udtScenes.arrSpecialSceneValues[iLoop] :=	arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].iValue / 10;<br/>
+									<br/>		(*	V2.01 changes: Editable scene relay state EPO-IS-268-1668 *)<br/>		udtScenes.arrSpecialSceneRelays1[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].xRelay1;<br/>		udtScenes.arrSpecialSceneRelays2[iLoop]	:=	arrLumgates[iTempSelectedLumgate].arrSpecialScene[iLoop].xRelay2;<br/>	End_for;<br/>End_if;<br/>
+									<br/>(* Web interface - Scene Hour Counter *)<br/>If udtScenesHours.xEnableSceneEdit then	(*Enable edit mode *)<br/>	udtScenesHours.xEditableScenes	:=	True;<br/>
+									<br/>	(* Limit input values *)<br/>	udtScenesHours.iScene	:=	limit_int(1,udtScenesHours.iScene,50);<br/>	iTemp					:=	udtScenesHours.iScene;<br/>
+									<br/>	(* Reset a counter directly *)<br/>	If udtScenesHours.xSet then<br/>		udtScenesHours.xSet	:=	False;<br/>		arrSceneHourCounter[iTemp].iMinutes	:=	0;<br/>		arrSceneHourCounter[iTemp].iSeconds	:=	0;<br/>		arrSceneHourCounter[iTemp].udiHours	:=	udint#0;<br/>	End_if;<br/>
+									<br/>	(* no function... *)<br/>	If udtScenesHours.xSafeScenes then<br/>		udtScenesHours.xEnableSceneEdit	:=	False;<br/>		udtScenesHours.xEditableScenes	:=	False;<br/>		udtScenesHours.xCancelScenes	:=	False;<br/>		udtScenesHours.xSafeScenes		:=	False;<br/>	End_if;<br/>	(* no function... *)<br/>	If	udtScenesHours.xCancelScenes then<br/>		udtScenesHours.xEnableSceneEdit	:=	False;<br/>		udtScenesHours.xEditableScenes	:=	False;<br/>		udtScenesHours.xCancelScenes	:=	False;<br/>		udtScenesHours.xSafeScenes		:=	False;<br/>	End_if;<br/>Else<br/>	udtScenesHours.xSet				:=	False;<br/>	udtScenesHours.xEditableScenes	:=	False;<br/>	udtScenesHours.xCancelScenes	:=	False;<br/>	udtScenesHours.xSafeScenes		:=	False;<br/>End_if;<br/>udtScenesHours.arrSceneHours :=	arrSceneHourCounter;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Threshold">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">R_TRIG_Config1(CLK	:=	udtThreshold.xActivateConfig1);<br/>R_TRIG_Config2(CLK	:=	udtThreshold.xActivateConfig2);<br/>R_TRIG_Config3(CLK	:=	udtThreshold.xActivateConfig3);<br/>R_TRIG_Config4(CLK	:=	udtThreshold.xActivateConfig4);<br/>
+									<br/>(* Display message "Table is not active", if an inactive table is selected *)<br/>If udtThreshold.iViewConfig = 1 and udtThreshold.xActivateConfig1 then<br/>	udtThreshold.xTableNotActive	:=	False;<br/>Elsif udtThreshold.iViewConfig = 2 and udtThreshold.xActivateConfig2 then<br/>	udtThreshold.xTableNotActive	:=	False;<br/>Elsif udtThreshold.iViewConfig = 3 and udtThreshold.xActivateConfig3 then<br/>	udtThreshold.xTableNotActive	:=	False;<br/>Elsif udtThreshold.iViewConfig = 4 and udtThreshold.xActivateConfig4 then<br/>	udtThreshold.xTableNotActive	:=	False;<br/>Else<br/>	udtThreshold.xTableNotActive	:=	True;<br/>End_if;<br/>
+									<br/>udtThreshold.iViewConfig	:=	limit_int(1,udtThreshold.iViewConfig,4);<br/>
+									<br/>If udtThreshold.xEnableThresholdEdit then	(*Enable edit mode *)<br/>	udtThreshold.xEditableThreshold	:=	True;<br/>
+									<br/>	If	udtThreshold.xCancelThreshold or (iSelectSensor &lt;&gt; iSelectSensorOld) then(* Exit edit mode, restore old date *)<br/>		udtThreshold.xEditableThreshold		:=	False;<br/>		udtThreshold.xCancelThreshold		:=	False;<br/>		udtThreshold.xEnableThresholdEdit	:=	False;<br/>		udtThreshold.xSafeThreshold			:=	False;<br/>	Else<br/>		(* move threshold slider to edit scene options *)<br/>		If udtThreshold.xIncrease and iSelectedScenario &lt; 25 then<br/>			udtThreshold.xIncrease	:=	False;<br/>			iSelectedScenario		:=	iSelectedScenario + 1;<br/>			arrSelectedScenario		:=	arrScenarioConfiguration[iSelectSensor][iSelectedScenario];<br/>		End_if;<br/>		If udtThreshold.xDecrease and iSelectedScenario &gt; 1 then<br/>			udtThreshold.xDecrease	:=	False;<br/>			iSelectedScenario		:=	iSelectedScenario - 1;<br/>			arrSelectedScenario		:=	arrScenarioConfiguration[iSelectSensor][iSelectedScenario];<br/>		End_if;<br/>
+									<br/>		(* Select scene options *)<br/>		If iSelectedScenario &gt; 0 and iSelectedScenario &lt; 26 then<br/>			arrScenarioConfiguration[iSelectSensor][iSelectedScenario]	:=	arrSelectedScenario;<br/>		End_if;<br/>
+									<br/>		(* Limit input values *)<br/>		udtThreshold.iThreshold		:=	limit_int(1,udtThreshold.iThreshold,25);<br/>		iTemp						:=	udtThreshold.iThreshold;<br/>		For iLoop := 1 to 24 do<br/>			arrSelectedSensor[iLoop]	:=	limit_real(1.0,arrSelectedSensor[iLoop],32768.0);<br/>		End_for;<br/>
+									<br/>		(* Interlock to activate only one threshold configuration *)<br/>		If R_TRIG_Config1.Q then<br/>			udtThreshold.xActivateConfig1	:=	True;<br/>			udtThreshold.xActivateConfig2	:=	False;<br/>			udtThreshold.xActivateConfig3	:=	False;<br/>			udtThreshold.xActivateConfig4	:=	False;<br/>		Elsif R_TRIG_Config2.Q then<br/>			udtThreshold.xActivateConfig1	:=	False;<br/>			udtThreshold.xActivateConfig2	:=	True;<br/>			udtThreshold.xActivateConfig3	:=	False;<br/>			udtThreshold.xActivateConfig4	:=	False;<br/>		Elsif R_TRIG_Config3.Q then<br/>			udtThreshold.xActivateConfig1	:=	False;<br/>			udtThreshold.xActivateConfig2	:=	False;<br/>			udtThreshold.xActivateConfig3	:=	True;<br/>			udtThreshold.xActivateConfig4	:=	False;<br/>		Elsif R_TRIG_Config4.Q then<br/>			udtThreshold.xActivateConfig1	:=	False;<br/>			udtThreshold.xActivateConfig2	:=	False;<br/>			udtThreshold.xActivateConfig3	:=	False;<br/>			udtThreshold.xActivateConfig4	:=	True;<br/>		End_if;<br/>		<br/>		(* en-/ disable a threshold directly *)<br/>		If udtThreshold.xSet then<br/>			udtThreshold.xSet	:=	False;<br/>			If arrLevelConfiguration[iSelectSensor].arrScenarioActive[iTemp] then<br/>				arrLevelConfiguration[iSelectSensor].arrScenarioActive[iTemp]	:=	False;<br/>			Else<br/>				arrLevelConfiguration[iSelectSensor].arrScenarioActive[iTemp]	:=	True;<br/>			End_if;<br/>		End_if;<br/>
+									<br/>		If udtThreshold.xSafeThreshold then	(* Exit edit mode, save changed values *)<br/>			udtThreshold.xEditableThreshold		:=	False;<br/>			udtThreshold.xCancelThreshold		:=	False;<br/>			udtThreshold.xEnableThresholdEdit	:=	False;<br/>			udtThreshold.xSafeThreshold			:=	False;<br/>
+									<br/>			arrLevelConfiguration[iSelectSensor].xActiveConfig1	:=	udtThreshold.xActivateConfig1;<br/>			arrLevelConfiguration[iSelectSensor].xActiveConfig2	:=	udtThreshold.xActivateConfig2;<br/>			arrLevelConfiguration[iSelectSensor].xActiveConfig3	:=	udtThreshold.xActivateConfig3;<br/>			arrLevelConfiguration[iSelectSensor].xActiveConfig4	:=	udtThreshold.xActivateConfig4;<br/>
+									<br/>			arrLevelConfiguration[iSelectSensor].strName1	:=	udtThreshold.strName1;<br/>			arrLevelConfiguration[iSelectSensor].strName2	:=	udtThreshold.strName2;<br/>			arrLevelConfiguration[iSelectSensor].strName3	:=	udtThreshold.strName3;<br/>			arrLevelConfiguration[iSelectSensor].strName4	:=	udtThreshold.strName4;<br/>		<br/>			udtScenarioMode.arrManualScene[iSelectSensor]	:=	udtThreshold.iManualScene;<br/>
+									<br/>			If udtThreshold.iViewConfig = 1 then<br/>				For iLoop := 1 to 24 do<br/>					arrLevelConfiguration[iSelectSensor].arrScenarioConfig1[iLoop]	:=	real_to_int(arrSelectedSensor[iLoop]);<br/>				End_for;<br/>			Elsif udtThreshold.iViewConfig = 2 then<br/>				For iLoop := 1 to 24 do<br/>					arrLevelConfiguration[iSelectSensor].arrScenarioConfig2[iLoop]	:=	real_to_int(arrSelectedSensor[iLoop]);<br/>				End_for;<br/>			Elsif udtThreshold.iViewConfig = 3 then<br/>				For iLoop := 1 to 24 do<br/>					arrLevelConfiguration[iSelectSensor].arrScenarioConfig3[iLoop]	:=	real_to_int(arrSelectedSensor[iLoop]);<br/>				End_for;<br/>			Elsif udtThreshold.iViewConfig = 4 then<br/>				For iLoop := 1 to 24 do<br/>					arrLevelConfiguration[iSelectSensor].arrScenarioConfig4[iLoop]	:=	real_to_int(arrSelectedSensor[iLoop]);<br/>				End_for;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>Else<br/>	iSelectSensorOld	:=	iSelectSensor;<br/>	udtThreshold.iManualScene	:=	udtScenarioMode.arrManualScene[iSelectSensor];<br/>
+									<br/>	If iSelectSensor &gt; 0 and iSelectSensor &lt; 5 then<br/>		arrActiveScenario	:=	arrLevelConfiguration[iSelectSensor].arrScenarioActive; <br/>		iSelectedScene		:=	arrLumgates[iTempSelectedLumgate].iActualScene;<br/>		(* iSelectedScene		:=	udtScenarioMode.arrActualScene[iSelectSensor]; *)<br/>		iSelectedScenario	:=	udtScenarioMode.arrScenario[iSelectSensor];<br/>		iChosedScene		:=	udtScenarioMode.arrScenarioOption[iSelectSensor];<br/>	End_if;<br/>
+									<br/>	(* Select sensor *)<br/>	If iSelectSensor &gt; 0 and iSelectSensor &lt; 5 then<br/>		rAnalogValue		:=	arrAnalogValues[iSelectSensor].rValue;<br/>		wAnalogDiag			:=	arrAnalogValues[iSelectSensor].wDiagCode;<br/>		arrAnalogDiag[1]	:=	arrAnalogValues[1].wDiagCode;<br/>		arrAnalogDiag[2]	:=	arrAnalogValues[2].wDiagCode;<br/>		arrAnalogDiag[3]	:=	arrAnalogValues[3].wDiagCode;<br/>		arrAnalogDiag[4]	:=	arrAnalogValues[4].wDiagCode;<br/>
+									<br/>		(* Select Threshold configuration (speed level) *)<br/>		arrActiveScenario				:=	arrLevelConfiguration[iSelectSensor].arrScenarioActive; <br/>		If udtThreshold.iViewConfig = 1 then<br/>			For iLoop := 1 to 24 do<br/>				arrSelectedSensor[iLoop]	:=	int_to_real(arrLevelConfiguration[iSelectSensor].arrScenarioConfig1[iLoop]);<br/>			End_for;<br/>		Elsif udtThreshold.iViewConfig = 2 then<br/>			For iLoop := 1 to 24 do<br/>				arrSelectedSensor[iLoop]	:=	int_to_real(arrLevelConfiguration[iSelectSensor].arrScenarioConfig2[iLoop]);<br/>			End_for;<br/>		Elsif udtThreshold.iViewConfig = 3 then<br/>			For iLoop := 1 to 24 do<br/>				arrSelectedSensor[iLoop]	:=	int_to_real(arrLevelConfiguration[iSelectSensor].arrScenarioConfig3[iLoop]);<br/>			End_for;<br/>		Elsif udtThreshold.iViewConfig = 4 then<br/>			For iLoop := 1 to 24 do<br/>				arrSelectedSensor[iLoop]	:=	int_to_real(arrLevelConfiguration[iSelectSensor].arrScenarioConfig4[iLoop]);<br/>			End_for;<br/>		End_if;<br/>		arrSelectedConfiguration		:=	arrScenarioConfiguration[iSelectSensor];<br/>		If iSelectedScenario &gt; 0 and iSelectedScenario &lt; 26 then<br/>			arrSelectedScenario			:=	arrScenarioConfiguration[iSelectSensor][iSelectedScenario];<br/>		Else<br/>			For iLoop := 1 to 5 do<br/>				arrSelectedScenario[iLoop]	:=	0;<br/>			End_for;<br/>		End_if;<br/>	End_if;<br/>
+									<br/>	udtThreshold.xActivateConfig1	:=	arrLevelConfiguration[iSelectSensor].xActiveConfig1;<br/>	udtThreshold.xActivateConfig2	:=	arrLevelConfiguration[iSelectSensor].xActiveConfig2;<br/>	udtThreshold.xActivateConfig3	:=	arrLevelConfiguration[iSelectSensor].xActiveConfig3;<br/>	udtThreshold.xActivateConfig4	:=	arrLevelConfiguration[iSelectSensor].xActiveConfig4;<br/>
+									<br/>	udtThreshold.strName1			:=	arrLevelConfiguration[iSelectSensor].strName1;<br/>	udtThreshold.strName2			:=	arrLevelConfiguration[iSelectSensor].strName2;<br/>	udtThreshold.strName3			:=	arrLevelConfiguration[iSelectSensor].strName3;<br/>	udtThreshold.strName4			:=	arrLevelConfiguration[iSelectSensor].strName4;<br/>End_if;<br/>
+									<br/>If iSelectSensor &gt; 0 and iSelectSensor &lt; 5 then<br/>	arrActiveScenario	:=	arrLevelConfiguration[iSelectSensor].arrScenarioActive; <br/>End_if;<br/>
+									<br/>iDelay	:=	arrLevelConfiguration[1].iDelay;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Sensor">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Web interface - select source *)<br/>If udtSource.xEnableSourceEdit then	(*Enable edit mode *)<br/>	udtSource.xEditableSource	:=	True;<br/>
+									<br/>	(* Limit input values *)<br/>	udtSource.iLimit1	:=	limit(1,udtSource.iLimit1,4);<br/>	udtSource.iLimit2	:=	limit(1,udtSource.iLimit2,4);<br/>	udtSource.iLimit3	:=	limit(1,udtSource.iLimit3,4);<br/>	udtSource.iLimit4	:=	limit(1,udtSource.iLimit4,4);<br/>
+									<br/>	If udtSource.xSaveSource then		(* Exit edit mode, save changed values *)<br/>		udtSource.xEditableSource		:=	False;<br/>		udtSource.xSaveSource			:=	False;<br/>		udtSource.xCancelSource			:=	False;<br/>		udtSource.xEnableSourceEdit		:=	False;<br/>
+									<br/>		arrLevelConfiguration[1].iInputValue	:=	udtSource.iSelect1;<br/>		arrLevelConfiguration[2].iInputValue	:=	udtSource.iSelect2;<br/>		arrLevelConfiguration[3].iInputValue	:=	udtSource.iSelect3;<br/>		arrLevelConfiguration[4].iInputValue	:=	udtSource.iSelect4;<br/>
+									<br/>		udtL20Config.iBackup_1_2_3_4_Limit		:=	udtSource.iLimit1;<br/>		udtL20Config.iBackup_2_3_4_1_Limit		:=	udtSource.iLimit2;<br/>		udtL20Config.iBackup_3_4_1_2_Limit		:=	udtSource.iLimit3;<br/>		udtL20Config.iBackup_4_1_2_3_Limit		:=	udtSource.iLimit4;<br/>		<br/>		udtL20Config.rMaxCd1					:=	udint_to_real(udtSource.udiMaxValue1);<br/>		udtL20Config.rMaxCd2					:=	udint_to_real(udtSource.udiMaxValue2);<br/>		udtL20Config.rMaxCd3					:=	udint_to_real(udtSource.udiMaxValue3);<br/>		udtL20Config.rMaxCd4					:=	udint_to_real(udtSource.udiMaxValue4);<br/>
+									<br/>		strUnit							:=	udtSource.strUnit;<br/>	End_if;<br/>
+									<br/>	If	udtSource.xCancelSource then	(* Exit edit mode, restore old date *)<br/>		udtSource.xEditableSource		:=	False;<br/>		udtSource.xSaveSource			:=	False;<br/>		udtSource.xCancelSource			:=	False;<br/>		udtSource.xEnableSourceEdit		:=	False;<br/>	End_if;<br/>Else<br/>	udtSource.iSelect1		:=	arrLevelConfiguration[1].iInputValue;<br/>	udtSource.iSelect2		:=	arrLevelConfiguration[2].iInputValue;<br/>	udtSource.iSelect3		:=	arrLevelConfiguration[3].iInputValue;<br/>	udtSource.iSelect4		:=	arrLevelConfiguration[4].iInputValue;<br/>	udtSource.iLimit1		:=	udtL20Config.iBackup_1_2_3_4_Limit;<br/>	udtSource.iLimit2		:=	udtL20Config.iBackup_2_3_4_1_Limit;<br/>	udtSource.iLimit3		:=	udtL20Config.iBackup_3_4_1_2_Limit;<br/>	udtSource.iLimit4		:=	udtL20Config.iBackup_4_1_2_3_Limit;<br/>	udtSource.udiMaxValue1	:=	real_to_udint(udtL20Config.rMaxCd1);<br/>	udtSource.udiMaxValue2	:=	real_to_udint(udtL20Config.rMaxCd2);<br/>	udtSource.udiMaxValue3	:=	real_to_udint(udtL20Config.rMaxCd3);<br/>	udtSource.udiMaxValue4	:=	real_to_udint(udtL20Config.rMaxCd4);<br/>	udtSource.strUnit		:=	strUnit;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Project">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Web interface - system settings *)<br/>If udtProject.xEnableProjectEdit then	(*Enable edit mode *)<br/>	udtProject.xEditableProject	:=	True;<br/>
+									<br/>	(* Limit input values *)<br/>	udtProject.diAverageDelay	:=	limit_dint(dint#1,udtProject.diAverageDelay,dint#1000);<br/>	udtProject.iHysteric		:=	limit(1,udtProject.iHysteric,10);<br/>	udtProject.iSwitchDelay		:=	limit(1,udtProject.iSwitchDelay,3600);<br/>	udtProject.iDimmingSpeed	:=	limit(1,udtProject.iDimmingSpeed,10); (* In Visu wrong variable... *)<br/>
+									<br/>	If udtProject.xSafeAllFailStates then	(* execute failsafe teaching *)<br/>		udtProject.xSafeAllFailStates	:=	False;<br/>		strDiag	:=	'Start failsafe teaching';<br/>
+									<br/>		For iLoop := 1 to 240 do<br/>			arrLumgates[iLoop].xTeachFailsave	:=	True;<br/>		End_for;<br/>	End_if;<br/>
+									<br/>	If udtProject.xSaveProject then		(* Exit edit mode, save changed values *)<br/>		udtProject.xEditableProject		:=	False;<br/>		udtProject.xSaveProject			:=	False;<br/>		udtProject.xCancelProject		:=	False;<br/>		udtProject.xEnableProjectEdit	:=	False;<br/>
+									<br/>		arrLevelConfiguration[1].iDelay			:=	udtProject.iSwitchDelay;<br/>		arrLevelConfiguration[2].iDelay			:=	udtProject.iSwitchDelay;<br/>		arrLevelConfiguration[3].iDelay			:=	udtProject.iSwitchDelay;<br/>		arrLevelConfiguration[4].iDelay			:=	udtProject.iSwitchDelay;<br/>		arrLevelConfiguration[1].iHysteric		:=	udtProject.iHysteric;<br/>		arrLevelConfiguration[2].iHysteric		:=	udtProject.iHysteric;<br/>		arrLevelConfiguration[3].iHysteric		:=	udtProject.iHysteric;<br/>		arrLevelConfiguration[4].iHysteric		:=	udtProject.iHysteric;<br/>		arrLevelConfiguration[1].diAverageTime	:=	udtProject.diAverageDelay;<br/>		arrLevelConfiguration[2].diAverageTime	:=	udtProject.diAverageDelay;<br/>		arrLevelConfiguration[3].diAverageTime	:=	udtProject.diAverageDelay;<br/>		arrLevelConfiguration[4].diAverageTime	:=	udtProject.diAverageDelay;<br/>	End_if;<br/>
+									<br/>	If	udtProject.xCancelProject then	(* Exit edit mode, restore old date *)<br/>		udtProject.xEditableProject		:=	False;<br/>		udtProject.xSaveProject			:=	False;<br/>		udtProject.xCancelProject		:=	False;<br/>		udtProject.xEnableProjectEdit	:=	False;<br/>	End_if;<br/>Else<br/>	udtProject.iSwitchDelay		:=	arrLevelConfiguration[1].iDelay;<br/>	udtProject.iHysteric		:=	arrLevelConfiguration[1].iHysteric;<br/>	udtProject.diAverageDelay	:=	arrLevelConfiguration[1].diAverageTime;<br/>End_if;<br/>
+									<br/>F_TRIG_Failsafe(CLK:=arrLumgates[1].xTeachFailsave);<br/>If F_TRIG_Failsafe.Q then<br/>	strDiag	:=	'Failsafe teaching done';<br/>End_if;<br/>
+									<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_Web_Communication_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

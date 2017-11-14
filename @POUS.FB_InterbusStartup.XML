@@ -1,0 +1,1185 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:35" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666355" modificationDateTime="2017-11-14T14:32:35" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_InterbusStartup" pouType="functionBlock" pouGroup="Interbus_Startup" lastChange="2016-07-11T10:33:48">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input Parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate function block</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInitNewConfig" group="Input Parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Read in new interbus configuration</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xOS" group="Input Parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Select operating system of PLC: 0 - ProConOS; 1 - eClr</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="tWatchdog" group="Input Parameters">
+							<type>
+								<TIME/>
+							</type>
+							<initialValue>
+								<simpleValue value="TIME#5s"/>
+							</initialValue>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Time of state watchdog</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Function block activated</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xReady" group="Output parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Function block ready for new request</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xDone" group="Output parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Function block completed</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xError" group="Output parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error during processing of function block</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wDiagCode" group="Output parameters">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic information</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="dwAddDiagCode" group="Output parameters">
+							<type>
+								<DWORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Additional diagnostic information</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strDiagCode" group="Output parameters">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Function block status as string</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="arrIBC_SysConf" group="InOut Parameters">
+							<type>
+								<derived name="ARR_IBC_DATA_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Preprocessed response from interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrIBS_ConfEntry" group="InOut Parameters">
+							<type>
+								<derived name="ARR_IBS_CONF_ENTRIES_1_256"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Array of structure containing information about connected modules</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="R_TRIG_Activate" group="FBs, functions">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger returns TRUE on activation of FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="R_TRIG_IBCReq" group="FBs, functions">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger on rising edge of interbus control request</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="R_TRIG_InitNewConfig" group="FBs, functions">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger returns TRUE if new interbus configuration is read in</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="F_TRIG_Activate" group="FBs, functions">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger returns TRUE on deactivation of FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="FB_PD_EvalCompRefList_1" group="FBs, functions">
+							<type>
+								<derived name="FB_PD_EvalCompRefList"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Function block for evaluation of compact process data reference list</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="EvalPdDescr_1" group="FBs, functions">
+							<type>
+								<derived name="FB_PD_EvalDescr"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Function block for evaluation of process data descriptions</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="TON_WD_StateMachine" group="FBs, functions">
+							<type>
+								<derived name="TON"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Watchdog timer of FB state machine</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="Proc_IBC_Resp_1" group="FBs, functions">
+							<type>
+								<derived name="FB_IBC_ProcResp"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Function block for preprocessing response from interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="IB_CONTROL_1" group="FBs, functions">
+							<type>
+								<derived name="IB_CONTROL"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateEvalPdDescr" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate function block for evaluation of process data description</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateProc_IBC_Resp" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate processing function block for response from interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrConfig" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Data length of response from IB master invalid</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrBusRun" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Bus not running after completion of dynamic interbus configuration</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrBusStatus" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Bus error: No data transfer</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrIBC" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error reported by interbus control function block</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrParam" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error processing response from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrResp" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error while waiting for response from interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrStateMachineWD" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">State machine watchdog timeout</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrState" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">State machine in undefined state</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xIBC_Err" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Flag: Error detected by interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xIBC_NDR" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Flag: New data received by interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xIBC_Req" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger new interbus control FB request</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wIBC_RespCode" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Confirmed request code of response from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wIBC_RespDiagCode" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic code of function block for preprocessing response from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wIBC_RespAddDiagCode" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Additional diagnostic code of function block for preprocessing response from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wDiagnosticStatus" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic status word from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wUsedAttributes" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Used attributes for IB master request</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xIBC_Resp_Active" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xIBC_Resp_Err" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error reported by FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xIBC_Resp_NDR" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">New data ready</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xMoreFollows" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">More data following, further request needed</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="bBusSegNumber" group="Local variables">
+							<type>
+								<BYTE/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Bus segment number of module</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="bModule_ID" group="Local variables">
+							<type>
+								<BYTE/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Module ID</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="bPDDataTypeMask" group="Local variables">
+							<type>
+								<BYTE/>
+							</type>
+							<initialValue>
+								<simpleValue value="BYTE#16#C0"/>
+							</initialValue>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Bitmask for evaluation of PD data type</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="bPDDataLengthMask" group="Local variables">
+							<type>
+								<BYTE/>
+							</type>
+							<initialValue>
+								<simpleValue value="BYTE#16#3F"/>
+							</initialValue>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Bitmask for evaluation of PD data length</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="bPosNumber" group="Local variables">
+							<type>
+								<BYTE/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Position number of module in bus segment</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xPdEvalActive" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">PD evaluation function block active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xRecPdDescrList" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Receiving process data description list of specified module</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xStateWatchdogEn" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Enable watchdog of state machine</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="dwIBC_AddErr" group="Local variables">
+							<type>
+								<DWORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Additional error information of IB control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iIBC_RespDataLength" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Data length of response from IB control FB</p>
+								</html>
+							</documentation>
+						</variable>
+					</localVars>
+					<outputVars retain="false">
+						<variable name="iIBS_Modules" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Number of connected interbus modules</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iIdxCntMod" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<initialValue>
+								<simpleValue value="INT#1"/>
+							</initialValue>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Index for number of modules</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<localVars retain="false">
+						<variable name="iIndex" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Index for selection of module in module structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iIndexArrInit" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Index for initialisation of arrays</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iIndexSysParam" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Index for selection of response parameters</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iMaxModules" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<initialValue>
+								<simpleValue value="64"/>
+							</initialValue>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Maximum number of connected modules</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iPDLength" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">PD length of module</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iPDDataType" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">PD data type of module</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iPntrPDBeginIn" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Pointer to next unassigned input PD byte</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iPntrPDBeginOut" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Pointer to next unassigned output PD byte</p>
+								</html>
+							</documentation>
+						</variable>
+					</localVars>
+					<outputVars retain="false">
+						<variable name="iState" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">State variable of state machine</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<localVars retain="false">
+						<variable name="iStateLast" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Last processed state before error</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udiCountErrState" group="Local variables">
+							<type>
+								<UDINT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Count activations of error state</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xRecComp_PD_RefList" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Receiving compact process data reference list</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateEvalCompRefList" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate FB for evaluation of compact process data reference list</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xEvalCompRefListActive" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB for evaluation of compact process data reference list active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xEvalCompRefListError" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error while processing compact process data reference list</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xEvalPdDescError" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error while processing process data description list</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrIBC_RecData" group="Local variables">
+							<type>
+								<derived name="ARR_IBC_REC_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Array containing response from interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrIBC_SndData" group="Local variables">
+							<type>
+								<derived name="ARR_IBC_SND_1_8"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Array containing request for interbus control FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtDiagnosticStatus" group="Local variables">
+							<type>
+								<derived name="UDT_IB_DIAG_STATUS"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Structure containing IB diagnostic register variables</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iArrayNumber" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="i" redundant="true" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTest" redundant="true" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="MASTER_DIAG_STATUS_REG_RUN" group="External variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Datenübertragung ist aktiv</p>
+								</html>
+							</documentation>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="bModuleID" redundant="true" group="External variables">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="bTest" redundant="true" group="External variables">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="Inputs">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">R_TRIG_Activate(CLK := xActivate);<br/>F_TRIG_Activate(CLK := xActivate);<br/>
+									<br/>IF R_TRIG_Activate.Q THEN<br/>
+									<br/>	xActive 				:= TRUE;<br/>	xErrBusStatus			:= FALSE;<br/>	xErrConfig				:= FALSE;<br/>	xErrIBC					:= FALSE;<br/>	xErrResp				:= FALSE;<br/>	xErrState				:= FALSE;<br/>	xError					:= FALSE;<br/>	xStateWatchdogEn		:= FALSE;<br/>	xDone					:= FALSE;<br/>	xReady					:= FALSE;<br/>	xRecPdDescrList			:= FALSE;<br/>	xRecComp_PD_RefList		:= FALSE;<br/>	xActivateProc_IBC_Resp	:= TRUE;		(*Activate function block for processing of response from interbus controller*)<br/>	xActivateEvalPdDescr	:= TRUE;		(*Activate function block for evaluation of process data description list*)<br/>
+									<br/>	dwAddDiagCode			:= DWORD#16#00000000;<br/>	wDiagCode				:= WORD#16#0000;<br/>	strDiagCode				:= '';<br/>	iState					:= 0;<br/>	iMaxModules				:= 256;<br/>	iIdxCntMod 				:= 1;<br/>	iPntrPDBeginIn			:= 1;<br/>	iPntrPDBeginOut			:= 1;<br/>
+									<br/>
+									<br/>	xActivateProc_IBC_Resp	:= TRUE;<br/>	xActivateEvalPdDescr	:= TRUE;<br/>	xActivateEvalCompRefList:= TRUE;<br/>	xIBC_Req				:= FALSE;<br/>	xIBC_NDR				:= FALSE;<br/>	xIBC_Err				:= FALSE;<br/>	xErrIBC					:= FALSE;<br/>	xIBC_Resp_NDR			:= FALSE;<br/>	xIBC_Resp_Active		:= FALSE;<br/>	xIBC_Resp_Err			:= FALSE;<br/>	xErrResp				:= FALSE;<br/>	xErrBusStatus			:= FALSE;<br/>	xErrBusRun				:= FALSE;<br/>	xMoreFollows			:= FALSE;<br/>	xErrConfig				:= FALSE;<br/>	xStateWatchdogEn		:= FALSE;<br/>	xErrParam				:= FALSE;<br/>	xStateWatchdogEn		:= FALSE;<br/>	xErrStateMachineWD		:= FALSE;<br/>	xRecPdDescrList			:= FALSE;<br/>	xPdEvalActive			:= FALSE;<br/>	bBusSegNumber			:= BYTE#16#00;<br/>	bPosNumber				:= BYTE#16#00;<br/>	bPDDataTypeMask			:= BYTE#16#C0;<br/>	bPDDataLengthMask		:= BYTE#16#3F;<br/>	bModule_ID				:= BYTE#16#00;<br/>	wIBC_RespCode			:= WORD#16#0000;<br/>	wIBC_RespDiagCode		:= WORD#16#0000;<br/>	wIBC_RespAddDiagCode	:= WORD#16#0000;<br/>	wDiagnosticStatus		:= WORD#16#0000;<br/>	wUsedAttributes			:= WORD#16#0000;<br/>	dwIBC_AddErr			:= DWORD#16#0000;<br/>	iState					:= 0;<br/>	iIBC_RespDataLength		:= 0;<br/>	iIBS_Modules			:= 0;<br/>	iPDLength				:= 0;<br/>	iPDDataType				:= 0;<br/>	iStateLast				:= 0;<br/>	iIndex					:= 1;<br/>	iIndexSysParam			:= 1;<br/>	iIdxCntMod				:= 1;<br/>	iPntrPDBeginIn			:= 1;<br/>	iPntrPDBeginOut			:= 1;<br/>	udiCountErrState		:= UDINT#0;<br/>
+									<br/>
+									<br/>	FOR iIndexArrInit := 1 TO 512 BY 1 DO<br/>
+									<br/>		arrIBC_RecData[iIndexArrInit]	:= WORD#16#0000;<br/>
+									<br/>	END_FOR;<br/>
+									<br/>	FOR iIndexArrInit := 1 TO 8 BY 1 DO<br/>
+									<br/>		arrIBC_SndData[iIndexArrInit]	:= WORD#16#0000;<br/>
+									<br/>	END_FOR;<br/>
+									<br/>	udtDiagnosticStatus.xActive	:= FALSE;<br/>	udtDiagnosticStatus.xBD		:= FALSE;<br/>	udtDiagnosticStatus.xBit0	:= FALSE;<br/>	udtDiagnosticStatus.xBit4	:= FALSE;<br/>	udtDiagnosticStatus.xBit9	:= FALSE;<br/>	udtDiagnosticStatus.xBus	:= FALSE;<br/>	udtDiagnosticStatus.xCtrl	:= FALSE;<br/>	udtDiagnosticStatus.xForce	:= FALSE;<br/>	udtDiagnosticStatus.xPF		:= FALSE;<br/>	udtDiagnosticStatus.xReady	:= FALSE;<br/>	udtDiagnosticStatus.xRun	:= FALSE;<br/>
+									<br/>ELSIF F_TRIG_Activate.Q THEN<br/>
+									<br/>	xActive					:= FALSE;<br/>	xIBC_Req				:= FALSE;<br/>	xReady					:= FALSE;<br/>	iState					:= 0;<br/>	xErrBusStatus			:= FALSE;<br/>	xErrConfig				:= FALSE;<br/>	xErrIBC					:= FALSE;<br/>	xErrResp				:= FALSE;<br/>	xErrState				:= FALSE;<br/>	xErrBusRun				:= FALSE;<br/>	xError					:= FALSE;<br/>	xStateWatchdogEn		:= FALSE;<br/>	xDone					:= FALSE;<br/>	xReady					:= FALSE;<br/>	xRecComp_PD_RefList		:= FALSE;<br/>	dwAddDiagCode			:= DWORD#16#00000000;<br/>	wDiagCode				:= WORD#16#0000;<br/>	strDiagCode				:= '';<br/>	iIdxCntMod 				:= 1;<br/>	iPntrPDBeginIn			:= 1;<br/>	iPntrPDBeginOut			:= 1;<br/>	xRecPdDescrList			:= FALSE;<br/>	xActivateProc_IBC_Resp	:= TRUE;		(*Activate function block for processing of response from interbus controller*)<br/>	xActivateEvalPdDescr	:= TRUE;		(*Activate function block for evaluation of process data description list*)<br/>	xActivateEvalCompRefList:= FALSE;<br/>
+									<br/>	xIBC_Req				:= FALSE;<br/>	xIBC_NDR				:= FALSE;<br/>	xIBC_Err				:= FALSE;<br/>	xErrIBC					:= FALSE;<br/>	xActivateProc_IBC_Resp	:= FALSE;<br/>	xIBC_Resp_NDR			:= FALSE;<br/>	xIBC_Resp_Active		:= FALSE;<br/>	xIBC_Resp_Err			:= FALSE;<br/>	xErrResp				:= FALSE;<br/>	xErrBusStatus			:= FALSE;<br/>	xMoreFollows			:= FALSE;<br/>	xErrConfig				:= FALSE;<br/>	xStateWatchdogEn		:= FALSE;<br/>	xErrParam				:= FALSE;<br/>	xStateWatchdogEn		:= FALSE;<br/>	xErrStateMachineWD		:= FALSE;<br/>	xRecPdDescrList			:= FALSE;<br/>	xPdEvalActive			:= FALSE;<br/>	xActivateEvalPdDescr	:= FALSE;<br/>	bBusSegNumber			:= BYTE#16#00;<br/>	bPosNumber				:= BYTE#16#00;<br/>	bPDDataTypeMask			:= BYTE#16#00;<br/>	bPDDataLengthMask		:= BYTE#16#00;<br/>	bModule_ID				:= BYTE#16#00;<br/>	wIBC_RespCode			:= WORD#16#0000;<br/>	wIBC_RespDiagCode		:= WORD#16#0000;<br/>	wIBC_RespAddDiagCode	:= WORD#16#0000;<br/>	wDiagnosticStatus		:= WORD#16#0000;<br/>	wUsedAttributes			:= WORD#16#0000;<br/>	dwIBC_AddErr			:= DWORD#16#00000000;<br/>	iState					:= 0;<br/>	iIBC_RespDataLength		:= 0;<br/>	iIndex					:= 0;<br/>	iIBS_Modules			:= 0;<br/>	iIndexSysParam			:= 0;<br/>	iPDLength				:= 0;<br/>	iPDDataType				:= 0;<br/>	iMaxModules				:= 0;<br/>	iStateLast				:= 0;<br/>	iIdxCntMod				:= 0;<br/>	iPntrPDBeginIn			:= 0;<br/>	iPntrPDBeginOut			:= 0;<br/>	udiCountErrState		:= UDINT#0;<br/>
+									<br/>	FOR iIndexArrInit := 1 TO 512 BY 1 DO<br/>
+									<br/>		arrIBC_RecData[iIndexArrInit]	:= WORD#16#0000;<br/>
+									<br/>	END_FOR;<br/>
+									<br/>	FOR iIndexArrInit := 1 TO 8 BY 1 DO<br/>
+									<br/>		arrIBC_SndData[iIndexArrInit]	:= WORD#16#0000;<br/>
+									<br/>	END_FOR;<br/>
+									<br/>	udtDiagnosticStatus.xActive	:= FALSE;<br/>	udtDiagnosticStatus.xBD		:= FALSE;<br/>	udtDiagnosticStatus.xBit0	:= FALSE;<br/>	udtDiagnosticStatus.xBit4	:= FALSE;<br/>	udtDiagnosticStatus.xBit9	:= FALSE;<br/>	udtDiagnosticStatus.xBus	:= FALSE;<br/>	udtDiagnosticStatus.xCtrl	:= FALSE;<br/>	udtDiagnosticStatus.xForce	:= FALSE;<br/>	udtDiagnosticStatus.xPF		:= FALSE;<br/>	udtDiagnosticStatus.xReady	:= FALSE;<br/>	udtDiagnosticStatus.xRun	:= FALSE;<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Logic">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(***** Function blocks *****)<br/>
+									<br/>(*************************************************Block interbus control start*************************************************)<br/>IB_CONTROL_1.REQ		:= xIBC_Req;				(*Trigger new interbus control request*)<br/>IB_CONTROL_1.ADD_ERROR	:= dwIBC_AddErr;			(*Additional error information of interbus control function block*)<br/>IB_CONTROL_1.SD_1		:= arrIBC_SndData;			(*Array of word containing interbus control command*)<br/>IB_CONTROL_1.RD_1		:= arrIBC_RecData;			(*Array of word containing received data from interbus control function block*)<br/>
+									<br/>IB_CONTROL_1();										(*Call interbus control function block*)<br/>
+									<br/>xIBC_NDR				:= IB_CONTROL_1.NDR;		(*Flag reports new received data*)<br/>xIBC_Err				:= IB_CONTROL_1.ERROR;		(*Error detected by interbus control function block*)<br/>dwIBC_AddErr			:= IB_CONTROL_1.ADD_ERROR;	(*Additional error information*)<br/>arrIBC_SndData			:= IB_CONTROL_1.SD_1;		(*Array of word containing interbus control command*)		<br/>arrIBC_RecData			:= IB_CONTROL_1.RD_1;		(*Array of word containing received data from interbus control function block*)<br/>
+									<br/>(*Save diagnostic information in case of error during execution of IB Control*)<br/>R_TRIG_InitNewConfig	(CLK := xInitNewConfig);	(*Trigger returns TRUE on request of initialisation of new configuration*)<br/>(*************************************************Block interbus control end*************************************************)<br/>
+									<br/>
+									<br/>(*************************************************Block process interbus control response start******************************)<br/>Proc_IBC_Resp_1.xActivate		:= xActivateProc_IBC_Resp;				(*Activation of function block*)<br/>Proc_IBC_Resp_1.xExecute		:= xIBC_NDR AND NOT xIBC_Err;			(*Request processing of response from interbus control function block*)<br/>Proc_IBC_Resp_1.wCodeReq		:= arrIBC_SndData[1];					(*Identification code of last interbus control command*)<br/>Proc_IBC_Resp_1.arrIBC_Resp		:= arrIBC_RecData;						(*Array containing raw response from interbus control function block*)<br/>Proc_IBC_Resp_1.arrData			:= arrIBC_SysConf;						(*Array containing processed response from function block*)<br/>
+									<br/>Proc_IBC_Resp_1();														(*Call function block for processing of response from function block*)<br/>
+									<br/>xIBC_Resp_NDR					:= Proc_IBC_Resp_1.xNDR;				(*New process data available from function block*)<br/>xIBC_Resp_Active				:= Proc_IBC_Resp_1.xActive;				(*Function block activated*)<br/>xIBC_Resp_Err					:= Proc_IBC_Resp_1.xError;				(*Error reported by function block*)<br/>wIBC_RespCode					:= Proc_IBC_Resp_1.wCode;				(*Identification code of answered interbus control command*)<br/>wIBC_RespDiagCode				:= Proc_IBC_Resp_1.wDiagCode;			(*Diagnostic code of function block*)<br/>wIBC_RespAddDiagCode			:= Proc_IBC_Resp_1.wAddDiagCode;		(*Additional diagnostic information*)<br/>iIBC_RespDataLength				:= Proc_IBC_Resp_1.iDataLength;			(*Data length of response from interbus control FB*)<br/>arrIBC_RecData					:= Proc_IBC_Resp_1.arrIBC_Resp;			(*Array containing raw response from interbus control function block*)<br/>arrIBC_SysConf					:= Proc_IBC_Resp_1.arrData;				(*Array containing processed response from function block*)<br/>(*************************************************Block process interbus control response end********************************)<br/>
+									<br/>(*************************************************Block evaluation of process data descriptions start************************)<br/>EvalPdDescr_1.xActivate			:= xActivateEvalPdDescr;				(*Activation of function block*)<br/>EvalPdDescr_1.xExecute			:= xIBC_Resp_NDR AND xRecPdDescrList;	(*Trigger evaluation of last received process data descriptions*)<br/>EvalPdDescr_1.arrIBC_SysConf	:= arrIBC_SysConf;						(*Array containing processed response from interbus response processing function block*)<br/>EvalPdDescr_1.arrIBS_ConfEntry	:= arrIBS_ConfEntry;					(*Array containing structure with information about connected modules*)<br/>EvalPdDescr_1.iIdxCntMod		:= iIdxCntMod;							(*Index for selection of module*)<br/>EvalPdDescr_1.iPntrPDBeginIn	:= iPntrPDBeginIn;						(*Pointer to first unassigned byte of input process data*)<br/>EvalPdDescr_1.iPntrPdBeginOut	:= iPntrPDBeginOut;						(*Pointer to first unassigned byte of output process data*)<br/>
+									<br/>EvalPdDescr_1();														(*Call function block for evaluation of process data descriptions*)<br/>
+									<br/>arrIBC_SysConf					:= EvalPdDescr_1.arrIBC_SysConf;		(*Array containing processed response from interbus response processing function block*)<br/>arrIBS_ConfEntry				:= EvalPdDescr_1.arrIBS_ConfEntry;		(*Array containing structure with information about connected modules*)<br/>xPdEvalActive					:= EvalPdDescr_1.xActive;				(*Function block activated*)<br/>iPntrPDBeginIn					:= EvalPdDescr_1.iPntrPDBeginIn;		(*Pointer to first unassigned byte of input process data*)	<br/>iPntrPDBeginOut					:= EvalPdDescr_1.iPntrPdBeginOut;		(*Pointer to first unassigned byte of output process data*)<br/>xEvalPdDescError				:= EvalPdDescr_1.xError;				(*Error during evaluation of process data description list*)<br/>(*************************************************Block evaluation of process data descriptions end**************************)<br/>
+									<br/>(*******************************************Block evaluation of compact process data reference list start********************)<br/>FB_PD_EvalCompRefList_1.xActivate 			:= xActivateEvalCompRefList;<br/>FB_PD_EvalCompRefList_1.xExecute			:= xIBC_Resp_NDR AND xRecComp_PD_RefList;<br/>FB_PD_EvalCompRefList_1.arrIBC_SysConf		:= arrIBC_SysConf;<br/>FB_PD_EvalCompRefList_1.arrIBS_ConfEntry	:= arrIBS_ConfEntry;<br/>
+									<br/>FB_PD_EvalCompRefList_1();<br/>
+									<br/>arrIBC_SysConf								:= FB_PD_EvalCompRefList_1.arrIBC_SysConf;<br/>arrIBS_ConfEntry							:= FB_PD_EvalCompRefList_1.arrIBS_ConfEntry;<br/>xEvalCompRefListActive						:= FB_PD_EvalCompRefList_1.xActive;<br/>xEvalCompRefListError						:= FB_PD_EvalCompRefList_1.xError;<br/>
+									<br/>IF xActive THEN<br/>
+									<br/>	CASE iState OF<br/>
+									<br/>		0:	(*Idle state*)<br/>
+									<br/>			xIBC_Req := FALSE;<br/>	<br/>			(*Initialise variables*)<br/>			IF R_TRIG_InitNewConfig.Q THEN<br/>
+									<br/>				iState 	:= iState + 10; (*Jump into next step*)<br/>				xDone	:= FALSE;<br/>
+									<br/>			END_IF;<br/>
+									<br/>	<br/>		10:	(*Send Get_Version_Info command to device*)<br/>
+									<br/>			arrIBC_SndData[1] 		:= WORD#16#032A;	(*032A: Get_Version_Info*)<br/>			arrIBC_SndData[2] 		:= WORD#16#0000;	(*0000: No further parameters*)<br/>
+									<br/>			xIBC_Req 				:= TRUE;			(*Send interbus control request*)<br/>
+									<br/>			iState 					:= iState + 10;		(*Jump into next step*)<br/>
+									<br/>		20:	(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;						(*Reset interbus control function block request*)<br/>				(*Check if interbus control function block is reporting error*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					iState 		:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>					xErrResp 	:= TRUE;				(*Set error flag*)<br/>					iState		:= 999;					(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>
+									<br/>		30:	(*Send request to receive exclusive rights*)<br/>
+									<br/>			arrIBC_SndData[1]	:= WORD#16#014F;		(*014F: Change exclusive rights*)<br/>			arrIBC_SndData[2]	:= WORD#16#0001;		(*0001: One parameter following*)<br/>			arrIBC_SndData[3]	:= WORD#16#0001;		(*0001: Turn on exclusive rights*)<br/>
+									<br/>			xIBC_Req 			:= TRUE;				(*Send interbus control request*)<br/>
+									<br/>			iState 				:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>		40:	(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;						(*Reset interbus control function block request*)<br/>				(*Check if interbus control function block is reporting error*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					iState 		:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>					<br/>					xErrResp 	:= TRUE;				(*Set error flag*)<br/>					iState		:= 999;					(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>
+									<br/>		50:	(*Send alarm stop request to interbus master*)<br/>	<br/>			arrIBC_SndData[1]	:= WORD#16#1303;		(*1303: Alarm stop*)<br/>			arrIBC_SndData[2]	:= WORD#16#0000;		(*0000: No further parameters following*)<br/>
+									<br/>			xIBC_Req			:= TRUE;				(*Trigger interbus control request*)<br/>
+									<br/>			iState				:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>
+									<br/>		60:	(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;						(*Reset interbus control function block request*)<br/>				(*Check if interbus control function block is reporting error*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					iState 		:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>					<br/>					xErrResp 	:= TRUE;				(*Set error flag*)<br/>					iState		:= 999;					(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>		70:	(*Send create configuration request to interbus master*)<br/>		<br/>			arrIBC_SndData[1]	:= WORD#16#0710;	(*0710: Create configuration request*)<br/>			arrIBC_SndData[2]	:= WORD#16#0001;	(*0001: One further parameter following*)<br/>			arrIBC_SndData[3]	:= WORD#16#0001;	(*0001: Set frame reference number to 1*)<br/>
+									<br/>			xIBC_Req			:= TRUE;			(*Trigger interbus control request*)<br/>
+									<br/>			iState 				:= iState +10;		(*Jump into next step*)<br/>
+									<br/>		80:	(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;						(*Reset interbus control function block request*)<br/>				(*Check if interbus control function block is reporting error*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					iState 		:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>
+									<br/>					xErrResp 	:= TRUE;				(*Set error flag*)<br/>					iState		:= 999;					(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>
+									<br/>		90:	(*Send start data transfer request to interbus master*)<br/>
+									<br/>			arrIBC_SndData[1]	:= WORD#16#0701;		(*0701: Start data transfer*)<br/>			arrIBC_SndData[2]	:= WORD#16#0000;		(*0000: No further parameters following*)<br/>
+									<br/>			xIBC_Req			:= TRUE;				(*Trigger interbus control request*)<br/>
+									<br/>			iState 				:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>		100:(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;						(*Reset interbus control function block request*)<br/>				(*Check if interbus control function block is reporting error*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					iState 		:= iState + 10;			(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>					<br/>					xErrResp 	:= TRUE;				(*Set error flag*)<br/>					iState		:= 999;					(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>		110:(*Read content of diagnostic status register with read value request*)<br/>
+									<br/>
+									<br/>			arrIBC_SndData[1] := WORD#16#0351;	(*0351: Read value request*)<br/>			arrIBC_SndData[2] := WORD#16#0002;	(*0002: 2 parameters following*)<br/>			arrIBC_SndData[3] := WORD#16#0001;	(*0001: Read out status of 1 variable*)<br/>
+									<br/>			arrIBC_SndData[4] := WORD#16#0104;	(*0104: Identification code of diagnostic register variable*)<br/>
+									<br/>			xIBC_Req 	:= TRUE;				(*Trigger interbus control request*)<br/>					<br/>			iState	:= iState + 10;				(*Jump into next step*)<br/>
+									<br/>		120:(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;	(*Reset interbus control function block request*)<br/>				(*Check if interbus control function block is reporting error*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>					(*Check if response has correct data length*)<br/>					IF (iIBC_RespDataLength &gt;= 3) THEN<br/>
+									<br/>						(*Check if response is matching request*)<br/>						IF 	(arrIBC_SysConf[1] = WORD#16#0001)		(*0001: Read out status of 1 variable*)<br/>						AND	(arrIBC_SysConf[2] = WORD#16#0104) THEN	(*0104: Identification code of diagnostic register variable*)<br/>
+									<br/>							(*Variables available as system variables in global variables sheet, too*)<br/>							wDiagnosticStatus 			:= arrIBC_SysConf[3];		(*Copy diagnostic status word to appropriate variable*)<br/>
+									<br/>							udtDiagnosticStatus.xPF 	:= wDiagnosticStatus.X1;	(*Status of peripheral error*)<br/>							udtDiagnosticStatus.xBus 	:= wDiagnosticStatus.X2;	(*Status of bus error*)<br/>							udtDiagnosticStatus.xCtrl 	:= wDiagnosticStatus.X3;	(*Status of control device error*)<br/>
+									<br/>							udtDiagnosticStatus.xRun 	:= wDiagnosticStatus.X5;	(*Status of data transfer acitve flag*) <br/>							udtDiagnosticStatus.xActive	:= wDiagnosticStatus.X6;	(*Status of selected configuration ready flag*)<br/>							udtDiagnosticStatus.xReady 	:= wDiagnosticStatus.X7;	(*Status of control device ready flag*)<br/>
+									<br/>							udtDiagnosticStatus.xBD 	:= wDiagnosticStatus.X8;<br/>							udtDiagnosticStatus.xForce 	:= wDiagnosticStatus.X10;<br/>
+									<br/>						END_IF;<br/>
+									<br/>						(*Check if data transfer is active*)<br/>						IF udtDiagnosticStatus.xRun THEN<br/>
+									<br/>							iState	:= iState + 10;	(*Jump into next step*)<br/>							<br/>							(*Reset buffer for received data*)<br/>							FOR iIndex := 1 TO 512 DO<br/>
+									<br/>								arrIBC_RecData[iIndex] := WORD#16#0000;<br/>
+									<br/>							END_FOR;<br/>
+									<br/>						ELSE<br/>
+									<br/>							xErrBusStatus 	:= TRUE;	(*Set bus error flag*)<br/>							iState 			:= 999;		(*Jump into error state*)<br/>
+									<br/>						END_IF;<br/>
+									<br/>					ELSE<br/>
+									<br/>						xErrConfig 	:= TRUE;	(*Set inappropriate response error flag*)<br/>						iState 		:= 999;		(*Jump into error state*)<br/>
+									<br/>					END_IF;<br/>				<br/>				ELSE<br/>
+									<br/>					xErrResp 	:= TRUE;	(*Set response error flag*)<br/>					iState		:= 999;		(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>			<br/>			END_IF;<br/>
+									<br/>			iTest:= 120;<br/>
+									<br/>		130:(*Read out information about connected interbus devices with complete read configuration request*)<br/>
+									<br/>			arrIBC_SndData[1]	:= WORD#16#030B;	(*030B: Complete read configuration*)<br/>			arrIBC_SndData[2]	:= WORD#16#0001;	(*0001: One parameter following*)<br/>			arrIBC_SndData[3]	:= WORD#16#0003;	(*0003: Selected used attributes: Device no., device code*)<br/>
+									<br/>			xIBC_Req			:= TRUE;			(*Trigger interbus control request*)<br/>
+									<br/>			iState 				:= iState +10;		(*Jump into next state*)<br/>
+									<br/>		140:(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;	(*Reset interbus control function block request*)<br/>				(*Check if error occured during processing of response*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>					(*Check if response length is valid*)<br/>					IF (iIBC_RespDataLength &gt;= 5) THEN<br/>
+									<br/>						xMoreFollows	:= arrIBC_SysConf[1].X0;												(*Flag signalising more data is following, further request needed*)<br/>						wUsedAttributes	:= arrIBC_SysConf[3];													(*Read out selection of attributes*)<br/>						iIBS_Modules	:= UINT_TO_INT(WORD_TO_UINT(arrIBC_SysConf[5]));						(*Read out number of connected interbus modules*)<br/>						iIndexSysParam 	:= 6;																	(*Set index of system parameter array to 6: Start with device number of first module*)<br/>						(*Process all connected modules*)<br/>						FOR iIndex := 1 TO iIBS_Modules DO<br/>							<br/>							(*Leave loop if index variable containing invalid value*)<br/>							IF (iIndex &gt; iMaxModules) THEN<br/>								<br/>								iState := 999;<br/>								EXIT;<br/>
+									<br/>							END_IF;<br/>
+									<br/>							(*Check if device number is selected as attribute*)<br/>							IF wUsedAttributes.X0 THEN<br/>
+									<br/>								bBusSegNumber							:= arrIBC_SysConf[iIndexSysParam].B1;	(*Read out bus segment number*)<br/>								bPosNumber								:= arrIBC_SysConf[iIndexSysParam].B0;	(*Read out position number in segment*)<br/>								arrIBS_ConfEntry[iIndex].bBusSegm		:= bBusSegNumber;						(*Write bus segment number into module structure*)<br/>								arrIBS_ConfEntry[iIndex].bPosNum		:= bPosNumber;							(*Write position number into module structure*)<br/>								iIndexSysParam 							:= iIndexSysParam + 1;					(*Select next system parameter*)<br/>							(*If attribute is not used write 0 into parameter variables, select next system parameter*)<br/>							ELSE<br/>
+									<br/>								arrIBS_ConfEntry[iIndex].bBusSegm		:= BYTE#16#00;<br/>								arrIBS_ConfEntry[iIndex].bPosNum		:= BYTE#16#00;<br/>								iIndexSysParam 							:= iIndexSysParam + 1;<br/>
+									<br/>							END_IF;<br/>							(*Check if device code is selected as attribute*)<br/>							IF wUsedAttributes.X1 THEN<br/>							<br/>								iPDDataType								:= UINT_TO_INT(BYTE_TO_UINT(bPDDataTypeMask AND arrIBC_SysConf[iIndexSysParam].B1));	(*Read out data type of process data*)<br/>								iPDLength								:= UINT_TO_INT(BYTE_TO_UINT(bPDDataLengthMask AND arrIBC_SysConf[iIndexSysParam].B1));	(*Read out length of process data*)<br/>								bModuleID								:= arrIBC_SysConf[iIndexSysParam].B0;													(*Read out module id code*)<br/>								arrIBS_ConfEntry[iIndex].bModuleID		:= bModuleID;																			(*Write module id code into module structure*)<br/>								iIndexSysParam 							:= iIndexSysParam + 1;																	(*Select next system parameter*)<br/>								(*Check process data data type for further processing*)<br/>								CASE iPDDataType OF<br/>								(*0: Word*)<br/>								0:<br/>
+									<br/>									arrIBS_ConfEntry[iIndex].iPdLenCompl := 16 * iPDLength;<br/>								(*128: Byte*)<br/>								128:<br/>
+									<br/>									arrIBS_ConfEntry[iIndex].iPdLenCompl := 8 * iPDLength;<br/>								(*64: Nibble*)<br/>								64:<br/>
+									<br/>									arrIBS_ConfEntry[iIndex].iPdLenCompl := 4 * iPDLength;<br/>								(*192: Bit*)<br/>								192:<br/>
+									<br/>									arrIBS_ConfEntry[iIndex].iPdLenCompl := iPDLength;<br/>													<br/>								END_CASE;<br/>
+									<br/>							(*If attribute is not used write 0 into parameter variables, select next system parameter*)<br/>							ELSE<br/>
+									<br/>								arrIBS_ConfEntry[iIndex].bModuleID		:= BYTE#16#00;<br/>								arrIBS_ConfEntry[iIndex].iPdLenCompl	:= 0;<br/>								iIndexSysParam 							:= iIndexSysParam + 1;<br/>
+									<br/>							END_IF;<br/>
+									<br/>						END_FOR;<br/>						(*Jump into next step*)<br/>						IF NOT xOS THEN<br/>
+									<br/>							iState := iState + 1;<br/>						<br/>						ELSE<br/>
+									<br/>							iState := iState + 210;<br/>
+									<br/>						END_IF;<br/>
+									<br/>					ELSE<br/>						(*If response length invalid -&gt; error*)<br/>						xErrConfig 	:= TRUE;<br/>						iState		:= 999;<br/>
+									<br/>					END_IF;<br/>
+									<br/>				ELSE<br/>					(*Error during evaluation of response*)<br/>					xErrResp 		:= TRUE;<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>		141: arrIBC_SndData[1]	:= WORD#16#030B;	<br/>			arrIBC_SndData[2]	:= WORD#16#0001;<br/>			arrIBC_SndData[3]	:= WORD#16#0008;<br/>			arrIBC_SndData[4]	:= WORD#16#0000;<br/>			arrIBC_SndData[5]	:= WORD#16#0000;<br/>
+									<br/>				xIBC_Req 			:= TRUE;			(*Trigger interbus control FB request*)<br/>				iState 				:= 142;		(*Jump into next step*)<br/>
+									<br/>		142: 	IF xIBC_NDR THEN<br/>
+									<br/>				xIBC_Req	:= FALSE;	(*Reset interbus control function block trigger*)<br/>
+									<br/>
+									<br/>				FOR i := 1 TO iIBS_Modules BY 1<br/>				DO<br/>					iArrayNumber := 5 + i;<br/>					arrIBS_ConfEntry[i].wModuleLevel  := arrIBC_SysConf[iArrayNumber];<br/>				END_FOR;<br/>				iState 				:= 150;		(*Jump into next step*)<br/>
+									<br/>			end_if;<br/>
+									<br/>		150:(*Send request for process data description header of specified module to interbus master*)<br/>			(*Check if module has process data*)<br/>			IF (arrIBS_ConfEntry[iIdxCntMod].iPdLenCompl &gt; 0) THEN<br/>
+									<br/>				arrIBC_SndData[1]	:= WORD#16#0323;	(*0323: Get process data description list request*)<br/>				arrIBC_SndData[2]	:= WORD#16#0003;	(*0003: 3 parameters following*)<br/>				arrIBC_SndData[3]	:= WORD#16#0000 OR BYTE_TO_WORD(arrIBS_ConfEntry[iIdxCntMod].bPosNum) OR SHL(BYTE_TO_WORD(arrIBS_ConfEntry[iIdxCntMod].bBusSegm),8);	(*Specify address of selected module*)<br/>				arrIBC_SndData[4]	:= WORD#16#0000;	(*0000: Only read header of process data description*)<br/>				arrIBC_SndData[5]	:= WORD#16#0000;	(*0000: Only read header of process data description*)<br/>
+									<br/>				xIBC_Req 			:= TRUE;			(*Trigger interbus control FB request*)<br/>				iState 				:= iState + 10;		(*Jump into next step*)<br/>
+									<br/>			(*Select next module if module has no process data*)<br/>			ELSE<br/>				(*Skip next step if last module has no process data*)<br/>				IF (iIdxCntMod = iIBS_Modules) THEN<br/>
+									<br/>					iIdxCntMod	:= 1;				(*Increment index for selection of module*)<br/>					iState 		:= iState + 20;		(*Skip next step, perform next operation*)<br/>
+									<br/>				END_IF;	<br/>
+									<br/>				iIdxCntMod 	:= iIdxCntMod + 1;	(*Select next module*)<br/>
+									<br/>			END_IF;<br/>
+									<br/>		160:(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_NDR THEN<br/>
+									<br/>				xIBC_Req	:= FALSE;	(*Reset interbus control function block trigger*)<br/>				(*Check for error during processing of response from IB master*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>					(*Check if length of response is valid*)<br/>					IF (iIBC_RespDataLength &gt;= 4) THEN<br/>
+									<br/>						xMoreFollows							:= arrIBC_SysConf[1].X0;						(*True -&gt; not all data received, further receive request necessary*)<br/>						arrIBS_ConfEntry[iIdxCntMod].iCntPdd 	:= UINT_TO_INT(WORD_TO_UINT(arrIBC_SysConf[4]));(*Read out number of process data descriptions*)<br/>						(*Check if index of selected interbus module &lt; number of connected interbus modules*)<br/>						(*Jump into previous step to request process data descriptions*)<br/>						IF (iIdxCntMod &lt; iIBS_Modules) THEN<br/>
+									<br/>							iIdxCntMod 	:= iIdxCntMod + 1;	(*Increment index for selection of module*)<br/>							iState 		:= iState - 10;		(*Jump into previous step*)<br/>						(*Jump into next step if process data descriptions of all modules have been received*)<br/>						ELSE<br/>
+									<br/>							iIdxCntMod	:= 1;				(*Increment index for selection of module*)<br/>							iState 		:= iState + 10;		(*Jump into next step*)<br/>
+									<br/>						END_IF;<br/>					(*Jump into error state if length of received data invalid*)<br/>					ELSE<br/>
+									<br/>						xErrConfig 	:= TRUE;	(*Set error flag*)<br/>						iState		:= 999;		(*Jump into error state*)<br/>
+									<br/>					END_IF;<br/>				(*Jump into error state if error while receiving response from IB control FB*) <br/>				ELSE<br/>
+									<br/>					xErrResp 	:= TRUE;	(*Set error flag*)<br/>					iState		:= 999;		(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>		170:(*Send request for process data descriptions of specified module*)<br/>			(*Check if module has process data*)<br/>			IF (arrIBS_ConfEntry[iIdxCntMod].iPdLenCompl &gt; 0) THEN<br/>
+									<br/>				arrIBC_SndData[1]	:= WORD#16#0323;	(*0323: Get process data description list request*)<br/>				arrIBC_SndData[2]	:= WORD#16#0003;	(*0003: 3 parameters following*)<br/>				arrIBC_SndData[3]	:= WORD#16#0000 OR BYTE_TO_WORD(arrIBS_ConfEntry[iIdxCntMod].bPosNum) OR SHL(BYTE_TO_WORD(arrIBS_ConfEntry[iIdxCntMod].bBusSegm),8);	(*Specify module address for process data description request*)<br/>				bTest	:=	arrIBS_ConfEntry[iIdxCntMod].bPosNum;<br/>				arrIBC_SndData[4]	:= WORD#16#0001;	(*0001: Start with process data description index 0001*)<br/>				arrIBC_SndData[5]	:= UINT_TO_WORD(INT_TO_UINT(arrIBS_ConfEntry[iIdxCntMod].iCntPdd));	(*Number of process data descriptions to be received*)<br/>
+									<br/>				xIBC_Req 			:= TRUE;			(*Trigger interbus control FB request*)<br/>				xRecPdDescrList		:= TRUE;			(*Set flag: Process data description list is being received*)<br/>
+									<br/>				iState 				:= iState + 10;		(*Jump into next step*)<br/>
+									<br/>			ELSE<br/>				(*Skip next step if last module has no process data*)<br/>				IF (iIdxCntMod = iIBS_Modules) THEN<br/>
+									<br/>					iIdxCntMod	:= 1;				(*Increment index for selection of module*)<br/>					iState 		:= iState + 20;		(*Skip next step, perform next operation*)<br/>
+									<br/>				END_IF;	<br/>
+									<br/>				iIdxCntMod := iIdxCntMod + 1;		(*Increment index for selection of module*)<br/>
+									<br/>			END_IF;<br/>
+									<br/>		180:(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;	(*Reset interbus control function block trigger*)<br/>				(*Check for error during processing of response from IB master*)<br/>				IF NOT xIBC_Resp_Err THEN<br/>					(*Check if length of response is valid*)<br/>					IF (iIBC_RespDataLength &gt;= 4) THEN<br/>
+									<br/>						xMoreFollows	:= arrIBC_SysConf[1].X0;	(*True -&gt; not all data received, further receive request necessary*)<br/>						xRecPdDescrList	:= FALSE;					(*Reset flag: Receiving process of process data description list finished*)<br/>						(*Jump into next step after processing of all process data descriptions*)<br/>						IF xMoreFollows THEN<br/>
+									<br/>							iState				:= iState - 10;		(*Jump into previous step to receive remaining process data descriptions*)<br/>
+									<br/>						ELSIF (iIdxCntMod = iIBS_Modules) THEN<br/>
+									<br/>							iState				:= iState + 10;		(*Jump into next step*)<br/>
+									<br/>						ELSE<br/>
+									<br/>							iIdxCntMod 			:= iIdxCntMod + 1;	(*Select next module*)<br/>							iState				:= iState - 10;		(*Jump into previous step to receive process data descriptions of next module*)<br/>
+									<br/>						END_IF;<br/>					(*Jump into error state if length of received data invalid*)<br/>					ELSE<br/>
+									<br/>						xErrConfig 	:= TRUE;	(*Set error flag*)<br/>						iState		:= 999;		(*Jump into error state*)<br/>
+									<br/>					END_IF;<br/>
+									<br/>				ELSE<br/>
+									<br/>					xErrResp 	:= TRUE;	(*Error while receiving response from IB control function block*)<br/>					iState		:= 999;		(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>		350:<br/>
+									<br/>			arrIBC_SndData[1]	:= WORD#16#0329;	(*0329: Get process data description list request*)<br/>			arrIBC_SndData[2]	:= WORD#16#0001;	(*0001: 1 parameter following*)<br/>			arrIBC_SndData[3]	:= WORD#16#1000;<br/>
+									<br/>			xRecComp_PD_RefList	:= TRUE;			(*Flag: Receiving compact process data reference list*)<br/>			xIBC_Req 			:= TRUE;			(*Trigger interbus control FB request*)<br/>			iState 				:= iState + 10;		(*Jump into next step*)<br/>
+									<br/>		360:(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;				(*Reset interbus control function block trigger*)<br/>
+									<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					iState 		:= iState + 10;	(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>					<br/>					xErrResp 	:= TRUE;		(*Error while receiving response from IB control function block*)<br/>					iState		:= 999;			(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>			<br/>		370:<br/>
+									<br/>			arrIBC_SndData[1]	:= WORD#16#0329;	(*0323: Get process data description list request*)<br/>			arrIBC_SndData[2]	:= WORD#16#0001;	(*0003: 3 parameters following*)<br/>			arrIBC_SndData[3]	:= WORD#16#2000;<br/>
+									<br/>			xIBC_Req 			:= TRUE;			(*Trigger interbus control FB request*)<br/>			iState 				:= iState + 10;		(*Jump into next step*)<br/>			iTest				:= 370;<br/>
+									<br/>
+									<br/>		380:<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;				(*Reset interbus control function block trigger*)<br/>
+									<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					xRecComp_PD_RefList	:= FALSE;		(*Flag: Receiving compact process data reference list*)<br/>					iState 				:= 190;			(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>					<br/>					xErrResp 			:= TRUE;		(*Error while receiving response from IB control function block*)<br/>					iState				:= 999;			(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>
+									<br/>			(*TODO: Check modules with input and output data*)<br/>			(*TODO: test with RFC + safe components*)<br/>			(*TODO: test with modules containing more than 1 process data description*)<br/>
+									<br/>		190:(*Send release exclusive rights request to IB master*)<br/>
+									<br/>			arrIBC_SndData[1]	:= WORD#16#014F;	(*014F: Change exclusive rights*)<br/>			arrIBC_SndData[2]	:= WORD#16#0001;	(*0001: One parameter following*)<br/>			arrIBC_SndData[3]	:= WORD#16#0000;	(*0000: Release exclusive rights*)<br/>
+									<br/>			xIBC_Req 			:= TRUE;			(*Trigger interbus control FB request*)<br/>
+									<br/>			iState 				:= iState + 10;		(*Jump into next step*)<br/>
+									<br/>		200:(*Wait for response from interbus control function block*)<br/>
+									<br/>			IF xIBC_Resp_NDR THEN<br/>
+									<br/>				xIBC_Req := FALSE;				(*Reset interbus control function block trigger*)<br/>
+									<br/>				IF NOT xIBC_Resp_Err THEN<br/>
+									<br/>					iState 		:= iState + 10;	(*Jump into next step*)<br/>
+									<br/>				ELSE<br/>					<br/>					xErrResp 	:= TRUE;		(*Error while receiving response from IB control function block*)<br/>					iState		:= 999;			(*Jump into error state*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>			END_IF;<br/>
+									<br/>		210:(*Check if interbus is running*)<br/>
+									<br/>			IF MASTER_DIAG_STATUS_REG_RUN THEN<br/>
+									<br/>				xDone 		:= TRUE;	(*Confirm processing of FB complete*)<br/>				iState		:= 0;<br/>
+									<br/>			ELSE<br/>
+									<br/>				xErrBusRun	:= TRUE;	(*Set error flag if interbus not running*)<br/>				iState		:= 999;		(*Jump into error state*)<br/>
+									<br/>			END_IF;<br/>
+									<br/>		999:(*Error state*)<br/>
+									<br/>			xIBC_Req 			:= FALSE;	(*Reset interbus control FB trigger*)<br/>			xStateWatchdogEn 	:= FALSE;	(*Disable watchdog of state machine*)<br/>			iState 				:= iState;	(*Remain in error state until restart of FB*)<br/>
+									<br/>		ELSE<br/>
+									<br/>			iState 		:= 999;				(*Jump into error state if undefined state activated*)<br/>			xErrState	:= TRUE;			(*Set flag: State undefined*)<br/>
+									<br/>	END_CASE;<br/>
+									<br/>
+									<br/>	IF (tWatchdog = TIME#0s) THEN<br/>
+									<br/>		xStateWatchdogEn	:= FALSE;<br/>
+									<br/>	ELSIF ((iState &gt; 0)	AND (iState &lt; 500) AND (iState = iStateLast)) THEN<br/>
+									<br/>		xStateWatchdogEn	:= TRUE;<br/>
+									<br/>	ELSE<br/>
+									<br/>		xStateWatchdogEn	:= FALSE;<br/>
+									<br/>	END_IF;<br/>
+									<br/>	TON_WD_StateMachine.IN := xStateWatchdogEn;<br/>	TON_WD_StateMachine.PT := tWatchdog;<br/>	TON_WD_StateMachine();<br/>
+									<br/>	IF TON_WD_StateMachine.Q THEN<br/>
+									<br/>		(* count each new failure and store last status *)<br/>		udiCountErrState 	:= udiCountErrState + UDINT#1;<br/>		xErrStateMachineWD 	:= TRUE;<br/>
+									<br/>		(* further handling in case of a failure *)<br/>		iState 				:= 999;<br/>
+									<br/>	END_IF;<br/>
+									<br/>END_IF;<br/>
+									<br/>R_TRIG_IBCReq(CLK := xIBC_Req);<br/>
+									<br/>IF R_TRIG_IBCReq.Q THEN<br/>
+									<br/>	FOR iIndex := 1 TO 512 DO<br/>
+									<br/>		arrIBC_RecData[iIndex] := WORD#16#0000;<br/>
+									<br/>	END_FOR;<br/>
+									<br/>END_IF;<br/>
+									<br/>(* remember current step number *)<br/>IF NOT (iState = 999) THEN<br/>
+									<br/>	iStateLast := iState;<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Outputs">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(*Set FB outputs + Error processing*)<br/>
+									<br/>IF xErrParam THEN<br/>
+									<br/>	xReady 				:= FALSE;<br/>	xError				:= TRUE;<br/>	wDiagCode			:= WORD#16#0C10;<br/>	dwAddDiagCode		:= DWORD#16#00000000;<br/>	strDiagCode			:= 'Invalid input parameters';<br/>
+									<br/>ELSIF xErrIBC OR xIBC_Err THEN<br/>
+									<br/>	xReady				:= FALSE;<br/>	xError				:= TRUE;<br/>	wDiagCode			:= WORD#16#0C20;			(*Assign diagnostic code for interbus control FB error*)<br/>	dwAddDiagCode		:= dwIBC_AddErr;			(*Return additional error information from IB control function block*)<br/>	strDiagCode			:= 'Error processing FB IB Control';<br/>
+									<br/>ELSIF xErrResp OR xIBC_Resp_Err THEN<br/>
+									<br/>	xReady 				:= FALSE;<br/>	xError				:= TRUE;<br/>	wDiagCode			:= WORD#16#0C30;<br/>	dwAddDiagCode		:= WORD_TO_DWORD(wIBC_RespDiagCode);<br/>	strDiagCode			:= 'Error processing response from IB master';<br/>
+									<br/>ELSIF xErrConfig THEN<br/>
+									<br/>	xReady				:= FALSE;<br/>	xError				:= TRUE;<br/>	wDiagCode			:= WORD#16#0C40;<br/>	dwAddDiagCode		:= INT_TO_DWORD(iIBC_RespDataLength);<br/>	strDiagCode			:= 'Invalid response data length from IB master';<br/>
+									<br/>ELSIF xErrBusStatus THEN<br/>
+									<br/>	xReady				:= FALSE;<br/>	xError				:= TRUE;<br/>	wDiagCode			:= WORD#16#0C50;<br/>	dwAddDiagCode		:= DWORD#16#00000000;<br/>	dwAddDiagCode.X0	:= udtDiagnosticStatus.xReady;<br/>	dwAddDiagCode.X1	:= udtDiagnosticStatus.xActive;<br/>	dwAddDiagCode.X2	:= udtDiagnosticStatus.xRun;<br/>	strDiagCode			:= 'Wrong bus status';<br/>
+									<br/>ELSIF xDone THEN<br/>
+									<br/>	xReady				:= TRUE;<br/>	wDiagCode			:= WORD#16#1000;<br/>	dwAddDiagCode		:= INT_TO_DWORD(iState);<br/>	strDiagCode			:= 'Bus started';<br/>
+									<br/>ELSIF (iState &gt;= 10) AND (iState &lt;= 30) THEN<br/>
+									<br/>	xReady				:= FALSE;<br/>	wDiagCode			:= WORD#16#8100;<br/>	dwAddDiagCode		:= INT_TO_DWORD(iState);<br/>	strDiagCode			:= 'Initialization';<br/>
+									<br/>ELSIF (iState &gt; 30) AND (iState &lt; 999) THEN<br/>
+									<br/>	xReady				:= FALSE;<br/>	wDiagCode			:= WORD#16#8200;<br/>	dwAddDiagCode		:= INT_TO_DWORD(iState);<br/>	strDiagCode			:= 'Busy';<br/>
+									<br/>ELSIF xActive THEN<br/>
+									<br/>	xReady				:= TRUE;<br/>	wDiagCode			:= WORD#16#8000;<br/>	dwAddDiagCode		:= DWORD#16#00000000;<br/>	strDiagCode			:= 'Ready';<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_InterbusStartupT" xmlns="http://www.w3.org/1999/xhtml">**************************************************************************<br/>
+							<br/>Copyright © 2014 Phoenix Contact GmbH &amp; Co. KG D-32825-Blomberg<br/>All rights reserved<br/>
+							<br/>**************************************************************************<br/>
+							<br/>Name	:	FB_InterbusStartup<br/>
+							<br/>State	:	[x] evaluation  [ ] released<br/>
+							<br/>Development Environment	:<br/>	PC WORX 	:	6.10.200<br/>	Controller	:	ILC 350 PN v3.96F.1, ILC 130 ETH v3.91.04<br/>	Devices		: 	-<br/>
+							<br/>**************************************************************************<br/>
+							<br/>Change Notes:<br/>
+							<br/>Date		Version		Author		Description<br/>--------------------------------------------------------------------------<br/>31.07.17	1.00		PxCE/ACr	initial version<br/>
+							<br/>**************************************************************************<br/>
+							<br/>The function block FB_InterbusStartup reads in the connected interbus<br/>configuration and puts it into operation. The process is started if the<br/>variable xInitNewConfig turns TRUE.<br/>It is important to set the input variable xOS to the correct value.<br/>For ILC 1xx you need to set it to TRUE for eClr.<br/>For ILC 3xx and all RFCs the variable must be set to FALSE for ProConOs.<br/>
+						</div>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

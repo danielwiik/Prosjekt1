@@ -1,0 +1,404 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:34" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666354" modificationDateTime="2017-11-14T14:32:34" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_DeviceMonitoring_01" pouType="functionBlock" pouGroup="Function_Blocks" lastChange="2016-11-22T14:59:52">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xConfirm" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Confirms Alarms</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput01" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput02" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput03" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput04" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput05" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput06" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput07" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput08" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput09" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput10" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput11" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInput12" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">monitorable input</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB is active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xAlarm" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Alarm</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strDiag" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic text</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="udtDeviceMonitoring" group="In- Output Parameter">
+							<type>
+								<derived name="udt_WebDataDevice"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Configuration structure to define the kind of monitoring</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wSpecialScene" group="In- Output Parameter">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Special Scene communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="R_TRIG_1" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_2" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_3" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_4" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_5" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_6" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_7" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_8" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_9" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_10" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_11" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_12" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_1" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_2" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_3" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_4" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_5" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_6" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_7" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_8" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_9" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_10" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_11" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_12" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="true">
+						<variable name="xInit" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="false">
+						<variable name="arrInputs" group="Default">
+							<type>
+								<derived name="ARR_X_1_12"/>
+							</type>
+						</variable>
+						<variable name="arrInputsNC" redundant="true" group="Default">
+							<type>
+								<derived name="ARR_X_1_12"/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xTemp" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="siTemp" redundant="true" group="Default">
+							<type>
+								<SINT/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_DeviceMonitoring_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">R_TRIG_1(CLK	:=	xInput01);<br/>R_TRIG_2(CLK	:=	xInput02);<br/>R_TRIG_3(CLK	:=	xInput03);<br/>R_TRIG_4(CLK	:=	xInput04);<br/>R_TRIG_5(CLK	:=	xInput05);<br/>R_TRIG_6(CLK	:=	xInput06);<br/>R_TRIG_7(CLK	:=	xInput07);<br/>R_TRIG_8(CLK	:=	xInput08);<br/>R_TRIG_9(CLK	:=	xInput09);<br/>R_TRIG_10(CLK	:=	xInput10);<br/>R_TRIG_11(CLK	:=	xInput11);<br/>R_TRIG_12(CLK	:=	xInput12);<br/>F_TRIG_1(CLK	:=	xInput01);<br/>F_TRIG_2(CLK	:=	xInput02);<br/>F_TRIG_3(CLK	:=	xInput03);<br/>F_TRIG_4(CLK	:=	xInput04);<br/>F_TRIG_5(CLK	:=	xInput05);<br/>F_TRIG_6(CLK	:=	xInput06);<br/>F_TRIG_7(CLK	:=	xInput07);<br/>F_TRIG_8(CLK	:=	xInput08);<br/>F_TRIG_9(CLK	:=	xInput09);<br/>F_TRIG_10(CLK	:=	xInput10);<br/>F_TRIG_11(CLK	:=	xInput11);<br/>F_TRIG_12(CLK	:=	xInput12);<br/>
+									<br/>If not xInit then<br/>	xInit :=	True;<br/>	For iLoop := 1 to 12 do<br/>		udtDeviceMonitoring.arrName[iLoop]	:=	'Device '; (* initiate default names *)<br/>		udtDeviceMonitoring.arrName[iLoop]	:=	concat(udtDeviceMonitoring.arrName[iLoop],int_to_string(iLoop,'%02d'));<br/>	End_for;<br/>End_if;<br/>
+									<br/>If xActivate then<br/>	xActive			:=	True;<br/>
+									<br/>	arrInputs[1]	:=	R_TRIG_1.Q;<br/>	arrInputs[2]	:=	R_TRIG_2.Q;<br/>	arrInputs[3]	:=	R_TRIG_3.Q;<br/>	arrInputs[4]	:=	R_TRIG_4.Q;<br/>	arrInputs[5]	:=	R_TRIG_5.Q;<br/>	arrInputs[6]	:=	R_TRIG_6.Q;<br/>	arrInputs[7]	:=	R_TRIG_7.Q;<br/>	arrInputs[8]	:=	R_TRIG_8.Q;<br/>	arrInputs[9]	:=	R_TRIG_9.Q;<br/>	arrInputs[10]	:=	R_TRIG_10.Q;<br/>	arrInputs[11]	:=	R_TRIG_11.Q;<br/>	arrInputs[12]	:=	R_TRIG_12.Q;<br/>
+									<br/>	arrInputsNC[1]	:=	F_TRIG_1.Q;<br/>	arrInputsNC[2]	:=	F_TRIG_2.Q;<br/>	arrInputsNC[3]	:=	F_TRIG_3.Q;<br/>	arrInputsNC[4]	:=	F_TRIG_4.Q;<br/>	arrInputsNC[5]	:=	F_TRIG_5.Q;<br/>	arrInputsNC[6]	:=	F_TRIG_6.Q;<br/>	arrInputsNC[7]	:=	F_TRIG_7.Q;<br/>	arrInputsNC[8]	:=	F_TRIG_8.Q;<br/>	arrInputsNC[9]	:=	F_TRIG_9.Q;<br/>	arrInputsNC[10]	:=	F_TRIG_10.Q;<br/>	arrInputsNC[11]	:=	F_TRIG_11.Q;<br/>	arrInputsNC[12]	:=	F_TRIG_12.Q;<br/>
+									<br/>	For iLoop := 1 to 12 do<br/>		udtDeviceMonitoring.arrSceneActivation[iLoop]	:=	False;<br/>		If udtDeviceMonitoring.arrSelect[iLoop] = usint#1 then		(* Detect rising edge *)<br/>			If arrInputs[iLoop] then<br/>				strDiag	:= 'Error: Unexpectet state at ';			(* NO *)<br/>				strDiag	:=	Concat(strDiag,udtDeviceMonitoring.arrName[iLoop]);<br/>				udtDeviceMonitoring.arrState[iLoop]	:=	True;<br/>				xAlarm	:=	True;<br/>			Elsif arrInputsNC[iLoop] then<br/>				strDiag	:= 'State returned from ';					(* NC *)<br/>				strDiag	:=	Concat(strDiag,udtDeviceMonitoring.arrName[iLoop]);<br/>				udtDeviceMonitoring.arrState[iLoop]	:=	False;<br/>			End_If;<br/>		Elsif udtDeviceMonitoring.arrSelect[iLoop] = usint#2 then	(* Detect falling edge *)<br/>			If arrInputsNC[iLoop] then<br/>				strDiag	:= 'Error: Unexpectet state at ';			(* NC *)<br/>				strDiag	:=	Concat(strDiag,udtDeviceMonitoring.arrName[iLoop]);<br/>				udtDeviceMonitoring.arrState[iLoop]	:=	True;<br/>				xAlarm	:=	True;<br/>			Elsif arrInputs[iLoop] then<br/>				strDiag	:= 'State returned from ';					(* NO *)<br/>				strDiag	:=	Concat(strDiag,udtDeviceMonitoring.arrName[iLoop]);<br/>				udtDeviceMonitoring.arrState[iLoop]	:=	False;<br/>			End_If;<br/>		Elsif udtDeviceMonitoring.arrSelect[iLoop] = usint#3 then	(* Set SpecialScenes NO *)<br/>			udtDeviceMonitoring.arrState[iLoop]				:=	False;<br/>			udtDeviceMonitoring.arrSceneActivation[iLoop]	:=	True;<br/>			siTemp	:=	limit_sint(sint#1,udtDeviceMonitoring.arrSpecialScene[iLoop],sint#15);<br/>			siTemp	:=	siTemp - sint#1;<br/>			If arrInputs[iLoop] then<br/>				wSpecialScene	:=	S_BIT_IN_WORD(true,wSpecialScene,siTemp);<br/>			Elsif arrInputsNC[iLoop] then<br/>				wSpecialScene	:=	R_BIT_IN_WORD(true,wSpecialScene,siTemp);<br/>			End_if;<br/>		Elsif udtDeviceMonitoring.arrSelect[iLoop] = usint#4 then	(* Set SpecialScenes NC *)<br/>			udtDeviceMonitoring.arrState[iLoop]				:=	False;<br/>			udtDeviceMonitoring.arrSceneActivation[iLoop]	:=	True;<br/>			siTemp	:=	limit_sint(sint#1,udtDeviceMonitoring.arrSpecialScene[iLoop],sint#15);<br/>			siTemp	:=	siTemp - sint#1;<br/>			If arrInputsNC[iLoop] then<br/>				wSpecialScene	:=	S_BIT_IN_WORD(true,wSpecialScene,siTemp);<br/>			Elsif arrInputs[iLoop] then<br/>				wSpecialScene	:=	R_BIT_IN_WORD(true,wSpecialScene,siTemp);<br/>			End_if;<br/>
+									<br/>	(*	Elsif udtDeviceMonitoring.arrSelect[iLoop] = usint#5 then	 Set Configuration *)<br/>
+									<br/>	(*	Elsif udtDeviceMonitoring.arrSelect[iLoop] = usint#6 then	 Set Configuration *)<br/>		Else<br/>			udtDeviceMonitoring.arrState[iLoop]				:=	False;<br/>		End_if;<br/>	End_for;<br/>
+									<br/>	If xAlarm then<br/>		If xConfirm then<br/>			For iLoop := 1 to 12 do<br/>				If udtDeviceMonitoring.arrState[iLoop] then<br/>					xTemp	:=	udtDeviceMonitoring.arrState[iLoop];<br/>					Exit;<br/>				Else<br/>					xTemp	:=	udtDeviceMonitoring.arrState[iLoop];<br/>				End_if;<br/>			End_for;<br/>			If not xTemp then<br/>				strDiag	:= 'Device monitoring alarm confirmed';<br/>				xAlarm	:=	False;<br/>			Else<br/>				strDiag	:= 'Device Alarm confirmed, but is still active';<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>Else<br/>	xActive	:=	False;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_DeviceMonitoring_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

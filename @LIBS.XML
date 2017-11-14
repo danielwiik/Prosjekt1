@@ -1,0 +1,30 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:34" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666354" modificationDateTime="2017-11-14T14:32:34" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<libraries>
+		<library name="AnalogTechnology_V1_26" firmware="false" path="\AnalogTechnology_V1_26.mwt"/>
+		<library name="Modbus_V2_02" firmware="false" path="\Modbus_V2_02.mwt"/>
+		<library name="IT_Library_V1_34" firmware="false" path="\IT_Library_V1_34.mwt"/>
+		<library name="TransBasic_00_02" firmware="false" path="\TransBasic_00_02.mwt"/>
+	</libraries>
+	<types>
+		<dataTypes/>
+		<pous/>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

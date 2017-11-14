@@ -1,0 +1,750 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_TCS_Communication_01" pouType="functionBlock" pouGroup="Interface" lastChange="2016-07-18T09:54:01">
+				<interface>
+					<localVars retain="false">
+						<variable name="TON_Timeout" group="Function">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+						<variable name="TON_SceneDelay" group="Function">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+						<variable name="MB_TCP_Server_V2_00_1" group="Function">
+							<type>
+								<derived name="MB_TCP_Server_V2_00"/>
+							</type>
+						</variable>
+					</localVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xError" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="strDiag" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+						</variable>
+						<variable name="xDataValid" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</outputVars>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xConfirm" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="arrInputsL20" group="Input Parameter">
+							<type>
+								<derived name="arr_1_4_udtAnalogInput"/>
+							</type>
+						</variable>
+						<variable name="udtLumgateMain" group="Input Parameter">
+							<type>
+								<derived name="udtWebLG_Main"/>
+							</type>
+						</variable>
+						<variable name="arrScenarioHourCounter" group="Input Parameter">
+							<type>
+								<derived name="arr_1_50_udtLumgatePart1"/>
+							</type>
+						</variable>
+						<variable name="iOperatingSeconds" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iOperatingMinutes" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="udiOperatingHours" group="Input Parameter">
+							<type>
+								<UDINT/>
+							</type>
+						</variable>
+					</inputVars>
+					<inOutVars retain="false">
+						<variable name="arrLumgates" group="In- Output Parameter">
+							<type>
+								<derived name="arr_1_240_udtLumgate"/>
+							</type>
+						</variable>
+						<variable name="udtScenarioMode" group="In- Output Parameter">
+							<type>
+								<derived name="udtScene"/>
+							</type>
+						</variable>
+						<variable name="wSpecialScenario" group="In- Output Parameter">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="udtNetworkConfiguration" group="In- Output Parameter">
+							<type>
+								<derived name="udtNetwork"/>
+							</type>
+						</variable>
+						<variable name="udtL20Config" group="In- Output Parameter">
+							<type>
+								<derived name="udtL20Input"/>
+							</type>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="arrExternalDataIn" group="Default">
+							<type>
+								<derived name="PND_IO_512"/>
+							</type>
+						</variable>
+						<variable name="arrExternalDataOut" group="Default">
+							<type>
+								<derived name="PND_IO_512"/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="PND_S1S1_INPUTS" group="Default">
+							<type>
+								<derived name="PND_IO_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Eingangsprozessdaten</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="PND_S1S1_OUTPUTS" group="Default">
+							<type>
+								<derived name="PND_IO_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Ausgangsprozessdaten</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="PLC_HAS_PRJ_BOOT" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Bootprojekt vorhanden</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="PLC_CRC_PRJ_BOOT" group="Default">
+							<type>
+								<DWORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">CRC des Bootprojektes</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="PLC_CRC_PRJ_RAM" group="Default">
+							<type>
+								<DWORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">CRC des Projektes im RAM</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="COP_CPU_LOAD_WARNING" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Der Controller befindet sich im Grenzbereich seiner Prozessorauslastung</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="PLCDEBUG_BPSET" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Breakpoint gesetzt</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="CLOCK_PULSE_1S" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Taktgeber 1s</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="MASTER_DIAG_STATUS_REG_PF" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Peripheriestörung</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="MASTER_DIAG_STATUS_REG_RUN" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Datenübertragung ist aktiv</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT0" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN1</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT8" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN9</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_OUTPUT_BIT0" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Ausgang OUT1</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT1" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN2</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT2" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN3</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT3" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN4</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT4" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN5</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT5" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN6</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT6" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN7</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT7" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN8</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT9" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN10</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT10" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN11</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_INPUT_BIT11" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Eingang IN12</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_OUTPUT_BIT1" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Ausgang OUT2</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_OUTPUT_BIT2" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Ausgang OUT3</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="ONBOARD_OUTPUT_BIT3" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lokaler Ausgang OUT4</p>
+								</html>
+							</documentation>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="xLifeBit" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xOldLifeBit" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iTempLocation" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xErrorTooMuchScenarioActive" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop3" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="bSelectDataLumgate" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="bSelectScenarioHourCounter" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="rTempValue" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="wTempValue" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="iSelectScenarioHourCounter" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="dwTempValueHours" group="Default">
+							<type>
+								<DWORD/>
+							</type>
+						</variable>
+						<variable name="iByteAddress" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iBitAddress" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iSelectedLumgate" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="bOldByte1" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="bOldByte2" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="bOldByte3" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="bOldByte4" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="bOldByte5" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="udtLevelConfigurationL20_1" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="bTemp" redundant="true" group="Default">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="iTemp" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="udtLevelConfigurationL20_2" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="udtLevelConfigurationL20_3" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="udtLevelConfigurationL20_4" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="dwTemp" group="Default">
+							<type>
+								<DWORD/>
+							</type>
+						</variable>
+						<variable name="iPort" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xQuit" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xAutoQuit" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xUDP" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xActive_MB_Server" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xConnection_MB_Server" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xError_MB_Server" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="wDiagCode_MB_Server" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="wAddDiagCode_MB_Server" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="uiRegOffset" redundant="true" group="Default">
+							<type>
+								<UINT/>
+							</type>
+						</variable>
+						<variable name="uiRegOffsetInputs" redundant="true" group="Default">
+							<type>
+								<UINT/>
+							</type>
+						</variable>
+						<variable name="uiRegOffsetCoils" redundant="true" group="Default">
+							<type>
+								<UINT/>
+							</type>
+						</variable>
+						<variable name="MB_Data_External" group="Default">
+							<type>
+								<derived name="MB2_TCP_ARR_W_0_7167"/>
+							</type>
+						</variable>
+						<variable name="iExternalData" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="uiSelectedLumgate" group="Default">
+							<type>
+								<UINT/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="InputData">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">TON_Timeout(PT:=t#30s);<br/>TON_SceneDelay(IN:=((arrExternalDataIn[1] &lt;&gt; bOldByte1) or (arrExternalDataIn[2] &lt;&gt; bOldByte2)<br/>or (arrExternalDataIn[3] &lt;&gt; bOldByte3) or (arrExternalDataIn[4] &lt;&gt; bOldByte4)<br/>or (arrExternalDataIn[5] &lt;&gt; bOldByte5)),PT:=t#0.1s);<br/>
+									<br/>(* TLS_Communication *)<br/>If xActivate then<br/>	xActive	:=	True;<br/>	(* Life bit from external system *)<br/>	xLifeBit			:=	arrExternalDataIn[0].X0;<br/>	TON_Timeout.IN		:=	(xLifeBit = xOldLifeBit);<br/>
+									<br/>	If xLifeBit &lt;&gt; xOldLifeBit then<br/>		xOldLifeBit	:=	xLifeBit;<br/>		strDiag	:=	'New data received from upper system';<br/>		xDataValid	:=	True;<br/>	Elsif TON_Timeout.Q then<br/>		xDataValid	:=	False;<br/>		xError	:=	True;<br/>		strDiag	:=	'Error: No incoming data from upper system';<br/>	End_if;<br/>
+									<br/>	If xError then<br/>		If xConfirm then<br/>			If xDataValid then<br/>				strDiag	:=	'TCS communication error confirmed';<br/>				xError	:=	False;<br/>			Else<br/>				strDiag	:=	'TCS communication error is still active';<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	(* Activate dimming scenarios *)<br/>	iTempLocation				:=	0;<br/>	xErrorTooMuchScenarioActive	:= 	False;<br/>
+									<br/>
+									<br/>	If TON_SceneDelay.Q then<br/>
+									<br/>		udtScenarioMode.arrExternalInputScene[1]	:=	0;<br/>		udtScenarioMode.arrExternalInputScene[2]	:=	0;<br/>		udtScenarioMode.arrExternalInputScene[3]	:=	0;<br/>		udtScenarioMode.arrExternalInputScene[4]	:=	0;<br/>
+									<br/>		bOldByte1	:=	arrExternalDataIn[1];<br/>		bOldByte2	:=	arrExternalDataIn[2];<br/>		bOldByte3	:=	arrExternalDataIn[3];<br/>		bOldByte4	:=	arrExternalDataIn[4];<br/>		bOldByte5	:=	arrExternalDataIn[5];<br/>		For iLoop := 0 to 5 do<br/>			iLoop2	:= 	iLoop + 1;<br/>			If arrExternalDataIn[iLoop2].X0 then<br/>				iTempLocation	:=	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 1;<br/>				End_If;<br/>			End_If;<br/>			If arrExternalDataIn[iLoop2].X1 Then<br/>				iTempLocation	:= 	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 Then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 2;<br/>				End_If;<br/>			End_If;<br/>			If arrExternalDataIn[iLoop2].X2 Then<br/>				iTempLocation	:= 	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 Then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 3;<br/>				End_If;<br/>			End_If;<br/>			If arrExternalDataIn[iLoop2].X3 Then<br/>				iTempLocation	:= 	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 Then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 4;<br/>				End_If;<br/>			End_If;<br/>			If arrExternalDataIn[iLoop2].X4 Then<br/>				iTempLocation	:= 	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 Then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 5;<br/>				End_If;<br/>			End_If;<br/>			If arrExternalDataIn[iLoop2].X5 Then<br/>				iTempLocation	:= 	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 Then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 6;<br/>				End_If;<br/>			End_If;<br/>			If arrExternalDataIn[iLoop2].X6 Then<br/>				iTempLocation	:= 	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 Then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 7;<br/>				End_If;<br/>			End_If;<br/>			If arrExternalDataIn[iLoop2].X7 Then<br/>				iTempLocation	:= 	iTempLocation + 1;<br/>				If iTempLocation &lt; 5 Then<br/>					udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	iLoop * 8 + 8;<br/>				End_If;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		If arrExternalDataIn[7].X0 Then<br/>			iTempLocation	:= 	iTempLocation + 1;<br/>			If iTempLocation &lt; 5 Then<br/>				udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	49;<br/>			End_If;<br/>		End_If;<br/>		If arrExternalDataIn[7].X1 Then<br/>			iTempLocation	:= 	iTempLocation + 1;<br/>			If iTempLocation &lt; 5 Then<br/>				udtScenarioMode.arrExternalInputScene[iTempLocation]	:= 	50;<br/>			End_If;<br/>		End_If;<br/>
+									<br/>		If iTempLocation &gt; 4 then<br/>			xErrorTooMuchScenarioActive	:= 	True;<br/>			strDiag	:=	'Error: too much scenes active';<br/>		End_If;<br/>	End_if;<br/>
+									<br/>	(* Activate special scenarios *)<br/>	wSpecialScenario.B0	:=	arrExternalDataIn[8];<br/>	wSpecialScenario.B1	:=	arrExternalDataIn[9];<br/>
+									<br/>	(* Select scenario hour counter (1-50) *)<br/>	bSelectScenarioHourCounter	:=	arrExternalDataIn[10];<br/>
+									<br/>	(* Select data from one Lumgate *)<br/>	bSelectDataLumgate	:=	arrExternalDataIn[11];<br/>
+									<br/>	(* 2: System is Modbus connected, own inputs are used, different threshold columns can be used *)<br/>	(* 3: System is Profinet connected, own inputs are used, different threshold columns can be used *)<br/>	If udtNetworkConfiguration.iMode = 2 or udtNetworkConfiguration.iMode = 3 then<br/>
+									<br/>		(* Threshold table 1 *)<br/>		udtLevelConfigurationL20_1.xActive	:= arrExternalDataIn[15].X0;<br/>
+									<br/>		bTemp		:= Byte#0;<br/>		bTemp.X0	:= arrExternalDataIn[15].X1;<br/>		bTemp.X1	:= arrExternalDataIn[15].X2;<br/>		bTemp.X2	:= arrExternalDataIn[15].X3;<br/>
+									<br/>		iTemp		:= Byte_To_Int(bTemp);<br/>
+									<br/>		udtLevelConfigurationL20_1.xActiveConfig1		:= False;<br/>		udtLevelConfigurationL20_1.xActiveConfig2		:= False;<br/>		udtLevelConfigurationL20_1.xActiveConfig3		:= False;<br/>		udtLevelConfigurationL20_1.xActiveConfig4		:= False;<br/>
+									<br/>		Case iTemp Of<br/>		1:	udtLevelConfigurationL20_1.xActiveConfig1	:= True;<br/>		2:	udtLevelConfigurationL20_1.xActiveConfig2	:= True;<br/>		3:	udtLevelConfigurationL20_1.xActiveConfig3	:= True;<br/>		4:	udtLevelConfigurationL20_1.xActiveConfig4	:= True;<br/>		Else<br/>			udtLevelConfigurationL20_1.xActiveConfig1	:= True;<br/>		End_Case;<br/>
+									<br/>		(* Threshold table 2 *)<br/>		udtLevelConfigurationL20_2.xActive	:= arrExternalDataIn[16].X0;<br/>
+									<br/>		bTemp		:= Byte#0;<br/>		bTemp.X0	:= arrExternalDataIn[16].X1;<br/>		bTemp.X1	:= arrExternalDataIn[16].X2;<br/>		bTemp.X2	:= arrExternalDataIn[16].X3;<br/>
+									<br/>		iTemp		:= Byte_To_Int(bTemp);<br/>
+									<br/>		udtLevelConfigurationL20_2.xActiveConfig1		:= False;<br/>		udtLevelConfigurationL20_2.xActiveConfig2		:= False;<br/>		udtLevelConfigurationL20_2.xActiveConfig3		:= False;<br/>		udtLevelConfigurationL20_2.xActiveConfig4		:= False;<br/>
+									<br/>		Case iTemp Of<br/>		1:	udtLevelConfigurationL20_2.xActiveConfig1	:= True;<br/>		2:	udtLevelConfigurationL20_2.xActiveConfig2	:= True;<br/>		3:	udtLevelConfigurationL20_2.xActiveConfig3	:= True;<br/>		4:	udtLevelConfigurationL20_2.xActiveConfig4	:= True;<br/>		Else<br/>			udtLevelConfigurationL20_2.xActiveConfig1	:= True;<br/>		End_Case;<br/>
+									<br/>		(* Threshold table 3 *)<br/>		udtLevelConfigurationL20_3.xActive	:= arrExternalDataIn[17].X0;<br/>
+									<br/>		bTemp		:= Byte#0;<br/>		bTemp.X0	:= arrExternalDataIn[17].X1;<br/>		bTemp.X1	:= arrExternalDataIn[17].X2;<br/>		bTemp.X2	:= arrExternalDataIn[17].X3;<br/>
+									<br/>		iTemp		:= Byte_To_Int(bTemp);<br/>
+									<br/>		udtLevelConfigurationL20_3.xActiveConfig1		:= False;<br/>		udtLevelConfigurationL20_3.xActiveConfig2		:= False;<br/>		udtLevelConfigurationL20_3.xActiveConfig3		:= False;<br/>		udtLevelConfigurationL20_3.xActiveConfig4		:= False;<br/>
+									<br/>		Case iTemp Of<br/>		1:	udtLevelConfigurationL20_3.xActiveConfig1	:= True;<br/>		2:	udtLevelConfigurationL20_3.xActiveConfig2	:= True;<br/>		3:	udtLevelConfigurationL20_3.xActiveConfig3	:= True;<br/>		4:	udtLevelConfigurationL20_3.xActiveConfig4	:= True;<br/>		Else<br/>			udtLevelConfigurationL20_3.xActiveConfig1	:= True;<br/>		End_Case;<br/>
+									<br/>		(* Threshold table 4 *)<br/>		udtLevelConfigurationL20_4.xActive	:= arrExternalDataIn[18].X0;<br/>
+									<br/>		bTemp		:= Byte#0;<br/>		bTemp.X0	:= arrExternalDataIn[18].X1;<br/>		bTemp.X1	:= arrExternalDataIn[18].X2;<br/>		bTemp.X2	:= arrExternalDataIn[18].X3;<br/>
+									<br/>		iTemp		:= Byte_To_Int(bTemp);<br/>
+									<br/>		udtLevelConfigurationL20_4.xActiveConfig1		:= False;<br/>		udtLevelConfigurationL20_4.xActiveConfig2		:= False;<br/>		udtLevelConfigurationL20_4.xActiveConfig3		:= False;<br/>		udtLevelConfigurationL20_4.xActiveConfig4		:= False;<br/>
+									<br/>		Case iTemp Of<br/>		1:	udtLevelConfigurationL20_4.xActiveConfig1	:= True;<br/>		2:	udtLevelConfigurationL20_4.xActiveConfig2	:= True;<br/>		3:	udtLevelConfigurationL20_4.xActiveConfig3	:= True;<br/>		4:	udtLevelConfigurationL20_4.xActiveConfig4	:= True;<br/>		Else<br/>			udtLevelConfigurationL20_4.xActiveConfig1	:= True;<br/>		End_Case;<br/>	End_If;<br/>Else<br/>	xActive	:=	False;<br/>	xError	:=	False;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="OutputData">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* TLS_Communication *)<br/>If xActivate then<br/>	(* Boot project available, boot and ram are equal *)<br/>	arrExternalDataOut[0].X0	:=	PLC_HAS_PRJ_BOOT &gt; Byte#0 and (PLC_CRC_PRJ_BOOT = PLC_CRC_PRJ_RAM);<br/>
+									<br/>	(* CPU load warning *)<br/>	arrExternalDataOut[0].X1	:=	COP_CPU_LOAD_WARNING;<br/>
+									<br/>	(* Breakpoint set *)<br/>	arrExternalDataOut[0].X2	:=	PLCDEBUG_BPSET;<br/>
+									<br/>	(* Clock pulse 1 second *)<br/>	arrExternalDataOut[0].X3	:=	CLOCK_PULSE_1S;<br/>
+									<br/>	(* Peripheral fault *)<br/>	arrExternalDataOut[0].X4	:=	MASTER_DIAG_STATUS_REG_PF;<br/>
+									<br/>	(* Data transmission active *)<br/>	arrExternalDataOut[0].X5	:=	MASTER_DIAG_STATUS_REG_RUN;<br/>
+									<br/>	(* Life bit (copy from input register byte 0 bit 0) *)<br/>	arrExternalDataOut[0].X6	:=	xLifeBit;<br/>
+									<br/>	(* Clear analog values *)<br/>
+									<br/>	For iLoop 	:=	1 to 8 do<br/>		arrExternalDataOut[iLoop]	:=	Byte#0;<br/>	End_For;<br/>
+									<br/>	(* Analog input channel 1 to 4 *)<br/>	For iLoop 	:=	1 to 4 do<br/>		iLoop3	:=	iLoop * 2 - 1;<br/>		iLoop2	:=	iLoop * 2;<br/>
+									<br/>	(*	If arrInputsL20[iLoop].xActive then	*)<br/>			If iLoop = 1 and udtL20Config.rMaxCd1 &gt; 0.0 then<br/>				rTempValue					:=	Limit_Real(0.0,arrInputsL20[iLoop].rValue / udtL20Config.rMaxCd1 * 1000.0,1000.0);<br/>			Elsif iLoop = 2 and udtL20Config.rMaxCd2 &gt; 0.0 then<br/>				rTempValue					:=	Limit_Real(0.0,arrInputsL20[iLoop].rValue / udtL20Config.rMaxCd2 * 1000.0,1000.0);<br/>			Elsif iLoop = 3 and udtL20Config.rMaxCd3 &gt; 0.0 then<br/>				rTempValue					:=	Limit_Real(0.0,arrInputsL20[iLoop].rValue / udtL20Config.rMaxCd3 * 1000.0,1000.0);<br/>			Elsif iLoop = 4 and udtL20Config.rMaxCd4 &gt; 0.0 then<br/>				rTempValue					:=	Limit_Real(0.0,arrInputsL20[iLoop].rValue / udtL20Config.rMaxCd4 * 1000.0,1000.0);<br/>			End_if;<br/>
+									<br/>			wTempValue						:=	Real_To_Word(rTempValue);<br/>			arrExternalDataOut[iLoop3]		:=	wTempValue.B0;<br/>			arrExternalDataOut[iLoop2].X0	:=	wTempValue.X8;<br/>			arrExternalDataOut[iLoop2].X1	:=	wTempValue.X9;<br/>			arrExternalDataOut[iLoop2].X2	:=	arrInputsL20[iLoop].wDiagCode.X0;<br/>			arrExternalDataOut[iLoop2].X3	:=	arrInputsL20[iLoop].wDiagCode.X1;<br/>			arrExternalDataOut[iLoop2].X7	:=	arrInputsL20[iLoop].xActive;<br/>			<br/>	(*	End_If;	*)<br/>	End_For;<br/>
+									<br/>	(* Active dimming scenarios *)<br/>	arrExternalDataOut[10]	:=	Int_To_Byte(udtScenarioMode.arrActualScene[1]);<br/>	arrExternalDataOut[11]	:=	Int_To_Byte(udtScenarioMode.arrActualScene[2]);<br/>	arrExternalDataOut[12]	:=	Int_To_Byte(udtScenarioMode.arrActualScene[3]);<br/>	arrExternalDataOut[13]	:=	Int_To_Byte(udtScenarioMode.arrActualScene[4]);<br/>
+									<br/>	(* Active special scenarios *)<br/>	arrExternalDataOut[15]	:=	wSpecialScenario.B0;<br/>	arrExternalDataOut[16]	:=	wSpecialScenario.B1; <br/>
+									<br/>	(* Select scenario hour counter *)<br/>	arrExternalDataOut[20]		:=	bSelectScenarioHourCounter;<br/>	iSelectScenarioHourCounter	:=	Byte_To_Int(bSelectScenarioHourCounter);<br/>	iSelectScenarioHourCounter	:=	Limit_Int(1,iSelectScenarioHourCounter,50);<br/>
+									<br/>	dwTempValueHours			:=	Udint_To_Dword(arrScenarioHourCounter[iSelectScenarioHourCounter].udiHours);<br/>
+									<br/>	arrExternalDataOut[21]		:=	dwTempValueHours.B0;<br/>	arrExternalDataOut[22]		:=	dwTempValueHours.B1;<br/>	arrExternalDataOut[23]		:=	dwTempValueHours.B2;<br/>	arrExternalDataOut[24]		:=	dwTempValueHours.B3;<br/>
+									<br/>	arrExternalDataOut[25]		:=	Int_to_Byte(arrScenarioHourCounter[iSelectScenarioHourCounter].iMinutes);<br/>	arrExternalDataOut[26]		:=	Int_to_Byte(arrScenarioHourCounter[iSelectScenarioHourCounter].iSeconds);<br/>
+									<br/>	(* Amount of Lumgates *)<br/>	arrExternalDataOut[30]		:=	Int_To_Byte(udtLumgateMain.arrAmountLumgates[1]);<br/>	arrExternalDataOut[31]		:=	Int_To_Byte(udtLumgateMain.arrAmountLumgates[2]);<br/>	arrExternalDataOut[32]		:=	Int_To_Byte(udtLumgateMain.arrAmountLumgates[3]);<br/>	arrExternalDataOut[33]		:=	Int_To_Byte(udtLumgateMain.arrAmountLumgates[4]);<br/>
+									<br/>	(* Lumgate available *)<br/>	For iLoop 	:=	35 to 64 do<br/>		arrExternalDataOut[iLoop]	:=	Byte#0;<br/>	End_For;<br/>
+									<br/>	For iLoop 	:=	1 to 240 do<br/>		iByteAddress		:=	iLoop / 8 + 35; (* 35 is first byte *)<br/>		iBitAddress			:=	(iLoop Mod 8);<br/>
+									<br/>		If iBitAddress = 0 then (* Division by 8 possible *)<br/>			iByteAddress	:=	iByteAddress - 1;<br/>		End_If;<br/>
+									<br/>		Case iBitAddress of<br/>			0:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X7	:=	True;<br/>				End_If;<br/>			1:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X0	:=	True;<br/>				End_If;<br/>			2:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X1	:=	True;<br/>				End_If;<br/>			3:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X2	:=	True;<br/>				End_If;<br/>			4:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X3	:=	True;<br/>				End_If;<br/>			5:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X4	:=	True;<br/>				End_If;<br/>			6:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X5	:=	True;<br/>				End_If;<br/>			7:<br/>				If arrLumgates[iLoop].xAvailable then<br/>					arrExternalDataOut[iByteAddress].X6	:=	True;<br/>				End_If;<br/>		End_Case;<br/>	End_For;<br/>
+									<br/>	(* Lumgate error *)<br/>	For iLoop 	:=	65 to 94 do<br/>		arrExternalDataOut[iLoop]	:=	Byte#0;<br/>	End_For;<br/>
+									<br/>	For iLoop 	:=	1 to 240 do<br/>		iByteAddress		:=	iLoop / 8 + 65; (* 65 is first byte *)<br/>		iBitAddress			:=	(iLoop Mod 8);<br/>	<br/>		If iBitAddress = 0 then (* Division by 8 possible *)<br/>			iByteAddress	:=	iByteAddress - 1;<br/>		End_If;<br/>
+									<br/>		Case iBitAddress Of<br/>			0:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X7	:=	True;<br/>				End_If;<br/>			1:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X0	:=	True;<br/>				End_If;<br/>			2:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X1	:=	True;<br/>				End_If;<br/>			3:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X2	:=	True;<br/>				End_If;<br/>			4:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X3	:=	True;<br/>				End_If;<br/>			5:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X4	:=	True;<br/>				End_If;<br/>			6:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X5	:=	True;<br/>				End_If;<br/>			7:<br/>				If arrLumgates[iLoop].xError then<br/>					arrExternalDataOut[iByteAddress].X6	:=	True;<br/>				End_If;<br/>		End_Case;<br/>	End_For;<br/>
+									<br/>	(* Detailed Lumgate data *)<br/>	uiSelectedLumgate			:=	Byte_To_UInt(bSelectDataLumgate);<br/>	iSelectedLumgate			:=	UInt_To_Int(uiSelectedLumgate);<br/>	iSelectedLumgate			:=	Limit_Int(1,iSelectedLumgate,240);<br/>	arrExternalDataOut[100]		:=	Int_to_Byte(iSelectedLumgate);<br/>
+									<br/>	arrExternalDataOut[101].X0	:=	arrLumgates[iSelectedLumgate].xAvailable;<br/>	arrExternalDataOut[101].X1	:=	arrLumgates[iSelectedLumgate].xAutomaticManual;<br/>	arrExternalDataOut[101].X2	:=	arrLumgates[iSelectedLumgate].xRelay1;<br/>	arrExternalDataOut[101].X3	:=	arrLumgates[iSelectedLumgate].xRelay2;<br/>	arrExternalDataOut[101].X4	:=	arrLumgates[iSelectedLumgate].xInput1;<br/>	arrExternalDataOut[101].X5	:=	arrLumgates[iSelectedLumgate].xInput2;<br/>	arrExternalDataOut[101].X6	:=	arrLumgates[iSelectedLumgate].xFailMode;<br/>	arrExternalDataOut[101].X7	:=	arrLumgates[iSelectedLumgate].xSafeSet;<br/>
+									<br/>	wTempValue				:=	Int_To_Word(arrLumgates[iSelectedLumgate].iActualOutputLevel);<br/>	arrExternalDataOut[102]	:=	wTempValue.B0;<br/>	arrExternalDataOut[103]	:=	wTempValue.B1;<br/>
+									<br/>	wTempValue				:=	Int_To_Word(arrLumgates[iSelectedLumgate].iMeasurement);<br/>	arrExternalDataOut[104]	:=	wTempValue.B0;<br/>	arrExternalDataOut[105]	:=	wTempValue.B1;<br/>
+									<br/>
+									<br/>	dwTempValueHours		:=	Udint_To_Dword(arrLumgates[iSelectedLumgate].udtHourCounterGeneral.udiHours);<br/>
+									<br/>	arrExternalDataOut[106]	:=	dwTempValueHours.B0;<br/>	arrExternalDataOut[107]	:=	dwTempValueHours.B1;<br/>	arrExternalDataOut[108]	:=	dwTempValueHours.B2;<br/>	arrExternalDataOut[109]	:=	dwTempValueHours.B3;<br/>
+									<br/>	arrExternalDataOut[110]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounterGeneral.iMinutes);<br/>	arrExternalDataOut[111]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounterGeneral.iSeconds);<br/>
+									<br/>
+									<br/>	dwTempValueHours		:=	Udint_To_Dword(arrLumgates[iSelectedLumgate].udtHourCounterMaintenance.udiHours);<br/>
+									<br/>	arrExternalDataOut[112]	:=	dwTempValueHours.B0;<br/>	arrExternalDataOut[113]	:=	dwTempValueHours.B1;<br/>	arrExternalDataOut[114]	:=	dwTempValueHours.B2;<br/>	arrExternalDataOut[115]	:=	dwTempValueHours.B3;<br/>
+									<br/>	arrExternalDataOut[116]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounterMaintenance.iMinutes);<br/>	arrExternalDataOut[117]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounterMaintenance.iSeconds);<br/>
+									<br/>
+									<br/>	dwTempValueHours		:=	Udint_To_Dword(arrLumgates[iSelectedLumgate].udtHourCounter20_50.udiHours);<br/>
+									<br/>	arrExternalDataOut[118]	:=	dwTempValueHours.B0;<br/>	arrExternalDataOut[119]	:=	dwTempValueHours.B1;<br/>	arrExternalDataOut[120]	:=	dwTempValueHours.B2;<br/>	arrExternalDataOut[121]	:=	dwTempValueHours.B3;<br/>
+									<br/>	arrExternalDataOut[122]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounter20_50.iMinutes);<br/>	arrExternalDataOut[123]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounter20_50.iSeconds);<br/>
+									<br/>
+									<br/>	dwTempValueHours		:=	Udint_To_Dword(arrLumgates[iSelectedLumgate].udtHourCounter50_75.udiHours);<br/>
+									<br/>	arrExternalDataOut[124]	:=	dwTempValueHours.B0;<br/>	arrExternalDataOut[125]	:=	dwTempValueHours.B1;<br/>	arrExternalDataOut[126]	:=	dwTempValueHours.B2;<br/>	arrExternalDataOut[127]	:=	dwTempValueHours.B3;<br/>
+									<br/>	arrExternalDataOut[128]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounter50_75.iMinutes);<br/>	arrExternalDataOut[129]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounter50_75.iSeconds);<br/>
+									<br/>
+									<br/>	dwTempValueHours		:=	Udint_To_Dword(arrLumgates[iSelectedLumgate].udtHourCounter75_100.udiHours);<br/>
+									<br/>	arrExternalDataOut[130]	:=	dwTempValueHours.B0;<br/>	arrExternalDataOut[131]	:=	dwTempValueHours.B1;<br/>	arrExternalDataOut[132]	:=	dwTempValueHours.B2;<br/>	arrExternalDataOut[133]	:=	dwTempValueHours.B3;<br/>
+									<br/>	arrExternalDataOut[134]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounter75_100.iMinutes);<br/>	arrExternalDataOut[135]	:=	Int_to_Byte(arrLumgates[iSelectedLumgate].udtHourCounter75_100.iSeconds);<br/>
+									<br/>
+									<br/>	arrExternalDataOut[136].X0	:=	arrLumgates[iSelectedLumgate].udtCurrentCheck.xError;<br/>	arrExternalDataOut[136].X1	:=	arrLumgates[iSelectedLumgate].udtCurrentCheck.xWarning;<br/>
+									<br/>	arrExternalDataOut[141]	:=	Int_to_Byte(iOperatingSeconds);<br/>	arrExternalDataOut[142]	:=	Int_to_Byte(iOperatingMinutes);<br/>	dwTemp					:=	udint_to_dword(udiOperatingHours);<br/>	arrExternalDataOut[137]	:=	dwTemp.B0;<br/>	arrExternalDataOut[138]	:=	dwTemp.B1;<br/>	arrExternalDataOut[139]	:=	dwTemp.B2;<br/>	arrExternalDataOut[140]	:=	dwTemp.B3;<br/>
+									<br/>	arrExternalDataOut[143].X0	:=	ONBOARD_INPUT_BIT0;<br/>	arrExternalDataOut[143].X1	:=	ONBOARD_INPUT_BIT1;<br/>	arrExternalDataOut[143].X2	:=	ONBOARD_INPUT_BIT2;<br/>	arrExternalDataOut[143].X3	:=	ONBOARD_INPUT_BIT3;<br/>	arrExternalDataOut[143].X4	:=	ONBOARD_INPUT_BIT4;<br/>	arrExternalDataOut[143].X5	:=	ONBOARD_INPUT_BIT5;<br/>	arrExternalDataOut[143].X6	:=	ONBOARD_INPUT_BIT6;<br/>	arrExternalDataOut[143].X7	:=	ONBOARD_INPUT_BIT7;<br/>
+									<br/>	arrExternalDataOut[144].X0	:=	ONBOARD_INPUT_BIT8;<br/>	arrExternalDataOut[144].X1	:=	ONBOARD_INPUT_BIT9;<br/>	arrExternalDataOut[144].X2	:=	ONBOARD_INPUT_BIT10;<br/>	arrExternalDataOut[144].X3	:=	ONBOARD_INPUT_BIT11;<br/>
+									<br/>	arrExternalDataOut[145].X0	:=	ONBOARD_OUTPUT_BIT0;<br/>	arrExternalDataOut[145].X1	:=	ONBOARD_OUTPUT_BIT1;<br/>	arrExternalDataOut[145].X2	:=	ONBOARD_OUTPUT_BIT2;<br/>	arrExternalDataOut[145].X3	:=	ONBOARD_OUTPUT_BIT3;<br/>
+									<br/>	arrExternalDataOut[155]	:=	byte#2;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Modbus">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">If xActivate then<br/>	If udtNetworkConfiguration.iMode = 5 or udtNetworkConfiguration.iMode = 3 then<br/>		iExternalData	:=	1;	(* Profinet *)<br/>	Elsif udtNetworkConfiguration.iMode = 4 or udtNetworkConfiguration.iMode = 2 then<br/>		iExternalData	:=	2;	(* Modbus *)<br/>	End_if;<br/>
+									<br/>	Case iExternalData of<br/>		1:	(* Profinet *)<br/>			For iLoop := 0 to 255 do<br/>				arrExternalDataIn[iLoop]:= PND_S1S1_INPUTS[iLoop];<br/>				PND_S1S1_OUTPUTS[iLoop]:= arrExternalDataOut[iLoop];<br/>		End_For;<br/>
+									<br/>		2:	(* Modbus *)<br/>			For iLoop := 300 to 311 do<br/>				iLoop2 := iLoop - 300;<br/>				arrExternalDataIn[iLoop2]:= MB_Data_External[iLoop].B0;<br/>			End_For;<br/>	<br/>			For iLoop := 100 to 236 do<br/>				iLoop2	:=	iLoop - 100;<br/>				MB_Data_External[iLoop].B0:= arrExternalDataOut[iLoop2];<br/>			End_For;<br/>	End_case;<br/>End_if;<br/>
+									<br/>iPort:= 502;<br/>xAutoQuit:= True;<br/>
+									<br/>MB_TCP_Server_V2_00_1(<br/>xActivate				:=	xActivate,<br/>xAcknowledge			:=	xQuit,<br/>xAutoAck				:=	xAutoQuit,<br/>xUDP_Mode				:=	xUDP,<br/>iTCP_Port				:=	iPort,<br/>strPartner_IP			:=	udtNetworkConfiguration.strIPModbus,<br/>tTimeout				:=	T#0s,<br/>uiOffsetInputRegister	:=	uiRegOffsetInputs,<br/>uiOffsetHoldingRegister	:=	uiRegOffset,<br/>uiOffsetInputs			:=	uiRegOffsetInputs,<br/>uiOffsetCoils			:=	uiRegOffsetCoils,<br/>arrModbusData			:=	MB_Data_External);<br/>
+									<br/>xActive_MB_Server		:=	MB_TCP_Server_V2_00_1.xActive;<br/>xConnection_MB_Server	:=	MB_TCP_Server_V2_00_1.xConnected;<br/>xError_MB_Server		:=	MB_TCP_Server_V2_00_1.xError;<br/>wDiagCode_MB_Server		:=	MB_TCP_Server_V2_00_1.wDiagCode;<br/>wAddDiagCode_MB_Server	:=	MB_TCP_Server_V2_00_1.wAddDiagCode;<br/>MB_Data_External		:=	MB_TCP_Server_V2_00_1.arrModbusData;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_TCS_Communication_01T" xmlns="http://www.w3.org/1999/xhtml">= Lumgate_Controll<br/> - L20_Analog_Inputs<br/>
+						</div>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

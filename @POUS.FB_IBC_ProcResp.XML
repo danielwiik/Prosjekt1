@@ -1,0 +1,355 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:35" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666355" modificationDateTime="2017-11-14T14:32:35" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_IBC_ProcResp" pouType="functionBlock" pouGroup="Interbus_Startup" lastChange="2015-11-09T11:41:56">
+				<interface>
+					<localVars retain="false">
+						<variable name="wCodeResp" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Confirmed request code</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wParameterCount" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Number of parameters of IB master request</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wResult" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Result of IB master request</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iIndexDst" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Index of preprocessed response data array</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iIndexEnd" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Position of last parameter in response data array</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iIndexSrc" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Index of unprocessed response data array</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrorReqCode" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error flag: Send request code &lt;&gt; confirmed request code</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xErrorResult" group="Local variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error flag: Result of response not ok</p>
+								</html>
+							</documentation>
+						</variable>
+					</localVars>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xExecute" group="Input variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger processing of response from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wCodeReq" group="Input variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Request code that was sent to IB master</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB activated</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xNDR" group="Output variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">New data ready</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xError" group="Output variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error while processing FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wCode" group="Output variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Confirmed request code with highest bit filtered out</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wDiagCode" group="Output variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic code</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wAddDiagCode" group="Output variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Additional diagnostic information</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iDataLength" group="Output variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Data length of response</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xReady" group="Output variables">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB ready for new request</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="arrIBC_Resp" group="InOut variables">
+							<type>
+								<derived name="ARR_IBC_REC_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Array containing response from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrData" group="InOut variables">
+							<type>
+								<derived name="ARR_IBC_DATA_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Array containing preprocessed response</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="R_TRIG_Execute" group="FBs, functions">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger processing of response from IB master</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="R_TRIG_Activate" group="FBs, functions">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger activation of FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="F_TRIG_Activate" group="FBs, functions">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger deactivation of FB</p>
+								</html>
+							</documentation>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="Inputs">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">R_TRIG_Activate(CLK := xActivate);<br/>F_TRIG_Activate(CLK := xActivate);<br/>
+									<br/>(*Activation of FB*)<br/>IF R_TRIG_Activate.Q THEN<br/>
+									<br/>	xActive 		:= TRUE;<br/>	wCodeResp		:= WORD#16#0000;<br/>	wParameterCount	:= WORD#16#0000;<br/>	wResult			:= WORD#16#0000;<br/>	iIndexDst		:= 0;<br/>	iIndexEnd		:= 0;<br/>	iIndexSrc		:= 0;<br/>	xError			:= FALSE;<br/>	xErrorReqCode	:= FALSE;<br/>	xReady			:= FALSE;<br/>	xErrorResult	:= FALSE;<br/>	wCode			:= WORD#16#0000;<br/>	wDiagCode		:= WORD#16#0000;<br/>	wAddDiagCode	:= WORD#16#0000;<br/>	iDataLength		:= 0;<br/>
+									<br/>
+									<br/>(*Deactivation of FB*)<br/>ELSIF F_TRIG_Activate.Q THEN<br/>
+									<br/>	xActive 		:= FALSE;<br/>	wCodeResp		:= WORD#16#0000;<br/>	wParameterCount	:= WORD#16#0000;<br/>	wResult			:= WORD#16#0000;<br/>	iIndexDst		:= 0;<br/>	iIndexEnd		:= 0;<br/>	iIndexSrc		:= 0;<br/>	xError			:= FALSE;<br/>	xErrorReqCode	:= FALSE;<br/>	xReady			:= FALSE;<br/>	xErrorResult	:= FALSE;<br/>	wCode			:= WORD#16#0000;<br/>	wDiagCode		:= WORD#16#0000;<br/>	wAddDiagCode	:= WORD#16#0000;<br/>	iDataLength		:= 0;<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Logic">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(*Block for preprocessing interbus control responses*)<br/>
+									<br/>IF xActive THEN<br/>
+									<br/>	(*Set default output value*)<br/>	xNDR := FALSE;<br/>	<br/>	(*Trigger preprocessing of response*)<br/>	R_TRIG_Execute(CLK := xExecute);<br/>
+									<br/>	IF R_TRIG_Execute.Q THEN<br/>
+									<br/>		(*Reset response array*)<br/>		FOR iIndexDst := 1 TO 512 DO<br/>
+									<br/>			arrData[iIndexDst] := WORD#16#0000;<br/>
+									<br/>		END_FOR;<br/>
+									<br/>		wCodeResp		:= arrIBC_Resp[1];				(*Confirmed request code*)<br/>		wParameterCount	:= arrIBC_Resp[2];				(*Number of following parameters*)<br/>		wResult			:= arrIBC_Resp[3];				(*Result of request*)<br/>		wCode			:= wCodeResp &amp; WORD#16#7FFF;	(*Request code with masked out first bit*)<br/>
+									<br/>		(*Check if sent request code equals confirmed request code*)<br/>		IF (wCode &lt;&gt; wCodeReq) THEN<br/>
+									<br/>			xErrorReqCode	:= TRUE;			(*Set error flag*)<br/>
+									<br/>		ELSE<br/>
+									<br/>			iIndexEnd	:= WORD_TO_INT(wParameterCount) + 2;	(*Determine index of last parameter*)<br/>
+									<br/>			(*If result word &lt;&gt; 0 -&gt; error*)<br/>			IF (wResult = WORD#0000) THEN<br/>
+									<br/>				iIndexDst := 0;	(*Reset index for array containing preprocessed data*)<br/>
+									<br/>				(*Fill array with preprocessed data*)<br/>				FOR iIndexSrc := 4 TO iIndexEnd DO<br/>
+									<br/>					iIndexDst 			:= iIndexDst + 1;			(*Increment index*)<br/>					arrData[iIndexDst] 	:= arrIBC_Resp[iIndexSrc];	(*Assign response value to matching item of array*)<br/>
+									<br/>				END_FOR;<br/>
+									<br/>				iDataLength := iIndexDst;			(*Save data length of preprocessed response*)<br/>				xNDR 		:= TRUE;				(*Set flag: New data ready*)<br/>
+									<br/>			ELSE<br/>
+									<br/>				xErrorResult	:= TRUE;			(*Set error flag*)<br/>				arrData[1]		:= WORD#16#0000;	(*Reset first value of response array in case of error*)<br/>
+									<br/>			END_IF;<br/>
+									<br/>		END_IF;<br/>
+									<br/>	END_IF;<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Outputs">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(*Error processing*)<br/>IF xErrorReqCode AND xActive THEN<br/>
+									<br/>	xError			:= TRUE;			(*Set error flag*)<br/>	xReady			:= FALSE;			(*FB not ready*)<br/>	wDiagCode		:= WORD#16#C010;	(*Set error code*)<br/>	wAddDiagCode	:= wCodeResp;		(*Set additional diagnostic information*)<br/>
+									<br/>ELSIF xErrorResult AND xActive THEN<br/>
+									<br/>	xError			:= TRUE;			(*Set error flag*)<br/>	xReady			:= FALSE;			(*FB not ready*)<br/>	wDiagCode		:= WORD#16#C020;	(*Set diagnostic code*)<br/>	wAddDiagCode	:= arrIBC_Resp[4];	(*Set additional diagnostic information*)<br/>
+									<br/>ELSIF R_TRIG_Execute.Q AND xActive THEN<br/>
+									<br/>	xReady			:= FALSE;			(*FB not ready*)<br/>	wDiagCode		:= WORD#16#8200;	(*Set default diagnostic value*)<br/>	wAddDiagCode	:= WORD#16#0000;	(*Set default additional diagnostic information*)<br/>
+									<br/>ELSIF NOT R_TRIG_Execute.Q AND xActive THEN<br/>
+									<br/>	xReady			:= TRUE;			(*FB ready for new request*)<br/>	wDiagCode		:= WORD#16#8000;	(*Set default diagnostic value*)<br/>	wAddDiagCode	:= WORD#16#0000;	(*Set default additional diagnostic information*)<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_IBC_ProcRespT" xmlns="http://www.w3.org/1999/xhtml">**************************************************************************<br/>
+							<br/>Copyright © 2014 Phoenix Contact GmbH &amp; Co. KG D-32825-Blomberg<br/>All rights reserved<br/>
+							<br/>**************************************************************************<br/>
+							<br/>Name	:	FB_IBC_ProcResp<br/>
+							<br/>State	:	[x] evaluation  [ ] released<br/>
+							<br/>Development Environment	:<br/>	PC WORX 	:	6.10.200<br/>	Controller	:	ILC 350 PN v3.96F.1, ILC 130 ETH v3.91.04<br/>	Devices		: 	-<br/>
+							<br/>**************************************************************************<br/>
+							<br/>Change Notes:<br/>
+							<br/>Date		Version		Author		Description<br/>--------------------------------------------------------------------------<br/>31.07.17	1.00		PxCE/ACr	initial version<br/>
+							<br/>**************************************************************************<br/>
+							<br/>The function block FB_IBC_ProcResp preprocesses the data which are received <br/>by the interbus control firmware function block.<br/>The preprocessing contains the following steps:<br/>
+							<br/>- verification of the confirmed request code in the response<br/>- check if number of parameters is plausible<br/>- check if result of response is positive<br/>
+						</div>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

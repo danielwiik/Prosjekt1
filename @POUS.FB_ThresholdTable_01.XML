@@ -1,0 +1,212 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_ThresholdTable_01" pouType="functionBlock" pouGroup="TCS_functions" lastChange="2016-07-14T11:09:09">
+				<interface>
+					<outputVars retain="false">
+						<variable name="iScene" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iScenario" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iChosenScene" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</outputVars>
+					<inputVars retain="false">
+						<variable name="arrSceneConfiguration" group="Input parameter">
+							<type>
+								<derived name="ARR_1_25_1_5_Int"/>
+							</type>
+						</variable>
+						<variable name="xPulseSecond" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="udtLevelConfiguration" group="Input parameter">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="arrInputValues" group="Input parameter">
+							<type>
+								<derived name="arr_1_11_udtInput"/>
+							</type>
+						</variable>
+					</inputVars>
+					<inOutVars retain="false">
+						<variable name="arrSceneHourCounter" group="In- Output parameter">
+							<type>
+								<derived name="arr_1_50_udtLumgatePart1"/>
+							</type>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="FB_L20_ChooseScene_01_1" group="Instanzes">
+							<type>
+								<derived name="FB_L20_ChooseScene_01"/>
+							</type>
+						</variable>
+						<variable name="FB_L20_ChooseScene_01_2" group="Instanzes">
+							<type>
+								<derived name="FB_L20_ChooseScene_01"/>
+							</type>
+						</variable>
+						<variable name="FB_L20_ChooseScene_01_3" group="Instanzes">
+							<type>
+								<derived name="FB_L20_ChooseScene_01"/>
+							</type>
+						</variable>
+						<variable name="FB_L20_ChooseScene_01_4" group="Instanzes">
+							<type>
+								<derived name="FB_L20_ChooseScene_01"/>
+							</type>
+						</variable>
+						<variable name="FB_LuminanceLevel_01_1" group="Instanzes">
+							<type>
+								<derived name="FB_LuminanceLevel_01"/>
+							</type>
+						</variable>
+						<variable name="FB_LuminanceLevel_01_2" group="Instanzes">
+							<type>
+								<derived name="FB_LuminanceLevel_01"/>
+							</type>
+						</variable>
+						<variable name="FB_LuminanceLevel_01_3" group="Instanzes">
+							<type>
+								<derived name="FB_LuminanceLevel_01"/>
+							</type>
+						</variable>
+						<variable name="FB_LuminanceLevel_01_4" group="Instanzes">
+							<type>
+								<derived name="FB_LuminanceLevel_01"/>
+							</type>
+						</variable>
+						<variable name="xValidSceneConfig1" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xSelectSceneConfig1" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xValidSceneConfig2" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xSelectSceneConfig2" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xValidSceneConfig3" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xSelectSceneConfig3" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xValidSceneConfig4" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xSelectSceneConfig4" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iActualLevelConfig1" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iActualLevelConfig2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iActualLevelConfig3" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iActualLevelConfig4" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_ThresholdTable_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* ThresholdTable *)<br/>
+									<br/>(* Level calculation based on threshold config table 1, config 1 *)<br/>FB_LuminanceLevel_01_1(xActivate	:= 	udtLevelConfiguration.xActive,<br/>xPulseSecond					:= 	xPulseSecond,<br/>iDelay							:= 	udtLevelConfiguration.iDelay,<br/>iHysteric						:=	udtLevelConfiguration.iHysteric,<br/>iValueSelection					:= 	1,<br/>arrValue						:=	arrInputValues,<br/>arrLevels						:= 	udtLevelConfiguration.arrScenarioConfig1,<br/>arrScenarioActive				:= 	udtLevelConfiguration.arrScenarioActive,<br/>xSelectScene					:= 	xSelectSceneConfig1);<br/>
+									<br/>iActualLevelConfig1				:=	FB_LuminanceLevel_01_1.iLevel;<br/>xValidSceneConfig1				:=	FB_LuminanceLevel_01_1.xValid;<br/>xSelectSceneConfig1				:=	FB_LuminanceLevel_01_1.xSelectScene;<br/>
+									<br/>(* Level calculation based on threshold config table 1, config 2 *)<br/>FB_LuminanceLevel_01_2(xActivate	:= 	udtLevelConfiguration.xActive,<br/>xPulseSecond					:= 	xPulseSecond,<br/>iDelay							:= 	udtLevelConfiguration.iDelay,<br/>iHysteric						:=	udtLevelConfiguration.iHysteric,<br/>iValueSelection					:= 	1,<br/>arrValue						:= 	arrInputValues,<br/>arrLevels						:= 	udtLevelConfiguration.arrScenarioConfig2,<br/>arrScenarioActive				:= 	udtLevelConfiguration.arrScenarioActive,<br/>xSelectScene					:= 	xSelectSceneConfig2);<br/>
+									<br/>iActualLevelConfig2				:=	FB_LuminanceLevel_01_2.iLevel;<br/>xValidSceneConfig2				:=	FB_LuminanceLevel_01_2.xValid;<br/>xSelectSceneConfig2				:=	FB_LuminanceLevel_01_2.xSelectScene;<br/>
+									<br/>(* Level calculation based on threshold config table 1, config 3 *)<br/>FB_LuminanceLevel_01_3(xActivate	:= 	udtLevelConfiguration.xActive,<br/>xPulseSecond					:=	xPulseSecond,<br/>iDelay							:= 	udtLevelConfiguration.iDelay,<br/>iHysteric						:=	udtLevelConfiguration.iHysteric,<br/>iValueSelection					:= 	1,<br/>arrValue						:= 	arrInputValues,<br/>arrLevels						:= 	udtLevelConfiguration.arrScenarioConfig3,<br/>arrScenarioActive				:= 	udtLevelConfiguration.arrScenarioActive,<br/>xSelectScene					:= 	xSelectSceneConfig3);<br/>
+									<br/>iActualLevelConfig3				:=	FB_LuminanceLevel_01_3.iLevel;<br/>xValidSceneConfig3				:=	FB_LuminanceLevel_01_3.xValid;<br/>xSelectSceneConfig3				:=	FB_LuminanceLevel_01_3.xSelectScene;<br/>
+									<br/>(* Level calculation based on threshold config table 1, config 4 *)<br/>FB_LuminanceLevel_01_4(xActivate	:=	udtLevelConfiguration.xActive,<br/>iValueSelection					:=	1,<br/>xPulseSecond					:=	xPulseSecond,<br/>iDelay							:=	udtLevelConfiguration.iDelay,<br/>iHysteric						:=	udtLevelConfiguration.iHysteric,<br/>arrValue						:=	arrInputValues,<br/>arrLevels						:=	udtLevelConfiguration.arrScenarioConfig4,<br/>arrScenarioActive				:=	udtLevelConfiguration.arrScenarioActive,<br/>xSelectScene					:=	xSelectSceneConfig4);<br/>
+									<br/>iActualLevelConfig4				:=	FB_LuminanceLevel_01_4.iLevel;<br/>xValidSceneConfig4				:=	FB_LuminanceLevel_01_4.xValid;<br/>xSelectSceneConfig4				:=	FB_LuminanceLevel_01_4.xSelectScene;<br/>
+									<br/>
+									<br/>(* Scenario selection based on level and hour counters *)<br/>FB_L20_ChooseScene_01_1(iActualScenario	:= 	iActualLevelConfig1,<br/>arrSceneConfig							:= 	arrSceneConfiguration,<br/>xActivate								:= 	xSelectSceneConfig1,<br/>arrSceneHourCounter						:=	arrSceneHourCounter);<br/>
+									<br/>arrSceneHourCounter						:=	FB_L20_ChooseScene_01_1.arrSceneHourCounter;<br/>xSelectSceneConfig1						:=	FB_L20_ChooseScene_01_1.xActivate;<br/>
+									<br/>(* Scenario selection based on level and hour counters *)<br/>FB_L20_ChooseScene_01_2(iActualScenario	:= 	iActualLevelConfig2,<br/>arrSceneConfig							:= 	arrSceneConfiguration,<br/>xActivate								:= 	xSelectSceneConfig2,<br/>arrSceneHourCounter						:=	arrSceneHourCounter);<br/>
+									<br/>arrSceneHourCounter						:=	FB_L20_ChooseScene_01_2.arrSceneHourCounter;<br/>xSelectSceneConfig2						:=	FB_L20_ChooseScene_01_2.xActivate;<br/>
+									<br/>(* Scenario selection based on level and hour counters *)<br/>FB_L20_ChooseScene_01_3(iActualScenario	:= 	iActualLevelConfig3,<br/>arrSceneConfig							:= 	arrSceneConfiguration,<br/>xActivate								:= 	xSelectSceneConfig3,<br/>arrSceneHourCounter						:=	arrSceneHourCounter);<br/>
+									<br/>arrSceneHourCounter						:=	FB_L20_ChooseScene_01_3.arrSceneHourCounter;<br/>xSelectSceneConfig3						:=	FB_L20_ChooseScene_01_3.xActivate;<br/>
+									<br/>(* Scenario selection based on level and hour counters *)<br/>FB_L20_ChooseScene_01_4(iActualScenario	:=	iActualLevelConfig4,<br/>arrSceneConfig							:=	arrSceneConfiguration,<br/>xActivate								:=	xSelectSceneConfig4,<br/>arrSceneHourCounter						:=	arrSceneHourCounter);<br/>
+									<br/>xSelectSceneConfig4						:=	FB_L20_ChooseScene_01_4.xActivate;<br/>arrSceneHourCounter						:=	FB_L20_ChooseScene_01_4.arrSceneHourCounter;<br/>
+									<br/>
+									<br/>
+									<br/>If not udtLevelConfiguration.xActive then (* Scene calculation is not necessary *)<br/>	iScene		:=	0;<br/>	iScenario	:=	0;<br/>Else<br/>	If udtLevelConfiguration.xActiveConfig1 Then<br/>		If xValidSceneConfig1 Then<br/>			iScene			:=	FB_L20_ChooseScene_01_1.iChosenScene;<br/>			iScenario		:=	iActualLevelConfig1;<br/>			iChosenScene	:=	FB_L20_ChooseScene_01_1.iChosenOption;<br/>		Else<br/>			iScene			:=	-1;	(* Invalid, use failsafe value *)<br/>			iScenario		:=	0;<br/>			iChosenScene	:=	0;<br/>		End_If;<br/>	Elsif udtLevelConfiguration.xActiveConfig2 Then<br/>		If xValidSceneConfig2 Then<br/>			iScene			:=	FB_L20_ChooseScene_01_2.iChosenScene;<br/>			iScenario		:=	iActualLevelConfig2;<br/>			iChosenScene	:=	FB_L20_ChooseScene_01_2.iChosenOption;<br/>		Else<br/>			iScene			:=	-1;<br/>			iScenario		:=	0;<br/>			iChosenScene	:=	0;<br/>		End_If;<br/>	Elsif  udtLevelConfiguration.xActiveConfig3 Then<br/>		If xValidSceneConfig3 Then<br/>			iScene			:=	FB_L20_ChooseScene_01_3.iChosenScene;<br/>			iScenario		:=	iActualLevelConfig3;<br/>			iChosenScene	:=	FB_L20_ChooseScene_01_3.iChosenOption;<br/>		Else<br/>			iScene			:=	-1;<br/>			iScenario		:=	0;<br/>			iChosenScene	:=	0;<br/>		End_If;<br/>	Elsif  udtLevelConfiguration.xActiveConfig4 Then<br/>		If xValidSceneConfig4 Then<br/>			iScene			:=	FB_L20_ChooseScene_01_4.iChosenScene;<br/>			iScenario		:=	iActualLevelConfig4;<br/>			iChosenScene	:=	FB_L20_ChooseScene_01_4.iChosenOption;<br/>		Else<br/>			iScene			:=	-1;<br/>			iScenario		:=	0;<br/>			iChosenScene	:=	0;<br/>		End_If;<br/>	Else<br/>			iScene			:=	-1;<br/>			iScenario		:=	0;<br/>			iChosenScene	:=	0;<br/>	End_If;<br/>End_If;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_ThresholdTable_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

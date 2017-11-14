@@ -1,0 +1,317 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:34" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666354" modificationDateTime="2017-11-14T14:32:34" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_SelectMode_01" pouType="functionBlock" pouGroup="Function_Blocks" lastChange="2016-11-15T16:04:26">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate the FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xConfirm" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Alarm confirmation</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xVisu" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Manual scene mode from visualization</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xPartly" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">TCS Partly toggle</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xComissioning" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger to report "Commissioning Mode is active"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSource" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Configures the scene source. 1 ^ Stand alone, 2 - 5 ^ TCS</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xLG_Available" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger, ATS = OK, All data for stand alone mode available</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xTCS_Available" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger, ATS = OK, All data for TCS mode available</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xConfigFileExist" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Network Config File (for Mode) exist</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB is active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xPreAlarm" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Pre Alarm</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strDiag" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic text</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xAlarm" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Alarm</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateTCS_Interface" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate tcs interface</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strMode" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Mode as text</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xModeOK" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Mode state</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="udtSceneMode" group="In- Output Parameter">
+							<type>
+								<derived name="udtScene"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scene source communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iInit" group="In- Output Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Mode No. from Config File</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateTCS" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger, activate PN TCS</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrLumgates" group="In- Output Parameter">
+							<type>
+								<derived name="arr_1_240_udtLumgate"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateMB" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger, activate MB TCS</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="F_TRIG_ManualMode" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_ManualMode" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_TCS" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_PN" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_MB" group="Default">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iBackupmode" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iManualScene" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xManaualModeLG" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_SelectMode_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">F_TRIG_ManualMode(CLK	:=	xVisu);			(* Trigger Manual mode from Visu *)<br/>R_TRIG_ManualMode(CLK	:=	xVisu);<br/>R_TRIG_PN(CLK			:=	xActivateTCS);	(* Trigger PN TCS mode from Visu *)<br/>R_TRIG_MB(CLK			:=	xActivateMB);	(* Trigger MB TCS mode from Visu *)<br/>
+									<br/>F_TRIG_TCS(CLK			:=	xActivateTCS or xActivateMB);<br/>
+									<br/>If xActivate then<br/>	xActive	:=	True;<br/>
+									<br/>	(* SceneMode: 1 = Manual, 2 = Own input, 3 = external input, 4 = external input with own input as backup *)<br/>	(* ConfigFile: 5 = TCS Profinet full / 3 = TCS Profinet part / 4 = TCS Modbus full / 2 = TCS Modbus part / 1 = Stand alone / 9 = Manual *)<br/>
+									<br/>	If R_TRIG_PN.Q then						(* Block two activateable TSC modes *)<br/>		xActivateMB		:=	False;<br/>		xActivateTCS	:=	True;<br/>	Elsif R_TRIG_MB.Q then<br/>		xActivateMB		:=	True;<br/>		xActivateTCS	:=	False;<br/>	End_if;<br/>
+									<br/>	If xActivateTCS and not xPartly then	(* Detect mode changes from visualization *)<br/>		iInit		:=	5;<br/>	Elsif xActivateTCS and xPartly then<br/>		iInit		:=	3;<br/>	Elsif xActivateMB and not xPartly then<br/>		iInit		:=	4;<br/>	Elsif xActivateMB and xPartly then<br/>		iInit		:=	2;<br/>	Elsif F_TRIG_TCS.Q then<br/>		iInit		:=	1;<br/>		For iLoop := 1 to 4 do<br/>			udtSceneMode.arrMode[iLoop]	:=	2;<br/>		End_for;<br/>	End_if;<br/>
+									<br/>	If R_TRIG_ManualMode.Q then				(* Activate Manual Mode from visualization *)<br/>		iBackupmode						:=	udtSceneMode.arrMode[iSource];	(* Store last active mode to restore after leaving manual mode*)<br/>		udtSceneMode.arrMode[iSource]	:=	1;								(* Set manual scene mode *)<br/>		strDiag							:=	'Warning: Manual mode is active. Scene: ';<br/>		strDiag							:=	concat(strDiag,int_to_string(udtSceneMode.arrManualScene[iSource],'%02d'));<br/>		iManualScene					:=	udtSceneMode.arrManualScene[iSource];	(* Set scene *)<br/>		xActivateTCS_Interface			:=	False;							(* Deactivate tcs interface *)<br/>		xPreAlarm						:=	True;							(* Activate warning *)<br/>		strMode							:=	'Manual';<br/>	Elsif xVisu and iManualScene &lt;&gt; udtSceneMode.arrManualScene[iSource] then	(* repeate warining after changeing manual scene *)<br/>		strDiag							:=	'Warning: Manual mode is active. Scene: ';<br/>		strDiag							:=	concat(strDiag,int_to_string(udtSceneMode.arrManualScene[iSource],'%02d'));<br/>		iManualScene					:=	udtSceneMode.arrManualScene[iSource];<br/>	Elsif xVisu then						(* hold warnings active *)<br/>		xPreAlarm						:=	True;<br/>		xActivateTCS_Interface			:=	False;<br/>	Elsif F_TRIG_ManualMode.Q then			(* restore old mode after manual mode ends *)<br/>		udtSceneMode.arrMode[iSource]	:=	iBackupmode;<br/>		strDiag							:=	'Configuration returned';<br/>		xPreAlarm						:=	False;<br/>	Elsif xConfigFileExist then				(* standard situation is active, execute mode from configuration file *)<br/>		For iLoop := 1 to 4 do<br/>			udtSceneMode.arrMode[iLoop]	:=	iInit;<br/>		End_for;<br/>		If iInit = 1 then<br/>			strDiag						:=	'Configuration found, Stand alone mode is active';<br/>			strMode						:=	'Stand alone';<br/>			xActivateTCS_Interface		:=	False;<br/>			For iLoop := 1 to 4 do<br/>				udtSceneMode.arrMode[iLoop]	:=	2;<br/>			End_for;<br/>			xPreAlarm					:=	False;<br/>		Elsif iInit = 2 then<br/>			strDiag						:=	'Configuration found, TCS part mode is active';<br/>			strMode						:=	'TCS';<br/>			xActivateTCS_Interface		:=	True;<br/>			xActivateMB					:=	True;<br/>			For iLoop := 1 to 4 do<br/>				udtSceneMode.arrMode[iLoop]	:=	2;<br/>			End_for;<br/>			xPreAlarm					:=	False;<br/>		Elsif iInit = 3 then<br/>			strDiag						:=	'Configuration found, TCS part mode is active';<br/>			strMode						:=	'TCS';<br/>			xActivateTCS_Interface		:=	True;<br/>			xActivateTCS				:=	True;<br/>			For iLoop := 1 to 4 do<br/>				udtSceneMode.arrMode[iLoop]	:=	2;<br/>			End_for;<br/>			xPreAlarm					:=	False;<br/>		Elsif iInit = 4 then<br/>			strDiag						:=	'Configuration found, TCS alone mode is active';<br/>			strMode						:=	'TCS';<br/>			xActivateTCS_Interface		:=	True;<br/>			xActivateMB					:=	True;<br/>			For iLoop := 1 to 4 do<br/>				udtSceneMode.arrMode[iLoop]	:=	3;<br/>			End_for;<br/>			xPreAlarm					:=	False;<br/>		Elsif iInit = 5 then<br/>			strDiag						:=	'Configuration found, TCS alone mode is active';<br/>			strMode						:=	'TCS';<br/>			xActivateTCS_Interface		:=	True;<br/>			xActivateTCS				:=	True;<br/>			For iLoop := 1 to 4 do<br/>				udtSceneMode.arrMode[iLoop]	:=	3;<br/>			End_for;<br/>			xPreAlarm					:=	False;<br/>		Else<br/>			strDiag						:=	'Error: invalid Configuration was found';<br/>			strMode						:=	'Invalid';<br/>			xActivateTCS_Interface		:=	False;<br/>			xAlarm						:=	True;<br/>			xPreAlarm					:=	False;<br/>		End_if;<br/>	End_if;<br/>
+									<br/>	If xAlarm then<br/>		If xConfirm and (iInit &gt; 0) and (iInit &lt; 6) then<br/>			xAlarm	:=	False;<br/>			strDiag						:=	'Configuration Alarm confirmed';<br/>		Elsif xConfirm and ((iInit &lt; 1) or (iInit &gt; 5)) then<br/>			strDiag						:=	'Configuration Alarm confirmed, but still active';<br/>		End_if;<br/>	End_if;<br/>
+									<br/>
+									<br/>	For iLoop := 1 to 240 do		(* Lumgate manual mode detection *)<br/>		If arrLumgates[iLoop].xAutomaticManual and arrLumgates[iLoop].xAvailable then<br/>			Exit;<br/>		End_if;<br/>	End_for;<br/>	If not (iLoop = 241) then<br/>		xManaualModeLG	:=	True;	(* any Lumgate manual mode is active *)<br/>	Else<br/>		xManaualModeLG	:=	False;<br/>	End_if;<br/>
+									<br/>(* Creating Mode state and text *)<br/>	If xManaualModeLG then<br/>		xModeOK			:=	False;<br/>		strMode			:=	'Manual Lumgate';<br/>	Elsif xComissioning then<br/>		strMode			:=	'Commissioning';<br/>		xModeOK			:=	False;<br/>	Elsif arrLumgates[1].xTeachConsumption and arrLumgates[1].xAvailable then<br/>		strMode			:=	'Teaching current';<br/>		xModeOK			:=	False;<br/>	Elsif xLG_Available and xActivateTCS and xTCS_Available and ((udtsceneMode.arrActualScene[1] &gt; 0) or (udtsceneMode.arrActualScene[2] &gt; 0)<br/>	or (udtsceneMode.arrActualScene[3] &gt; 0) or (udtsceneMode.arrActualScene[4] &gt; 0))then<br/>		xModeOK			:=	True;<br/>	Elsif xLG_Available and not xActivateTCS and ((udtsceneMode.arrActualScene[1] &gt; 0) or (udtsceneMode.arrActualScene[2] &gt; 0)<br/>	or (udtsceneMode.arrActualScene[3] &gt; 0) or (udtsceneMode.arrActualScene[4] &gt; 0)) then<br/>		xModeOK			:=	True;<br/>	Else<br/>		xModeOK			:=	False;<br/>	End_if;<br/>	<br/>Else<br/>	xActive		:=	False;<br/>	xAlarm		:=	False;<br/>	xPreAlarm	:=	False;<br/>	strDiag		:=	'';<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_SelectMode_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

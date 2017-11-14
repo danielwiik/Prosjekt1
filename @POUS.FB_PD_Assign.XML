@@ -1,0 +1,290 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:35" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666355" modificationDateTime="2017-11-14T14:32:35" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_PD_Assign" pouType="functionBlock" pouGroup="Interbus_Startup" lastChange="2016-07-06T14:13:52">
+				<interface>
+					<localVars retain="false">
+						<variable name="iIndexModules" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Index for selection of modules</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iErrMemcopy" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Errorcode of memcopy function</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iPntrInput_PD" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Pointer to next unassigned input process data byte</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iPntrOutput_PD" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Pointer to next unassigned output process data byte</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wMEMCPY" group="Local variables">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Memcopy function dummy variable</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="dwSelCurModule" group="Local variables">
+							<type>
+								<DWORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Bit of currently processed module for comparison with selection bitmask</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="dwModuleSelMask" group="Local variables">
+							<type>
+								<DWORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Module selection mask</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="i" group="Local variables">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_Activate" group="Function block, functions">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger returns TRUE on rising edge of xActivate</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="F_TRIG_Activate" group="Function block, functions">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger returns TRUE on falling edge of xActivate</p>
+								</html>
+							</documentation>
+						</variable>
+					</localVars>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrInput_PD" group="Input parameters">
+							<type>
+								<derived name="ARR_IBS_PD_DATA_B_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Input process data of all modules</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB activated</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xError" group="Output parameters">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Error flag</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wDiagCode" group="Output parameters">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic code</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="dwAddDiagCode" group="Output parameters">
+							<type>
+								<DWORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Additional diagnostic information</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strDiagCode" group="Output parameters">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic code as string</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<outputVars retain="true">
+						<variable name="arrOutput_PD" group="Output parameters">
+							<type>
+								<derived name="ARR_IBS_PD_DATA_B_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Output process data of all modules</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="arrIBS_ConfEntry" group="InOut parameters">
+							<type>
+								<derived name="ARR_IBS_CONF_ENTRIES_1_256"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Array containing information about all connected modules</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="Inputs">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">R_TRIG_Activate(CLK := xActivate);<br/>F_TRIG_Activate(CLK := xActivate);<br/>
+									<br/>(*Activation of FB*)<br/>IF R_TRIG_Activate.Q THEN<br/>
+									<br/>	xActive 		:= TRUE;<br/>	iIndexModules	:= 0;<br/>	iErrMemcopy		:= 0;<br/>	iPntrInput_PD	:= 0;<br/>	iPntrOutput_PD	:= 0;<br/>	dwModuleSelMask	:= DWORD#16#00000000;<br/>	dwSelCurModule	:= DWORD#16#00000000;<br/>	wMEMCPY			:= WORD#16#0000;<br/>(*Deactivation of FB*)<br/>ELSIF F_TRIG_Activate.Q THEN<br/>
+									<br/>	xActive 		:= FALSE;<br/>	iIndexModules	:= 0;<br/>	iErrMemcopy		:= 0;<br/>	iPntrInput_PD	:= 0;<br/>	iPntrOutput_PD	:= 0;<br/>	dwModuleSelMask	:= DWORD#16#00000000;<br/>	dwSelCurModule	:= DWORD#16#00000000;<br/>	wMEMCPY			:= WORD#16#0000;<br/>
+									<br/>	For i:= 1 To 512<br/>		Do<br/>			arrOutput_PD[i]:= arrOutput_PD[i]; (* jvo 17.05.2016, hold PD *)<br/>	End_For;<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Logic">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">
+									<br/>(*Process FB only if activated*)<br/>IF xActive THEN<br/>
+									<br/>	(*Perform process data assignment if module has process data*)<br/>	FOR iIndexModules := 1 TO 256 BY 1 DO<br/>		(*Check if module has process data<br/>		IF (arrIBS_ConfEntry[iIndexModules].iPdLenCompl &gt; 0) THEN<br/>
+									<br/>			IF (iIndexModules &lt;= 32) THEN<br/>
+									<br/>				dwSelCurModule 	:= SHL_DWORD(DWORD#16#00000001, (iIndexModules - 1));<br/>				dwModuleSelMask	:= dwModuleSelMask1;<br/>
+									<br/>			ELSE<br/>
+									<br/>				dwSelCurModule 	:= SHL_DWORD(DWORD#16#00000001, (iIndexModules - 33));<br/>				dwModuleSelMask	:= dwModuleSelMask2;<br/>
+									<br/>			END_IF;<br/>
+									<br/>			IF DWORD_TO_BOOL(dwModuleSelMask AND dwSelCurModule) THEN<br/>
+									<br/>				(*Check if module has input process data*)<br/>				IF (arrIBS_ConfEntry[iIndexModules].iPdLenIn &gt; 0) THEN<br/>
+									<br/>					iPntrInput_PD	:= arrIBS_ConfEntry[iIndexModules].iPntrPdBeginIn;	(*Select pointer to beginning of input PD of module*)<br/>					wMEMCPY 		:= MEMCPY(iErrMemcopy, arrIBS_ConfEntry[iIndexModules].iReservedBytesIn,<br/>									arrInput_PD[iPntrInput_PD], arrIBS_ConfEntry[iIndexModules].arrPdIn[1]);	(*Copy input PD into module structure*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>				(*Check if module has output process data*)<br/>				IF (arrIBS_ConfEntry[iIndexModules].iPdLenOut &gt; 0) THEN<br/>
+									<br/>					iPntrOutput_PD	:= arrIBS_ConfEntry[iIndexModules].iPntrPdBeginOut;	(*Select pointer to beginning of output PD of module*)<br/>					wMEMCPY 		:= MEMCPY(iErrMemcopy, arrIBS_ConfEntry[iIndexModules].iReservedBytesOut, <br/>									arrIBS_ConfEntry[iIndexModules].arrPdOut[1], arrOutput_PD[iPntrOutput_PD]);	(*Copy output PD into output PD array*)<br/>
+									<br/>				END_IF;<br/>
+									<br/>		(*	END_IF;<br/>
+									<br/>		END_IF;*)<br/>
+									<br/>	END_FOR;<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Outputs">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">
+									<br/>(*Error processing*)<br/>IF (iErrMemcopy &lt;&gt; 0) AND xActive THEN<br/>
+									<br/>	xError 			:= TRUE;<br/>	wDiagCode		:= WORD#16#C010;<br/>	dwAddDiagCode	:= INT_TO_DWORD(iErrMemcopy);<br/>	strDiagCode		:= 'Memcopy error';<br/>
+									<br/>ELSIF xActive THEN<br/>
+									<br/>	wDiagCode		:= WORD#16#8200;	(*Set default diagnostic value*)<br/>	dwAddDiagCode	:= DWORD#16#0000;	(*Set default additional diagnostic information*)<br/>
+									<br/>END_IF;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_PD_AssignT" xmlns="http://www.w3.org/1999/xhtml">**************************************************************************<br/>
+							<br/>Copyright © 2014 Phoenix Contact GmbH &amp; Co. KG D-32825-Blomberg<br/>All rights reserved<br/>
+							<br/>**************************************************************************<br/>
+							<br/>Name	:	FB_PD_Assign<br/>
+							<br/>State	:	[x] evaluation  [ ] released<br/>
+							<br/>Development Environment	:<br/>	PC WORX 	:	6.10.200<br/>	Controller	:	ILC 350 PN v3.96F.1, ILC 130 ETH v3.91.04<br/>	Devices		: 	-<br/>
+							<br/>**************************************************************************<br/>
+							<br/>Change Notes:<br/>
+							<br/>Date		Version		Author		Description<br/>--------------------------------------------------------------------------<br/>31.07.17	1.00		PxCE/ACr	initial version<br/>
+							<br/>**************************************************************************<br/>
+							<br/>The function block FB_PD_Assign automatically assigns the process data of<br/>the module structure array (arrPdIn, arrPdOut) to the process data of the<br/>dummy module.<br/>The two input parameters dwModuleSelMask1 and dwModuleSelMask2 are used to<br/>select the modules for the automatic process data assignment.<br/>The parameter dwModuleSelMask1 is responsible for the selection of the <br/>first 32 modules, the parameter dwModuleSelMask2 is responsible for the<br/>selection of the second 32 modules.<br/>The selection is done in the form of a bitmask. If only the process data<br/>of the first modul needs to be exchanged automatically only Bit 0 must<br/>be set to TRUE. In this case the variable dwModuleSelMask1 would contain<br/>the value DWORD#16#00000001.<br/>To use this FB it is necessary for the automatic interbus startup<br/>to be completed.<br/>
+						</div>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

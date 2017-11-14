@@ -1,0 +1,141 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_L20_ChooseScene_01" pouType="functionBlock" pouGroup="TCS_functions" lastChange="2016-07-14T11:09:00">
+				<interface>
+					<inputVars retain="false">
+						<variable name="iActualScenario" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scenario for searching scene</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrSceneConfig" group="Input parameter">
+							<type>
+								<derived name="ARR_1_25_1_5_Int"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scenario / Scene configuration</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="iChosenScene" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Selected Scene</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iChosenOption" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">accord to option...</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="xActivate" group="In- Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Execute FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrSceneHourCounter" group="In- Output parameter">
+							<type>
+								<derived name="arr_1_50_udtLumgatePart1"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scene hour counter table</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="xFirstResult" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iLoop" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="udiOption" group="Default">
+							<type>
+								<UDINT/>
+							</type>
+						</variable>
+						<variable name="udiTempOption" group="Default">
+							<type>
+								<UDINT/>
+							</type>
+						</variable>
+						<variable name="iTempScene" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_L20_ChooseScene_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* L20_ChooseScenario *)<br/>
+									<br/>If xActivate then	(* only one cycle = Execute *)<br/>	xFirstResult	:=	False;<br/>	iChosenScene	:=	0;<br/>
+									<br/>	For iLoop := 1 to 5 do	(* Compare Scene option hour counter *)<br/>		iTempScene	:=	arrSceneConfig[iActualScenario][iLoop];<br/>		If iTempScene &gt; 0 and iTempScene &lt; 51 then<br/>			udiOption	:=	arrSceneHourCounter[iTempScene].udiHours * Udint#1000<br/>						+ Int_To_Udint(arrSceneHourCounter[iTempScene].iMinutes * 10)<br/>						+ Int_To_Udint(arrSceneHourCounter[iTempScene].iSeconds / 10);<br/>
+									<br/>			If xFirstResult then<br/>				If udiOption &lt; udiTempOption then	(* Compare Scene hour counters *)<br/>					udiTempOption	:=	udiOption;<br/>					iChosenScene	:=	iLoop;<br/>				End_If;<br/>			Else<br/>				udiTempOption	:=	udiOption;<br/>				xFirstResult	:=	True;<br/>				iChosenScene	:=	iLoop;			(* Select Scene *)<br/>			End_If;<br/>		End_If;<br/>	End_For;<br/>
+									<br/>	If iChosenScene = 0 then<br/>		iChosenScene	:=	0;<br/>	Else<br/>		iChosenOption	:=	iChosenScene;<br/>		iChosenScene	:=	arrSceneConfig[iActualScenario][iChosenScene];<br/>	End_If;<br/>	xActivate	:=	False;<br/>End_If;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_L20_ChooseScenario_0T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

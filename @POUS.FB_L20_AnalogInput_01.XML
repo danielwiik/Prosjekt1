@@ -1,0 +1,506 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:34" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666354" modificationDateTime="2017-11-14T14:32:34" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_L20_AnalogInput_01" pouType="functionBlock" pouGroup="Analog" lastChange="2016-11-07T11:01:47">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">activate FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateOutputData" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">trigger, process data are written</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xConfirmAlarm" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">in case of active alarms, a confirmation is possible</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectValue1" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">select one source out of eleven; average, backup...</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectValue2" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">select one source out of eleven; average, backup...</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectValue3" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">select one source out of eleven; average, backup...</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iSelectValue4" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">select one source out of eleven; average, backup...</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB is active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xDone" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">IB IL AI 4/I was found and configured</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xAlarm" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Analog Alarm (Wirebrake or missing module)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xPreAlarm" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Analog Warning (underrange / overrange)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="wDiagCode" group="Output Parameter">
+							<type>
+								<WORD/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic code from FB IL_AI_4_UI_Com_V1_01</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strDiag" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic text</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xAnalogExist" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Flag "Analog module was found"</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="rSelectedValue1" group="Output Parameter">
+							<type>
+								<REAL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">1st selected analog value (Source 1)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="rSelectedValue2" group="Output Parameter">
+							<type>
+								<REAL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">2nd selected analog value (Source 2)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="rSelectedValue3" group="Output Parameter">
+							<type>
+								<REAL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">3rd selected analog value (Source 3)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="rSelectedValue4" group="Output Parameter">
+							<type>
+								<REAL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">4th selected analog value (Source 4)</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrAnalogAverageValues" group="Output Parameter">
+							<type>
+								<derived name="arr_1_11_udtInput"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Selectable analog values 1 - 11</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="arrAnalogInput" group="In- Output Parameter">
+							<type>
+								<derived name="arr_1_4_udtAnalogInput"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Communication structure "Analog Values" to ATS calculation</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrIB_Configuration" group="In- Output Parameter">
+							<type>
+								<derived name="ARR_IBS_CONF_ENTRIES_1_256"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Communication structure "IB_Configuration" from IBS Startup</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtL20Config" group="In- Output Parameter">
+							<type>
+								<derived name="udtL20Input"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Communication structure "L20Config" from config file</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="diAverageTime" group="In- Output Parameter">
+							<type>
+								<DINT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Analog average time value from web visualization</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="arrProcInAna" group="Default">
+							<type>
+								<derived name="ANL_ARR_W_1_4"/>
+							</type>
+						</variable>
+						<variable name="udtParaAna" group="Default">
+							<type>
+								<derived name="ANL_udt_Para_1_5"/>
+							</type>
+						</variable>
+						<variable name="arrProcOutAna" group="Default">
+							<type>
+								<derived name="ANL_ARR_W_1_4"/>
+							</type>
+						</variable>
+						<variable name="udtStatusAna" group="Default">
+							<type>
+								<derived name="ANL_udt_Status_1_5"/>
+							</type>
+						</variable>
+						<variable name="xInit" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iPositionAI_Module" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="wTemp" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="xActiveAI2SF" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xErrorAI2SF" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="wDiagCodeAI2SF" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="iPositionAI_Module2" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xReportAlarm" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_ActivateS1" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_ActivateS1" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_ActivateS2" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_ActivateS2" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_ActivateS3" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_ActivateS3" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_ActivateS4" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_ActivateS4" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="FB_AnalogAverage_01_1" group="FB Instanzes">
+							<type>
+								<derived name="FB_AnalogAverage_01"/>
+							</type>
+						</variable>
+						<variable name="FB_AnalogAverage_01_2" group="FB Instanzes">
+							<type>
+								<derived name="FB_AnalogAverage_01"/>
+							</type>
+						</variable>
+						<variable name="FB_AnalogAverage_01_3" group="FB Instanzes">
+							<type>
+								<derived name="FB_AnalogAverage_01"/>
+							</type>
+						</variable>
+						<variable name="FB_AnalogAverage_01_4" group="FB Instanzes">
+							<type>
+								<derived name="FB_AnalogAverage_01"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_1" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_2" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_3" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="F_TRIG_4" group="FB Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_1" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_2" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_3" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_4" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_5" group="FB Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="IL_AI_4_UI_Com_V1_01_1" group="FB Instanzes">
+							<type>
+								<derived name="IL_AI_4_UI_Com_V1_01"/>
+							</type>
+						</variable>
+						<variable name="IL_AI_2_SF_V1_02_1" group="FB Instanzes">
+							<type>
+								<derived name="IL_AI_2_SF_V1_02"/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_L20_AnalogInput_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* L20 Analog Input *)<br/>If xActivate then<br/>	If xActivateOutputData then<br/>		If not xInit then					(* Search for any Analog Input Modules *)<br/>			xInit				:=	True;<br/>			iPositionAI_Module	:= 	0;	<br/>			For iLoop := 1 to 256 do<br/>				If arrIB_Configuration[iLoop].bModuleID = byte#127 then (* Analog input module found *)<br/>					iPositionAI_Module	:= 	iLoop;<br/>					Exit;<br/>				End_If;<br/>			End_For;<br/>
+									<br/>			If iPositionAI_Module &lt;&gt; 0 then	(* Module available *)<br/>				xAnalogExist	:=	True;<br/>
+									<br/>				(* Search for other analog modules *)<br/>				For iLoop := 1 to 256 do<br/>					If arrIB_Configuration[iLoop].bModuleID = byte#127 then (* Analog input module found *)<br/>						iPositionAI_Module2	:= 	iLoop;<br/>					End_If;<br/>				End_For;<br/>				If iPositionAI_Module &lt;&gt; iPositionAI_Module2 then<br/>					strDiag			:=	'Warning: More then one analog module was found';<br/>					xPreAlarm		:=	True;<br/>				End_if;<br/>
+									<br/>			Elsif xInit and iPositionAI_Module = 0 then<br/>				strDiag			:=	'Warning: No analog module was found';<br/>				xPreAlarm		:=	True;<br/>				xAnalogExist	:=	False;	(* No action anymore, no module found *)<br/>			End_If;  <br/>		End_if;<br/>		xActive	:=	True;<br/>
+									<br/>		If xAnalogExist then<br/>			If arrIB_Configuration[iPositionAI_Module].iPdLenCompl &gt; 32 then	(* Read Process data *)<br/>				arrProcInAna[1].B0	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[1];<br/>				arrProcInAna[1].B1	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[2];<br/>				arrProcInAna[2].B0	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[3];<br/>				arrProcInAna[2].B1	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[4];<br/>				arrProcInAna[3].B0	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[5];<br/>				arrProcInAna[3].B1	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[6];<br/>				arrProcInAna[4].B0	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[7];<br/>				arrProcInAna[4].B1	:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[8]; <br/>
+									<br/>				If udtParaAna.CH1rHighLimit &lt;&gt; udtL20Config.rMaxCd1 or udtParaAna.CH2rHighLimit &lt;&gt; udtL20Config.rMaxCd2<br/>				or udtParaAna.CH3rHighLimit &lt;&gt; udtL20Config.rMaxCd3 or udtParaAna.CH4rHighLimit &lt;&gt; udtL20Config.rMaxCd4 then<br/>					IL_AI_4_UI_Com_V1_01_1.xActivate	:=	False;<br/>				Else<br/>					IL_AI_4_UI_Com_V1_01_1.xActivate	:=	True;<br/>				End_if;<br/>				udtParaAna.CH1iChannel		:=	1;						(* Write Analog Input parameter *)<br/>				udtParaAna.CH1iFilter		:=	0;<br/>				udtParaAna.CH1iMode			:=	1;<br/>				udtParaAna.CH1rHighLimit	:=	udtL20Config.rMaxCd1;	(* Norm analog values with *)<br/>				udtParaAna.CH1rLowLimit		:=	0.0;					(* max. values from config files *)<br/>				udtParaAna.CH1wDiagCode		:=	word#16#8000;<br/>				udtParaAna.CH2iChannel		:=	2;<br/>				udtParaAna.CH2iFilter		:=	0;<br/>				udtParaAna.CH2iMode			:=	1;<br/>				udtParaAna.CH2rHighLimit	:=	udtL20Config.rMaxCd2;<br/>				udtParaAna.CH2rLowLimit		:=	0.0;<br/>				udtParaAna.CH2wDiagCode		:=	word#16#8000;<br/>				udtParaAna.CH3iChannel		:=	3;<br/>				udtParaAna.CH3iFilter		:=	0;<br/>				udtParaAna.CH3iMode			:=	1;<br/>				udtParaAna.CH3rHighLimit	:=	udtL20Config.rMaxCd3;<br/>				udtParaAna.CH3rLowLimit		:=	0.0;<br/>				udtParaAna.CH3wDiagCode		:=	word#16#8000;<br/>				udtParaAna.CH4iChannel		:=	4;<br/>				udtParaAna.CH4iFilter		:=	0;<br/>				udtParaAna.CH4iMode			:=	1;<br/>				udtParaAna.CH4rHighLimit	:=	udtL20Config.rMaxCd4;<br/>				udtParaAna.CH4rLowLimit		:=	0.0;<br/>				udtParaAna.CH4wDiagCode		:=	word#16#8000;<br/>
+									<br/>				IL_AI_4_UI_Com_V1_01_1.bSelect		:=	byte#16#f;<br/>				IL_AI_4_UI_Com_V1_01_1.xVoltage		:=	False;<br/>				IL_AI_4_UI_Com_V1_01_1.arrProcIn	:=	arrProcInAna;<br/>
+									<br/>				arrProcOutAna						:=	IL_AI_4_UI_Com_V1_01_1.arrProcOut;<br/>
+									<br/>				If IL_AI_4_UI_Com_V1_01_1.xReady then<br/>					xDone							:=	True;<br/>					udtStatusAna					:=	IL_AI_4_UI_Com_V1_01_1.udtStatus;<br/>					arrAnalogInput[1].wDiagCode		:=	udtStatusAna.CH1wDiagCode;<br/>					arrAnalogInput[2].wDiagCode		:=	udtStatusAna.CH2wDiagCode;<br/>					arrAnalogInput[3].wDiagCode		:=	udtStatusAna.CH3wDiagCode;<br/>					arrAnalogInput[4].wDiagCode		:=	udtStatusAna.CH4wDiagCode;<br/>
+									<br/>						(* Calculate an average value of each input value *)<br/>					If udtStatusAna.CH1xDataValid then<br/>						FB_AnalogAverage_01_1.rInputValue	:=	udtStatusAna.CH1rCurrentValue; (* send analog values to calculate avarege values *)<br/>						arrAnalogInput[1].xUsable			:=	True;<br/>						arrAnalogInput[1].rValue			:=	FB_AnalogAverage_01_1.rAverageValue; (* get calculated average value *)<br/>					Else<br/>						arrAnalogInput[1].xUsable			:=	False;<br/>						arrAnalogInput[1].rValue			:=	0.0;<br/>					End_if;<br/>					If udtStatusAna.CH2xDataValid then<br/>						FB_AnalogAverage_01_2.rInputValue	:=	udtStatusAna.CH2rCurrentValue;<br/>						arrAnalogInput[2].xUsable			:=	True;<br/>						arrAnalogInput[2].rValue			:=	FB_AnalogAverage_01_2.rAverageValue;<br/>					Else<br/>						arrAnalogInput[2].xUsable			:=	False;<br/>						arrAnalogInput[2].rValue			:=	0.0;<br/>					End_if;<br/>					If udtStatusAna.CH3xDataValid then<br/>						FB_AnalogAverage_01_3.rInputValue	:=	udtStatusAna.CH3rCurrentValue;<br/>						arrAnalogInput[3].xUsable			:=	True;<br/>						arrAnalogInput[3].rValue			:=	FB_AnalogAverage_01_3.rAverageValue;<br/>					Else<br/>						arrAnalogInput[3].xUsable			:=	False;<br/>						arrAnalogInput[3].rValue			:=	0.0;<br/>					End_if;<br/>					If udtStatusAna.CH4xDataValid then<br/>						FB_AnalogAverage_01_4.rInputValue	:=	udtStatusAna.CH4rCurrentValue;<br/>						arrAnalogInput[4].xUsable			:=	True;<br/>						arrAnalogInput[4].rValue			:=	FB_AnalogAverage_01_4.rAverageValue;<br/>					Else<br/>						arrAnalogInput[4].xUsable			:=	False;<br/>						arrAnalogInput[4].rValue			:=	0.0;<br/>					End_if;<br/>				Elsif IL_AI_4_UI_Com_V1_01_1.xError then<br/>					wDiagCode		:=	IL_AI_4_UI_Com_V1_01_1.wDiagCode;<br/>				End_if;<br/>									(* Write Process data *)<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[1]	:=	arrProcOutAna[1].B0;<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[2]	:=	arrProcOutAna[1].B1;<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[3]	:=	arrProcOutAna[2].B0;<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[4]	:=	arrProcOutAna[2].B1;<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[5]	:=	arrProcOutAna[3].B0;<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[6]	:=	arrProcOutAna[3].B1;<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[7]	:=	arrProcOutAna[4].B0;<br/>				arrIB_Configuration[iPositionAI_Module].arrPdOut[8]	:=	arrProcOutAna[4].B1;<br/>			End_if;<br/>
+									<br/>									(* Fil Analog Value structure *)<br/>			If arrAnalogInput[1].xUsable then<br/>				arrAnalogAverageValues[1].rValue	:=	arrAnalogInput[1].rValue;<br/>			End_if;<br/>			arrAnalogAverageValues[1].xValid	:=	arrAnalogInput[1].xUsable;<br/>			If arrAnalogInput[2].xUsable then<br/>				arrAnalogAverageValues[2].rValue	:=	arrAnalogInput[2].rValue;<br/>			End_if;<br/>			arrAnalogAverageValues[2].xValid	:=	arrAnalogInput[2].xUsable;<br/>			If arrAnalogInput[3].xUsable then<br/>				arrAnalogAverageValues[3].rValue	:=	arrAnalogInput[3].rValue;<br/>			End_if;<br/>			arrAnalogAverageValues[3].xValid	:=	arrAnalogInput[3].xUsable;<br/>			If arrAnalogInput[4].xUsable then<br/>				arrAnalogAverageValues[4].rValue	:=	arrAnalogInput[4].rValue;<br/>			End_if;<br/>			arrAnalogAverageValues[4].xValid	:=	arrAnalogInput[4].xUsable;<br/>
+									<br/>						(* Calculate an average value of input values 1 + 2 *)<br/>			arrAnalogAverageValues[5].xValid	:=	True;<br/>			If arrAnalogInput[1].xUsable and arrAnalogInput[2].xUsable then<br/>				arrAnalogAverageValues[5].rValue	:=	(arrAnalogInput[1].rValue + arrAnalogInput[2].rValue) / 2.0;<br/>			Elsif arrAnalogInput[1].xUsable then<br/>				arrAnalogAverageValues[5].rValue	:=	arrAnalogInput[1].rValue;<br/>			Elsif arrAnalogInput[2].xUsable then<br/>				arrAnalogAverageValues[5].rValue	:=	arrAnalogInput[2].rValue;<br/>			Else<br/>				arrAnalogAverageValues[5].xValid	:=	False;<br/>			End_if;<br/>
+									<br/>						(* Calculate an average value of input values 3 + 4 *)<br/>			arrAnalogAverageValues[6].xValid	:=	True;<br/>			If arrAnalogInput[3].xUsable and arrAnalogInput[4].xUsable then<br/>				arrAnalogAverageValues[6].rValue	:=	(arrAnalogInput[3].rValue + arrAnalogInput[4].rValue) / 2.0;<br/>			Elsif arrAnalogInput[3].xUsable then<br/>				arrAnalogAverageValues[6].rValue	:=	arrAnalogInput[3].rValue;<br/>			Elsif arrAnalogInput[4].xUsable then<br/>				arrAnalogAverageValues[6].rValue	:=	arrAnalogInput[4].rValue;<br/>			Else<br/>				arrAnalogAverageValues[6].xValid	:=	False;<br/>			End_if;<br/>
+									<br/>						(* Calculate an average value of input values 1 + 2 + 3 + 4 *)<br/>			arrAnalogAverageValues[7].xValid	:=	True;<br/>			If arrAnalogInput[1].xUsable and arrAnalogInput[2].xUsable													(* Availability *)<br/>			and arrAnalogInput[3].xUsable and arrAnalogInput[4].xUsable then											(* 1 + 2 + 3 + 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[1].rValue + arrAnalogInput[2].rValue + <br/>														arrAnalogInput[3].rValue + arrAnalogInput[4].rValue) / 4.0;<br/>			Elsif arrAnalogInput[1].xUsable and arrAnalogInput[2].xUsable and arrAnalogInput[3].xUsable then			(* 1 + 2 + 3 + X *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[1].rValue + arrAnalogInput[2].rValue + <br/>														arrAnalogInput[3].rValue) / 3.0;<br/>			Elsif arrAnalogInput[1].xUsable and arrAnalogInput[2].xUsable and arrAnalogInput[4].xUsable then			(* 1 + 2 + X + 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[1].rValue + arrAnalogInput[2].rValue + <br/>														arrAnalogInput[4].rValue) / 3.0;<br/>			Elsif arrAnalogInput[1].xUsable and arrAnalogInput[3].xUsable and arrAnalogInput[4].xUsable then			(* 1 + X + 3 + 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[1].rValue + arrAnalogInput[3].rValue + <br/>														arrAnalogInput[4].rValue) / 3.0;<br/>			Elsif arrAnalogInput[3].xUsable and arrAnalogInput[2].xUsable and arrAnalogInput[4].xUsable then			(* X + 2 + 3 + 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[3].rValue + arrAnalogInput[2].rValue + <br/>														arrAnalogInput[4].rValue) / 3.0;<br/>			Elsif arrAnalogInput[1].xUsable and arrAnalogInput[2].xUsable then											(* 1 + 2 + X + X *)<br/>				arrAnalogAverageValues[7].rValue	:=	arrAnalogAverageValues[5].rValue;<br/>			Elsif arrAnalogInput[1].xUsable and arrAnalogInput[3].xUsable then											(* 1 + X + 3 + X *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[1].rValue + arrAnalogInput[3].rValue) / 2.0;<br/>			Elsif arrAnalogInput[1].xUsable and arrAnalogInput[4].xUsable then											(* 1 + X + X + 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[1].rValue + arrAnalogInput[4].rValue) / 2.0;<br/>			Elsif arrAnalogInput[2].xUsable and arrAnalogInput[4].xUsable then											(* X + 2 + X + 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[2].rValue + arrAnalogInput[4].rValue) / 2.0;<br/>			Elsif arrAnalogInput[2].xUsable and arrAnalogInput[3].xUsable then											(* X + 2 + 3 + X *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[2].rValue + arrAnalogInput[3].rValue) / 2.0;<br/>			Elsif arrAnalogInput[3].xUsable and arrAnalogInput[4].xUsable then											(* X + X + 3 + 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	(arrAnalogInput[3].rValue + arrAnalogInput[4].rValue) / 2.0;<br/>
+									<br/>			Elsif arrAnalogInput[1].xUsable or arrAnalogInput[2].xUsable then											(* 1 || 2 + X + X *)<br/>				arrAnalogAverageValues[7].rValue	:=	arrAnalogAverageValues[5].rValue;<br/>			Elsif arrAnalogInput[3].xUsable or arrAnalogInput[4].xUsable then											(* X + X + 3 || 4 *)<br/>				arrAnalogAverageValues[7].rValue	:=	arrAnalogAverageValues[6].rValue;<br/>			Else<br/>				arrAnalogAverageValues[7].xValid	:=	False;<br/>			End_if;<br/>
+									<br/>						(* Calculate backup values of input values 1, 2, 3, 4 *)<br/>			arrAnalogAverageValues[8].xValid	:=	True;<br/>			If arrAnalogInput[1].xUsable then<br/>				arrAnalogAverageValues[8].rValue	:=	arrAnalogInput[1].rValue;<br/>			Elsif arrAnalogInput[2].xUsable and udtL20Config.iBackup_1_2_3_4_Limit &gt;= 2 then<br/>				arrAnalogAverageValues[8].rValue	:=	arrAnalogInput[2].rValue;<br/>			Elsif arrAnalogInput[3].xUsable and udtL20Config.iBackup_1_2_3_4_Limit &gt;= 3 then<br/>				arrAnalogAverageValues[8].rValue	:=	arrAnalogInput[3].rValue;<br/>			Elsif arrAnalogInput[4].xUsable and udtL20Config.iBackup_1_2_3_4_Limit &gt;= 4 then<br/>				arrAnalogAverageValues[8].rValue	:=	arrAnalogInput[4].rValue;<br/>			Else<br/>				arrAnalogAverageValues[8].xValid	:=	False;<br/>			End_if;<br/>
+									<br/>						(* Calculate backup values of input values 2, 3, 4, 1 *)<br/>			arrAnalogAverageValues[9].xValid	:=	True;<br/>			If arrAnalogInput[2].xUsable then<br/>				arrAnalogAverageValues[9].rValue	:=	arrAnalogInput[2].rValue;<br/>			Elsif arrAnalogInput[3].xUsable and udtL20Config.iBackup_2_3_4_1_Limit &gt;= 2 then<br/>				arrAnalogAverageValues[9].rValue	:=	arrAnalogInput[3].rValue;<br/>			Elsif arrAnalogInput[4].xUsable and udtL20Config.iBackup_2_3_4_1_Limit &gt;= 3 then<br/>				arrAnalogAverageValues[9].rValue	:=	arrAnalogInput[4].rValue;<br/>			Elsif arrAnalogInput[1].xUsable and udtL20Config.iBackup_2_3_4_1_Limit &gt;= 4 then<br/>				arrAnalogAverageValues[9].rValue	:=	arrAnalogInput[1].rValue;<br/>			Else<br/>				arrAnalogAverageValues[9].xValid	:=	False;<br/>			End_if;<br/>
+									<br/>						(* Calculate backup values of input values 3, 4, 1, 2 *)<br/>			arrAnalogAverageValues[10].xValid	:=	True;<br/>			If arrAnalogInput[3].xUsable then<br/>				arrAnalogAverageValues[10].rValue	:=	arrAnalogInput[3].rValue;<br/>			Elsif arrAnalogInput[4].xUsable and udtL20Config.iBackup_3_4_1_2_Limit &gt;= 2 then<br/>				arrAnalogAverageValues[10].rValue	:=	arrAnalogInput[4].rValue;<br/>			Elsif arrAnalogInput[1].xUsable and udtL20Config.iBackup_3_4_1_2_Limit &gt;= 3 then<br/>				arrAnalogAverageValues[10].rValue	:=	arrAnalogInput[1].rValue;<br/>			Elsif arrAnalogInput[2].xUsable and udtL20Config.iBackup_3_4_1_2_Limit &gt;= 4 then<br/>				arrAnalogAverageValues[10].rValue	:=	arrAnalogInput[2].rValue;<br/>			Else<br/>				arrAnalogAverageValues[10].xValid	:=	False;<br/>			End_if;<br/>
+									<br/>						(* Calculate backup values of input values 4, 1, 2, 3 *)<br/>			arrAnalogAverageValues[11].xValid	:=	True;<br/>			If arrAnalogInput[4].xUsable then<br/>				arrAnalogAverageValues[11].rValue	:=	arrAnalogInput[4].rValue;<br/>			Elsif arrAnalogInput[1].xUsable and udtL20Config.iBackup_4_1_2_3_Limit &gt;= 2 then<br/>				arrAnalogAverageValues[11].rValue	:=	arrAnalogInput[1].rValue;<br/>			Elsif arrAnalogInput[2].xUsable and udtL20Config.iBackup_4_1_2_3_Limit &gt;= 3 then<br/>				arrAnalogAverageValues[11].rValue	:=	arrAnalogInput[2].rValue;<br/>			Elsif arrAnalogInput[3].xUsable and udtL20Config.iBackup_4_1_2_3_Limit &gt;= 4 then<br/>				arrAnalogAverageValues[11].rValue	:=	arrAnalogInput[3].rValue;<br/>			Else<br/>				arrAnalogAverageValues[11].xValid	:=	False;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>Else<br/>	xDone	:=	False;<br/>	xActive	:=	False;<br/>End_if;<br/>
+									<br/>(* ATS Demo (other IB IL AI Module) *)<br/>	If xAnalogExist then<br/>		If arrIB_Configuration[iPositionAI_Module].iPdLenCompl = 32  then<br/>			strDiag			:=	'Analog module for demonstration was found';<br/>
+									<br/>	(* *)	wTemp.B0							:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[2];<br/>			wTemp.B1							:=	arrIB_Configuration[iPositionAI_Module].arrPdIn[1];<br/>	(* *)		IL_AI_2_SF_V1_02_1();<br/>			IL_AI_2_SF_V1_02_1.xActivate		:=	xAnalogExist;<br/>			IL_AI_2_SF_V1_02_1.wInputAddress	:=	wTemp;<br/>			IL_AI_2_SF_V1_02_1.rHI_Limit		:=	udtL20Config.rMaxCd1;<br/>			IL_AI_2_SF_V1_02_1.rLO_Limit		:=	0.0;<br/>			IL_AI_2_SF_V1_02_1.xNoFilter		:=	False;<br/>			IL_AI_2_SF_V1_02_1.iSelectFormat	:=	0;<br/>			IL_AI_2_SF_V1_02_1.iSelectRange		:=	0;(* *)<br/>			xActiveAI2SF						:=	IL_AI_2_SF_V1_02_1.xActive;<br/>			xErrorAI2SF							:=	IL_AI_2_SF_V1_02_1.xError;<br/>			wDiagCodeAI2SF						:=	IL_AI_2_SF_V1_02_1.wDiagCode;<br/>			wTemp								:=	IL_AI_2_SF_V1_02_1.wOutputAddress;<br/>
+									<br/>			FB_AnalogAverage_01_1.rInputValue	:=	IL_AI_2_SF_V1_02_1.rNormValue;<br/>			arrAnalogAverageValues[1].xValid	:=	True;<br/>			arrAnalogAverageValues[1].rValue	:=	FB_AnalogAverage_01_1.rAverageValue;<br/>
+									<br/>			If xActiveAI2SF and not xErrorAI2SF then<br/>				arrAnalogInput[1].xUsable		:=	True;<br/>				arrAnalogInput[1].rValue		:=	IL_AI_2_SF_V1_02_1.rNormValue;<br/>			Else<br/>				arrAnalogInput[1].xUsable		:=	False;<br/>			End_if;<br/>			arrAnalogAverageValues[2].rValue	:=	0.0;<br/>			arrAnalogAverageValues[2].xValid	:=	False;<br/>
+									<br/>			arrAnalogAverageValues[3].rValue	:=	0.0;<br/>			arrAnalogAverageValues[3].xValid	:=	False;<br/>
+									<br/>			arrAnalogAverageValues[4].rValue	:=	0.0;<br/>			arrAnalogAverageValues[4].xValid	:=	False;<br/>
+									<br/>			arrIB_Configuration[iPositionAI_Module].arrPdOut[1] :=	wTemp.B0;<br/>			arrIB_Configuration[iPositionAI_Module].arrPdOut[2] :=	wTemp.B1; (* *)<br/>		End_if;<br/>	End_if;<br/>(* END_ATS Demo *)<br/>
+									<br/>IL_AI_4_UI_Com_V1_01_1(udtPara	:=	udtParaAna); (* activate average FBs *)<br/>udtParaAna						:=	IL_AI_4_UI_Com_V1_01_1.udtPara;<br/>FB_AnalogAverage_01_1(xActivate	:=	arrAnalogInput[1].xUsable,<br/>diAverageTime					:=	diAverageTime);<br/>FB_AnalogAverage_01_2(xActivate	:=	arrAnalogInput[2].xUsable,<br/>diAverageTime					:=	diAverageTime);<br/>FB_AnalogAverage_01_3(xActivate	:=	arrAnalogInput[3].xUsable,<br/>diAverageTime					:=	diAverageTime);<br/>FB_AnalogAverage_01_4(xActivate	:=	arrAnalogInput[4].xUsable,<br/>diAverageTime					:=	diAverageTime);<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="SelectValue">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">If xActivate then<br/>	(* Searching for selected analog values *)<br/>	If iSelectValue1 &gt; 0 and iSelectValue1 &lt; 12 then<br/>		rSelectedValue1	:= arrAnalogAverageValues[iSelectValue1].rValue;<br/>	Else<br/>		rSelectedValue1	:=	0.0;<br/>	End_if;<br/>	If iSelectValue2 &gt; 0 and iSelectValue2 &lt; 12 then<br/>		rSelectedValue2	:=	arrAnalogAverageValues[iSelectValue2].rValue;<br/>	Else<br/>		rSelectedValue2	:=	0.0;<br/>	End_if;<br/>	If iSelectValue3 &gt; 0 and iSelectValue3 &lt; 12 then<br/>		rSelectedValue3	:=	arrAnalogAverageValues[iSelectValue3].rValue;<br/>	Else<br/>		rSelectedValue3	:=	0.0;<br/>	End_if;<br/>	If iSelectValue4 &gt; 0 and iSelectValue4 &lt; 12 then<br/>		rSelectedValue4	:=	arrAnalogAverageValues[iSelectValue4].rValue;<br/>	Else<br/>		rSelectedValue4	:=	0.0;<br/>	End_if;<br/>	R_TRIG_ActivateS1(CLK:=	(iSelectValue1 = 1 or iSelectValue1 = 5 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 8 or (iSelectValue1 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue1 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue1 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue2 = 8 or (iSelectValue2 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue2 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue2 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue3 = 8 or (iSelectValue3 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue3 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue3 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue4 = 8 or (iSelectValue4 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue4 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue4 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue2 = 1 or iSelectValue2 = 5 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 1 or iSelectValue3 = 5 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 1 or iSelectValue4 = 5 or iSelectValue4 = 7));<br/>	F_TRIG_ActivateS1(CLK:=(iSelectValue1 = 1 or iSelectValue1 = 5 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 8 or (iSelectValue1 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue1 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue1 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue2 = 8 or (iSelectValue2 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue2 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue2 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue3 = 8 or (iSelectValue3 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue3 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue3 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue4 = 8 or (iSelectValue4 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 3) or (iSelectValue4 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 2) or (iSelectValue4 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 1) or<br/>	iSelectValue2 = 1 or iSelectValue2 = 5 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 1 or iSelectValue3 = 5 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 1 or iSelectValue4 = 5 or iSelectValue4 = 7));<br/>	If R_TRIG_ActivateS1.Q then<br/>		arrAnalogInput[1].xActive	:=	True;	(* Activate, if the sensor is in use *)<br/>	Elsif F_TRIG_ActivateS1.Q then<br/>		arrAnalogInput[1].xActive	:=	False;<br/>	End_if;<br/>
+									<br/>	F_TRIG_ActivateS2(CLK:=(iSelectValue1 = 2 or iSelectValue1 = 5 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 9 or (iSelectValue1 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue1 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue1 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue2 = 9 or (iSelectValue2 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue2 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue2 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue3 = 9 or (iSelectValue3 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue3 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue3 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue4 = 9 or (iSelectValue4 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue4 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue4 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue2 = 2 or iSelectValue2 = 5 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 2 or iSelectValue3 = 5 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 2 or iSelectValue4 = 5 or iSelectValue4 = 7 ));<br/>	R_TRIG_ActivateS2(CLK:=(iSelectValue1 = 2 or iSelectValue1 = 5 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 9 or (iSelectValue1 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue1 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue1 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue2 = 9 or (iSelectValue2 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue2 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue2 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue3 = 9 or (iSelectValue3 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue3 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue3 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue4 = 9 or (iSelectValue4 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 1) or (iSelectValue4 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 3) or (iSelectValue4 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 2) or<br/>	iSelectValue2 = 2 or iSelectValue2 = 5 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 2 or iSelectValue3 = 5 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 2 or iSelectValue4 = 5 or iSelectValue4 = 7 ));<br/>	If R_TRIG_ActivateS2.Q then<br/>		arrAnalogInput[2].xActive	:=	True;	(* Activate, if the sensor is in use *)<br/>	Elsif F_TRIG_ActivateS2.Q then<br/>		arrAnalogInput[2].xActive	:=	False;<br/>	End_if;<br/>
+									<br/>	R_TRIG_ActivateS3(CLK:=(iSelectValue1 = 3 or iSelectValue1 = 6 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 10 or (iSelectValue1 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue1 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue1 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue2 = 10 or (iSelectValue2 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue2 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue2 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue3 = 10 or (iSelectValue3 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue3 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue3 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue4 = 10 or (iSelectValue4 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue4 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue4 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue2 = 3 or iSelectValue2 = 6 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 3 or iSelectValue3 = 6 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 3 or iSelectValue4 = 6 or iSelectValue4 = 7));<br/>	F_TRIG_ActivateS3(CLK:=(iSelectValue1 = 3 or iSelectValue1 = 6 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 10 or (iSelectValue1 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue1 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue1 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue2 = 10 or (iSelectValue2 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue2 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue2 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue3 = 10 or (iSelectValue3 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue3 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue3 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue4 = 10 or (iSelectValue4 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 2) or (iSelectValue4 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 1) or (iSelectValue4 = 11 and udtL20Config.iBackup_4_1_2_3_Limit &gt; 3) or<br/>	iSelectValue2 = 3 or iSelectValue2 = 6 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 3 or iSelectValue3 = 6 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 3 or iSelectValue4 = 6 or iSelectValue4 = 7));<br/>	If R_TRIG_ActivateS3.Q then<br/>		arrAnalogInput[3].xActive	:=	True;	(* Activate, if the sensor is in use *)<br/>	Elsif F_TRIG_ActivateS3.Q then<br/>		arrAnalogInput[3].xActive	:=	False;<br/>	End_if;<br/>
+									<br/>	R_TRIG_ActivateS4(CLK:=(iSelectValue1 = 4 or iSelectValue1 = 6 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 11 or (iSelectValue1 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue1 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue1 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue2 = 11 or (iSelectValue2 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue2 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue2 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue3 = 11 or (iSelectValue3 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue3 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue3 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue4 = 11 or (iSelectValue4 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue4 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue4 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue2 = 4 or iSelectValue2 = 6 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 4 or iSelectValue3 = 6 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 4 or iSelectValue4 = 6 or iSelectValue4 = 7));<br/>	F_TRIG_ActivateS4(CLK:=(iSelectValue1 = 4 or iSelectValue1 = 6 or iSelectValue1 = 7 or<br/>	iSelectValue1 = 11 or (iSelectValue1 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue1 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue1 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue2 = 11 or (iSelectValue2 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue2 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue2 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue3 = 11 or (iSelectValue3 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue3 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue3 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue4 = 11 or (iSelectValue4 = 8 and udtL20Config.iBackup_1_2_3_4_Limit &gt; 3) or (iSelectValue4 = 9 and udtL20Config.iBackup_2_3_4_1_Limit &gt; 2) or (iSelectValue4 = 10 and udtL20Config.iBackup_3_4_1_2_Limit &gt; 1) or<br/>	iSelectValue2 = 4 or iSelectValue2 = 6 or iSelectValue2 = 7 or<br/>	iSelectValue3 = 4 or iSelectValue3 = 6 or iSelectValue3 = 7 or<br/>	iSelectValue4 = 4 or iSelectValue4 = 6 or iSelectValue4 = 7));<br/>	If R_TRIG_ActivateS4.Q then<br/>		arrAnalogInput[4].xActive	:=	True;	(* Activate, if the sensor is in use *)<br/>	Elsif F_TRIG_ActivateS4.Q then<br/>		arrAnalogInput[4].xActive	:=	False;<br/>	End_if;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="AlarmHandling">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">F_TRIG_1(CLK	:=	arrAnalogInput[1].xUsable);<br/>F_TRIG_2(CLK	:=	arrAnalogInput[2].xUsable);<br/>F_TRIG_3(CLK	:=	arrAnalogInput[3].xUsable);<br/>F_TRIG_4(CLK	:=	arrAnalogInput[4].xUsable);<br/>R_TRIG_1(CLK	:=	xConfirmAlarm);<br/>R_TRIG_2(CLK	:=	arrAnalogInput[1].xUsable);<br/>R_TRIG_3(CLK	:=	arrAnalogInput[2].xUsable);<br/>R_TRIG_4(CLK	:=	arrAnalogInput[3].xUsable);<br/>R_TRIG_5(CLK	:=	arrAnalogInput[4].xUsable);<br/>
+									<br/>If xActivate then	(* Creating Alarm text *)<br/>	If xReportAlarm then<br/>		strDiag					:=	'Analog Error still active!'; (* Output, if a confirmation occurse, but the Error is still active *)<br/>		xReportAlarm			:=	False;<br/>	End_if;<br/>
+									<br/>	If F_TRIG_1.Q and arrAnalogInput[1].xActive or (arrAnalogInput[1].xActive and not arrAnalogInput[1].xUsable and not xAlarm) then<br/>		If arrAnalogInput[1].wDiagCode = word#16#8001 or arrAnalogInput[1].wDiagCode = word#16#8080 then<br/>			strDiag				:=	'Warning: Analog module channel 1 ';<br/>			If arrAnalogInput[1].wDiagCode = word#16#8001 then<br/>				strDiag			:=	concat(strDiag,'overrange');<br/>				xPreAlarm		:=	True;<br/>			Elsif arrAnalogInput[1].wDiagCode = word#16#8080 then<br/>				strDiag			:=	concat(strDiag,'underrange');<br/>				xPreAlarm		:=	True;<br/>			End_if;<br/>		Elsif arrAnalogInput[1].wDiagCode = word#16#8002 or arrAnalogInput[1].wDiagCode = word#16#8020<br/>		or arrAnalogInput[1].wDiagCode = word#16#8040 then<br/>			strDiag				:=	'Error: Analog module channel 1 ';<br/>			If arrAnalogInput[1].wDiagCode = word#16#8002 then<br/>				strDiag			:=	concat(strDiag,'wire break');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[1].wDiagCode = word#16#8020 then<br/>				strDiag			:=	concat(strDiag,'power supply missing');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[1].wDiagCode = word#16#8040 then<br/>				strDiag			:=	concat(strDiag,'defect');<br/>				xAlarm			:=	True;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If F_TRIG_2.Q and arrAnalogInput[2].xActive or (arrAnalogInput[2].xActive and not arrAnalogInput[2].xUsable and not xAlarm) then<br/>		If arrAnalogInput[2].wDiagCode = word#16#8001 or arrAnalogInput[2].wDiagCode = word#16#8080 then<br/>			strDiag				:=	'Warning: Analog module channel 2 ';<br/>			If arrAnalogInput[2].wDiagCode = word#16#8001 then<br/>				strDiag			:=	concat(strDiag,'overrange');<br/>				xPreAlarm		:=	True;<br/>			Elsif arrAnalogInput[2].wDiagCode = word#16#8080 then<br/>				strDiag			:=	concat(strDiag,'underrange');<br/>				xPreAlarm		:=	True;<br/>			End_if;<br/>		Elsif arrAnalogInput[2].wDiagCode = word#16#8002 or arrAnalogInput[2].wDiagCode = word#16#8020<br/>		or arrAnalogInput[2].wDiagCode = word#16#8040 then<br/>			strDiag				:=	'Error: Analog module channel 2 ';<br/>			If arrAnalogInput[2].wDiagCode = word#16#8002 then<br/>				strDiag			:=	concat(strDiag,'wire break');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[2].wDiagCode = word#16#8020 then<br/>				strDiag			:=	concat(strDiag,'power supply missing');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[2].wDiagCode = word#16#8040 then<br/>				strDiag			:=	concat(strDiag,'defect');<br/>				xAlarm			:=	True;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If F_TRIG_3.Q and arrAnalogInput[3].xActive or (arrAnalogInput[3].xActive and not arrAnalogInput[3].xUsable and not xAlarm) then<br/>		If arrAnalogInput[3].wDiagCode = word#16#8001 or arrAnalogInput[3].wDiagCode = word#16#8080 then<br/>			strDiag				:=	'Warning: Analog module channel 3 ';<br/>			If arrAnalogInput[3].wDiagCode = word#16#8001 then<br/>				strDiag			:=	concat(strDiag,'overrange');<br/>				xPreAlarm		:=	True;<br/>			Elsif arrAnalogInput[3].wDiagCode = word#16#8080 then<br/>				strDiag			:=	concat(strDiag,'underrange');<br/>				xPreAlarm		:=	True;<br/>			End_if;<br/>		Elsif arrAnalogInput[3].wDiagCode = word#16#8002 or arrAnalogInput[3].wDiagCode = word#16#8020<br/>		or arrAnalogInput[3].wDiagCode = word#16#8040 then<br/>			strDiag				:=	'Error: Analog module channel 3 ';<br/>			If arrAnalogInput[3].wDiagCode = word#16#8002 then<br/>				strDiag			:=	concat(strDiag,'wire break');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[3].wDiagCode = word#16#8020 then<br/>				strDiag			:=	concat(strDiag,'power supply missing');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[3].wDiagCode = word#16#8040 then<br/>				strDiag			:=	concat(strDiag,'defect');<br/>				xAlarm			:=	True;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If F_TRIG_4.Q and arrAnalogInput[4].xActive or (arrAnalogInput[4].xActive and not arrAnalogInput[4].xUsable and not xAlarm) then<br/>		If arrAnalogInput[4].wDiagCode = word#16#8001 or arrAnalogInput[4].wDiagCode = word#16#8080 then<br/>			strDiag				:=	'Warning: Analog module channel 4 ';<br/>			If arrAnalogInput[4].wDiagCode = word#16#8001 then<br/>				strDiag			:=	concat(strDiag,'overrange');<br/>				xPreAlarm		:=	True;<br/>			Elsif arrAnalogInput[4].wDiagCode = word#16#8080 then<br/>				strDiag			:=	concat(strDiag,'underrange');<br/>				xPreAlarm		:=	True;<br/>			End_if;<br/>		Elsif arrAnalogInput[4].wDiagCode = word#16#8002 or arrAnalogInput[4].wDiagCode = word#16#8020<br/>		or arrAnalogInput[4].wDiagCode = word#16#8040 then<br/>			strDiag				:=	'Error: Analog module channel 4 ';<br/>			If arrAnalogInput[4].wDiagCode = word#16#8002 then<br/>				strDiag			:=	concat(strDiag,'wire break');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[4].wDiagCode = word#16#8020 then<br/>				strDiag			:=	concat(strDiag,'power supply missing');<br/>				xAlarm			:=	True;<br/>			Elsif arrAnalogInput[4].wDiagCode = word#16#8040 then<br/>				strDiag			:=	concat(strDiag,'defect');<br/>				xAlarm			:=	True;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>
+									<br/>	If xAlarm then<br/>		If R_TRIG_1.Q then (* Confirmation*)<br/>			If (((arrAnalogInput[1].xActive and arrAnalogInput[1].wDiagCode &lt; word#16#8002) or not arrAnalogInput[1].xActive) and<br/>				((arrAnalogInput[2].xActive and arrAnalogInput[2].wDiagCode &lt; word#16#8002) or not arrAnalogInput[2].xActive) and<br/>				((arrAnalogInput[3].xActive and arrAnalogInput[3].wDiagCode &lt; word#16#8002) or not arrAnalogInput[3].xActive) and<br/>				((arrAnalogInput[4].xActive and arrAnalogInput[4].wDiagCode &lt; word#16#8002) or not arrAnalogInput[4].xActive)) then<br/>				xAlarm			:=	False;<br/>				strDiag			:=	'Analog Error confirmed';<br/>			Else<br/>				xReportAlarm	:=	True;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If xPreAlarm then<br/>		If (R_TRIG_2.Q and arrAnalogInput[1].xActive) or (R_TRIG_3.Q and arrAnalogInput[2].xActive) or (R_TRIG_4.Q and arrAnalogInput[3].xActive) or (R_TRIG_5.Q and arrAnalogInput[4].xActive) then<br/>			If (((arrAnalogInput[1].xActive and arrAnalogInput[1].wDiagCode &lt;&gt; word#16#8001) or not arrAnalogInput[1].xActive) and<br/>				((arrAnalogInput[2].xActive and arrAnalogInput[2].wDiagCode &lt;&gt; word#16#8001) or not arrAnalogInput[2].xActive) and<br/>				((arrAnalogInput[3].xActive and arrAnalogInput[3].wDiagCode &lt;&gt; word#16#8001) or not arrAnalogInput[3].xActive) and<br/>				((arrAnalogInput[4].xActive and arrAnalogInput[4].wDiagCode &lt;&gt; word#16#8001) or not arrAnalogInput[4].xActive)) then<br/>				xPreAlarm		:=	False;<br/>			Else<br/>				xReportAlarm	:=	True;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If xAlarm or xPreAlarm then (* Warning or Error is gone *)<br/>		If R_TRIG_2.Q and arrAnalogInput[1].xActive then<br/>			strDiag			:=	'Analog value channel 1 valid';<br/>		End_if;<br/>		If R_TRIG_3.Q and arrAnalogInput[2].xActive then<br/>			strDiag			:=	'Analog value channel 2 valid';<br/>		End_if;<br/>		If R_TRIG_4.Q and arrAnalogInput[3].xActive then<br/>			strDiag			:=	'Analog value channel 3 valid';<br/>		End_if;<br/>		If R_TRIG_5.Q and arrAnalogInput[4].xActive then<br/>			strDiag			:=	'Analog value channel 4 valid';<br/>		End_if;<br/>	End_if;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_L20_AnalogInput_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

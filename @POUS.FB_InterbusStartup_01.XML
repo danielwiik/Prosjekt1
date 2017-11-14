@@ -1,0 +1,661 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:35" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666355" modificationDateTime="2017-11-14T14:32:35" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_InterbusStartup_01" pouType="functionBlock" pouGroup="Interbus_Startup" lastChange="2016-11-16T12:31:41">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate FB</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xInterbusRun" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic input from Interbus state</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xActivateOutputData" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate output process data after complete startup</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrInputPD" group="Input parameter">
+							<type>
+								<derived name="ARR_IBS_PD_DATA_B_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Process data connection</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iDelay" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scene switching delay to delay the calculated Lumgate output values</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB is active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xDone" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Startup process done</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xError" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Any Interbus error occurs</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xPreAlarm" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Warning during Interbus startup</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="strDiag" group="Output parameter">
+							<type>
+								<string length="80"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnostic text</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrOutputPD" group="Output parameter">
+							<type>
+								<derived name="ARR_IBS_PD_DATA_B_1_512"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Process data connection</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="iTotalDevices" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iActDevice" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iIBS_State" group="Output parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="arrIB_Configuration" group="In- Output parameter">
+							<type>
+								<derived name="ARR_IBS_CONF_ENTRIES_1_256"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Interbus device communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrLumgates" group="In- Output parameter">
+							<type>
+								<derived name="arr_1_240_udtLumgate"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xManualTrig" group="In- Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Trigger, restart Interbus</p>
+								</html>
+							</documentation>
+						</variable>
+					</inOutVars>
+					<externalVars retain="false">
+						<variable name="MASTER_DIAG_STATUS_REG_DTC" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Diagnoseroutine ist aktiv</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="MASTER_DIAG_STATUS_REG_RUN" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Datenübertragung ist aktiv</p>
+								</html>
+							</documentation>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="iIB_Startup" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTeach" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xActivateStartup" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xActiveStartup" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xReadyStartup" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xInitNewConfig" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xErrorStartup" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xDoneStartup" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="wDiagCodeStartup" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="dwDiagCodeStartup" group="Default">
+							<type>
+								<DWORD/>
+							</type>
+						</variable>
+						<variable name="strDiagCodeStartup" group="Default">
+							<type>
+								<string length="80"/>
+							</type>
+						</variable>
+						<variable name="wDiagCodeProcessData" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="dwAddDiagCodeProcessData" group="Default">
+							<type>
+								<DWORD/>
+							</type>
+						</variable>
+						<variable name="strDiagCodeProcessData" group="Default">
+							<type>
+								<string length="80"/>
+							</type>
+						</variable>
+						<variable name="xActivateProcessData" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xTeach" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop3" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="wTemp" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="wTempValue" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="wTempValueMeasurement" redundant="true" group="Default">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="xStartTimer" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iNumberLumgate" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iModuleNumber" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xActiveProcessData" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xErrorProcessData" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="arrOutgoingPD" redundant="true" group="Default">
+							<type>
+								<derived name="ARR_IBS_PD_DATA_B_1_512"/>
+							</type>
+						</variable>
+						<variable name="arrIB_SysConfig" redundant="true" group="Default">
+							<type>
+								<derived name="ARR_IBC_DATA_1_512"/>
+							</type>
+						</variable>
+						<variable name="iCountOfRBT" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iCountOfAI" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iCountOfLumgate" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTotalAmountWithConfig" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="true">
+						<variable name="arrActualOutput" group="Default">
+							<type>
+								<derived name="ARR_I_1_240"/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="false">
+						<variable name="F_TRIG_InterbusRun" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="iCountOfOther" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="true">
+						<variable name="arrActualModuleNumber" group="Default">
+							<type>
+								<derived name="ARR_I_1_240"/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="false">
+						<variable name="tDealy" group="Default">
+							<type>
+								<TIME/>
+							</type>
+						</variable>
+						<variable name="TON_Timeout" group="Default">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="true">
+						<variable name="iBS_Devices" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xIBS_DeviceCountOK" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="false">
+						<variable name="xStepup" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="TON_ReadDevices" group="Default">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+						<variable name="TON_IBS_Startup" group="Default">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+						<variable name="iActualIB_Device" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="true">
+						<variable name="xIB_ConfigSaved" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="false">
+						<variable name="iNumberLumgate1" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iNumberLumgate2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iNumberLumgate3" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iNumberLumgate4" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="true">
+						<variable name="arrActualRelayState1" group="Default">
+							<type>
+								<derived name="ARR_X_1_240"/>
+							</type>
+						</variable>
+						<variable name="arrActualRelayState2" redundant="true" group="Default">
+							<type>
+								<derived name="ARR_X_1_240"/>
+							</type>
+						</variable>
+					</localVars>
+					<inputVars retain="false">
+						<variable name="xLumgateType" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</inputVars>
+					<localVars retain="false">
+						<variable name="F_DiagnosticRoutine" group="FB_Instanzes">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="R_TRIG_Interbus" group="FB_Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="TON_Startup" group="FB_Instanzes">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+						<variable name="TON_DelayTest" group="FB_Instanzes">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+						<variable name="IBStartup" group="FB_Instanzes">
+							<type>
+								<derived name="FB_InterbusStartup"/>
+							</type>
+						</variable>
+						<variable name="ProcessData" group="FB_Instanzes">
+							<type>
+								<derived name="FB_PD_Assign"/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_InterbusStartup_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* InterbusStartup *)<br/>R_TRIG_Interbus(CLK		:=	xInterbusRun);<br/>F_TRIG_InterbusRun(CLK	:=	MASTER_DIAG_STATUS_REG_RUN);<br/>
+									<br/>If xActivate then<br/>	If not xInterbusRun then<br/>		strDiag		:=	'Warning: System is not ready to work';<br/>		xPreAlarm	:=	True;<br/>	End_if;<br/>	Case iIB_Startup of<br/>
+									<br/>		0:	(* Activate Interbus Startup FB *)<br/>			xActivateStartup		:=	True;<br/>			iIB_Startup				:=	1;<br/>			xError					:=	False;<br/>			strDiag					:=	'Start up Interbus';<br/>
+									<br/>		1:	<br/>			If xActiveStartup and xReadyStartup then	(* Startup FB is ready *)<br/>				xInitNewConfig		:=	True;<br/>				iIB_Startup			:=	2;<br/>
+									<br/>			Elsif xErrorStartup or TON_Timeout.Q then<br/>				iIB_Startup			:=	999;<br/>			End_If;<br/>
+									<br/>		2:	(* Interbus device detection complete *)<br/>			If xDoneStartup then <br/>				xActivateProcessData	:=	True; 		(* IBS Process data FB *)<br/>				xActivateOutputData		:=	False;		(* Set Output data to 2 V per Lumgate *)<br/>				xTeach					:=	True;<br/>				xActive					:=	True;<br/>				iIB_Startup				:=	3;<br/>			Elsif xErrorStartup then<br/>				strDiag					:=	'Interbus Error';<br/>				xActivateStartup		:=	False;<br/>				xInitNewConfig			:=	False;<br/>				iIB_Startup				:=	999;<br/>			End_If;<br/>
+									<br/>		3:<br/>			If TON_IBS_Startup.Q then<br/>				xActivateOutputData		:=	True;<br/>				strDiag					:=	'System startup complete';<br/>				xPreAlarm				:=	False;<br/>				iIB_Startup				:=	4;<br/>			End_if;<br/>
+									<br/>		4:	(* Target step. Leave only in case of failure or rescan command *)<br/>			If not MASTER_DIAG_STATUS_REG_RUN then		(* Rescan after a failure occurs *)<br/>				xActive					:=	False;<br/>				xActivateOutputData		:=	True;<br/>				iIB_Startup				:= 	5;<br/>			Elsif xManualTrig then						(* Manual Rescan *)<br/>				xActive					:=	False;<br/>				xActivateOutputData		:=	True;<br/>				iIB_Startup				:= 	7;<br/>			End_If;<br/>
+									<br/>		5:	(* Restart after failure *)<br/>			xActivateStartup		:= 	False;<br/>			xInitNewConfig			:= 	False;<br/>			xActivateProcessData	:= 	False;<br/>
+									<br/>			For iLoop:= 1 to 256 do	(* Reset Interbus device structure *)<br/>				If iLoop &lt; 241 then<br/>					arrLumgates[iLoop].iModuleNumberGeneral		:=	0;<br/>				End_if;<br/>				arrIB_Configuration[iLoop].xDeviceCopyed		:= 	False;<br/>				arrIB_Configuration[iLoop].iPdLenCompl			:= 	0;<br/>				arrIB_Configuration[iLoop].iPdLenIn				:= 	0;<br/>				arrIB_Configuration[iLoop].iPdLenOut			:= 	0;<br/>				arrIB_Configuration[iLoop].iPntrPdBeginIn		:= 	0;<br/>				arrIB_Configuration[iLoop].iPntrPdBeginOut		:= 	0;<br/>				arrIB_Configuration[iLoop].iReservedBytesIn		:= 	0;<br/>				arrIB_Configuration[iLoop].iReservedBytesOut	:= 	0;<br/>				arrIB_Configuration[iLoop].iCntPdd				:= 	0;<br/>				arrIB_Configuration[iLoop].bModuleID			:= 	Byte#0;<br/>			End_For;<br/>			iIB_Startup	:= 	55;<br/>
+									<br/>		55:	<br/>			If F_DiagnosticRoutine.Q then		(* Wait for the end of the IBS diagnostic routine *)<br/>				xStartTimer			:=	True;	(* Start delay timer *)<br/>				xManualTrig			:= 	False;<br/>				iIB_Startup			:= 	6;<br/>			End_If;<br/>
+									<br/>		6:	<br/>			If TON_DelayTest.Q then<br/>				xStartTimer			:= 	False;	(* Restart IBS Startup *)<br/>				xActivateStartup	:= 	True;<br/>				iIB_Startup			:= 	1;<br/>			End_If;<br/>
+									<br/>		7:	<br/>			xManualTrig				:=	False;	(* Start delay timer *)<br/>			xStartTimer				:= 	True;<br/>			iIB_Startup				:= 	8;<br/>
+									<br/>		8:	<br/>			If TON_DelayTest.Q then<br/>				xStartTimer			:= 	False;<br/>				iIB_Startup			:= 	9;		(* Reset IBS Structure *)<br/>			End_If;<br/>	<br/>		9:	<br/>			xActivateStartup		:= 	False;<br/>			xInitNewConfig			:= 	False;<br/>			xActivateProcessData	:= 	False;<br/>
+									<br/>			For iLoop := 1 to 256 do<br/>				If iLoop &lt; 241 then<br/>					arrLumgates[iLoop].iModuleNumberGeneral		:=	0;<br/>				End_if;<br/>				arrIB_Configuration[iLoop].xDeviceCopyed		:= 	False;<br/>				arrIB_Configuration[iLoop].iPdLenCompl			:= 	0;<br/>				arrIB_Configuration[iLoop].iPdLenIn				:= 	0;<br/>				arrIB_Configuration[iLoop].iPdLenOut			:= 	0;<br/>				arrIB_Configuration[iLoop].iPntrPdBeginIn		:= 	0;<br/>				arrIB_Configuration[iLoop].iPntrPdBeginOut		:= 	0;<br/>				arrIB_Configuration[iLoop].iReservedBytesIn		:= 	0;<br/>				arrIB_Configuration[iLoop].iReservedBytesOut	:= 	0;<br/>				arrIB_Configuration[iLoop].iCntPdd				:= 	0;<br/>				arrIB_Configuration[iLoop].bModuleID			:= 	Byte#0;<br/>		<br/>			End_For;<br/>
+									<br/>			xStartTimer				:= 	True;<br/>			xManualTrig				:= 	False;<br/>			iIB_Startup				:= 	6;<br/>
+									<br/>		999:<br/>			xActivateProcessData	:= 	False;<br/>			xInitNewConfig			:=	False;<br/>			xActivateStartup		:=	False;<br/>			xError					:=	True;<br/>			iIB_Startup				:= 	0;<br/>	End_case;<br/>
+									<br/>Else<br/>	xActivateOutputData		:=	False;<br/>	xActivateProcessData	:= 	False;<br/>	xInitNewConfig			:=	False;<br/>	xActivateStartup		:=	False;<br/>	iIB_Startup				:=	0;<br/>	xError					:=	False;<br/>	xActive					:=	False;<br/>End_if;<br/>
+									<br/>F_DiagnosticRoutine(CLK	:=	MASTER_DIAG_STATUS_REG_DTC);<br/>TON_DelayTest(IN		:=	xStartTimer,	PT	:=	T#1s);<br/>TON_Timeout(IN			:=	iIB_Startup = 2,PT	:=	t#2m);<br/>TON_IBS_Startup(IN		:=	iIB_Startup = 3,PT	:=	t#5s);<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="TeachPosition">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* InterbusStartup *)<br/>xDone				:=	False;<br/>Case iTeach of<br/>
+									<br/>	0:	<br/>		If xTeach then<br/>			iLoop3	:= 	0;<br/>			For iLoop := 1 to 240 do	(* Reset availability *)<br/>				arrLumgates[iLoop].xAvailable	:=	False;<br/>			End_For;<br/>			iTeach	:= 	5;<br/>		End_If;<br/>
+									<br/>	1: (* not used *)<br/>		For iLoop := 1 to 4 do<br/>			iNumberLumgate	:= 	0;<br/>			wTemp			:= 	int_to_word(iLoop - 1);<br/>
+									<br/>			For iActualIB_Device := 1 to 256 do<br/>				(* Detect and sort Lumgates *)<br/>				If arrIB_Configuration[iActualIB_Device].wModuleLevel = wTemp and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>					iNumberLumgate								:=	iNumberLumgate + 1;<br/>					iLoop3										:= 	iLoop3 + 1;<br/>					arrLumgates[iLoop3].iModuleLevel			:= 	iLoop - 1;<br/>					arrLumgates[iLoop3].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>					arrLumgates[iLoop3].iModuleNumber			:=	iNumberLumgate;<br/>					arrLumgates[iLoop3].xAvailable				:=	True;<br/>				End_If;<br/>			End_For;<br/>		End_For;<br/>
+									<br/>		iNumberLumgate	:= 	0;<br/>		iTeach			:= 	17;	(* Check for invalid bus devices *)<br/>		xTeach			:= 	False;<br/>		xDone			:=	True;<br/>		xIB_ConfigSaved	:=	True;<br/>
+									<br/>	5:<br/>		iNumberLumgate	:= 	0;<br/>		iNumberLumgate1	:=	0;<br/>
+									<br/>		For iActualIB_Device := 1 to 90 do	(* Search for Lumgates *)<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#0 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:= 	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do	(* Search for the fitting configuration *)<br/>					If arrLumgates[iLoop2].iModuleLevel = 0 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate1								:= 	iNumberLumgate1 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	6;<br/>
+									<br/>	6:<br/>		For iActualIB_Device := 91 to 180 do	(* Split the searching process in a couple of parts to reduce the cycle time *)<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#0 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:=	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 0 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate1								:= 	iNumberLumgate1 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	7;<br/>	<br/>	7:<br/>		For iActualIB_Device	:= 181 to 256 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#0 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:=	iNumberLumgate + 1;<br/>				For iLoop2:= 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 0 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate1								:= 	iNumberLumgate1 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	8;<br/>
+									<br/>	8:<br/>		iNumberLumgate	:= 	0;<br/>		iNumberLumgate2	:=	0;<br/>		For iActualIB_Device := 1 to 90 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = word#1 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:=	 iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 1 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate2								:= 	iNumberLumgate2 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:=	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	9;<br/>
+									<br/>	9:<br/>		For iActualIB_Device := 91 to 180 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = word#1 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:= 	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 1 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate2								:= 	iNumberLumgate2 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	10;<br/>	<br/>	10:<br/>		For iActualIB_Device := 181 to 256 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#1 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:= 	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 1 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate2								:= 	iNumberLumgate2 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	11;<br/>
+									<br/>	11:<br/>		iNumberLumgate	:= 	0;<br/>		iNumberLumgate3	:=	0;<br/>		For iActualIB_Device := 1 to 90 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#2 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:= 	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 2 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate3								:= 	iNumberLumgate3 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	12;<br/>
+									<br/>	12:<br/>		For iActualIB_Device := 91 to 180 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#2 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:= 	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 2 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate3								:= 	iNumberLumgate3 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	13;<br/>	<br/>	13:<br/>		For iActualIB_Device := 181 to 256 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#2 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:=	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 2 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate3								:= 	iNumberLumgate3 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;	<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	14;<br/>
+									<br/>	14:<br/>		iNumberLumgate	:=	0;<br/>		iNumberLumgate4	:=	0;<br/>		For iActualIB_Device := 1 to 90 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#3 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:=	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 3 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate4								:= 	iNumberLumgate4 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:=	 15;<br/>
+									<br/>	15:<br/>		For iActualIB_Device := 91 to 180 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#3 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:= 	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 3 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate4								:= 	iNumberLumgate4 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:= 	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:= 	True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach	:= 	16;<br/>	<br/>	16:<br/>		For iActualIB_Device := 181 to 256 do<br/>			If arrIB_Configuration[iActualIB_Device].wModuleLevel = Word#3 and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				iNumberLumgate	:= 	iNumberLumgate + 1;<br/>				For iLoop2 := 1 to 240 do<br/>					If arrLumgates[iLoop2].iModuleLevel = 3 and arrLumgates[iLoop2].iModuleNumber = iNumberLumgate then<br/>						iNumberLumgate4								:= 	iNumberLumgate4 + 1;<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:=	 True;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>		iTeach				:= 	161;<br/>
+									<br/>	161:<br/>		(* Search for Lumgates without a configuration *)<br/>		For iActualIB_Device := 1 to 65 do<br/>			If not arrIB_Configuration[iActualIB_Device].xDeviceCopyed and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				For iLoop2 := 1 to 240 do	(* Add all not configured Lumgates at the end of the structure *)<br/>					If not arrLumgates[iLoop2].xAvailable and not arrLumgates[iLoop2].xInConfigFile then<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:=	True;<br/>						arrLumgates[iLoop2].iModuleLevel			:= 	word_to_int(arrIB_Configuration[iActualIB_Device].wModuleLevel);<br/>
+									<br/>						(* Enter a basic configuration *)<br/>						arrLumgates[iLoop2].iActualOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].iOutputLevelFailsave	:=	222;<br/>						arrLumgates[iLoop2].iTargetOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].strDescription			:=	'Dev. not configured';<br/>						arrLumgates[iLoop2].xFailMode				:=	True;<br/>
+									<br/>						If arrLumgates[iLoop2].iModuleLevel = 0 then<br/>							iNumberLumgate1	:=	iNumberLumgate1 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate1;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 1 then<br/>							iNumberLumgate2	:=	iNumberLumgate2 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate2;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 2 then<br/>							iNumberLumgate3	:=	iNumberLumgate3 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate3;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 3 then<br/>							iNumberLumgate4	:=	iNumberLumgate4 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate4;<br/>						End_if;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		iTeach				:= 	162;<br/>
+									<br/>	162:<br/>		(* Search for Lumgates without a configuration *)<br/>		For iActualIB_Device := 66 to 130 do<br/>			If not arrIB_Configuration[iActualIB_Device].xDeviceCopyed and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				For iLoop2 := 1 to 240 do	(* Add all not configured Lumgates at the end of the structure *)<br/>					If not arrLumgates[iLoop2].xAvailable and not arrLumgates[iLoop2].xInConfigFile then<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:=	True;<br/>						arrLumgates[iLoop2].iModuleLevel			:= 	word_to_int(arrIB_Configuration[iActualIB_Device].wModuleLevel);<br/>
+									<br/>						(* Enter a basic configuration *)<br/>						arrLumgates[iLoop2].iActualOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].iOutputLevelFailsave	:=	222;<br/>						arrLumgates[iLoop2].iTargetOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].strDescription			:=	'Dev. not configured';<br/>						arrLumgates[iLoop2].xFailMode				:=	True;<br/>
+									<br/>						If arrLumgates[iLoop2].iModuleLevel = 0 then<br/>							iNumberLumgate1	:=	iNumberLumgate1 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate1;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 1 then<br/>							iNumberLumgate2	:=	iNumberLumgate2 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate2;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 2 then<br/>							iNumberLumgate3	:=	iNumberLumgate3 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate3;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 3 then<br/>							iNumberLumgate4	:=	iNumberLumgate4 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate4;<br/>						End_if;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		iTeach				:= 	163;<br/>	163:<br/>		(* Search for Lumgates without a configuration *)<br/>		For iActualIB_Device := 131 to 195 do<br/>			If not arrIB_Configuration[iActualIB_Device].xDeviceCopyed and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				For iLoop2 := 1 to 240 do	(* Add all not configured Lumgates at the end of the structure *)<br/>					If not arrLumgates[iLoop2].xAvailable and not arrLumgates[iLoop2].xInConfigFile then<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:=	True;<br/>						arrLumgates[iLoop2].iModuleLevel			:= 	word_to_int(arrIB_Configuration[iActualIB_Device].wModuleLevel);<br/>
+									<br/>						(* Enter a basic configuration *)<br/>						arrLumgates[iLoop2].iActualOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].iOutputLevelFailsave	:=	222;<br/>						arrLumgates[iLoop2].iTargetOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].strDescription			:=	'Dev. not configured';<br/>						arrLumgates[iLoop2].xFailMode				:=	True;<br/>
+									<br/>						If arrLumgates[iLoop2].iModuleLevel = 0 then<br/>							iNumberLumgate1	:=	iNumberLumgate1 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate1;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 1 then<br/>							iNumberLumgate2	:=	iNumberLumgate2 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate2;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 2 then<br/>							iNumberLumgate3	:=	iNumberLumgate3 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate3;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 3 then<br/>							iNumberLumgate4	:=	iNumberLumgate4 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate4;<br/>						End_if;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		iTeach				:= 	164;<br/>	164:<br/>		(* Search for Lumgates without a configuration *)<br/>		For iActualIB_Device := 196 to 256 do<br/>			If not arrIB_Configuration[iActualIB_Device].xDeviceCopyed and arrIB_Configuration[iActualIB_Device].bModuleID = Byte#16#33 then<br/>				For iLoop2 := 1 to 240 do	(* Add all not configured Lumgates at the end of the structure *)<br/>					If not arrLumgates[iLoop2].xAvailable and not arrLumgates[iLoop2].xInConfigFile then<br/>						arrLumgates[iLoop2].iModuleNumberGeneral	:=	iActualIB_Device;<br/>						arrLumgates[iLoop2].xAvailable				:=	True;<br/>						arrLumgates[iLoop2].iModuleLevel			:= 	word_to_int(arrIB_Configuration[iActualIB_Device].wModuleLevel);<br/>
+									<br/>						(* Enter a basic configuration *)<br/>						arrLumgates[iLoop2].iActualOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].iOutputLevelFailsave	:=	222;<br/>						arrLumgates[iLoop2].iTargetOutputLevel		:=	222;<br/>						arrLumgates[iLoop2].strDescription			:=	'Dev. not configured';<br/>						arrLumgates[iLoop2].xFailMode				:=	True;<br/>
+									<br/>						If arrLumgates[iLoop2].iModuleLevel = 0 then<br/>							iNumberLumgate1	:=	iNumberLumgate1 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate1;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 1 then<br/>							iNumberLumgate2	:=	iNumberLumgate2 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate2;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 2 then<br/>							iNumberLumgate3	:=	iNumberLumgate3 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate3;<br/>						Elsif arrLumgates[iLoop2].iModuleLevel = 3 then<br/>							iNumberLumgate4	:=	iNumberLumgate4 + 1;<br/>							arrLumgates[iLoop2].iModuleNumber			:=	iNumberLumgate4;<br/>						End_if;<br/>
+									<br/>						arrIB_Configuration[iActualIB_Device].xDeviceCopyed	:=	True;<br/>						Exit;<br/>					End_If;<br/>				End_For;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		iTeach				:= 	17;<br/>		xTeach				:= 	False;<br/>		xDone				:=	True;<br/>		xIB_ConfigSaved		:=	True;<br/>		xActivateOutputData	:=	True;<br/>
+									<br/>	17:	(* Check Interbus devices *)<br/>		xDone			:=	True;<br/>		iCountOfRBT		:=	0;<br/>		iCountOfAI		:=	0;<br/>		iCountOfLumgate	:=	0;<br/>		iCountOfOther	:=	0;<br/>
+									<br/>		For iLoop := 1 to 256 do<br/>			If arrIB_Configuration[iLoop].bModuleID = Byte#4 then (* RBT *)<br/>				iCountOfRBT		:= iCountOfRBT + 1;<br/>			End_If;<br/>
+									<br/>			If arrIB_Configuration[iLoop].bModuleID = Byte#16#7F then (* Analog input module *)<br/>				iCountOfAI		:= iCountOfAI + 1;<br/>			End_If;<br/>
+									<br/>			If arrIB_Configuration[iLoop].bModuleID = Byte#16#33 then (* Lumgate *)<br/>				iCountOfLumgate	:= iCountOfLumgate + 1;<br/>			End_If;<br/>
+									<br/>			If arrIB_Configuration[iLoop].bModuleID &lt;&gt; Byte#16#33 and arrIB_Configuration[iLoop].bModuleID &lt;&gt; Byte#16#4 <br/>			and arrIB_Configuration[iLoop].bModuleID &lt;&gt; Byte#16#7F and arrIB_Configuration[iLoop].bModuleID &lt;&gt; Byte#0 then (* other devices *)<br/>				iCountOfOther	:= iCountOfOther + 1;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		xError						:= False;<br/>		iTotalAmountWithConfig		:= 0;<br/>
+									<br/>		For iLoop := 1 to 240 do<br/>			If arrLumgates[iLoop].xInConfigFile and not arrLumgates[iLoop].xAvailable then<br/>				xError				:= True;<br/>			End_If;<br/>			If arrLumgates[iLoop].xAvailable then<br/>				iTotalAmountWithConfig	:= iTotalAmountWithConfig + 1;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		If iCountOfRBT &gt; 4 then<br/>			strDiag	:= 'Error: More than 4 RBT modules are found';<br/>			xError	:= True;<br/>		End_If;<br/>
+									<br/>		If iCountOfRBT &lt; 4 then<br/>			strDiag	:= 'Error: Less than 4 RBT modules are found';<br/>			xError	:= True;<br/>		End_If;<br/>
+									<br/>		If iCountOfAI = 0 then<br/>			strDiag	:= 'Error: No analog input module found';<br/>			xError	:= True;<br/>		End_If;<br/>
+									<br/>		If iCountOfAI &gt; 1 then<br/>			strDiag	:= 'Error: More than 1 analog input module found';<br/>			xError	:= True;<br/>		End_If;<br/>
+									<br/>		If iCountOfLumgate &gt; 240 then<br/>			strDiag	:= 'Error: More than 240 Lumgates found';<br/>			xError	:= True;<br/>		End_If;<br/>
+									<br/>		If iCountOfOther &gt; 0 then<br/>			strDiag	:=	'Error: Invalid Interbus devices are found';<br/>			xError	:=	True;<br/>		End_if;<br/>
+									<br/>		iTeach	:=	0;<br/>End_Case;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="HardwareConnection">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* InterbusStartup *)<br/>For iLoop := 1 to 240 do<br/>	If arrLumgates[iLoop].xAvailable and xActivateOutputData then<br/>		iModuleNumber							:=	arrLumgates[iLoop].iModuleNumberGeneral;<br/>		arrIB_Configuration[iModuleNumber].arrPdOut[1].X6:= arrLumgates[iLoop].xFailMode;						(* 0 = Hold, 1 = Failsave values *)<br/>		arrIB_Configuration[iModuleNumber].arrPdOut[1].X7:= arrLumgates[iLoop].xSafe; 							(* Rising Edge: Load failsave values *)<br/>
+									<br/>		arrLumgates[iLoop].xInput1				:= 	arrIB_Configuration[iModuleNumber].arrPdIn[1].X4; 			(* digital input 1 *)<br/>		arrLumgates[iLoop].xInput2				:= 	arrIB_Configuration[iModuleNumber].arrPdIn[1].X5;			(* digital input 2 *)<br/>		arrLumgates[iLoop].iActualOutputLevel	:= 	limit_int(0,arrLumgates[iLoop].iActualOutputLevel,1070); 	(* analog value *)<br/>
+									<br/>		wTempValueMeasurement					:=	word#0; 													(* measurement *)<br/>		wTempValueMeasurement.B0				:=	arrIB_Configuration[iModuleNumber].arrPdIn[2];<br/>		wTempValueMeasurement.X8				:=	arrIB_Configuration[iModuleNumber].arrPdIn[1].X0;<br/>		wTempValueMeasurement.X9				:=	arrIB_Configuration[iModuleNumber].arrPdIn[1].X1;<br/>
+									<br/>		If xLumgateType then<br/>			arrLumgates[iLoop].iMeasurement			:=	word_to_int(wTempValueMeasurement) * 5;<br/>		Else<br/>			arrLumgates[iLoop].iMeasurement			:=	word_to_int(wTempValueMeasurement) * 8;<br/>		End_if;<br/>		arrLumgates[iLoop].xErrorOutputLevel	:=	arrIB_Configuration[iModuleNumber].arrPdIn[1].X2;			(* Error output data *)<br/>		arrLumgates[iLoop].xSafeSet				:=	arrIB_Configuration[iModuleNumber].arrPdIn[1].X6;			(* Safe set *)<br/>		arrLumgates[iLoop].xSafeFinish			:=	arrIB_Configuration[iModuleNumber].arrPdIn[1].X7;			(* Safe finish *)<br/>	End_If;<br/>
+									<br/>	If TON_Startup.Q then		(* delay calculated output *)<br/>		wTempValue								:= 	int_to_word(arrLumgates[iLoop].iActualOutputLevel) or word#1;	(* Set lowest Bit *)<br/>		arrActualOutput[iLoop]					:=	arrLumgates[iLoop].iActualOutputLevel;					(* Store calculated output remanent *)<br/>		arrActualRelayState1[iLoop]				:=	arrLumgates[iLoop].xRelay1;<br/>		arrActualRelayState2[iLoop]				:=	arrLumgates[iLoop].xRelay2;<br/>		arrActualModuleNumber[iLoop]			:=	arrLumgates[iLoop].iModuleNumberGeneral;<br/>
+									<br/>		iBS_Devices								:=	iTotalDevices;<br/>
+									<br/>		If arrLumgates[iLoop].xAvailable and xActivateOutputData then<br/>			iModuleNumber						:=	arrLumgates[iLoop].iModuleNumberGeneral;<br/>			If iModuleNumber &gt; 0 then<br/>				arrIB_Configuration[iModuleNumber].arrPdOut[2]		:= 	wTempValue.B0;<br/>				arrIB_Configuration[iModuleNumber].arrPdOut[1].X0	:= 	wTempValue.X8;<br/>				arrIB_Configuration[iModuleNumber].arrPdOut[1].X1	:= 	wTempValue.X9;<br/>				arrIB_Configuration[iModuleNumber].arrPdOut[1].X2	:= 	wTempValue.X10;<br/>				arrIB_Configuration[iModuleNumber].arrPdOut[1].X4	:=	arrLumgates[iLoop].xRelay1; 		(* Relay 1 *)<br/>				arrIB_Configuration[iModuleNumber].arrPdOut[1].X5	:=	arrLumgates[iLoop].xRelay2;			(* Relay 2 *)<br/>			End_if;<br/>		End_if;<br/>
+									<br/>	Elsif xIBS_DeviceCountOK then<br/>	(* Supply the Lumgate outputs with the failsafe values, in case of an bus error or a power up,<br/>	 if the count of Lumgates is equal to the count befor the error occurs *)<br/>		If ((arrActualModuleNumber[iLoop] &gt; 0) and (arrLumgates[iLoop].iModuleNumberGeneral = 0)) then<br/>			arrLumgates[iLoop].iModuleNumberGeneral		:=	arrActualModuleNumber[iLoop];<br/>		End_if;<br/>		If arrLumgates[iLoop].xFailMode then<br/>			arrLumgates[iLoop].iActualOutputLevel		:=	arrLumgates[iLoop].iOutputLevelFailsave;<br/>
+									<br/>			If arrLumgates[iLoop].xRelay1_NC then<br/>				arrLumgates[iLoop].xRelay1					:=	not arrLumgates[iLoop].xFailsaveRelay1; 		(* Relay 1 *)<br/>			Else<br/>				arrLumgates[iLoop].xRelay1					:=	arrLumgates[iLoop].xFailsaveRelay1; 		(* Relay 1 *)<br/>			End_if;<br/>			If arrLumgates[iLoop].xRelay2_NC then<br/>				arrLumgates[iLoop].xRelay2					:=	not arrLumgates[iLoop].xFailsaveRelay2; 		(* Relay 2 *)<br/>			Else<br/>				arrLumgates[iLoop].xRelay2					:=	arrLumgates[iLoop].xFailsaveRelay2; 		(* Relay 2 *)<br/>			End_if;<br/>		Elsif arrActualOutput[iLoop] &lt;&gt; 0 then<br/>			arrLumgates[iLoop].iActualOutputLevel		:=	arrActualOutput[iLoop];			(* Set last valid calculated output until the startup is complete *)<br/>
+									<br/>			arrLumgates[iLoop].xRelay1					:=	arrActualRelayState1[iLoop]; 		(* Relay 1 *)<br/>			arrLumgates[iLoop].xRelay2					:=	arrActualRelayState2[iLoop]; 		(* Relay 2 *)<br/>		End_if;			<br/>		wTempValue										:= 	int_to_word(arrLumgates[iLoop].iActualOutputLevel) or word#1;<br/>
+									<br/>		If iModuleNumber &gt; 0 then<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[2]		:= 	wTempValue.B0;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X0	:= 	wTempValue.X8;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X1	:= 	wTempValue.X9;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X2	:= 	wTempValue.X10;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X4	:=	arrLumgates[iLoop].xRelay1; 		(* Relay 1 *)<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X5	:=	arrLumgates[iLoop].xRelay2;			(* Relay 2 *)<br/>		End_if;<br/>
+									<br/>	Else<br/>	(* Supply the Lumgate outputs with a general failsafe value, in case of an bus error or a power up,<br/>	 if the count of Lumgates is &gt;&gt;&gt;not&lt;&lt;&lt; equal to the count befor the error occurs *)<br/>		arrLumgates[iLoop].iActualOutputLevel			:=	250;<br/>		If arrLumgates[iLoop].iModuleNumberGeneral = 0 then<br/>			arrLumgates[iLoop].iModuleNumberGeneral		:=	iLoop + 5;<br/>		End_if;<br/>		wTempValue										:= 	int_to_word(arrLumgates[iLoop].iActualOutputLevel) or word#1;<br/>		arrLumgates[iLoop].xRelay1						:=	False; 		(* Relay 1 *)<br/>		arrLumgates[iLoop].xRelay2						:=	False; 		(* Relay 2 *)<br/>
+									<br/>		iModuleNumber									:=	arrLumgates[iLoop].iModuleNumberGeneral;<br/>		If iModuleNumber &gt; 0 then<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[2]		:= 	wTempValue.B0;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X0	:= 	wTempValue.X8;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X1	:= 	wTempValue.X9;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X2	:= 	wTempValue.X10;<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X4	:=	arrLumgates[iLoop].xRelay1; 		(* Relay 1 *)<br/>			arrIB_Configuration[iModuleNumber].arrPdOut[1].X5	:=	arrLumgates[iLoop].xRelay2;			(* Relay 2 *)<br/>		End_if;<br/>	End_if;<br/>End_For;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="FunctionBlocks">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* InterbusStartup *)<br/>IBStartup(xActivate	:= 	xActivateStartup,	 (* FB_InterbusStartup *)<br/>xInitNewConfig		:= 	xInitNewConfig,<br/>xOS					:= 	False,<br/>tWatchdog			:= 	t#50s,<br/>arrIBC_SysConf		:= 	arrIB_SysConfig,<br/>arrIBS_ConfEntry	:= 	arrIB_Configuration);<br/>
+									<br/>xActiveStartup		:=	IBStartup.xActive;<br/>xReadyStartup		:=	IBStartup.xReady;<br/>xDoneStartup		:=	IBStartup.xDone;<br/>xErrorStartup		:=	IBStartup.xError;<br/>wDiagCodeStartup	:=	IBStartup.wDiagCode;<br/>dwDiagCodeStartup	:=	IBStartup.dwAddDiagCode;<br/>iTotalDevices		:=	IBStartup.iIBS_Modules;<br/>iActDevice			:=	IBStartup.iIdxCntMod;<br/>strDiagCodeStartup	:=	IBStartup.strDiagCode;<br/>arrIB_SysConfig		:=	IBStartup.arrIBC_SysConf;<br/>arrIB_Configuration	:=	IBStartup.arrIBS_ConfEntry;<br/>
+									<br/>If IBStartup.iState = 80 then<br/>	iIBS_State	:=	1;						(* Visu Rescan messages, Search for Interbus devices *)<br/>Elsif IBStartup.iState = 150 or IBStartup.iState = 160 then<br/>	iIBS_State	:=	2;						(* Visu Rescan messages, Collect device information *)<br/>Elsif IBStartup.iState = 170 or IBStartup.iState = 180 then<br/>	iIBS_State	:=	3;						(* Visu Rescan messages, Get process data *)<br/>Else<br/>	iIBS_State	:=	0;						(* Visu Rescan messages, hide *)<br/>End_if;<br/>
+									<br/>If TON_ReadDevices.Q and iTotalDevices = iBS_Devices then<br/>	xIBS_DeviceCountOK	:=	True;<br/>Else<br/>	xIBS_DeviceCountOK	:=	False;<br/>End_if;<br/>
+									<br/>ProcessData(xActivate:= xActivateProcessData, (* FB_PD_Assign *)<br/>arrInput_PD			:=	arrInputPD,<br/>arrIBS_ConfEntry	:=	arrIB_Configuration);<br/>
+									<br/>xActiveProcessData		:=	ProcessData.xActive;<br/>xErrorProcessData		:=	ProcessData.xError;<br/>wDiagCodeProcessData	:=	ProcessData.wDiagCode;<br/>dwAddDiagCodeProcessData:=	ProcessData.dwAddDiagCode;<br/>strDiagCodeProcessData	:=	ProcessData.strDiagCode;<br/>arrOutgoingPD			:=	ProcessData.arrOutput_PD;<br/>arrIB_Configuration		:=	ProcessData.arrIBS_ConfEntry;<br/>
+									<br/>If xActivateOutputData or xIBS_DeviceCountOK Then<br/>	arrOutputPD	:= arrOutgoingPD;<br/>Else<br/>	For iLoop := 1 to 512 do<br/>		If iLoop &gt; 9 and not xStepup then<br/>			arrOutputPD[iLoop]	:=	byte#16#C9;	(* Failsafe value 20.1 % during the Startup *)<br/>			xStepup				:=	True;<br/>		Elsif iLoop = 10 then<br/>			arrOutputPD[iLoop]	:=	byte#16#C9;<br/>			xStepup				:=	True;<br/>		Elsif xStepup and iLoop &gt; 9 then<br/>			arrOutputPD[iLoop]	:=	byte#16#00;<br/>			xStepup				:=	False;<br/>		Else<br/>			arrOutputPD[iLoop]	:=	byte#0;<br/>		End_if;<br/>	End_For;	<br/>End_If;<br/>
+									<br/>(* Delay the output data ( 8s + 5 * switch scene delay ) *)<br/>tDealy	:=	dint_to_time(dint#8000 + (int_to_dint(iDelay) * dint#5000));<br/>TON_Startup(IN:=xActivateOutputData,PT:=tDealy);<br/>
+									<br/>TON_ReadDevices(IN:=((iTotalDevices = iActDevice) and (IBStartup.iState = 0) and xDoneStartup),PT:=t#2s);<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_InterbusStartup_01T" xmlns="http://www.w3.org/1999/xhtml">
+							<br/>
+						</div>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

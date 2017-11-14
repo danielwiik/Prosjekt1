@@ -1,0 +1,216 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="Hardware" pouType="program" pouGroup="Programs" lastChange="2016-03-08T15:59:03">
+				<interface>
+					<localVars retain="false">
+						<variable name="Serial_Request" group="Local Variables">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="Serial_Add_Error" group="Local Variables">
+							<type>
+								<derived name="ARR_W_0_1"/>
+							</type>
+						</variable>
+						<variable name="Serial_Send" group="Local Variables">
+							<type>
+								<derived name="ARR_W_0_10"/>
+							</type>
+						</variable>
+						<variable name="Serial_Receive" group="Local Variables">
+							<type>
+								<derived name="ARR_W_0_90"/>
+							</type>
+						</variable>
+						<variable name="Serial_NDR" group="Local Variables">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="Serial_Error" group="Local Variables">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="counter_serial" group="Local Variables">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="WDummy" group="Local Variables">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="ByDummy" group="Local Variables">
+							<type>
+								<BYTE/>
+							</type>
+						</variable>
+						<variable name="SDummy" group="Local Variables">
+							<type>
+								<derived name="String_3"/>
+							</type>
+						</variable>
+						<variable name="Index_Read_Version" group="Local Variables">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="Version_Add_Error" group="Local Variables">
+							<type>
+								<derived name="ARR_W_0_1"/>
+							</type>
+						</variable>
+						<variable name="Version_Send" group="Local Variables">
+							<type>
+								<derived name="ARR_W_0_10"/>
+							</type>
+						</variable>
+						<variable name="Version_Receive" group="Local Variables">
+							<type>
+								<derived name="ARR_W_0_90"/>
+							</type>
+						</variable>
+						<variable name="Version_NDR" group="Local Variables">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="Version_Error" group="Local Variables">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="IB_CONTROL_Serial" group="Function Instances">
+							<type>
+								<derived name="IB_CONTROL"/>
+							</type>
+						</variable>
+						<variable name="CPU_CONTROL_Version" group="Function Instances">
+							<type>
+								<derived name="CPU_CONTROL"/>
+							</type>
+						</variable>
+						<variable name="Version_Request" group="Function Instances">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="Temp_String_Address" group="Function Instances">
+							<type>
+								<string length="80"/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="strGateway" group="Function Instances">
+							<type>
+								<derived name="STRING_20"/>
+							</type>
+						</variable>
+						<variable name="strNetworkConfiguration" group="Function Instances">
+							<type>
+								<derived name="udtNetwork"/>
+							</type>
+						</variable>
+						<variable name="strHW_SerNr" group="Global Variables">
+							<type>
+								<derived name="STRING_20"/>
+							</type>
+						</variable>
+						<variable name="strHW_Version" group="Global Variables">
+							<type>
+								<derived name="STRING_20"/>
+							</type>
+						</variable>
+						<variable name="strFW_Version" group="Global Variables">
+							<type>
+								<derived name="STRING_20"/>
+							</type>
+						</variable>
+						<variable name="strIP_Address" group="Global Variables">
+							<type>
+								<derived name="STRING_20"/>
+							</type>
+						</variable>
+						<variable name="strSubnetMask" group="Global Variables">
+							<type>
+								<derived name="STRING_20"/>
+							</type>
+						</variable>
+						<variable name="udtWebvisit" group="Global Variables">
+							<type>
+								<derived name="udtWeb"/>
+							</type>
+						</variable>
+					</externalVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="Diagnostic">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Reading serial number, IP, subnet, HW, FW *)<br/>
+									<br/>Case Index_Read_Version Of<br/>
+									<br/>0:	Serial_Send[0]:=Word#16#032A;<br/>    Serial_Send[1]:=Word#0000;<br/>   	Serial_Send[2]:=Word#16#0;<br/>    Serial_Send[3]:=Word#16#0;<br/>    Serial_Send[4]:=Word#16#0;<br/>    Serial_Send[5]:=Word#16#0;<br/>    Serial_Send[6]:=Word#16#0;<br/>    Serial_Send[7]:=Word#16#0;<br/>    Serial_Receive[0]:=Word#16#0;<br/>    Serial_Receive[1]:=Word#16#0;<br/>
+									<br/>	Serial_Request:= True;<br/>	Index_Read_Version:= 1;<br/>
+									<br/>1:	If Serial_NDR Then<br/>		Serial_Request:= False;<br/>		If Serial_Receive[0] = Word#16#832A &amp; Serial_Receive[1] &gt; Word#16#10 Then<br/>		<br/>			(*strHW_SerNr:= '';*)<br/>	        For counter_serial:= 78 to 83 Do<br/>	        	WDummy:=(Serial_Receive[counter_serial]); <br/>	           	WDummy:= Ror_Word(WDummy,8); <br/>	            ByDummy:= Word_To_Byte(WDummy);<br/>	            If Bydummy &lt;&gt; Byte#32 then<br/>	            	SDummy:= Byte_To_String(ByDummy,'%c');<br/>	                strHW_SerNr:= Concat(strHW_SerNr,SDummy);<br/>	            End_if;<br/>	        	WDummy:=(Serial_Receive[counter_serial]); <br/>	            ByDummy:= Word_To_Byte(WDummy);<br/>	            If Bydummy &lt;&gt; Byte#32 then<br/>	            	SDummy:= Byte_To_String(ByDummy,'%c');<br/>	                strHW_SerNr:= Concat(strHW_SerNr,SDummy);<br/>	            End_if;<br/>	         End_for;<br/>		End_if;<br/>	Index_Read_Version:= 2;<br/>	End_if;<br/>
+									<br/>2:	Version_Send[0] := WORD#16#0295;<br/>	Version_Request:= True;<br/>	Index_Read_Version:= 3;<br/>
+									<br/>3:	If Version_NDR Then<br/>		Version_Request:= False;<br/>		If Version_Receive[0] = Word#16#8295 Then<br/>		<br/>			(*strHW_Version:= '';*)<br/>	        ByDummy:= Version_Receive[62].B0;<br/>	        If Bydummy &lt;&gt; Byte#32 then<br/>	            SDummy:= Byte_To_String(ByDummy,'%c');<br/>	            strHW_Version:= Concat(strHW_Version,SDummy);<br/>	        End_if;<br/>
+									<br/>	        ByDummy:= Version_Receive[63].B1;<br/>	        If Bydummy &lt;&gt; Byte#32 then<br/>	            SDummy:= Byte_To_String(ByDummy,'%c');<br/>	            strHW_Version:= Concat(strHW_Version,SDummy);<br/>	        End_if;<br/>
+									<br/>			(*strFW_Version:= '';*)<br/>	        ByDummy:= Version_Receive[21].B1;<br/>	        If Bydummy &lt;&gt; Byte#32 then<br/>	            SDummy:= Byte_To_String(ByDummy,'%c');<br/>	            strFW_Version:= Concat(strFW_Version,SDummy);<br/>	        End_if;<br/>	        ByDummy:= Version_Receive[21].B0;<br/>	        If Bydummy &lt;&gt; Byte#32 then<br/>	            SDummy:= Byte_To_String(ByDummy,'%c');<br/>	            strFW_Version:= Concat(strFW_Version,SDummy);<br/>	        End_if;<br/>	        ByDummy:= Version_Receive[22].B1;<br/>	        If Bydummy &lt;&gt; Byte#32 then<br/>	            SDummy:= Byte_To_String(ByDummy,'%c');<br/>	            strFW_Version:= Concat(strFW_Version,SDummy);<br/>	        End_if;<br/>	        ByDummy:= Version_Receive[22].B0;<br/>	        If Bydummy &lt;&gt; Byte#32 then<br/>	            SDummy:= Byte_To_String(ByDummy,'%c');<br/>	            strFW_Version:= Concat(strFW_Version,SDummy);<br/>	        End_if;<br/>		End_if;<br/>
+									<br/>	Index_Read_Version:= 4;<br/>	End_if;<br/>
+									<br/>4:	Version_Send[0] := WORD#16#029C;<br/>	Version_Request:= True;<br/>	Index_Read_Version:= 5;<br/>
+									<br/>5:	If Version_NDR Then<br/>visit.sSubnet:= strSubnetMask;<br/>			udtWebvisit.sGateway:= strGateway;<br/>
+									<br/>		End_if;<br/>		Index_Read_Version:= 10;<br/>
+									<br/>
+									<br/>End_Case;<br/>
+									<br/>IB_CONTROL_Serial(REQ:= Serial_Request,<br/>ADD_ERROR:= Serial_Add_Error,<br/>SD_1:= Serial_Send,<br/>RD_1:= Serial_Receive);<br/>
+									<br/>Serial_NDR:= IB_CONTROL_Serial.NDR;<br/>Serial_Error:= IB_CONTROL_Serial.ERROR;<br/>Serial_Add_Error:= IB_CONTROL_Serial.ADD_ERROR;<br/>Serial_Send:= IB_CONTROL_Serial.SD_1;<br/>Serial_Receive:= IB_CONTROL_Serial.RD_1;<br/>
+									<br/>
+									<br/>CPU_CONTROL_Version(REQ:= Version_Request,<br/>ADD_ERROR:= Version_Add_Error,<br/>SD_1:= Version_Send,<br/>RD_1:= Version_Receive);<br/>
+									<br/>Version_NDR:= CPU_CONTROL_Version.NDR;<br/>Version_Error:= CPU_CONTROL_Version.ERROR;<br/>Version_Add_Error:= CPU_CONTROL_Version.ADD_ERROR;<br/>Version_Send:= CPU_CONTROL_Version.SD_1;<br/>Version_Receive:= CPU_CONTROL_Version.RD_1;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Set_Network">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Change network settings, restart has to be done manually *)<br/>
+									<br/>FB_Set_IP(Save_Settings:= strNetworkConfiguration.xSave,<br/>Str_IP:= strNetworkConfiguration.sIP,<br/>Str_Subnet:= strNetworkConfiguration.sSubnet,<br/>Str_Gateway:= strNetworkConfiguration.sGateway);<br/>
+									<br/>strNetworkConfiguration.xDone:= FB_Set_IP.Done;<br/>strNetworkConfiguration.sMessage:=FB_Set_IP.Message;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="HardwareT" xmlns="http://www.w3.org/1999/xhtml">(****************************************************************************)<br/>(*																			*)<br/>(*	Change Notes:															*)<br/>(*																			*)<br/>(*	Date		Version		Author			Description						*)<br/>(****************************************************************************)<br/>(* 16.01.2011	1.0    		Sven Lemmens	Initial version					*)<br/>(* 18.01.2011	1.1    		Sven Lemmens	Changement in code sheet		*)<br/>(* 'Outgoing_Email'step 10 from case Index_Read_Email has been changed.     *)<br/>(* Problem: the first mail after a mail with attachment was not sended		*)<br/>
+						</div>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

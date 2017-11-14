@@ -1,0 +1,67 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:34" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666354" modificationDateTime="2017-11-14T14:32:34" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes>
+			<datatypeWorksheet>
+				<html xmlns="http://www.w3.org/1999/xhtml">
+					<div xml:space="preserve" id="MWTDESCRIPTION" wsName="ALI" xmlns="http://www.w3.org/1999/xhtml">(*	DATATYPES	*)<br/>Type<br/>(*	Strings	*)<br/>	String_3					:	String(3);<br/>	String_5					:	String(5);<br/>	STRING_12					:	STRING(12);<br/>	STRING_15					:	STRING(15);<br/>	STRING_20					:	STRING(20);<br/>	STRING_30					:	STRING(30);<br/>	String_50					:	String(50);<br/>	String_75					:	String(75);<br/>	String_200					:	String(200);<br/>	String_500					:	String(500);<br/>	String_700					:	String(700);<br/>
+						<br/>(*	Bool	Arrays	*)<br/>	ARR_X_0_4					:	Array	[0..4]	of	Bool;<br/>	ARR_X_0_9					:	Array	[0..9]	of	Bool;<br/>	ARR_X_1_4					:	Array	[1..4]	of	Bool;<br/>	ARR_X_1_5					:	Array	[1..5]	of	Bool;<br/>	ARR_X_1_8					:	Array	[1..8]	of	Bool;<br/>	ARR_X_1_12					:	Array	[1..12]	of	Bool;<br/>	ARR_X_1_15					:	Array	[1..15]	of	Bool;<br/>	ARR_X_1_22					:	Array	[1..22]	of	Bool;<br/>	ARR_X_1_24					:	Array	[1..24]	of	Bool;<br/>	ARR_X_1_25					:	Array	[1..25]	of	Bool;<br/>	ARR_X_1_50					:	Array	[1..50]	of	Bool;<br/>	ARR_X_1_240					:	Array	[1..240]	of	Bool;<br/>
+						<br/>(*	Byte-ArrayS	*)<br/>(*	ARR_B_1_4					:	Array	[1..4]		of	Byte;*)<br/>	ARR_B_1_6					:	Array	[1..6]		of	Byte;<br/>	ARR_B_1_12					:	Array	[1..12]		of	Byte;<br/>	ARR_B_1_15					:	Array	[1..15]		of	Byte;<br/>	ARR_B_0_255					:	Array	[0..511]	of	Byte;<br/>	ARR_B_0_511					:	Array	[0..511]	of	Byte;<br/>	ARR_B_0_5000				:	Array	[0..5000]	of	Byte;<br/>	Array_1_250_Byte			:	Array	[1..250]	of	Byte;<br/>
+						<br/>(*	Word-ArrayS	*)<br/>	ARR_W_0_1					:	Array	[0..1]		of	Word;<br/>	ARR_W_1_2					:	Array	[1..2]		of	Word;<br/>	ARR_W_1_3					:	Array	[1..3]		of	Word;<br/>	ARR_W_1_4					:	Array	[1..4]		of	Word;<br/>	ARR_W_1_6					:	Array	[1..6]		of	Word;<br/>	ARR_W_0_10					:	Array	[0..10]		of	Word;<br/>	ARR_W_0_90					:	Array	[0..90]		of	Word;<br/>	ARR_W_1_120					:	Array	[1..120]	of	Word;<br/>	ARR_W_1_512					:	Array	[1..512]	of	Word;<br/>
+						<br/>(*	Int	Arrays	*)<br/>	Arr_I_0_4					:	Array	[0..4]	of Int;<br/>	Arr_I_0_9					:	Array	[0..9]	of Int;<br/>	Arr_I_1_3					:	Array	[1..3]	of Int;<br/>	ARR_I_1_4					:	Array	[1..4]	of Int;<br/>	ARR_I_1_5					:	Array	[1..5]	of Int;<br/>	ARR_I_1_15					:	Array	[1..15]	of Int;<br/>	ARR_I_1_22					:	Array	[1..22]	of Int;<br/>	ARR_I_1_23					:	Array	[1..23]	of Int;<br/>	ARR_I_1_50					:	Array	[1..50]	of Int;<br/>	ARR_I_1_24					:	Array	[1..24]	of Int;<br/>	Arr_1_16_Int				:	Array	[1..16]	of Int;<br/>	ARR_I_1_240					:	Array	[1..240] of Int;<br/>
+						<br/>	ARR_SI_1_12					:	Array	[1..12]	of SInt;<br/>	ARR_USI_1_12				:	Array	[1..12] of USInt;<br/>
+						<br/>(*	REAL-ArrayS	*)<br/>	ARR_R_0_9					:	Array	[0..9]	of real;<br/>	ARR_R_1_24					:	Array	[1..24]	of real;<br/>
+						<br/>	Arr_Str_1_75				:	Array	[1..75] of String_200;<br/>	Arr_Str_1_209				:	Array	[1..209] of String_200;<br/>	ARR_1_25_1_5_Int			:	Array	[1..25] of ARR_I_1_5;<br/>	Arr_1_240_1_3_Int			:	Array	[1..240] of ARR_I_1_3;<br/>	Arr_1_240_1_23_Int			:	Array	[1..240] of Arr_I_1_23;<br/>
+						<br/>	ARR_1_24_String_5			:	Array	[1..24]	of	String_5;<br/>	ARR_STR20_1_12				:	Array	[1..12]	of	String_20;<br/>	ARR_1_50_Str_30				:	Array	[1..50]	of String_30;<br/>	ARR_I_1_4_1_25_1_5			:	Array	[1..4] of ARR_1_25_1_5_Int;<br/>
+						<br/>End_Type<br/>
+						<br/>Type<br/>	ARR_IBS_PD_DATA_B_1_16		:	Array	[1..16]	of	Byte;		(* Process data of one IBS module *)<br/>
+						<br/>	UDT_IBS_CONF_ENTRY	:	(* Information about IBS module: Read in by service read configuration, read processdata descriptions *)<br/>	struct<br/>		bPosNum				:	Byte;					(*Position of module in bus segment*)<br/>		bBusSegm			:	Byte;					(*Bus segment of module*)<br/>		bModuleID			:	Byte;					(*Module ID*)<br/>		iPdLenCompl			:	int;					(*Process data length in Bytes.	<br/>														Each module have an equal length of input and output data.<br/>														A module with pd length of one uses two Bytes in the global pd field.*)<br/>		xInputPD			:	Bool;					(*Interbus module has input process data*)<br/>		xOutputPD			:	Bool;					(*Interbus module has output process data*)<br/>
+						<br/>		xDeviceCopyed		:	Bool;	(*  mark device after copy the modulenumber *)<br/>
+						<br/>		iPntrPdBeginOut		:	int;					(*Begin of PD in output Pd Array*)<br/>		iPdLenOut			:	int;					(*Length of input process data*)<br/>		iPntrPdBeginIn		:	int;					(*Begin	of PD in input Pd Array*)<br/>		iPdLenIn			:	int;					(*Length of output process data*)<br/>		iCntPdd				:	int;					(*Number of process	data descriptions*)			<br/>		iReservedBytesIn	:	int;					(*Number of Bytes reserved for input process data*)<br/>		iReservedBytesOut	:	int;					(*Number of Bytes reserved for output process data*)<br/>
+						<br/>		strModuleType		:	string;					(*Module type*)<br/>		wModuleLevel		:	Word;<br/>
+						<br/>		arrPdIn				:	ARR_IBS_PD_DATA_B_1_16;	(*Input process data of this module*)<br/>		arrPdOut			:	ARR_IBS_PD_DATA_B_1_16;	(*Output process data of this moduel*)<br/>	End_struct;<br/>
+						<br/>	ARR_IBS_CONF_ENTRIES_1_256	:	Array	[1..256]	of	UDT_IBS_CONF_ENTRY;	(*Array of IBS modules in the local bus*)<br/>End_type<br/>
+						<br/>
+						<br/>TYPE<br/>	ARR_IBC_SND_1_8			:	Array	[1..8]		of	Word;	(*Array	for	interbus command*)<br/>	ARR_IBC_REC_1_256		:	Array	[1..256]	of	Word;	(*Array	for	response from interbus master*)<br/>	ARR_IBC_DATA_1_253		:	Array	[1..256]	of Word;	(*Array for data given by interbus master*)<br/>	ARR_IBC_REC_1_512		:	Array	[1..512]	of Word; 	(*Array for response from interbus master*)<br/>	ARR_IBC_DATA_1_512		:	Array	[1..512]	of Word;	(*Array for data given by interbus master*)<br/>
+						<br/>	ARR_IBS_PD_DATA_B_1_256	:	Array	[1..256]	of Byte; 	(*Process data of one IBS module*)<br/>	ARR_IBS_PD_DATA_B_1_512	:	Array	[1..512]	of Byte; 	(*Process data of one IBS module*)<br/>
+						<br/>	UDT_IB_DIAG_STATUS :			(*Diagnostic status read by IBC service*)<br/>		STRUCT<br/>			xBit0 	: Bool;<br/>			xPF 	: Bool;<br/>			xBus 	: Bool;<br/>			xCtrl 	: Bool;<br/>			xBit4 	: Bool;<br/>			xRun 	: Bool;<br/>			xActive	: Bool;<br/>			xReady 	: Bool;<br/>			xBD 	: Bool;<br/>			xBit9 	: Bool;<br/>			xForce 	: Bool;<br/>		END_STRUCT;<br/>
+						<br/>	udtL20Config:<br/>		Struct<br/>			xActive				:	Bool;<br/>			iDelay				:	Int;<br/>			iHysteric			:	Int;<br/>			diAverageTime		:	DInt;<br/>			iInputValue			:	Int;<br/>			xActiveConfig1		:	Bool;<br/>			xActiveConfig2		:	Bool;<br/>			xActiveConfig3		:	Bool;<br/>			xActiveConfig4		:	Bool;<br/>			strName1			:	String;<br/>			strName2			:	String;<br/>			strName3			:	String;<br/>			strName4			:	String;<br/>			arrScenarioActive	:	ARR_X_1_25;<br/>			arrScenarioConfig1	:	ARR_I_1_24;<br/>			arrScenarioConfig2	:	ARR_I_1_24;<br/>			arrScenarioConfig3	:	ARR_I_1_24;<br/>			arrScenarioConfig4	:	ARR_I_1_24;<br/>		End_Struct;<br/>
+						<br/>	ARR_UDT_L20Config	:	array [1..4] of udtL20Config;<br/>
+						<br/>	udtScene:<br/>		Struct<br/>			arrMode					:	ARR_I_1_4;<br/>			arrActualScene			:	ARR_I_1_4;<br/>			arrOwnInputScene		:	ARR_I_1_4;<br/>			arrExternalInputScene	:	ARR_I_1_4;<br/>			arrManualScene			:	ARR_I_1_4;<br/>			arrScenario				:	ARR_I_1_4;<br/>			arrScenarioOption		:	ARR_I_1_4;<br/>		End_Struct;<br/>
+						<br/>END_TYPE<br/>
+						<br/>Type<br/>(* IBS-DATA-STRUCTURES *)<br/>	UDT_IBS_DATA_STRUCT :<br/>		STRUCT<br/>			wBusSegmentNumber		: Word;				(* Number of the Bus Segment *)<br/>			wIdentNumber			: Word;				(* HIBYenght TE : PDL/ LOByte : IDCode *)<br/>			arrInput				: ARR_W_1_6;		(* max. 2 Word Input for each Bus Segment *)<br/>			arrOutput				: ARR_W_1_6;		(* max. 2 Word Output for each Bus Segment *)<br/>			strModuleName			: STRING_30;		(* Name of the Interbusmodule *)<br/>			wModuleLevel			: Word;				(* Module Level *)<br/>		END_STRUCT;<br/>
+						<br/>(* IBS-DATA-ArrayS *)<br/>	ARR_UDT_IBS_STRUCT_1_63		: Array [1..256] of UDT_IBS_DATA_STRUCT;<br/>
+						<br/>	udtNetwork:<br/>		Struct<br/>			strIP					:	String;<br/>			strSubnet				:	String;<br/>			strGateway				:	String;<br/>			strIPModbus				:	String;<br/>			iMode					:	Int;<br/>			strDNS					:	String;<br/>			xSave					:	Bool;<br/>			xDone					:	Bool;<br/>			xLumgateType			:	Bool;<br/>			strMessage				:	String;<br/>		End_Struct;<br/>			<br/>	udtFileHandling:<br/>		Struct<br/>			xRequest				:	Bool;<br/>			xMultipleRun			:	Bool;<br/>			xFileMemorySource		:	Bool;	<br/>			iTasktype				:	Int;<br/>			strFileNameSource		:	String; <br/>			strFileNameTarget		:	String;<br/>			iAmountOverwriteChar	:	Int;<br/>			iFileNumber				:	Int;<br/>			udiReadPosition			:	Udint;<br/>			udiAmountData			:	Udint;<br/>		End_Struct;<br/>
+						<br/>	udtFileMemory:<br/>		Struct<br/>			siReadFileInverter		:	Sint;				(* Which file is currently used for reading? *)<br/>			siWriteFileInverter		:	Sint;				(* Which file is currently used for writing? *)<br/>			siReadFileDC			:	Sint;				(* Which file is currently used for reading? *)<br/>			siWriteFileDC			:	Sint;				(* Which file is currently used for writing? *)<br/>			siReadFileAC			:	Sint;				(* Which file is currently used for reading? *)<br/>			siWriteFileAC			:	Sint;				(* Which file is currently used for writing? *)<br/>			siReadFileSensor		:	Sint;				(* Which file is currently used for reading? *)<br/>			siWriteFileSensor		:	Sint;				(* Which file is currently used for writing? *)<br/>		End_Struct;<br/>
+						<br/>	udtProjectSpecification:<br/>		Struct<br/>			strName			:	String;<br/>			strDescription	:	String;<br/>			strLocation		:	String;<br/>			strDesigner		:	String;<br/>			strRevision		:	String;<br/>		End_Struct;<br/>
+						<br/>	udtMessage:<br/>		Struct<br/>			strText			:	String;<br/>			strTimestamp	:	String_20;<br/>			iType			:	Int;<br/>		End_Struct;<br/>	<br/>	Arr_1_10_udtMessage		:	Array	[1..10]	of	udtMessage;<br/>
+						<br/>	udtWeb:	(* Web Visu Sven *)<br/>		Struct<br/>			strTime			:	String;<br/>			strDate			:	String;<br/>			siEditHWCell	:	Sint;<br/>
+						<br/>			iMVCellNumber:	Int;<br/>			iEdit:			Int;<br/>			udiAddUnstruct:	Udint;<br/>			uiAddStruct_1:	Usint;<br/>			uiAddStruct_2:	Usint;<br/>			uiAddStruct_3:	Usint;<br/>		(*	xAverage:		Bool; *)<br/>			iModeStatus:		Int;<br/>			iModeSelect:		Int;<br/>			iModeDeadbandStatus:		Int;<br/>			iModeDeadbandSelect:		Int;<br/>		(*	iDeadband:			Int;*)<br/>			rDeadband_1:			Real;<br/>			rDeadband_2:			Real;<br/>			rDeadband_3:			Real;<br/>		(*	rAZI:			Real;*)<br/>			xSave:			Bool;<br/>			xScadaConnected: Bool;<br/>			xScadaData: 	Bool;<br/>			iBuffer: 		Int;<br/>			xSaveIP: 		Bool;<br/>			xSaveConfig: 	Bool;<br/>			xReadConfig: 	Bool;<br/>			xDoneIP: 		Bool;<br/>			xWithoutTestFrame: Bool;<br/>			iSelectTestFrame:	Int;<br/>			iStatusTestFrame:	Int;<br/>			strIP:			String_15;<br/>			strSubnet:		String_15;<br/>			strGateway:		String_15;<br/>			strPort:			String_15;<br/>		(*	sSNTP:			String_15;*)<br/>			strMessage:		String_50;<br/>			strMessage_2:		String_50;<br/>		End_Struct;<br/>
+						<br/>	udtWebThresholdConfig:<br/>		Struct<br/>			iLevel:				Int;<br/>			iColumn:			Int;<br/>			xConfigHigher:		Bool;<br/>			xConfigLower:		Bool;<br/>
+						<br/>			arrScenarioOptions:	ARR_I_1_5;<br/>			arrLevelActive:		ARR_X_1_25;<br/>			arrLevelUsed:		ARR_X_1_24;<br/>			arrScenarioUsed:	ARR_X_1_5;<br/>			arrThresholdValue:	ARR_1_24_String_5;<br/>		End_Struct;<br/>
+						<br/>	udtWebL20SensorOverview:<br/>		Struct<br/>			strActive:			String_15;<br/>			strValue:			String_15;<br/>			strValuePercentage:	String_15;<br/>			strState:			String_15;<br/>			iDiag:				Int;<br/>			xError:				Bool;<br/>		End_Struct;<br/>
+						<br/>End_Type<br/>
+					</div>
+				</html>
+			</datatypeWorksheet>
+		</dataTypes>
+		<pous/>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

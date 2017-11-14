@@ -1,0 +1,160 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_SelectScene_01" pouType="functionBlock" pouGroup="TCS_functions" lastChange="2016-07-14T11:10:14">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xDataMasterValid" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="arrAnalogValues" group="Input parameter">
+							<type>
+								<derived name="arr_1_11_udtInput"/>
+							</type>
+						</variable>
+						<variable name="xPulseSecond" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iSelectAnalogValue1" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iSelectAnalogValue2" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iSelectAnalogValue3" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iSelectAnalogValue4" group="Input parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="udtSceneMode" group="In- output parameter">
+							<type>
+								<derived name="udtScene"/>
+							</type>
+						</variable>
+						<variable name="arrSceneHourCounter" group="In- output parameter">
+							<type>
+								<derived name="arr_1_50_udtLumgatePart1"/>
+							</type>
+						</variable>
+						<variable name="arrLevelConfiguration" group="In- output parameter">
+							<type>
+								<derived name="ARR_UDT_L20Config"/>
+							</type>
+						</variable>
+						<variable name="arrScenarioConfiguration" group="In- output parameter">
+							<type>
+								<derived name="ARR_I_1_4_1_25_1_5"/>
+							</type>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="FB_ThresholdTable_01_1" group="Instanzes">
+							<type>
+								<derived name="FB_ThresholdTable_01"/>
+							</type>
+						</variable>
+						<variable name="FB_ThresholdTable_01_2" group="Instanzes">
+							<type>
+								<derived name="FB_ThresholdTable_01"/>
+							</type>
+						</variable>
+						<variable name="FB_ThresholdTable_01_3" group="Instanzes">
+							<type>
+								<derived name="FB_ThresholdTable_01"/>
+							</type>
+						</variable>
+						<variable name="FB_ThresholdTable_01_4" group="Instanzes">
+							<type>
+								<derived name="FB_ThresholdTable_01"/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTempMode" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_SelectScene_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">	(* SelectScene *)<br/>If xActivate then<br/>	xActive	:=	True;<br/>	<br/>	(* Supply Threshold tables with threshold values *)<br/>	FB_ThresholdTable_01_1(udtLevelConfiguration:= arrLevelConfiguration[1],<br/>	arrSceneConfiguration				:=	arrScenarioConfiguration[1],<br/>	arrSceneHourCounter					:=	arrSceneHourCounter);<br/>
+									<br/>	arrSceneHourCounter					:=	FB_ThresholdTable_01_1.arrSceneHourCounter;<br/>
+									<br/>	FB_ThresholdTable_01_2(udtLevelConfiguration:= arrLevelConfiguration[2],<br/>	arrSceneConfiguration				:= 	arrScenarioConfiguration[2],<br/>	arrSceneHourCounter					:=	arrSceneHourCounter);<br/>
+									<br/>	arrSceneHourCounter					:=	FB_ThresholdTable_01_2.arrSceneHourCounter;<br/>
+									<br/>	FB_ThresholdTable_01_3(udtLevelConfiguration:= arrLevelConfiguration[3],<br/>	arrSceneConfiguration				:= 	arrScenarioConfiguration[3],<br/>	arrSceneHourCounter					:=	arrSceneHourCounter);<br/>
+									<br/>	arrSceneHourCounter					:=	FB_ThresholdTable_01_3.arrSceneHourCounter;<br/>
+									<br/>	FB_ThresholdTable_01_4(udtLevelConfiguration:= arrLevelConfiguration[4],<br/>	arrSceneConfiguration				:= 	arrScenarioConfiguration[4],<br/>	arrSceneHourCounter					:=	arrSceneHourCounter);<br/>
+									<br/>	arrSceneHourCounter					:=	FB_ThresholdTable_01_4.arrSceneHourCounter;<br/>
+									<br/>	(* Output calculated Scenes, Scenarios and Scene option positon number *)<br/>	udtSceneMode.arrOwnInputScene[1]	:=	FB_ThresholdTable_01_1.iScene;<br/>	udtSceneMode.arrScenario[1]			:=	FB_ThresholdTable_01_1.iScenario;<br/>	udtSceneMode.arrScenarioOption[1]	:=	FB_ThresholdTable_01_1.iChosenScene;<br/>	udtSceneMode.arrOwnInputScene[2]	:=	FB_ThresholdTable_01_2.iScene;<br/>	udtSceneMode.arrScenario[2]			:=	FB_ThresholdTable_01_2.iScenario;<br/>	udtSceneMode.arrScenarioOption[2]	:=	FB_ThresholdTable_01_2.iChosenScene;<br/>	udtSceneMode.arrOwnInputScene[3]	:=	FB_ThresholdTable_01_3.iScene;<br/>	udtSceneMode.arrScenario[3]			:=	FB_ThresholdTable_01_3.iScenario;<br/>	udtSceneMode.arrScenarioOption[3]	:=	FB_ThresholdTable_01_3.iChosenScene;<br/>	udtSceneMode.arrOwnInputScene[4]	:=	FB_ThresholdTable_01_4.iScene;<br/>	udtSceneMode.arrScenario[4]			:=	FB_ThresholdTable_01_4.iScenario;<br/>	udtSceneMode.arrScenarioOption[4]	:=	FB_ThresholdTable_01_4.iChosenScene;<br/>
+									<br/>	For iLoop := 1 to 4 do<br/>		iTempMode	:= 	Limit_Int(1,udtSceneMode.arrMode[iLoop],4); (* 1 = Manual, 2 = Own input, 3 = external input, 4 = external input with own input as backup *)<br/>		Case iTempMode of<br/>			1:<br/>				udtSceneMode.arrActualScene[iLoop]:= udtSceneMode.arrManualScene[iLoop];<br/>			2:<br/>				udtSceneMode.arrActualScene[iLoop]:= udtSceneMode.arrOwnInputScene[iLoop];<br/>			3:<br/>				udtSceneMode.arrActualScene[iLoop]:= udtSceneMode.arrExternalInputScene[iLoop];<br/>			4:<br/>				(* not used at the moment *)<br/>				If xDataMasterValid then<br/>					udtSceneMode.arrActualScene[iLoop]:= udtSceneMode.arrExternalInputScene[iLoop];<br/>				Else<br/>					udtSceneMode.arrActualScene[iLoop]:= udtSceneMode.arrOwnInputScene[iLoop];<br/>				End_If;<br/>		End_Case;<br/>	End_For;<br/>	(* Supply Threshold tables with an analog input value *)<br/>	If iSelectAnalogValue1 &gt; 0 then<br/>		FB_ThresholdTable_01_1.arrInputValues[1].rValue  	:=	arrAnalogValues[iSelectAnalogValue1].rValue;<br/>		FB_ThresholdTable_01_1.arrInputValues[1].xValid  	:=	arrAnalogValues[iSelectAnalogValue1].xValid;<br/>	Else<br/>		FB_ThresholdTable_01_1.arrInputValues[1].rValue  	:=	0.0;<br/>		FB_ThresholdTable_01_1.arrInputValues[1].xValid  	:=	False;<br/>	End_if;<br/>	FB_ThresholdTable_01_1.xPulseSecond						:=	xPulseSecond;<br/>
+									<br/>	If iSelectAnalogValue2 &gt; 0 then<br/>		FB_ThresholdTable_01_2.arrInputValues[1].rValue  	:=	arrAnalogValues[iSelectAnalogValue2].rValue;<br/>		FB_ThresholdTable_01_2.arrInputValues[1].xValid  	:=	arrAnalogValues[iSelectAnalogValue2].xValid;<br/>	Else<br/>		FB_ThresholdTable_01_2.arrInputValues[1].rValue  	:=	0.0;<br/>		FB_ThresholdTable_01_2.arrInputValues[1].xValid  	:=	False;<br/>	End_if;<br/>	FB_ThresholdTable_01_2.xPulseSecond						:=	xPulseSecond;<br/>
+									<br/>	If iSelectAnalogValue3 &gt; 0 then<br/>		FB_ThresholdTable_01_3.arrInputValues[1].rValue  	:=	arrAnalogValues[iSelectAnalogValue3].rValue;<br/>		FB_ThresholdTable_01_3.arrInputValues[1].xValid  	:=	arrAnalogValues[iSelectAnalogValue3].xValid;<br/>	Else<br/>		FB_ThresholdTable_01_3.arrInputValues[1].rValue  	:=	0.0;<br/>		FB_ThresholdTable_01_3.arrInputValues[1].xValid  	:=	False;<br/>	End_if;<br/>	FB_ThresholdTable_01_3.xPulseSecond						:=	xPulseSecond;<br/>
+									<br/>	If iSelectAnalogValue4 &gt; 0 then<br/>		FB_ThresholdTable_01_4.arrInputValues[1].rValue  	:=	arrAnalogValues[iSelectAnalogValue4].rValue;<br/>		FB_ThresholdTable_01_4.arrInputValues[1].xValid  	:=	arrAnalogValues[iSelectAnalogValue4].xValid;<br/>	Else<br/>		FB_ThresholdTable_01_4.arrInputValues[1].rValue  	:=	0.0;<br/>		FB_ThresholdTable_01_4.arrInputValues[1].xValid  	:=	False;<br/>	End_if;<br/>	FB_ThresholdTable_01_4.xPulseSecond						:=	xPulseSecond;<br/>
+									<br/>Else<br/>	xActive	:=	False;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_SelectScene_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

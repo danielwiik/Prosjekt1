@@ -1,0 +1,636 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_Lumgate_01" pouType="functionBlock" pouGroup="Lumgate" lastChange="2016-11-21T16:24:21">
+				<interface>
+					<inputVars retain="false">
+						<variable name="xActivate" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xConfirm" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xPulseSecond" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="wSpecialScenario" group="Input Parameter">
+							<type>
+								<WORD/>
+							</type>
+						</variable>
+						<variable name="iSelectRBT" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="arrSegment" group="Input Parameter">
+							<type>
+								<derived name="ARR_I_1_4"/>
+							</type>
+						</variable>
+						<variable name="xCommissioning" group="Input Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iCommissioningBranch" group="Input Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</inputVars>
+					<outputVars retain="false">
+						<variable name="xAlarm" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xPreAlarm" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="strDiag" group="Output Parameter">
+							<type>
+								<string length="80"/>
+							</type>
+						</variable>
+						<variable name="iLumgate" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iRBT" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xErrorRBT1" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xErrorRBT2" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xErrorRBT3" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xErrorRBT4" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iRBT1" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iRBT2" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iRBT3" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iRBT4" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="arrAmountLumgates" group="Output Parameter">
+							<type>
+								<derived name="ARR_I_1_4"/>
+							</type>
+						</variable>
+						<variable name="xUnexpectedLG_Count" group="Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iTotalLumgates" group="Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</outputVars>
+					<inOutVars retain="false">
+						<variable name="udtScenarioMode" group="In- Output Parameter">
+							<type>
+								<derived name="udtScene"/>
+							</type>
+						</variable>
+						<variable name="arrLumgates" group="In- Output Parameter">
+							<type>
+								<derived name="arr_1_240_udtLumgate"/>
+							</type>
+						</variable>
+						<variable name="iDimmingSpeed" group="In- Output Parameter">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xNextDevice" group="In- Output Parameter">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="R_TRIG_AmmountLG" group="Instanzes">
+							<type>
+								<derived name="R_TRIG"/>
+							</type>
+						</variable>
+						<variable name="TON_Delay_Shift" group="Instanzes">
+							<type>
+								<derived name="TON"/>
+							</type>
+						</variable>
+						<variable name="FB_HourCounterGeneral" group="Instanzes">
+							<type>
+								<derived name="FB_HourCounter_01"/>
+							</type>
+						</variable>
+						<variable name="FB_HourCounterMaintenance" group="Instanzes">
+							<type>
+								<derived name="FB_HourCounter_01"/>
+							</type>
+						</variable>
+						<variable name="FB_HourCounter20_50" group="Instanzes">
+							<type>
+								<derived name="FB_HourCounter_01"/>
+							</type>
+						</variable>
+						<variable name="FB_HourCounter50_75" group="Instanzes">
+							<type>
+								<derived name="FB_HourCounter_01"/>
+							</type>
+						</variable>
+						<variable name="FB_HourCounter75_100" group="Instanzes">
+							<type>
+								<derived name="FB_HourCounter_01"/>
+							</type>
+						</variable>
+						<variable name="xManualActive" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iCurrentCheck" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iNumberLumgateCurrentCheck" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTempOutputLevel" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="rParameterA" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="iParameter1" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iParameter2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iParameter5" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iParameter4" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="rParameterB" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rLimitMax" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rLimitMin" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rTempExpected" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rMarginError" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="iLimitMax" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLimitMin" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTempLevelMinimum" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTempLevelMaximum" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iStep" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iTemp" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop2" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iLoop3" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iNumber" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iShiftOnOff" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="arrShiftedOnOff" group="Default">
+							<type>
+								<derived name="ARR_X_1_8"/>
+							</type>
+						</variable>
+						<variable name="xCount1" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xCount2" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xCount3" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xCount4" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xSpecialScenarioActive" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iTempOutputValueLGSpecial" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xTempStatusScenario" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xDimmingScenarioActive" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iTempOutputValueLGDimming" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xShiftedOnOff" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+							<initialValue>
+								<simpleValue value="true"/>
+							</initialValue>
+						</variable>
+						<variable name="iTempScenarioLG" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iShiftPosition" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="rTemp1" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rTemp2" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rPercentageDecrease" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="rTempDecrease" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="iCLO" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xTempRelay1" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xTempRelay2" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iModuleLevel" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="ShiftedOnOff">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Shifted On/Off *)<br/>(* to turn on the luminaiers in groups and not all together *)<br/>Case iShiftOnOff of<br/>	0:<br/>		iNumber			:=	iNumber + 1;<br/>		If iNumber &gt; 8 then<br/>			iNumber		:=	1;<br/>		End_If;<br/>		iShiftOnOff		:=	1;<br/>
+									<br/>	1:<br/>		If TON_Delay_Shift.Q then<br/>			iShiftOnOff	:=	0;<br/>		End_If;<br/>End_Case;<br/>
+									<br/>TON_Delay_Shift(IN		:=	iShiftOnOff = 1,<br/>				PT		:=	t#200ms);	(* Delay between switching on *)<br/>
+									<br/>For iLoop := 1 to 8	do<br/>	arrShiftedOnOff[iLoop]	:=	False;<br/>End_For;<br/>arrShiftedOnOff[iNumber]	:=	True;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="TeachCosFailsafe">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Teach Cos Failsafe *)<br/>For iLoop := 1 to 240 do<br/>	iStep	:=	arrLumgates[iLoop].udtInternal.iStepTeach;<br/>
+									<br/>	Case iStep of<br/>		0:	(* Teach consumption active for this Lumgate *)<br/>			If arrLumgates[iLoop].xAvailable and arrLumgates[iLoop].iMode = 3 then <br/>				arrLumgates[iLoop].iOutputLevelTeach		:= 	0;<br/>				iStep										:= 	2;<br/>				arrLumgates[iLoop].udtInternal.iTeachRun	:=	1;<br/>
+									<br/>			(* Teach failsave active for this Lumgate *)<br/>			Elsif arrLumgates[iLoop].xAvailable and arrLumgates[iLoop].iMode = 4 then <br/>				iStep									:= 	10;<br/>			End_If;<br/>	<br/>		2:<br/>			If arrLumgates[iLoop].iActualOutputLevel = arrLumgates[iLoop].iTargetOutputLevel then<br/>				arrLumgates[iLoop].udtInternal.iCounterTeach		:= 	arrLumgates[iLoop].udtInternal.iCounterTeach + 1;<br/>				If arrLumgates[iLoop].udtInternal.iTeachRun = 1 then<br/>					arrLumgates[iLoop].xRelay1	:=	False;<br/>					arrLumgates[iLoop].xRelay2	:=	False;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 2 then<br/>					arrLumgates[iLoop].xRelay1	:=	False;<br/>					arrLumgates[iLoop].xRelay2	:=	True;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 3 then<br/>					arrLumgates[iLoop].xRelay1	:=	True;<br/>					arrLumgates[iLoop].xRelay2	:=	False;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 4 then<br/>					arrLumgates[iLoop].xRelay1	:=	True;<br/>					arrLumgates[iLoop].xRelay2	:=	True;<br/>				End_if;<br/>				(* Wait during 200 cycles befor saving measured value *)<br/>				If arrLumgates[iLoop].udtInternal.iCounterTeach &gt;= 200 then <br/>					arrLumgates[iLoop].udtInternal.iCounterTeach	:= 	0;<br/>					iStep											:= 	3;<br/>				End_If;<br/>			End_If;<br/>
+									<br/>		3:<br/>			iTemp	:= 	arrLumgates[iLoop].iOutputLevelTeach;<br/>			Case iTemp of<br/>				0:<br/>					If arrLumgates[iLoop].udtInternal.iTeachRun = 1 then<br/>						strDiag	:=	'Starting current measurement run 1/4';<br/>					Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 2 then<br/>						strDiag	:=	'Starting current measurement run 2/4';<br/>					Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 3 then<br/>						strDiag	:=	'Starting current measurement run 3/4';<br/>					Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 4 then<br/>						strDiag	:=	'Starting current measurement run 4/4';<br/>					End_if;<br/>					iLoop2	:=	1;<br/>
+									<br/>				1:<br/>					iLoop2	:=	2;<br/>
+									<br/>				50:<br/>					iLoop2	:=	3;<br/>					strDiag	:=	'Current measurement run 12% done';<br/>
+									<br/>				100:<br/>					iLoop2	:=	4;<br/>
+									<br/>				150:<br/>					iLoop2	:=	5;<br/>
+									<br/>				200:<br/>					iLoop2	:=	6;<br/>
+									<br/>				250:<br/>					iLoop2	:=	7;<br/>					strDiag	:=	'Current measurement run 28% done';<br/>
+									<br/>				300:<br/>					iLoop2	:=	8;<br/>
+									<br/>				350:<br/>					iLoop2	:=	9;<br/>
+									<br/>				400:<br/>					iLoop2	:=	10;<br/>
+									<br/>				450:<br/>					iLoop2	:=	11;<br/>					strDiag	:=	'Current measurement run 44% done';<br/>
+									<br/>				500:<br/>					iLoop2	:=	12;<br/>
+									<br/>				550:<br/>					iLoop2	:=	13;<br/>
+									<br/>				600:<br/>					iLoop2	:=	14;<br/>
+									<br/>				650:<br/>					iLoop2	:=	15;<br/>					strDiag	:=	'Current measurement run 60% done';<br/>
+									<br/>				700:<br/>					iLoop2	:=	16;<br/>
+									<br/>				750:<br/>					iLoop2	:=	17;<br/>
+									<br/>				800:<br/>					iLoop2	:=	18;<br/>
+									<br/>				850:<br/>					iLoop2	:=	19;<br/>					strDiag	:=	'Current measurement run 76% done';<br/>
+									<br/>				900:<br/>					iLoop2	:=	20;<br/>
+									<br/>				950:<br/>					iLoop2	:=	21;<br/>
+									<br/>				1000:<br/>					iLoop2	:=	22;<br/>
+									<br/>				1070:<br/>					iLoop2	:=	23;<br/>					strDiag	:=	'Current measurement run 92% done';<br/>			End_Case;<br/>
+									<br/>			If iLoop2 &gt; 1 then<br/>				iLoop3	:=	iLoop2 - 1;<br/>				If arrLumgates[iLoop].udtInternal.iTeachRun = 1 then<br/>					If arrLumgates[iLoop].iMeasurement &gt;= arrLumgates[iLoop].arrPowerConsumption[iLoop3] then<br/>						arrLumgates[iLoop].arrPowerConsumption[iLoop2]	:= 	arrLumgates[iLoop].iMeasurement;	(* Save value *)<br/>					Else<br/>						arrLumgates[iLoop].arrPowerConsumption[iLoop2]	:= 	arrLumgates[iLoop].arrPowerConsumption[iLoop3];<br/>					End_if;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 2 then<br/>					If arrLumgates[iLoop].iMeasurement &gt;= arrLumgates[iLoop].arrPowerConsumption_01[iLoop3] then<br/>						arrLumgates[iLoop].arrPowerConsumption_01[iLoop2]	:=	arrLumgates[iLoop].iMeasurement;<br/>					Else<br/>						arrLumgates[iLoop].arrPowerConsumption_01[iLoop2]	:= 	arrLumgates[iLoop].arrPowerConsumption_01[iLoop3];<br/>					End_if;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 3 then<br/>					If arrLumgates[iLoop].iMeasurement &gt;= arrLumgates[iLoop].arrPowerConsumption_10[iLoop3] then<br/>						arrLumgates[iLoop].arrPowerConsumption_10[iLoop2]	:=	arrLumgates[iLoop].iMeasurement;<br/>					Else<br/>						arrLumgates[iLoop].arrPowerConsumption_10[iLoop2]	:= 	arrLumgates[iLoop].arrPowerConsumption_10[iLoop3];<br/>					End_if;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 4 then<br/>					If arrLumgates[iLoop].iMeasurement &gt;= arrLumgates[iLoop].arrPowerConsumption_11[iLoop3] then<br/>						arrLumgates[iLoop].arrPowerConsumption_11[iLoop2]	:=	arrLumgates[iLoop].iMeasurement;<br/>					Else<br/>						arrLumgates[iLoop].arrPowerConsumption_11[iLoop2]	:= 	arrLumgates[iLoop].arrPowerConsumption_11[iLoop3];<br/>					End_if;<br/>				End_if;<br/>			Else<br/>				If arrLumgates[iLoop].udtInternal.iTeachRun = 1 then<br/>					arrLumgates[iLoop].arrPowerConsumption[iLoop2]		:= 	arrLumgates[iLoop].iMeasurement;	(* Save value *)<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 2 then<br/>					arrLumgates[iLoop].arrPowerConsumption_01[iLoop2]	:=	arrLumgates[iLoop].iMeasurement;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 3 then<br/>					arrLumgates[iLoop].arrPowerConsumption_10[iLoop2]	:=	arrLumgates[iLoop].iMeasurement;<br/>				Elsif arrLumgates[iLoop].udtInternal.iTeachRun = 4 then<br/>					arrLumgates[iLoop].arrPowerConsumption_11[iLoop2]	:=	arrLumgates[iLoop].iMeasurement;<br/>				End_if;<br/>			End_If;<br/>
+									<br/>			If iLoop2 = 1 then<br/>				arrLumgates[iLoop].iOutputLevelTeach	:=	1;<br/>				iStep	:=	2;<br/>			Elsif iLoop2 = 2 then<br/>				arrLumgates[iLoop].iOutputLevelTeach	:=	50;<br/>				iStep	:=	2;<br/>			Elsif iLoop2 &gt; 2 and iLoop2 &lt; 22 then<br/>				arrLumgates[iLoop].iOutputLevelTeach	:=	arrLumgates[iLoop].iOutputLevelTeach + 50;<br/>				iStep	:=	2;<br/>			Elsif iLoop2 = 22 then<br/>				arrLumgates[iLoop].iOutputLevelTeach	:=	1070;<br/>				iStep	:=	2;<br/>			Else<br/>				If arrLumgates[iLoop].udtInternal.iTeachRun &lt; 4 then<br/>					arrLumgates[iLoop].udtInternal.iTeachRun	:=	arrLumgates[iLoop].udtInternal.iTeachRun + 1;<br/>					arrLumgates[iLoop].iOutputLevelTeach		:=	0;<br/>					iStep	:=	2;<br/>				Else<br/>					iStep	:=	4;<br/>				End_if;<br/>			End_If;<br/>
+									<br/>		4:	<br/>			strDiag													:=	'Current measurement done';<br/>			arrLumgates[iLoop].xTeachConsumption					:=	False;<br/>			arrLumgates[iLoop].udtInternal.xPowerConsumptionCorrect	:= 	True;<br/>
+									<br/>			(* There is no minimum difference measured *)<br/>			If arrLumgates[iLoop].arrPowerConsumption[23] &lt;= arrLumgates[iLoop].arrPowerConsumption[12] then <br/>				arrLumgates[iLoop].udtInternal.xPowerConsumptionCorrect	:= 	False;<br/>			End_If;<br/>
+									<br/>			(* There is no minimum difference measured *)<br/>			If arrLumgates[iLoop].arrPowerConsumption[12] &lt;= arrLumgates[iLoop].arrPowerConsumption[2] then <br/>				arrLumgates[iLoop].udtInternal.xPowerConsumptionCorrect	:= 	False;<br/>			End_If;<br/>			iStep						:= 	0;<br/>
+									<br/>		10:<br/>			If arrLumgates[iLoop].iActualOutputLevel = arrLumgates[iLoop].iTargetOutputLevel then<br/>				iStep					:= 	11;<br/>			End_If;<br/>
+									<br/>		11:<br/>			arrLumgates[iLoop].xSafe	:= 	True;<br/>			iStep						:= 	12;<br/>
+									<br/>		12:<br/>			arrLumgates[iLoop].udtInternal.iCounterFailsave	:= 	arrLumgates[iLoop].udtInternal.iCounterFailsave + 1;<br/>			If arrLumgates[iLoop].udtInternal.iCounterFailsave &gt; 50 then<br/>				arrLumgates[iLoop].xSafe						:= 	False;<br/>				arrLumgates[iLoop].udtInternal.iCounterFailsave	:= 	0;<br/>				arrLumgates[iLoop].xTeachFailsave				:= 	False;<br/>				iStep	:= 	0;<br/>			Elsif arrLumgates[iLoop].xSafeFinish then<br/>				arrLumgates[iLoop].xSafe						:=	False;<br/>				arrLumgates[iLoop].udtInternal.iCounterFailsave	:= 	0;<br/>				arrLumgates[iLoop].xTeachFailsave				:= 	False;<br/>				iStep	:= 	0;<br/>			End_If;<br/>	End_Case;<br/>
+									<br/>	arrLumgates[iLoop].udtInternal.iStepTeach			:= 	iStep;<br/>
+									<br/>	If arrLumgates[iLoop].iMode &lt; 3 or arrLumgates[iLoop].iMode &gt; 4 then (* Teach not active *)<br/>		arrLumgates[iLoop].iOutputLevelTeach			:= 	0;<br/>		arrLumgates[iLoop].udtInternal.iCounterTeach	:= 	0;<br/>		arrLumgates[iLoop].udtInternal.iCounterFailsave	:= 	0;<br/>		arrLumgates[iLoop].udtInternal.iStepTeach		:= 	0;<br/>	Elsif arrLumgates[iLoop].iMode = 4 and arrLumgates[iLoop].udtInternal.iStepTeach &lt; 10 and arrLumgates[iLoop].udtInternal.iStepTeach &gt; 0 then<br/>		arrLumgates[iLoop].iOutputLevelTeach			:= 	0;<br/>		arrLumgates[iLoop].udtInternal.iCounterTeach	:= 	0;<br/>		arrLumgates[iLoop].udtInternal.iCounterFailsave	:= 	0;<br/>		arrLumgates[iLoop].udtInternal.iStepTeach		:= 	0;<br/>	End_If;<br/>End_For;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="CurrentCheck">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Current Check *)<br/>Case iCurrentCheck of<br/>	0:<br/>		iNumberLumgateCurrentCheck	:= 	iNumberLumgateCurrentCheck + 1;<br/>		If iNumberLumgateCurrentCheck &gt; 240 then<br/>			iNumberLumgateCurrentCheck	:= 	1;<br/>		End_If;<br/>
+									<br/>		If iNumberLumgateCurrentCheck &gt; 0 and iNumberLumgateCurrentCheck &lt; 241 then<br/>			If arrLumgates[iNumberLumgateCurrentCheck].xAvailable and<br/>				(arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xActiveCurrentCheckError or<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xActiveCurrentCheckWarning) then<br/>				iCurrentCheck			:= 	1;		(* Check current is possible *)<br/>			End_If;<br/>
+									<br/>			If not arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xActiveCurrentCheckError<br/>				or not arrLumgates[iNumberLumgateCurrentCheck].udtInternal.xPowerConsumptionCorrect  then<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectError	:= 	False;<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xError			:= 	False;<br/>													(* Current error is disabled or invalid measurement*)<br/>			End_If;<br/>
+									<br/>			If not arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xActiveCurrentCheckWarning<br/>				or not arrLumgates[iNumberLumgateCurrentCheck].udtInternal.xPowerConsumptionCorrect  then<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectWarning	:= 	False;<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xWarning		:= 	False;<br/>													(* Current warning is disabled or invalid measurement*)<br/>			End_If;<br/>		End_If;<br/>
+									<br/>	1:	<br/>		If arrLumgates[iNumberLumgateCurrentCheck].udtInternal.xPowerConsumptionCorrect then<br/>			iTempOutputLevel	:= 	arrLumgates[iNumberLumgateCurrentCheck].iActualOutputLevel;<br/>			If iTempOutputLevel &gt; 0 then<br/>				<br/>				Case iTempOutputLevel of<br/>					1..50:<br/>						iTempLevelMinimum	:=	2;<br/>						iTempLevelMaximum	:=	3;<br/>						iParameter1			:=	1;<br/>						iParameter2			:=	50;<br/>
+									<br/>					51..100:<br/>						iTempLevelMinimum	:=	3;<br/>						iTempLevelMaximum	:=	4;<br/>						iParameter1			:=	50;<br/>						iParameter2			:=	100;<br/>
+									<br/>					101..150:<br/>						iTempLevelMinimum	:=	4;<br/>						iTempLevelMaximum	:=	5;<br/>						iParameter1			:=	100;<br/>						iParameter2			:=	150;<br/>
+									<br/>					151..200:<br/>						iTempLevelMinimum	:=	5;<br/>						iTempLevelMaximum	:=	6;<br/>						iParameter1			:=	150;<br/>						iParameter2			:=	200;<br/>
+									<br/>					201..250:<br/>						iTempLevelMinimum	:=	6;<br/>						iTempLevelMaximum	:=	7;<br/>						iParameter1			:=	200;<br/>						iParameter2			:=	250;<br/>
+									<br/>					251..300:<br/>						iTempLevelMinimum	:=	7;<br/>						iTempLevelMaximum	:=	8;<br/>						iParameter1			:=	250;<br/>						iParameter2			:=	300;<br/>
+									<br/>					301..350:<br/>						iTempLevelMinimum	:=	8;<br/>						iTempLevelMaximum	:=	9;<br/>						iParameter1			:=	300;<br/>						iParameter2			:=	350;<br/>
+									<br/>					351..400:<br/>						iTempLevelMinimum	:=	9;<br/>						iTempLevelMaximum	:=	10;<br/>						iParameter1			:=	350;<br/>						iParameter2			:=	400;<br/>
+									<br/>					401..450:<br/>						iTempLevelMinimum	:=	10;<br/>						iTempLevelMaximum	:=	11;<br/>						iParameter1			:=	400;<br/>						iParameter2			:=	450;<br/>
+									<br/>					451..500:<br/>						iTempLevelMinimum	:=	11;<br/>						iTempLevelMaximum	:=	12;<br/>						iParameter1			:=	450;<br/>						iParameter2			:=	500;<br/>
+									<br/>					501..550:<br/>						iTempLevelMinimum	:=	12;<br/>						iTempLevelMaximum	:=	13;<br/>						iParameter1			:=	500;<br/>						iParameter2			:=	550;<br/>
+									<br/>					551..600:<br/>						iTempLevelMinimum	:=	13;<br/>						iTempLevelMaximum	:=	14;<br/>						iParameter1			:=	550;<br/>						iParameter2			:=	600;<br/>
+									<br/>					601..650:<br/>						iTempLevelMinimum	:=	14;<br/>						iTempLevelMaximum	:=	15;<br/>						iParameter1			:=	600;<br/>						iParameter2			:=	650;<br/>
+									<br/>					651..700:<br/>						iTempLevelMinimum	:=	15;<br/>						iTempLevelMaximum	:=	16;<br/>						iParameter1			:=	650;<br/>						iParameter2			:=	700;<br/>
+									<br/>					701..750:<br/>						iTempLevelMinimum	:=	16;<br/>						iTempLevelMaximum	:=	17;<br/>						iParameter1			:=	700;<br/>						iParameter2			:=	750;<br/>
+									<br/>					751..800:<br/>						iTempLevelMinimum	:=	17;<br/>						iTempLevelMaximum	:=	18;<br/>						iParameter1			:=	750;<br/>						iParameter2			:=	800;<br/>
+									<br/>					801..850:<br/>						iTempLevelMinimum	:=	18;<br/>						iTempLevelMaximum	:=	19;<br/>						iParameter1			:=	800;<br/>						iParameter2			:=	850;<br/>
+									<br/>					851..900:<br/>						iTempLevelMinimum	:=	19;<br/>						iTempLevelMaximum	:=	20;<br/>						iParameter1			:=	850;<br/>						iParameter2			:=	900;<br/>
+									<br/>					901..950:<br/>						iTempLevelMinimum	:=	20;<br/>						iTempLevelMaximum	:=	21;<br/>						iParameter1			:=	900;<br/>						iParameter2			:=	950;<br/>
+									<br/>					951..1000:<br/>						iTempLevelMinimum	:=	21;<br/>						iTempLevelMaximum	:=	22;<br/>						iParameter1			:=	950;<br/>						iParameter2			:=	1000;<br/>
+									<br/>					1001..1070:	<br/>						iTempLevelMinimum	:=	22;<br/>						iTempLevelMaximum	:=	23;<br/>						iParameter1			:=	1000;<br/>						iParameter2			:=	1070;<br/>				End_Case;<br/>				<br/>				If arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					iParameter4	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_11[iTempLevelMinimum];<br/>					iParameter5	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_11[iTempLevelMaximum];<br/>				Elsif arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and not arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					iParameter4	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_10[iTempLevelMinimum];<br/>					iParameter5	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_10[iTempLevelMaximum];<br/>				Elsif not arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					iParameter4	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_01[iTempLevelMinimum];<br/>					iParameter5	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_01[iTempLevelMaximum];<br/>				Elsif not arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and not arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					iParameter4	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption[iTempLevelMinimum];<br/>					iParameter5	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption[iTempLevelMaximum];<br/>				End_if;<br/>
+									<br/>				(* Calculate deviation *)<br/>				rParameterA	:=	Int_To_Real(iParameter5 - iParameter4) / Int_To_Real(iParameter2 - iParameter1);<br/>				rParameterB	:=	Int_To_Real(iParameter5) - rParameterA * Int_To_Real(iParameter2);<br/>
+									<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iExpectedCurrent	:=	Real_To_Int(rParameterA * Int_To_Real(iTempOutputLevel) + rParameterB);<br/>				iCurrentCheck	:=	2;<br/>			Else<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectError		:=	False;<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectWarning		:=	False;<br/>				If arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iExpectedCurrent	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_11[1];<br/>				Elsif arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and not arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iExpectedCurrent	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_10[1];<br/>				Elsif not arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iExpectedCurrent	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption_01[1];<br/>				Elsif not arrLumgates[iNumberLumgateCurrentCheck].xRelay1 and not arrLumgates[iNumberLumgateCurrentCheck].xRelay2 then<br/>					arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iExpectedCurrent	:=	arrLumgates[iNumberLumgateCurrentCheck].arrPowerConsumption[1];<br/>				End_if;<br/>				iCurrentCheck	:=	0;<br/>			End_If;<br/>		Else<br/>			iCurrentCheck		:=	0;<br/>		End_If;<br/>
+									<br/>	2:<br/>		If arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xActiveCurrentCheckError then<br/>			rTempExpected		:=	Int_To_Real(arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iExpectedCurrent);<br/>			rMarginError		:=	rTempExpected * arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.rPercentageError / 100.0;<br/>
+									<br/>			If rMarginError &lt; 16.0 then (* limit deviation to 16 mA *)<br/>				rMarginError	:=	16.0;<br/>			End_If;<br/>
+									<br/>			rLimitMax	:=	rTempExpected + rMarginError;<br/>			rLimitMin	:=	rTempExpected - rMarginError;<br/>
+									<br/>			iLimitMax	:=	Real_To_Int(rLimitMax);<br/>			iLimitMin	:=	Real_To_Int(rLimitMin);<br/>
+									<br/>			arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMaxError		:=	iLimitMax;<br/>			arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMinError		:=	iLimitMin;<br/>
+									<br/>			If arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &gt; iLimitMax or arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &lt; iLimitMin then<br/>				(* current error detected *)<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectError	:=	True;<br/>			Else<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectError	:=	False;<br/>			End_If;<br/>		End_If;<br/>
+									<br/>		If arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xActiveCurrentCheckWarning then<br/>			rTempExpected	:=	Int_To_Real(arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iExpectedCurrent);<br/>			rMarginError	:=	rTempExpected * arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.rPercentageWarning / 100.0;<br/>
+									<br/>			If rMarginError &lt; 16.0 then	(* limit deviation to 16 mA *)<br/>				rMarginError	:=	16.0;<br/>			End_If;<br/>
+									<br/>			rLimitMax	:=	rTempExpected + rMarginError;<br/>			rLimitMin	:=	rTempExpected - rMarginError;<br/>
+									<br/>			iLimitMax	:=	Real_To_Int(rLimitMax);<br/>			iLimitMin	:=	Real_To_Int(rLimitMin);<br/>
+									<br/>			arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMaxWarning	:=	iLimitMax;<br/>			arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMinWarning	:=	iLimitMin;<br/>
+									<br/>			If arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &gt; iLimitMax or arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &lt; iLimitMin then<br/>				(* current warning detected *)<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectWarning	:=	True;<br/>			Else<br/>				arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectWarning	:=	False;<br/>			End_If;<br/>		End_If;<br/>		iCurrentCheck	:=	0;<br/>End_Case;<br/>
+									<br/>(* Try to execute diagnostic messages sequential *)<br/>For iLoop := 1 to 240 do<br/>	iStep:= arrLumgates[iLoop].udtInternal.iStepCurrentCheck;<br/>
+									<br/>	Case iStep of<br/>		0:<br/>			If arrLumgates[iLoop].iActualOutputLevel = arrLumgates[iLoop].iTargetOutputLevel then<br/>				arrLumgates[iLoop].udtInternal.iCounterCurrentCheck	:=	arrLumgates[iLoop].udtInternal.iCounterCurrentCheck + 1;<br/>
+									<br/>				(* Wait during 200 cycles to suppress short deviations *)<br/>				If arrLumgates[iLoop].udtInternal.iCounterCurrentCheck &gt;= 200 then <br/>					arrLumgates[iLoop].udtInternal.iCounterCurrentCheck	:=	0;<br/>					iStep	:=	1;<br/>				End_If;<br/>			Else<br/>				arrLumgates[iLoop].udtInternal.iCounterCurrentCheck	:=	0;<br/>			End_If;<br/>
+									<br/>			If (not arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckError<br/>				and not arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckWarning)<br/>				or not arrLumgates[iLoop].udtInternal.xPowerConsumptionCorrect then<br/>				(* reset 200 cycle counter *)<br/>				arrLumgates[iLoop].udtInternal.iCounterCurrentCheck	:=	0;<br/>			End_If;<br/>
+									<br/>			arrLumgates[iLoop].udtInternal.iStepCurrentCheck	:= iStep;<br/>
+									<br/>			If not arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckError then<br/>				arrLumgates[iLoop].udtCurrentCheck.xError		:=	False;<br/>			End_If;<br/>			If not arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckWarning then<br/>				arrLumgates[iLoop].udtCurrentCheck.xWarning		:=	False;<br/>			End_If;<br/>		1:<br/>			If arrLumgates[iLoop].iActualOutputLevel &lt;&gt; arrLumgates[iLoop].iTargetOutputLevel then<br/>				arrLumgates[iLoop].udtInternal.iCounterCurrentCheck	:=	0;<br/>				iStep	:=	0;<br/>			End_If;<br/>
+									<br/>			If (not arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckError<br/>				and not arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckWarning)<br/>				or not arrLumgates[iLoop].udtInternal.xPowerConsumptionCorrect then<br/>				arrLumgates[iLoop].udtInternal.iCounterCurrentCheck	:=	0;<br/>				iStep	:=	0;<br/>			End_If;<br/>			arrLumgates[iLoop].udtInternal.iStepCurrentCheck	:= iStep;<br/>	End_Case;<br/>End_For;<br/>
+									<br/>If arrLumgates[iNumberLumgateCurrentCheck].udtInternal.iStepCurrentCheck = 1 then<br/>	(* error or warning occurs *)<br/>	arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xError		:=	arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectError;<br/>	arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xWarning	:=	arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xDirectWarning;<br/>	iStep	:=	0;<br/>	(* creating diagnostig text *)<br/>	If arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xWarning and arrLumgates[iNumberLumgateCurrentCheck].udtInternal.xPowerConsumptionCorrect and not arrLumgates[iNumberLumgateCurrentCheck].xTeachConsumption	<br/>	and (arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &gt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMaxWarning or <br/>	arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &lt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMinWarning) then<br/>		xPreAlarm	:=	True;<br/>		strDiag		:=	'Warning: RBT ';<br/>		strDiag		:=	concat(strDiag, int_to_string(arrLumgates[iNumberLumgateCurrentCheck].iModuleLevel + 1,'%01d'));<br/>		strDiag		:=	concat(strDiag, ', Lumgate ');<br/>		strDiag		:=	concat(strDiag, int_to_string(arrLumgates[iNumberLumgateCurrentCheck].iModuleNumber,'%01d'));<br/>		If arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &gt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMaxWarning then<br/>			strDiag	:=	concat(strDiag, ', Current overrange');<br/>		Elsif arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &lt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMinWarning then<br/>			strDiag	:=	concat(strDiag, ', Current underrange');<br/>		End_if;<br/>	End_if;<br/>	If arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.xError and arrLumgates[iNumberLumgateCurrentCheck].udtInternal.xPowerConsumptionCorrect and not arrLumgates[iNumberLumgateCurrentCheck].xTeachConsumption <br/>	and (arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &gt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMaxError or <br/>	arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &lt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMinError) then<br/>		xAlarm	:=	True;<br/>		strDiag	:=	'Error: RBT ';<br/>		strDiag	:=	concat(strDiag, int_to_string(arrLumgates[iNumberLumgateCurrentCheck].iModuleLevel + 1,'%01d'));<br/>		strDiag	:=	concat(strDiag, ', Lumgate ');<br/>		strDiag	:=	concat(strDiag, int_to_string(arrLumgates[iNumberLumgateCurrentCheck].iModuleNumber,'%01d'));<br/>		If arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &gt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMaxError then<br/>			strDiag	:=	concat(strDiag, ', Current overrange');<br/>		Elsif arrLumgates[iNumberLumgateCurrentCheck].iMeasurement &lt; arrLumgates[iNumberLumgateCurrentCheck].udtCurrentCheck.iLimitMinError then<br/>			strDiag	:=	concat(strDiag, ', Current underrange');<br/>		End_if;<br/>	End_if;<br/>	arrLumgates[iNumberLumgateCurrentCheck].udtInternal.iStepCurrentCheck	:= 0;<br/>End_if;<br/>
+									<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="HourCounter">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Hour Counter *)<br/>For iLoop := 1 to 240 do<br/>	xCount1	:=	arrLumgates[iLoop].xRelay1;<br/>	xCount2	:=	arrLumgates[iLoop].xRelay1 and arrLumgates[iLoop].iActualOutputLevel &lt; 500;<br/>	xCount3	:=	arrLumgates[iLoop].xRelay1 and arrLumgates[iLoop].iActualOutputLevel &gt;= 500 and arrLumgates[iLoop].iActualOutputLevel &lt; 750;<br/>	xCount4	:=	arrLumgates[iLoop].xRelay1 and arrLumgates[iLoop].iActualOutputLevel &gt;= 750;<br/>
+									<br/>	FB_HourCounterGeneral(xCount				:=	true,<br/>	xPulseSecond								:=	xPulseSecond,<br/>	udtCounterInfo								:=	arrLumgates[iLoop].udtHourCounterGeneral);<br/>
+									<br/>	arrLumgates[iLoop].udtHourCounterGeneral	:=	FB_HourCounterGeneral.udtCounterInfo;<br/>
+									<br/>	FB_HourCounterMaintenance(xCount			:=	true,<br/>	xPulseSecond								:=	xPulseSecond,<br/>	udtCounterInfo								:=	arrLumgates[iLoop].udtHourCounterMaintenance);<br/>
+									<br/>	arrLumgates[iLoop].udtHourCounterMaintenance:=	FB_HourCounterMaintenance.udtCounterInfo;<br/>
+									<br/>	FB_HourCounter20_50(xCount					:=	xCount2,<br/>	xPulseSecond								:=	xPulseSecond,<br/>	udtCounterInfo								:=	arrLumgates[iLoop].udtHourCounter20_50);<br/>
+									<br/>	arrLumgates[iLoop].udtHourCounter20_50		:=	FB_HourCounter20_50.udtCounterInfo;<br/>
+									<br/>	FB_HourCounter50_75(xCount					:=	xCount3,<br/>	xPulseSecond								:=	xPulseSecond,<br/>	udtCounterInfo								:=	arrLumgates[iLoop].udtHourCounter50_75);<br/>
+									<br/>	arrLumgates[iLoop].udtHourCounter50_75		:=	FB_HourCounter50_75.udtCounterInfo;<br/>
+									<br/>	FB_HourCounter75_100(xCount					:=	xCount4,<br/>	xPulseSecond								:=	xPulseSecond,<br/>	udtCounterInfo								:=	arrLumgates[iLoop].udtHourCounter75_100);<br/>
+									<br/>	arrLumgates[iLoop].udtHourCounter75_100		:=	FB_HourCounter75_100.udtCounterInfo;<br/>End_For;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="Mode">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Mode *)<br/>For iLoop := 1 to 240 do<br/>	If arrLumgates[iLoop].xAvailable then<br/>		(* Check if there is a special scenario active for this Lumgate *)<br/>		xSpecialScenarioActive		:=	False;<br/>		iTempOutputValueLGSpecial	:=	0;<br/>
+									<br/>		For iLoop2 := 1 to 15 do<br/>			Case iLoop2 of<br/>				1:<br/>					xTempStatusScenario	:=	wSpecialScenario.X0;<br/>				2:<br/>					xTempStatusScenario	:=	wSpecialScenario.X1;<br/>				3:<br/>					xTempStatusScenario	:=	wSpecialScenario.X2;<br/>				4:<br/>					xTempStatusScenario	:=	wSpecialScenario.X3;<br/>				5:<br/>					xTempStatusScenario	:=	wSpecialScenario.X4;<br/>				6:<br/>					xTempStatusScenario	:=	wSpecialScenario.X5;<br/>				7:<br/>					xTempStatusScenario	:=	wSpecialScenario.X6;<br/>				8:<br/>					xTempStatusScenario	:=	wSpecialScenario.X7;<br/>				9:<br/>					xTempStatusScenario	:=	wSpecialScenario.X8;<br/>				10:<br/>					xTempStatusScenario	:=	wSpecialScenario.X9;<br/>				11:<br/>					xTempStatusScenario	:=	wSpecialScenario.X10;<br/>				12:<br/>					xTempStatusScenario	:=	wSpecialScenario.X11;<br/>				13:<br/>					xTempStatusScenario	:=	wSpecialScenario.X12;<br/>				14:<br/>					xTempStatusScenario	:=	wSpecialScenario.X13;<br/>				15:<br/>					xTempStatusScenario	:=	wSpecialScenario.X14;<br/>			End_Case;<br/>
+									<br/>			If xTempStatusScenario and arrLumgates[iLoop].arrSpecialScene[iLoop2].xUsed then<br/>				xSpecialScenarioActive	:=	True;<br/>				If arrLumgates[iLoop].arrSpecialScene[iLoop2].iValue &gt; iTempOutputValueLGSpecial then<br/>					iTempOutputValueLGSpecial	:=	arrLumgates[iLoop].arrSpecialScene[iLoop2].iValue;<br/>
+									<br/>					(*	V2.01 changes: Editable scene relay state EPO-IS-268-1667 *)<br/>					(*	V3.01 change: replace the relay variables *)<br/>					xTempRelay1					:=	arrLumgates[iLoop].arrSpecialScene[iLoop2].xRelay1;<br/>					xTempRelay2					:=	arrLumgates[iLoop].arrSpecialScene[iLoop2].xRelay2;<br/>				End_If;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		(* Check if there is a dimming scenario active for this Lumgate *)<br/>		xDimmingScenarioActive		:=	False;<br/>		iTempOutputValueLGDimming	:=	-1;<br/>
+									<br/>		For iLoop2 := 1 to 4 do		<br/>			iTempScenarioLG	:=	udtScenarioMode.arrActualScene[iLoop2];<br/>			If iTempScenarioLG &gt; 0 and iTempScenarioLG &lt; 51 then<br/>				If arrLumgates[iLoop].arrDimmingScene[iTempScenarioLG].xUsed then<br/>					xDimmingScenarioActive	:=	True;<br/>
+									<br/>					If arrLumgates[iLoop].arrDimmingScene[iTempScenarioLG].iValue &gt; iTempOutputValueLGDimming then<br/>						xDimmingScenarioActive			:=	True;<br/>						iTempOutputValueLGDimming		:=	arrLumgates[iLoop].arrDimmingScene[iTempScenarioLG].iValue;<br/>
+									<br/>						If not xSpecialScenarioActive then<br/>							(*	V2.01 changes: Editable scene relay state EPO-IS-268-1667 *)<br/>							xTempRelay1						:=	arrLumgates[iLoop].arrDimmingScene[iTempScenarioLG].xRelay1;<br/>							xTempRelay2						:=	arrLumgates[iLoop].arrDimmingScene[iTempScenarioLG].xRelay2;<br/>						End_if;<br/>						arrLumgates[iLoop].iActualScene	:=	iTempScenarioLG;<br/>					End_If;<br/>				End_If;<br/>			End_If;<br/>		End_For;<br/>
+									<br/>		(* 	Priority:<br/>			1: Manual<br/>			2: Automatic: Special scenario<br/>			3: Automatic: Teach consumption<br/>			4: Automatic: Teach failsave<br/>			5: Automatic: Dimming scenario<br/>		*)<br/>
+									<br/>		If arrLumgates[iLoop].xAutomaticManual then (* Lumgate in manual mode *)<br/>			arrLumgates[iLoop].iMode	:=	1;<br/>			iModuleLevel				:=	arrLumgates[iLoop].iModuleLevel + 1;<br/>			If xCommissioning and ((iCommissioningBranch = 0) or (iCommissioningBranch = iModuleLevel)) then<br/>				If arrLumgates[iLoop].xRelay1_NC then<br/>					xTempRelay1					:=	True;<br/>				Else<br/>					xTempRelay1					:=	False;<br/>				End_if;<br/>				If arrLumgates[iLoop].xRelay2_NC then<br/>					xTempRelay2					:=	True;<br/>				Else<br/>					xTempRelay2					:=	False;<br/>				End_if;<br/>			Else<br/>				xTempRelay1					:=	arrLumgates[iLoop].xManualRelay1;<br/>				xTempRelay2					:=	arrLumgates[iLoop].xManualRelay2;<br/>			End_if;<br/>		Elsif xSpecialScenarioActive then<br/>			arrLumgates[iLoop].iMode	:=	2;<br/>		Elsif arrLumgates[iLoop].xTeachConsumption then<br/>			xTempRelay1					:=	arrLumgates[iLoop].xRelay1;<br/>			xTempRelay2					:=	arrLumgates[iLoop].xRelay2;<br/>			arrLumgates[iLoop].iMode	:=	3;<br/>		Elsif arrLumgates[iLoop].xTeachFailsave then<br/>			arrLumgates[iLoop].iMode	:=	4;<br/>			xTempRelay1					:=	arrLumgates[iLoop].xFailsaveRelay1;<br/>			xTempRelay2					:=	arrLumgates[iLoop].xFailsaveRelay2;<br/>		Elsif xDimmingScenarioActive then<br/>			arrLumgates[iLoop].iOutputLevelScenario:= iTempOutputValueLGDimming;<br/>			arrLumgates[iLoop].iMode	:=	5;<br/>		Else<br/>			arrLumgates[iLoop].iMode	:=	6; (* Failsave *)<br/>		End_If;<br/>
+									<br/>		(* Choose the right output for each mode *)<br/>		Case arrLumgates[iLoop].iMode of<br/>			1:<br/>				arrLumgates[iLoop].iTargetOutputLevel	:=	arrLumgates[iLoop].iOutputLevelManual;<br/>		<br/>			2:<br/>				arrLumgates[iLoop].iTargetOutputLevel	:=	iTempOutputValueLGSpecial;<br/>
+									<br/>			3:<br/>				arrLumgates[iLoop].iTargetOutputLevel	:=	arrLumgates[iLoop].iOutputLevelTeach;<br/>
+									<br/>			4:<br/>				arrLumgates[iLoop].iTargetOutputLevel	:=	arrLumgates[iLoop].iOutputLevelFailsave;<br/>
+									<br/>			5:<br/>				arrLumgates[iLoop].iOutputLevelScenarioWithClo	:= 	arrLumgates[iLoop].iOutputLevelScenario -<br/>															arrLumgates[iLoop].udtCloLed.iAmountDecrease -<br/>															arrLumgates[iLoop].udtCloMaintenance.iAmountDecrease;<br/>
+									<br/>			If arrLumgates[iLoop].udtCloLed.xActive or arrLumgates[iLoop].udtCloMaintenance.xActive then<br/>				arrLumgates[iLoop].iTargetOutputLevel	:=	arrLumgates[iLoop].iOutputLevelScenarioWithClo;<br/>			Else<br/>				arrLumgates[iLoop].iTargetOutputLevel	:=	arrLumgates[iLoop].iOutputLevelScenario;<br/>			End_If;<br/>
+									<br/>			6:<br/>				arrLumgates[iLoop].iTargetOutputLevel	:=	arrLumgates[iLoop].iOutputLevelFailsave;<br/>				xTempRelay1								:=	arrLumgates[iLoop].xFailsaveRelay1;<br/>				xTempRelay2								:=	arrLumgates[iLoop].xFailsaveRelay2;<br/>		End_Case;<br/>
+									<br/>		(* Output to device *)<br/>		iDimmingSpeed	:=	limit(1,iDimmingSpeed,10);<br/>		If xShiftedOnOff then (* On/Off in groups *)<br/>			iShiftPosition	:=	iLoop Mod 8;<br/>			If iShiftPosition = 0 then<br/>				iShiftPosition	:=	8;<br/>			End_If;<br/>
+									<br/>			If arrLumgates[iLoop].iActualOutputLevel = 0 and arrLumgates[iLoop].iTargetOutputLevel &lt;&gt; 0 and arrShiftedOnOff[iShiftPosition]<br/>				or arrLumgates[iLoop].iActualOutputLevel &lt;&gt; 0 then<br/>				<br/>				If arrLumgates[iLoop].xGraduallyOutputChanges then<br/>					If arrLumgates[iLoop].iTargetOutputLevel &gt; arrLumgates[iLoop].iActualOutputLevel then<br/>						iTemp	:=	arrLumgates[iLoop].iTargetOutputLevel - arrLumgates[iLoop].iActualOutputLevel;<br/>
+									<br/>						If arrLumgates[iLoop].xRelay1_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>							arrLumgates[iLoop].xRelay1	:=	not xTempRelay1;<br/>						Else<br/>							arrLumgates[iLoop].xRelay1	:=	xTempRelay1;<br/>						End_if;<br/>						If arrLumgates[iLoop].xRelay2_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>							arrLumgates[iLoop].xRelay2	:=	not xTempRelay2;<br/>						Else<br/>							arrLumgates[iLoop].xRelay2	:=	xTempRelay2;<br/>						End_if;<br/>
+									<br/>						If iTemp &gt; iDimmingSpeed then<br/>							arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iActualOutputLevel + iDimmingSpeed;<br/>						Else<br/>							arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iTargetOutputLevel;<br/>						End_if;<br/>					Elsif arrLumgates[iLoop].iTargetOutputLevel &lt; arrLumgates[iLoop].iActualOutputLevel then<br/>						iTemp	:=	arrLumgates[iLoop].iActualOutputLevel - arrLumgates[iLoop].iTargetOutputLevel;<br/>						If iTemp &gt; iDimmingSpeed then<br/>							arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iActualOutputLevel - iDimmingSpeed;<br/>						Else<br/>						<br/>							If arrLumgates[iLoop].xRelay1_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>								arrLumgates[iLoop].xRelay1	:=	not xTempRelay1;<br/>							Else<br/>								arrLumgates[iLoop].xRelay1	:=	xTempRelay1;<br/>							End_if;<br/>							If arrLumgates[iLoop].xRelay2_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>								arrLumgates[iLoop].xRelay2	:=	not xTempRelay2;<br/>							Else<br/>								arrLumgates[iLoop].xRelay2	:=	xTempRelay2;<br/>							End_if;<br/>
+									<br/>							arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iTargetOutputLevel;<br/>						End_if;<br/>					Else<br/>						If arrLumgates[iLoop].xRelay1_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>							arrLumgates[iLoop].xRelay1	:=	not xTempRelay1;<br/>						Else<br/>							arrLumgates[iLoop].xRelay1	:=	xTempRelay1;<br/>						End_if;<br/>						If arrLumgates[iLoop].xRelay2_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>							arrLumgates[iLoop].xRelay2	:=	not xTempRelay2;<br/>						Else<br/>							arrLumgates[iLoop].xRelay2	:=	xTempRelay2;<br/>						End_if;<br/>					End_If;<br/>
+									<br/>				Else (* Apply direct the correct value *)<br/>					arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iTargetOutputLevel;<br/>					If arrLumgates[iLoop].xRelay1_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>						arrLumgates[iLoop].xRelay1	:=	not xTempRelay1;<br/>					Else<br/>						arrLumgates[iLoop].xRelay1	:=	xTempRelay1;<br/>					End_if;<br/>					If arrLumgates[iLoop].xRelay2_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>						arrLumgates[iLoop].xRelay2	:=	not xTempRelay2;<br/>					Else<br/>						arrLumgates[iLoop].xRelay2	:=	xTempRelay2;<br/>					End_if;<br/>				End_If;<br/>			Else<br/>				If arrLumgates[iLoop].xRelay1_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>					arrLumgates[iLoop].xRelay1	:=	not xTempRelay1;<br/>				Else<br/>					arrLumgates[iLoop].xRelay1	:=	xTempRelay1;<br/>				End_if;<br/>				If arrLumgates[iLoop].xRelay2_NC and not (arrLumgates[iLoop].iMode = 3) then<br/>					arrLumgates[iLoop].xRelay2	:=	not xTempRelay2;<br/>				Else<br/>					arrLumgates[iLoop].xRelay2	:=	xTempRelay2;<br/>				End_if;<br/>			End_If;<br/>				<br/>		Else (* On/Off for all devices at the same time *)<br/>			If arrLumgates[iLoop].xGraduallyOutputChanges then<br/>				If arrLumgates[iLoop].iTargetOutputLevel &gt; arrLumgates[iLoop].iActualOutputLevel then<br/>					iTemp	:=	arrLumgates[iLoop].iTargetOutputLevel - arrLumgates[iLoop].iActualOutputLevel;<br/>					If iTemp &gt; iDimmingSpeed then<br/>						arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iActualOutputLevel + iDimmingSpeed;<br/>					Else<br/>						arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iTargetOutputLevel;<br/>					End_if;<br/>				Elsif arrLumgates[iLoop].iTargetOutputLevel &lt; arrLumgates[iLoop].iActualOutputLevel then<br/>					iTemp	:=	arrLumgates[iLoop].iActualOutputLevel - arrLumgates[iLoop].iTargetOutputLevel;<br/>					If iTemp &gt; iDimmingSpeed then<br/>						arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iActualOutputLevel - iDimmingSpeed;<br/>					Else<br/>						arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iTargetOutputLevel;<br/>					End_if;<br/>				End_If;<br/>
+									<br/>			Else (* Apply direct the correct value *)<br/>				arrLumgates[iLoop].iActualOutputLevel	:=	arrLumgates[iLoop].iTargetOutputLevel;<br/>			End_If;<br/>		End_If;<br/>	End_If;<br/>End_For;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="CLO">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* CLO *)<br/>iCLO := iCLO + 1;<br/>If iCLO &gt; 240 then<br/>	iCLO	:=	1;<br/>End_If;<br/>
+									<br/>If arrLumgates[iCLO].udtCloLed.xActive and arrLumgates[iCLO].udtHourCounterGeneral.udiHours &gt; Udint#0<br/>	and arrLumgates[iCLO].udtCloLed.udiHours &gt; Udint#0 then<br/>
+									<br/>	rTemp1	:=	Udint_To_Real(arrLumgates[iCLO].udtHourCounterGeneral.udiHours);<br/>	rTemp2	:=	Udint_To_Real(arrLumgates[iCLO].udtCloLed.udiHours);<br/>			<br/>	rPercentageDecrease	:=	arrLumgates[iCLO].udtCloLed.rPercentage / (rTemp2 / rTemp1);<br/>
+									<br/>	rPercentageDecrease	:=	arrLumgates[iCLO].udtCloLed.rPercentage - rPercentageDecrease;<br/>
+									<br/>	If rPercentageDecrease &gt; arrLumgates[iCLO].udtCloLed.rPercentage then<br/>		rPercentageDecrease	:=	arrLumgates[iCLO].udtCloLed.rPercentage;<br/>	End_If;<br/>
+									<br/>	If rPercentageDecrease &lt; 0.0 Then<br/>		rPercentageDecrease	:=	0.0;<br/>	End_If;<br/>
+									<br/>	rTempDecrease	:=	Int_To_Real(arrLumgates[iCLO].iOutputLevelScenario) * rPercentageDecrease / 100.0;<br/>
+									<br/>	arrLumgates[iCLO].udtCloLed.iAmountDecrease	:=	Real_To_Int(rTempDecrease);<br/>
+									<br/>Elsif arrLumgates[iCLO].udtCloLed.xActive then	(* Max. decrese, in case of operating hours &lt; 1 h *)<br/>
+									<br/>	rTempDecrease	:=	Int_To_Real(arrLumgates[iCLO].iOutputLevelScenario) * arrLumgates[iCLO].udtCloLed.rPercentage / 100.0;<br/>	arrLumgates[iCLO].udtCloLed.iAmountDecrease	:=	Real_To_Int(rTempDecrease);<br/>End_If;<br/>
+									<br/>If arrLumgates[iCLO].udtCloMaintenance.xActive and arrLumgates[iCLO].udtHourCounterMaintenance.udiHours &gt; Udint#0 and arrLumgates[iCLO].udtCloMaintenance.udiHours &gt; Udint#0 then<br/>	rTemp1	:=	Udint_To_Real(arrLumgates[iCLO].udtHourCounterMaintenance.udiHours);<br/>	rTemp2	:=	Udint_To_Real(arrLumgates[iCLO].udtCloMaintenance.udiHours);<br/>			<br/>	rPercentageDecrease	:=	arrLumgates[iCLO].udtCloMaintenance.rPercentage / (rTemp2 / rTemp1);<br/>	rPercentageDecrease	:=	arrLumgates[iCLO].udtCloMaintenance.rPercentage - rPercentageDecrease;<br/>
+									<br/>	If rPercentageDecrease &gt; arrLumgates[iCLO].udtCloMaintenance.rPercentage then<br/>		rPercentageDecrease	:=	arrLumgates[iCLO].udtCloMaintenance.rPercentage;<br/>	End_If;<br/>
+									<br/>	If rPercentageDecrease &lt; 0.0 then<br/>		rPercentageDecrease	:=	0.0;<br/>	End_If;<br/>
+									<br/>	rTempDecrease	:=	Int_To_Real(arrLumgates[iCLO].iOutputLevelScenario) * rPercentageDecrease / 100.0;<br/>	arrLumgates[iCLO].udtCloMaintenance.iAmountDecrease	:=	Real_To_Int(rTempDecrease);<br/>
+									<br/>Elsif arrLumgates[iCLO].udtCloMaintenance.xActive then	(* Max. decrese, in case of operating hours &lt; 1 h *)<br/>
+									<br/>	rTempDecrease	:=	Int_To_Real(arrLumgates[iCLO].iOutputLevelScenario) * arrLumgates[iCLO].udtCloMaintenance.rPercentage / 100.0;<br/>	arrLumgates[iCLO].udtCloMaintenance.iAmountDecrease	:=	Real_To_Int(rTempDecrease);<br/>End_If;<br/>arrLumgates[iCLO].iSourceOutputLevel	:=	arrLumgates[iCLO].iTargetOutputLevel + arrLumgates[iCLO].udtCloMaintenance.iAmountDecrease + arrLumgates[iCLO].udtCloLed.iAmountDecrease;<br/>
+								</p>
+							</html>
+						</worksheet>
+						<worksheet name="ErrorHandling">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">(* Trigger to send Lumgate configuration diagnostic text *)<br/>R_TRIG_AmmountLG(CLK:=((arrAmountLumgates[1] &gt; 0) or (arrAmountLumgates[2] &gt; 0) or (arrAmountLumgates[3] &gt; 0) or (arrAmountLumgates[4] &gt; 0) or xUnexpectedLG_Count));<br/>
+									<br/>If xActivate then<br/>	(* reset Errors *)<br/>	xErrorRBT1	:=	False;<br/>	xErrorRBT2	:=	False;<br/>	xErrorRBT3	:=	False;<br/>	xErrorRBT4	:=	False;<br/>	For iLoop := 1 to 240 do	(* Check Current deviations *)<br/>		If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 0 and arrLumgates[iLoop].xAvailable and iRBT1 = 0 then<br/>			xErrorRBT1	:=	True;<br/>			iRBT1		:=	arrLumgates[iLoop].iModuleNumber;<br/>		Elsif iRBT1 &lt;&gt; 0 then<br/>			xErrorRBT1	:=	True;<br/>		End_if;<br/>		If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 1 and arrLumgates[iLoop].xAvailable and iRBT2 = 0 then<br/>			xErrorRBT2	:=	True;<br/>			iRBT2		:=	arrLumgates[iLoop].iModuleNumber;<br/>		Elsif iRBT2 &lt;&gt; 0 then<br/>			xErrorRBT2	:=	True;<br/>		End_if;<br/>		If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 2 and arrLumgates[iLoop].xAvailable and iRBT3 = 0 then<br/>			xErrorRBT3	:=	True;<br/>			iRBT3		:=	arrLumgates[iLoop].iModuleNumber;<br/>		Elsif iRBT3 &lt;&gt; 0 then<br/>			xErrorRBT3	:=	True;<br/>		End_if;<br/>		If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 3 and arrLumgates[iLoop].xAvailable and iRBT4 = 0 then<br/>			xErrorRBT4	:=	True;<br/>			iRBT4		:=	arrLumgates[iLoop].iModuleNumber;<br/>		Elsif iRBT4 &lt;&gt; 0 then<br/>			xErrorRBT4	:=	True;<br/>		End_if;<br/>	End_for;<br/>
+									<br/>	If iRBT1 &lt;&gt; 0 then	(* Search for Device number *)<br/>		If not arrLumgates[iRBT1].xError and not arrLumgates[iRBT1].udtCurrentCheck.xWarning and not arrLumgates[iRBT1].udtCurrentCheck.xError then<br/>			iRBT1	:=	0;<br/>		Elsif iRBT1 &lt;&gt; 0 and xNextDevice and iSelectRBT = 0 then<br/>			xNextDevice	:=	False;<br/>			iRBT1	:=	iRBT1 + 1;<br/>			For iLoop := iRBT1 to 240 do<br/>				If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 0 then<br/>					xErrorRBT1	:=	True;<br/>					iRBT1		:=	arrLumgates[iLoop].iModuleNumber;<br/>					Exit;<br/>				End_if;<br/>			End_for;<br/>			If iLoop = 241 then<br/>				iRBT1	:=	0;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If iRBT2 &lt;&gt; 0 then	(* Search for Device number *)<br/>		If not arrLumgates[iRBT2].xError and not arrLumgates[iRBT2].udtCurrentCheck.xWarning and not arrLumgates[iRBT2].udtCurrentCheck.xError then<br/>			iRBT2	:=	0;<br/>		Elsif iRBT2 &lt;&gt; 0 and xNextDevice and iSelectRBT = 1 then<br/>			xNextDevice	:=	False;<br/>			iRBT2	:=	iRBT2 + 1;<br/>			For iLoop := iRBT2 to 240 do<br/>				If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 1 then<br/>					xErrorRBT2	:=	True;<br/>					iRBT2		:=	arrLumgates[iLoop].iModuleNumber;<br/>					Exit;<br/>				End_if;<br/>			End_for;<br/>			If iLoop = 241 then<br/>				iRBT2	:=	0;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If iRBT3 &lt;&gt; 0 then	(* Search for Device number *)<br/>		If not arrLumgates[iRBT3].xError and not arrLumgates[iRBT3].udtCurrentCheck.xWarning and not arrLumgates[iRBT3].udtCurrentCheck.xError then<br/>			iRBT3	:=	0;<br/>		Elsif iRBT3 &lt;&gt; 0 and xNextDevice and iSelectRBT = 2 then<br/>			xNextDevice	:=	False;<br/>			iRBT3	:=	iRBT3 + 1;<br/>			For iLoop := iRBT3 to 240 do<br/>				If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 2 then<br/>					xErrorRBT3	:=	True;<br/>					iRBT3		:=	arrLumgates[iLoop].iModuleNumber;<br/>					Exit;<br/>				End_if;<br/>			End_for;<br/>			If iLoop = 241 then<br/>				iRBT3	:=	0;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If iRBT4 &lt;&gt; 0 then	(* Search for Device number *)<br/>		If not arrLumgates[iRBT4].xError and not arrLumgates[iRBT4].udtCurrentCheck.xWarning and not arrLumgates[iRBT4].udtCurrentCheck.xError then<br/>			iRBT4	:=	0;<br/>		Elsif iRBT4 &lt;&gt; 0 and xNextDevice and iSelectRBT = 3 then<br/>			xNextDevice	:=	False;<br/>			iRBT1	:=	iRBT4 + 1;<br/>			For iLoop := iRBT4 to 240 do<br/>				If (arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError) and arrLumgates[iLoop].iModuleLevel = 3 then<br/>					xErrorRBT4	:=	True;<br/>					iRBT4		:=	arrLumgates[iLoop].iModuleNumber;<br/>					Exit;<br/>				End_if;<br/>			End_for;<br/>			If iLoop = 241 then<br/>				iRBT4	:=	0;<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>
+									<br/>	(* Calculate amount Lumgates per RBT *)<br/>	arrAmountLumgates[1]	:=	0;<br/>	arrAmountLumgates[2]	:=	0;<br/>	arrAmountLumgates[3]	:=	0;<br/>	arrAmountLumgates[4]	:=	0;<br/>	For iLoop := 1 to 240 do<br/>		If arrLumgates[iLoop].iModuleLevel = 0 and arrLumgates[iLoop].xAvailable then<br/>			arrAmountLumgates[1]	:=	arrAmountLumgates[1] + 1;<br/>		End_If;<br/>		If arrLumgates[iLoop].iModuleLevel = 1 and arrLumgates[iLoop].xAvailable then<br/>			arrAmountLumgates[2]	:=	arrAmountLumgates[2] + 1;<br/>		End_If;<br/>		If arrLumgates[iLoop].iModuleLevel = 2 and arrLumgates[iLoop].xAvailable then<br/>			arrAmountLumgates[3]	:=	arrAmountLumgates[3] + 1;<br/>		End_If;<br/>		If arrLumgates[iLoop].iModuleLevel = 3 and arrLumgates[iLoop].xAvailable then<br/>			arrAmountLumgates[4]	:=	arrAmountLumgates[4] + 1;<br/>		End_If;<br/>	End_For;<br/>
+									<br/>	iTotalLumgates	:=	arrAmountLumgates[1] + arrAmountLumgates[2] + arrAmountLumgates[3] + arrAmountLumgates[4];<br/>
+									<br/>	(* Compare connected Lumgates with configured Lumgates *)<br/>	If arrSegment[1] &lt;&gt; arrAmountLumgates[1] then<br/>		xErrorRBT1			:=	True;<br/>		xUnexpectedLG_Count	:=	True;<br/>		If R_TRIG_AmmountLG.Q then<br/>			strDiag			:=	'Error: Unexpected count of Lumgates in Segment 1';<br/>		End_if;<br/>	End_if;<br/>	If arrSegment[2] &lt;&gt; arrAmountLumgates[2] then<br/>		xErrorRBT2			:=	True;<br/>		xUnexpectedLG_Count	:=	True;<br/>		If R_TRIG_AmmountLG.Q then<br/>			strDiag			:=	'Error: Unexpected count of Lumgates in Segment 2';<br/>		End_if;<br/>	End_if;<br/>	If arrSegment[3] &lt;&gt; arrAmountLumgates[3] then<br/>		xErrorRBT3			:=	True;<br/>		xUnexpectedLG_Count	:=	True;<br/>		If R_TRIG_AmmountLG.Q then<br/>			strDiag			:=	'Error: Unexpected count of Lumgates in Segment 3';<br/>		End_if;<br/>	End_if;<br/>	If arrSegment[4] &lt;&gt; arrAmountLumgates[4] then<br/>		xErrorRBT4			:=	True;<br/>		xUnexpectedLG_Count	:=	True;<br/>		If R_TRIG_AmmountLG.Q then<br/>			strDiag			:=	'Error: Unexpected count of Lumgates in Segment 4';<br/>		End_if;<br/>	End_if;<br/>
+									<br/>	(* Confirming in case of alarms *)<br/>	If xUnexpectedLG_Count then<br/>		If xConfirm then<br/>			If arrSegment[1] = arrAmountLumgates[1] and arrSegment[2] = arrAmountLumgates[2]<br/>			and arrSegment[3] = arrAmountLumgates[3] and arrSegment[4] = arrAmountLumgates[4] then<br/>				xUnexpectedLG_Count	:=	False;<br/>				strDiag	:=	'Lumgate Alarm confirmed';<br/>				Else<br/>				strDiag	:=	'The count of Lumgates is different to the configuration';<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>
+									<br/>	For iLoop := 1 to 240 do<br/>		If arrLumgates[iLoop].xAutomaticManual then<br/>			xManualActive	:=	True;<br/>			xPreAlarm		:=	True;<br/>			strDiag	:=	'Warning: Lumgate ';<br/>			strDiag	:=	concat(strDiag,int_to_string(arrLumgates[iLoop].iModuleNumber,'%02d'));<br/>			strDiag	:=	concat(strDiag,' in segment ');<br/>			strDiag	:=	concat(strDiag,int_to_string((arrLumgates[iLoop].iModuleLevel + 1) ,'%02d'));<br/>			strDiag	:=	concat(strDiag,' in manual mode');<br/>			Exit;<br/>		End_if;<br/>	End_for;<br/>	If iLoop = 241 then<br/>		xManualActive	:=	False;<br/>	End_if;<br/>
+									<br/>	If xAlarm then<br/>		For iLoop := 1 to 240 do<br/>			If arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError then<br/>				Exit;<br/>			End_if;<br/>		End_for;<br/>		If iLoop = 241 then<br/>			strDiag		:=	'Lumgate current returns to expected current range';<br/>		End_if;<br/>		If xConfirm then<br/>			For iLoop := 1 to 240 do<br/>				If arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].udtCurrentCheck.xError then<br/>					Exit;<br/>				End_if;<br/>			End_for;<br/>			If iLoop = 241 then<br/>				xAlarm	:=	False;<br/>				strDiag	:=	'Lumgate Alarm confirmed';<br/>			End_if;<br/>		End_if;<br/>	End_if;<br/>	If xPreAlarm then<br/>		For iLoop := 1 to 240 do<br/>			If arrLumgates[iLoop].udtCurrentCheck.xWarning or arrLumgates[iLoop].xAutomaticManual then<br/>				Exit;<br/>			End_if;<br/>		End_for;<br/>		If iLoop = 241 then<br/>			xPreAlarm	:=	False;<br/>			strDiag		:=	'Lumgate returns to expected state';<br/>		End_if;<br/>	End_if;<br/>	If not xPreAlarm and not xAlarm then<br/>		iRBT		:=	0;<br/>		iLumgate	:=	0;<br/>	Elsif iSelectRBT = 0 then<br/>		iLumgate	:=	iRBT1;<br/>	Elsif iSelectRBT = 1 then<br/>		iLumgate	:=	iRBT2;<br/>	Elsif iSelectRBT = 2 then<br/>		iLumgate	:=	iRBT3;<br/>	Elsif iSelectRBT = 3 then<br/>		iLumgate	:=	iRBT4;<br/>	End_if;<br/>Else<br/>	arrAmountLumgates[1]	:=	0;<br/>	arrAmountLumgates[2]	:=	0;<br/>	arrAmountLumgates[3]	:=	0;<br/>	arrAmountLumgates[4]	:=	0;<br/>End_if;<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_Lumgate_01T" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

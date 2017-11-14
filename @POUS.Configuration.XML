@@ -1,0 +1,1764 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:36" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666356" modificationDateTime="2017-11-14T14:32:36" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="Configuration" pouType="program" pouGroup="Programs" lastChange="2016-11-15T15:47:16">
+				<interface>
+					<externalVars retain="false">
+						<variable name="arrLumgateCurrentConsumption" group="Default">
+							<type>
+								<derived name="Arr_1_240_1_23_Int"/>
+							</type>
+						</variable>
+						<variable name="udtNetworkConfiguration" group="Default">
+							<type>
+								<derived name="udtNetwork"/>
+							</type>
+						</variable>
+						<variable name="arrLumgates" group="Default">
+							<type>
+								<derived name="arr_1_240_udtLumgate"/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="xWriteFile" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="udtFileHandler" group="Default">
+							<type>
+								<derived name="udtFileHandling"/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="strDiagConfigFiles" group="Default">
+							<type>
+								<string length="80"/>
+							</type>
+						</variable>
+						<variable name="xDoneIB" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xActivateIB" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="udtWeb_ProjectDescription" pdd="true" redundant="true" group="Default">
+							<type>
+								<derived name="udtProjectSpecification"/>
+							</type>
+						</variable>
+						<variable name="xWeb_Commissioning" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="xConfigurationPreAlarm" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="arrScenarioConfiguration" group="Default">
+							<type>
+								<derived name="ARR_I_1_4_1_25_1_5"/>
+							</type>
+						</variable>
+						<variable name="arrAnalogValues" group="Default">
+							<type>
+								<derived name="arr_1_4_udtAnalogInput"/>
+							</type>
+						</variable>
+						<variable name="arrLevelConfiguration" group="Default">
+							<type>
+								<derived name="ARR_UDT_L20Config"/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="FB_FileHandling_01_2" group="Default">
+							<type>
+								<derived name="FB_FileHandling_01"/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="xWeb_ConfigFileNet" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ConfigFileLumgate" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ConfigFileL20" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ConfigFileLevel1" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ConfigFileLevel2" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ConfigFileLevel3" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ConfigFileLevel4" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="F_TRIG_1" group="Default">
+							<type>
+								<derived name="F_TRIG"/>
+							</type>
+						</variable>
+						<variable name="udtWeb_ConfigFiles" pdd="true" redundant="true" group="Default">
+							<type>
+								<derived name="udt_WebDataConfigFiles"/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="arrSegment" group="Default">
+							<type>
+								<derived name="ARR_I_1_4"/>
+							</type>
+						</variable>
+						<variable name="udtL20Config" group="Default">
+							<type>
+								<derived name="udtL20Input"/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="udtActNetworkConfiguration" redundant="true" group="Default">
+							<type>
+								<derived name="udtNetwork"/>
+							</type>
+						</variable>
+						<variable name="udtActL20Config" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Input"/>
+							</type>
+						</variable>
+						<variable name="arrActL20Inputs" group="Default">
+							<type>
+								<derived name="arr_1_4_udtAnalogInput"/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedNetConfig" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedL20Config" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="udtActThreshold1" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedThreshold1" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="udtActThreshold4" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="udtActThreshold2" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="udtActThreshold3" redundant="true" group="Default">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedThreshold2" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedThreshold3" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedThreshold4" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedLumgate" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="udtActLumgateConfig" redundant="true" group="Default">
+							<type>
+								<derived name="arr_1_240_udtLG_Config"/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedL20File" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedLumgadeFile" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="xWeb_ChangedNetFile" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="xWeb_ChangedThreshold1File" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedThreshold2File" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedThreshold3File" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ChangedThreshold4File" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iSelectCommissioning" pdd="true" redundant="true" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="xWeb_ReadConfigFiles" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="xWeb_ConfigAlarm" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="xWeb_DeleteMissingLG" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="xComissioning" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iTotalLumgates" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iDelay" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="iWeb_SelectLG" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</externalVars>
+					<localVars retain="false">
+						<variable name="strWeb_LoadMaker" pdd="true" redundant="true" group="Default">
+							<type>
+								<string length="80"/>
+							</type>
+						</variable>
+						<variable name="rWeb_LoadMaker" pdd="true" redundant="true" group="Default">
+							<type>
+								<REAL/>
+							</type>
+						</variable>
+						<variable name="xWeb_ReadConfigFilesDone" pdd="true" redundant="true" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+					<externalVars retain="false">
+						<variable name="arrG_IP_Address" group="Default">
+							<type>
+								<derived name="TB_ARR_B_1_4"/>
+							</type>
+						</variable>
+						<variable name="arrG_SubnetMask" group="Default">
+							<type>
+								<derived name="TB_ARR_B_1_4"/>
+							</type>
+						</variable>
+						<variable name="arrG_StdGateway" group="Default">
+							<type>
+								<derived name="TB_ARR_B_1_4"/>
+							</type>
+						</variable>
+						<variable name="xCommissioning" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iCommissioning" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+					</externalVars>
+				</interface>
+				<body>
+					<FBD>
+						<worksheet name="Configuration" SizeX="400" SizeY="400">
+							<inVariable localId="0" width="29" height="2">
+								<position x="160" y="206"/>
+								<connectionPointOut>
+									<relPosition x="29" y="1"/>
+								</connectionPointOut>
+								<expression>arrLumgateCurrentConsumption</expression>
+							</inVariable>
+							<outVariable localId="1" width="29" height="2">
+								<position x="248" y="206"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrLumgateCurrentConsumption"/>
+								</connectionPointIn>
+								<expression>arrLumgateCurrentConsumption</expression>
+							</outVariable>
+							<inVariable localId="2" width="23" height="2">
+								<position x="166" y="210"/>
+								<connectionPointOut>
+									<relPosition x="23" y="1"/>
+								</connectionPointOut>
+								<expression>udtNetworkConfiguration</expression>
+							</inVariable>
+							<outVariable localId="3" width="23" height="2">
+								<position x="248" y="210"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtNetworkConfiguration"/>
+								</connectionPointIn>
+								<expression>udtNetworkConfiguration</expression>
+							</outVariable>
+							<inVariable localId="4" width="13" height="2">
+								<position x="176" y="198"/>
+								<connectionPointOut>
+									<relPosition x="13" y="1"/>
+								</connectionPointOut>
+								<expression>arrLumgates</expression>
+							</inVariable>
+							<outVariable localId="5" width="13" height="2">
+								<position x="248" y="198"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrLumgates"/>
+								</connectionPointIn>
+								<expression>arrLumgates</expression>
+							</outVariable>
+							<inVariable localId="6" width="11" height="2">
+								<position x="178" y="266"/>
+								<connectionPointOut>
+									<relPosition x="11" y="1"/>
+								</connectionPointOut>
+								<expression>xWriteFile</expression>
+							</inVariable>
+							<outVariable localId="7" width="11" height="2">
+								<position x="248" y="266"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xWriteFile"/>
+								</connectionPointIn>
+								<expression>xWriteFile</expression>
+							</outVariable>
+							<inVariable localId="8" width="14" height="2">
+								<position x="175" y="278"/>
+								<connectionPointOut>
+									<relPosition x="14" y="1"/>
+								</connectionPointOut>
+								<expression>udtFileHandler</expression>
+							</inVariable>
+							<outVariable localId="9" width="14" height="2">
+								<position x="248" y="278"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtFileHandler"/>
+								</connectionPointIn>
+								<expression>udtFileHandler</expression>
+							</outVariable>
+							<outVariable localId="10" width="25" height="2">
+								<position x="248" y="138"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtProjectDescription"/>
+								</connectionPointIn>
+								<expression>udtWeb_ProjectDescription</expression>
+							</outVariable>
+							<outVariable localId="11" width="17" height="2">
+								<position x="248" y="86"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="strDiag"/>
+								</connectionPointIn>
+								<expression>strDiagConfigFiles</expression>
+							</outVariable>
+							<outVariable localId="12" width="12" height="2">
+								<position x="248" y="102"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xRequestStartupIB"/>
+								</connectionPointIn>
+								<expression>xActivateIB</expression>
+							</outVariable>
+							<inVariable localId="13" width="10" height="2">
+								<position x="179" y="78"/>
+								<connectionPointOut>
+									<relPosition x="10" y="1"/>
+								</connectionPointOut>
+								<expression>xDoneIB</expression>
+							</inVariable>
+							<inVariable localId="14" width="21" height="2">
+								<position x="168" y="86"/>
+								<connectionPointOut>
+									<relPosition x="21" y="1"/>
+								</connectionPointOut>
+								<expression>xWeb_Commissioning</expression>
+							</inVariable>
+							<outVariable localId="15" width="22" height="2">
+								<position x="248" y="82"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xPreAlarm"/>
+								</connectionPointIn>
+								<expression>xConfigurationPreAlarm</expression>
+							</outVariable>
+							<inVariable localId="16" width="16" height="2">
+								<position x="173" y="282"/>
+								<connectionPointOut>
+									<relPosition x="16" y="1"/>
+								</connectionPointOut>
+								<expression>arrAnalogValues</expression>
+							</inVariable>
+							<outVariable localId="17" width="16" height="2">
+								<position x="248" y="282"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arr_Inputs_L20"/>
+								</connectionPointIn>
+								<expression>arrAnalogValues</expression>
+							</outVariable>
+							<inVariable localId="18" width="25" height="2">
+								<position x="164" y="218"/>
+								<connectionPointOut>
+									<relPosition x="25" y="1"/>
+								</connectionPointOut>
+								<expression>arrScenarioConfiguration[1]</expression>
+							</inVariable>
+							<outVariable localId="19" width="25" height="2">
+								<position x="248" y="218"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrScenarioConfiguration_L20_1"/>
+								</connectionPointIn>
+								<expression>arrScenarioConfiguration[1]</expression>
+							</outVariable>
+							<inVariable localId="20" width="25" height="2">
+								<position x="164" y="222"/>
+								<connectionPointOut>
+									<relPosition x="25" y="1"/>
+								</connectionPointOut>
+								<expression>arrScenarioConfiguration[2]</expression>
+							</inVariable>
+							<outVariable localId="21" width="25" height="2">
+								<position x="248" y="222"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrScenarioConfiguration_L20_2"/>
+								</connectionPointIn>
+								<expression>arrScenarioConfiguration[2]</expression>
+							</outVariable>
+							<outVariable localId="22" width="25" height="2">
+								<position x="248" y="226"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrScenarioConfiguration_L20_3"/>
+								</connectionPointIn>
+								<expression>arrScenarioConfiguration[3]</expression>
+							</outVariable>
+							<inVariable localId="23" width="25" height="2">
+								<position x="164" y="226"/>
+								<connectionPointOut>
+									<relPosition x="25" y="1"/>
+								</connectionPointOut>
+								<expression>arrScenarioConfiguration[3]</expression>
+							</inVariable>
+							<inVariable localId="24" width="25" height="2">
+								<position x="164" y="230"/>
+								<connectionPointOut>
+									<relPosition x="25" y="1"/>
+								</connectionPointOut>
+								<expression>arrScenarioConfiguration[4]</expression>
+							</inVariable>
+							<outVariable localId="25" width="25" height="2">
+								<position x="248" y="230"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrScenarioConfiguration_L20_4"/>
+								</connectionPointIn>
+								<expression>arrScenarioConfiguration[4]</expression>
+							</outVariable>
+							<outVariable localId="26" width="22" height="2">
+								<position x="248" y="234"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtLevelConfiguration_L20_1"/>
+								</connectionPointIn>
+								<expression>arrLevelConfiguration[1]</expression>
+							</outVariable>
+							<inVariable localId="27" width="22" height="2">
+								<position x="167" y="234"/>
+								<connectionPointOut>
+									<relPosition x="22" y="1"/>
+								</connectionPointOut>
+								<expression>arrLevelConfiguration[1]</expression>
+							</inVariable>
+							<inVariable localId="28" width="22" height="2">
+								<position x="167" y="238"/>
+								<connectionPointOut>
+									<relPosition x="22" y="1"/>
+								</connectionPointOut>
+								<expression>arrLevelConfiguration[2]</expression>
+							</inVariable>
+							<outVariable localId="29" width="22" height="2">
+								<position x="248" y="238"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtLevelConfiguration_L20_2"/>
+								</connectionPointIn>
+								<expression>arrLevelConfiguration[2]</expression>
+							</outVariable>
+							<inVariable localId="30" width="22" height="2">
+								<position x="167" y="242"/>
+								<connectionPointOut>
+									<relPosition x="22" y="1"/>
+								</connectionPointOut>
+								<expression>arrLevelConfiguration[3]</expression>
+							</inVariable>
+							<outVariable localId="31" width="22" height="2">
+								<position x="248" y="242"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtLevelConfiguration_L20_3"/>
+								</connectionPointIn>
+								<expression>arrLevelConfiguration[3]</expression>
+							</outVariable>
+							<inVariable localId="32" width="22" height="2">
+								<position x="167" y="246"/>
+								<connectionPointOut>
+									<relPosition x="22" y="1"/>
+								</connectionPointOut>
+								<expression>arrLevelConfiguration[4]</expression>
+							</inVariable>
+							<outVariable localId="33" width="22" height="2">
+								<position x="248" y="246"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtLevelConfiguration_L20_4"/>
+								</connectionPointIn>
+								<expression>arrLevelConfiguration[4]</expression>
+							</outVariable>
+							<outVariable localId="34" width="19" height="2">
+								<position x="248" y="106"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xNetworkConfigFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigFileNet</expression>
+							</outVariable>
+							<outVariable localId="35" width="23" height="2">
+								<position x="248" y="110"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xLumgateConfigFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigFileLumgate</expression>
+							</outVariable>
+							<outVariable localId="36" width="19" height="2">
+								<position x="248" y="114"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xL20ConfigFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigFileL20</expression>
+							</outVariable>
+							<outVariable localId="37" width="21" height="2">
+								<position x="248" y="118"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xThreshold1ConfigFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigFileLevel1</expression>
+							</outVariable>
+							<outVariable localId="38" width="21" height="2">
+								<position x="248" y="122"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xThreshold2ConfigFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigFileLevel2</expression>
+							</outVariable>
+							<outVariable localId="39" width="21" height="2">
+								<position x="248" y="126"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xThreshold3ConfigFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigFileLevel3</expression>
+							</outVariable>
+							<outVariable localId="40" width="21" height="2">
+								<position x="248" y="130"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xThreshold4ConfigFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigFileLevel4</expression>
+							</outVariable>
+							<block width="8" height="8" typeName="F_TRIG" instanceName="F_TRIG_1" localId="44">
+								<position x="139" y="79"/>
+								<inputVariables>
+									<variable formalParameter="CLK" dataType="BOOL" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="4"/>
+											<connection refLocalId="105" formalParameter="OR">
+												<position x="137" y="83" pathnode="false"/>
+												<position x="130" y="83" pathnode="false"/>
+											</connection>
+										</connectionPointIn>
+									</variable>
+								</inputVariables>
+								<inOutVariables/>
+								<outputVariables>
+									<variable formalParameter="Q" dataType="BOOL" hideable="true">
+										<connectionPointOut>
+											<relPosition x="10" y="4"/>
+										</connectionPointOut>
+									</variable>
+								</outputVariables>
+							</block>
+							<inVariable localId="45" width="19" height="2">
+								<position x="170" y="274"/>
+								<connectionPointOut>
+									<relPosition x="19" y="1"/>
+								</connectionPointOut>
+								<expression>udtWeb_ConfigFiles</expression>
+							</inVariable>
+							<outVariable localId="46" width="19" height="2">
+								<position x="248" y="274"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtConfigFiles"/>
+								</connectionPointIn>
+								<expression>udtWeb_ConfigFiles</expression>
+							</outVariable>
+							<outVariable localId="47" width="13" height="2">
+								<position x="248" y="134"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrSegment"/>
+								</connectionPointIn>
+								<expression>arrSegment</expression>
+							</outVariable>
+							<inVariable localId="48" width="14" height="2">
+								<position x="175" y="290"/>
+								<connectionPointOut>
+									<relPosition x="14" y="1"/>
+								</connectionPointOut>
+								<expression>udtL20Config</expression>
+							</inVariable>
+							<outVariable localId="49" width="14" height="2">
+								<position x="248" y="290"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtL20Config"/>
+								</connectionPointIn>
+								<expression>udtL20Config</expression>
+							</outVariable>
+							<outVariable localId="50" width="25" height="2">
+								<position x="248" y="214"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtActNetworkConfiguration"/>
+								</connectionPointIn>
+								<expression>udtActNetworkConfiguration</expression>
+							</outVariable>
+							<inVariable localId="51" width="25" height="2">
+								<position x="164" y="214"/>
+								<connectionPointOut>
+									<relPosition x="25" y="1"/>
+								</connectionPointOut>
+								<expression>udtActNetworkConfiguration</expression>
+							</inVariable>
+							<inVariable localId="52" width="16" height="2">
+								<position x="173" y="294"/>
+								<connectionPointOut>
+									<relPosition x="16" y="1"/>
+								</connectionPointOut>
+								<expression>udtActL20Config</expression>
+							</inVariable>
+							<outVariable localId="53" width="16" height="2">
+								<position x="248" y="294"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtActL20Config"/>
+								</connectionPointIn>
+								<expression>udtActL20Config</expression>
+							</outVariable>
+							<inVariable localId="54" width="16" height="2">
+								<position x="173" y="286"/>
+								<connectionPointOut>
+									<relPosition x="16" y="1"/>
+								</connectionPointOut>
+								<expression>arrActL20Inputs</expression>
+							</inVariable>
+							<outVariable localId="55" width="16" height="2">
+								<position x="248" y="286"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrActL20Inputs"/>
+								</connectionPointIn>
+								<expression>arrActL20Inputs</expression>
+							</outVariable>
+							<outVariable localId="56" width="24" height="2">
+								<position x="248" y="174"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedNetConfig"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedNetConfig</expression>
+							</outVariable>
+							<outVariable localId="57" width="24" height="2">
+								<position x="248" y="178"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedL20Config"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedL20Config</expression>
+							</outVariable>
+							<inVariable localId="58" width="17" height="2">
+								<position x="172" y="250"/>
+								<connectionPointOut>
+									<relPosition x="17" y="1"/>
+								</connectionPointOut>
+								<expression>udtActThreshold1</expression>
+							</inVariable>
+							<outVariable localId="59" width="17" height="2">
+								<position x="248" y="250"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtActThresholdConfig1"/>
+								</connectionPointIn>
+								<expression>udtActThreshold1</expression>
+							</outVariable>
+							<outVariable localId="60" width="25" height="2">
+								<position x="248" y="182"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold1"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold1</expression>
+							</outVariable>
+							<inVariable localId="61" width="17" height="2">
+								<position x="172" y="262"/>
+								<connectionPointOut>
+									<relPosition x="17" y="1"/>
+								</connectionPointOut>
+								<expression>udtActThreshold4</expression>
+							</inVariable>
+							<outVariable localId="62" width="17" height="2">
+								<position x="248" y="262"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtActThresholdConfig4"/>
+								</connectionPointIn>
+								<expression>udtActThreshold4</expression>
+							</outVariable>
+							<inVariable localId="63" width="17" height="2">
+								<position x="172" y="254"/>
+								<connectionPointOut>
+									<relPosition x="17" y="1"/>
+								</connectionPointOut>
+								<expression>udtActThreshold2</expression>
+							</inVariable>
+							<outVariable localId="64" width="17" height="2">
+								<position x="248" y="254"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtActThresholdConfig2"/>
+								</connectionPointIn>
+								<expression>udtActThreshold2</expression>
+							</outVariable>
+							<inVariable localId="65" width="17" height="2">
+								<position x="172" y="258"/>
+								<connectionPointOut>
+									<relPosition x="17" y="1"/>
+								</connectionPointOut>
+								<expression>udtActThreshold3</expression>
+							</inVariable>
+							<outVariable localId="66" width="17" height="2">
+								<position x="248" y="258"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="udtActThresholdConfig3"/>
+								</connectionPointIn>
+								<expression>udtActThreshold3</expression>
+							</outVariable>
+							<outVariable localId="67" width="25" height="2">
+								<position x="248" y="186"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold2"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold2</expression>
+							</outVariable>
+							<outVariable localId="68" width="25" height="2">
+								<position x="248" y="190"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold3"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold3</expression>
+							</outVariable>
+							<outVariable localId="69" width="25" height="2">
+								<position x="248" y="194"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold4"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold4</expression>
+							</outVariable>
+							<outVariable localId="70" width="23" height="2">
+								<position x="248" y="170"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedLumgate"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedLumgate</expression>
+							</outVariable>
+							<inVariable localId="71" width="20" height="2">
+								<position x="169" y="202"/>
+								<connectionPointOut>
+									<relPosition x="20" y="1"/>
+								</connectionPointOut>
+								<expression>udtActLumgateConfig</expression>
+							</inVariable>
+							<outVariable localId="72" width="20" height="2">
+								<position x="248" y="202"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="arrLumgateConfig"/>
+								</connectionPointIn>
+								<expression>udtActLumgateConfig</expression>
+							</outVariable>
+							<outVariable localId="73" width="26" height="2">
+								<position x="248" y="146"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedLumgateFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedLumgadeFile</expression>
+							</outVariable>
+							<outVariable localId="74" width="21" height="2">
+								<position x="248" y="150"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedL20FileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedL20File</expression>
+							</outVariable>
+							<outVariable localId="75" width="21" height="2">
+								<position x="248" y="142"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedNetFileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedNetFile</expression>
+							</outVariable>
+							<outVariable localId="76" width="27" height="2">
+								<position x="248" y="154"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold1FileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold1File</expression>
+							</outVariable>
+							<outVariable localId="77" width="27" height="2">
+								<position x="248" y="158"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold2FileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold2File</expression>
+							</outVariable>
+							<outVariable localId="78" width="27" height="2">
+								<position x="248" y="162"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold3FileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold3File</expression>
+							</outVariable>
+							<outVariable localId="79" width="27" height="2">
+								<position x="248" y="166"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xChangedThreshold4FileExist"/>
+								</connectionPointIn>
+								<expression>xWeb_ChangedThreshold4File</expression>
+							</outVariable>
+							<inVariable localId="80" width="20" height="2">
+								<position x="169" y="90"/>
+								<connectionPointOut>
+									<relPosition x="20" y="1"/>
+								</connectionPointOut>
+								<expression>iSelectCommissioning</expression>
+							</inVariable>
+							<inVariable localId="81" width="21" height="2">
+								<position x="168" y="94"/>
+								<connectionPointOut>
+									<relPosition x="21" y="1"/>
+								</connectionPointOut>
+								<expression>xWeb_ReadConfigFiles</expression>
+							</inVariable>
+							<outVariable localId="82" width="18" height="2">
+								<position x="248" y="78"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xAlarm"/>
+								</connectionPointIn>
+								<expression>xWeb_ConfigAlarm</expression>
+							</outVariable>
+							<inVariable localId="83" width="22" height="2">
+								<position x="167" y="270"/>
+								<connectionPointOut>
+									<relPosition x="22" y="1"/>
+								</connectionPointOut>
+								<expression>xWeb_DeleteMissingLG</expression>
+							</inVariable>
+							<outVariable localId="84" width="22" height="2">
+								<position x="248" y="270"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xTakeActualConfig"/>
+								</connectionPointIn>
+								<expression>xWeb_DeleteMissingLG</expression>
+							</outVariable>
+							<inVariable localId="85" width="21" height="2">
+								<position x="126" y="95"/>
+								<connectionPointOut>
+									<relPosition x="21" y="1"/>
+								</connectionPointOut>
+								<expression>xWeb_Commissioning</expression>
+							</inVariable>
+							<outVariable localId="86" width="14" height="2">
+								<position x="147" y="95"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="85"/>
+								</connectionPointIn>
+								<expression>xComissioning</expression>
+							</outVariable>
+							<block width="8" height="16" typeName="LIMIT" localId="91">
+								<position x="35" y="19"/>
+								<inputVariables>
+									<variable formalParameter="MN" dataType="ELEMENTARY" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="4"/>
+											<connection refLocalId="92"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="IN" dataType="ELEMENTARY" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="8"/>
+											<connection refLocalId="94"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="MX" dataType="ELEMENTARY" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="12"/>
+											<connection refLocalId="93"/>
+										</connectionPointIn>
+									</variable>
+								</inputVariables>
+								<inOutVariables/>
+								<outputVariables>
+									<variable formalParameter="LIMIT" hidden="true" dataType="ELEMENTARY" hideable="true">
+										<connectionPointOut>
+											<relPosition x="10" y="4"/>
+										</connectionPointOut>
+									</variable>
+								</outputVariables>
+							</block>
+							<inVariable localId="92" width="4" height="2">
+								<position x="29" y="22"/>
+								<connectionPointOut>
+									<relPosition x="4" y="1"/>
+								</connectionPointOut>
+								<expression>1</expression>
+							</inVariable>
+							<inVariable localId="93" width="6" height="2">
+								<position x="27" y="30"/>
+								<connectionPointOut>
+									<relPosition x="6" y="1"/>
+								</connectionPointOut>
+								<expression>240</expression>
+							</inVariable>
+							<inVariable localId="94" width="15" height="2">
+								<position x="18" y="26"/>
+								<connectionPointOut>
+									<relPosition x="15" y="1"/>
+								</connectionPointOut>
+								<expression>iTotalLumgates</expression>
+							</inVariable>
+							<outVariable localId="95" width="15" height="2">
+								<position x="45" y="22"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="91" formalParameter="LIMIT"/>
+								</connectionPointIn>
+								<expression>iTotalLumgates</expression>
+							</outVariable>
+							<comment localId="96" width="46" height="16">
+								<position x="194" y="52"/>
+								<content>
+									<html xmlns="http://www.w3.org/1999/xhtml">
+										<p xml:space="preserve" style="color:#008000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:Times New Roman;width:0px; height:337px" xmlns="http://www.w3.org/1999/xhtml">Read / write configuration files<br/>EPO-IS-268-817 - 820<br/>EPO-IS-268-917 + 481<br/>EPO-IS-268-830 + 916(Commissionig)</p>
+									</html>
+								</content>
+							</comment>
+							<comment localId="97" width="18" height="4">
+								<position x="134" y="72"/>
+								<content>
+									<html xmlns="http://www.w3.org/1999/xhtml">
+										<p xml:space="preserve" style="color:#008000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:Times New Roman;width:0px; height:337px" xmlns="http://www.w3.org/1999/xhtml">Save Current</p>
+									</html>
+								</content>
+							</comment>
+							<outVariable localId="98" width="8" height="2">
+								<position x="248" y="98"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="iDelay"/>
+								</connectionPointIn>
+								<expression>iDelay</expression>
+							</outVariable>
+							<comment localId="99" width="36" height="4">
+								<position x="24" y="14"/>
+								<content>
+									<html xmlns="http://www.w3.org/1999/xhtml">
+										<p xml:space="preserve" style="color:#008000;background:#FFFFFF;font-weight:normal;font-style:normal;normal;font-family:Times New Roman;width:0px; height:337px" xmlns="http://www.w3.org/1999/xhtml">Detect last connected Lumgate</p>
+									</html>
+								</content>
+							</comment>
+							<inVariable localId="100" width="44" height="2">
+								<position x="74" y="82"/>
+								<connectionPointOut>
+									<relPosition x="44" y="1"/>
+								</connectionPointOut>
+								<expression>arrLumgates[iTotalLumgates].xTeachConsumption</expression>
+							</inVariable>
+							<inVariable localId="101" width="44" height="2">
+								<position x="74" y="86"/>
+								<connectionPointOut>
+									<relPosition x="44" y="1"/>
+								</connectionPointOut>
+								<expression>arrLumgates[iWeb_SelectLG].xTeachConsumption</expression>
+							</inVariable>
+							<block width="8" height="12" typeName="OR" localId="105">
+								<position x="120" y="79"/>
+								<inputVariables>
+									<variable formalParameter="IN1" hidden="true" dataType="ANY_BIT" invertable="true" duplicatable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="4"/>
+											<connection refLocalId="100"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="IN2" hidden="true" dataType="ANY_BIT" invertable="true" duplicatable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="8"/>
+											<connection refLocalId="101"/>
+										</connectionPointIn>
+									</variable>
+								</inputVariables>
+								<inOutVariables/>
+								<outputVariables>
+									<variable formalParameter="OR" hidden="true" dataType="ANY_BIT" invertable="true">
+										<connectionPointOut>
+											<relPosition x="10" y="4"/>
+										</connectionPointOut>
+									</variable>
+								</outputVariables>
+							</block>
+							<inVariable localId="106" width="15" height="2">
+								<position x="18" y="44"/>
+								<connectionPointOut>
+									<relPosition x="15" y="1"/>
+								</connectionPointOut>
+								<expression>iWeb_SelectLG</expression>
+							</inVariable>
+							<inVariable localId="107" width="4" height="2">
+								<position x="29" y="40"/>
+								<connectionPointOut>
+									<relPosition x="4" y="1"/>
+								</connectionPointOut>
+								<expression>1</expression>
+							</inVariable>
+							<inVariable localId="108" width="6" height="2">
+								<position x="27" y="48"/>
+								<connectionPointOut>
+									<relPosition x="6" y="1"/>
+								</connectionPointOut>
+								<expression>240</expression>
+							</inVariable>
+							<outVariable localId="109" width="15" height="2">
+								<position x="45" y="40"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="114" formalParameter="LIMIT"/>
+								</connectionPointIn>
+								<expression>iWeb_SelectLG</expression>
+							</outVariable>
+							<block width="8" height="16" typeName="LIMIT" localId="114">
+								<position x="35" y="37"/>
+								<inputVariables>
+									<variable formalParameter="MN" dataType="ELEMENTARY" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="4"/>
+											<connection refLocalId="107"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="IN" dataType="ELEMENTARY" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="8"/>
+											<connection refLocalId="106"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="MX" dataType="ELEMENTARY" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="12"/>
+											<connection refLocalId="108"/>
+										</connectionPointIn>
+									</variable>
+								</inputVariables>
+								<inOutVariables/>
+								<outputVariables>
+									<variable formalParameter="LIMIT" hidden="true" dataType="ELEMENTARY" hideable="true">
+										<connectionPointOut>
+											<relPosition x="10" y="4"/>
+										</connectionPointOut>
+									</variable>
+								</outputVariables>
+							</block>
+							<outVariable localId="116" width="19" height="2">
+								<position x="248" y="298"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="strLoadText"/>
+								</connectionPointIn>
+								<expression>strWeb_LoadMaker</expression>
+							</outVariable>
+							<outVariable localId="117" width="17" height="2">
+								<position x="248" y="302"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="rLoadMaker"/>
+								</connectionPointIn>
+								<expression>rWeb_LoadMaker</expression>
+							</outVariable>
+							<outVariable localId="118" width="26" height="2">
+								<position x="248" y="90"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="188" formalParameter="xStartupProcessDone"/>
+								</connectionPointIn>
+								<expression>xWeb_ReadConfigFilesDone</expression>
+							</outVariable>
+							<inVariable localId="119" width="17" height="2">
+								<position x="172" y="98"/>
+								<connectionPointOut>
+									<relPosition x="17" y="1"/>
+								</connectionPointOut>
+								<expression>arrG_IP_Address</expression>
+							</inVariable>
+							<inVariable localId="120" width="17" height="2">
+								<position x="172" y="102"/>
+								<connectionPointOut>
+									<relPosition x="17" y="1"/>
+								</connectionPointOut>
+								<expression>arrG_SubnetMask</expression>
+							</inVariable>
+							<inVariable localId="121" width="17" height="2">
+								<position x="172" y="106"/>
+								<connectionPointOut>
+									<relPosition x="17" y="1"/>
+								</connectionPointOut>
+								<expression>arrG_StdGateway</expression>
+							</inVariable>
+							<block width="55" height="232" typeName="FB_FileHandling_01" instanceName="FB_FileHandling_01_2" localId="188">
+								<position x="191" y="75"/>
+								<inputVariables>
+									<variable formalParameter="xActivateOutputData" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="4"/>
+											<connection refLocalId="13"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="xWriteCurrent" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="8"/>
+											<connection refLocalId="44" formalParameter="Q">
+												<position x="189" y="83" pathnode="false"/>
+												<position x="149" y="83" pathnode="false"/>
+											</connection>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="xCommissioning" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="12"/>
+											<connection refLocalId="14"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="iSelectBranch" dataType="INT" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="16"/>
+											<connection refLocalId="80"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="xReadConfigFiles" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="20"/>
+											<connection refLocalId="81"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="arrActIP_Address" dataType="TB_ARR_B_1_4" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="24"/>
+											<connection refLocalId="119"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="arrActSubnetMask" dataType="TB_ARR_B_1_4" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="28"/>
+											<connection refLocalId="120"/>
+										</connectionPointIn>
+									</variable>
+									<variable formalParameter="arrActStdGateway" dataType="TB_ARR_B_1_4" hideable="true">
+										<connectionPointIn>
+											<relPosition x="-2" y="32"/>
+											<connection refLocalId="121"/>
+										</connectionPointIn>
+									</variable>
+								</inputVariables>
+								<inOutVariables>
+									<variable formalParameter="arrLumgates" dataType="arr_1_240_udtLumgate">
+										<connectionPointIn>
+											<relPosition x="-2" y="124"/>
+											<connection refLocalId="4"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="124"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrLumgateConfig" dataType="arr_1_240_udtLG_Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="128"/>
+											<connection refLocalId="71"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="128"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrLumgateCurrentConsumption" dataType="Arr_1_240_1_23_Int">
+										<connectionPointIn>
+											<relPosition x="-2" y="132"/>
+											<connection refLocalId="0"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="132"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtNetworkConfiguration" dataType="udtNetwork">
+										<connectionPointIn>
+											<relPosition x="-2" y="136"/>
+											<connection refLocalId="2"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="136"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtActNetworkConfiguration" dataType="udtNetwork">
+										<connectionPointIn>
+											<relPosition x="-2" y="140"/>
+											<connection refLocalId="51"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="140"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrScenarioConfiguration_L20_1" dataType="ARR_1_25_1_5_Int">
+										<connectionPointIn>
+											<relPosition x="-2" y="144"/>
+											<connection refLocalId="18"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="144"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrScenarioConfiguration_L20_2" dataType="arr_1_25_1_5_Int">
+										<connectionPointIn>
+											<relPosition x="-2" y="148"/>
+											<connection refLocalId="20"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="148"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrScenarioConfiguration_L20_3" dataType="arr_1_25_1_5_Int">
+										<connectionPointIn>
+											<relPosition x="-2" y="152"/>
+											<connection refLocalId="23"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="152"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrScenarioConfiguration_L20_4" dataType="arr_1_25_1_5_Int">
+										<connectionPointIn>
+											<relPosition x="-2" y="156"/>
+											<connection refLocalId="24"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="156"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtLevelConfiguration_L20_1" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="160"/>
+											<connection refLocalId="27"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="160"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtLevelConfiguration_L20_2" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="164"/>
+											<connection refLocalId="28"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="164"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtLevelConfiguration_L20_3" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="168"/>
+											<connection refLocalId="30"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="168"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtLevelConfiguration_L20_4" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="172"/>
+											<connection refLocalId="32"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="172"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtActThresholdConfig1" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="176"/>
+											<connection refLocalId="58"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="176"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtActThresholdConfig2" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="180"/>
+											<connection refLocalId="63"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="180"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtActThresholdConfig3" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="184"/>
+											<connection refLocalId="65"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="184"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtActThresholdConfig4" dataType="udtL20Config">
+										<connectionPointIn>
+											<relPosition x="-2" y="188"/>
+											<connection refLocalId="61"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="188"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xWriteFile" dataType="BOOL">
+										<connectionPointIn>
+											<relPosition x="-2" y="192"/>
+											<connection refLocalId="6"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="192"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xTakeActualConfig" dataType="BOOL">
+										<connectionPointIn>
+											<relPosition x="-2" y="196"/>
+											<connection refLocalId="83"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="196"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtConfigFiles" dataType="udt_WebDataConfigFiles">
+										<connectionPointIn>
+											<relPosition x="-2" y="200"/>
+											<connection refLocalId="45"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="200"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtFileHandler" dataType="udtFileHandling">
+										<connectionPointIn>
+											<relPosition x="-2" y="204"/>
+											<connection refLocalId="8"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="204"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arr_Inputs_L20" dataType="arr_1_4_udtAnalogInput">
+										<connectionPointIn>
+											<relPosition x="-2" y="208"/>
+											<connection refLocalId="16"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="208"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrActL20Inputs" dataType="arr_1_4_udtAnalogInput">
+										<connectionPointIn>
+											<relPosition x="-2" y="212"/>
+											<connection refLocalId="54"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="212"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtL20Config" dataType="udtL20Input">
+										<connectionPointIn>
+											<relPosition x="-2" y="216"/>
+											<connection refLocalId="48"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="216"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtActL20Config" dataType="udtL20Input">
+										<connectionPointIn>
+											<relPosition x="-2" y="220"/>
+											<connection refLocalId="52"/>
+										</connectionPointIn>
+										<connectionPointOut>
+											<relPosition x="59" y="220"/>
+										</connectionPointOut>
+									</variable>
+								</inOutVariables>
+								<outputVariables>
+									<variable formalParameter="xAlarm" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="4"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xPreAlarm" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="8"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="strDiag" dataType="STRING" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="12"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xStartupProcessDone" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="16"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xIBConfigSaved" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="20"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="iDelay" dataType="INT" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="24"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xRequestStartupIB" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="28"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xNetworkConfigFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="32"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xLumgateConfigFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="36"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xL20ConfigFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="40"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xThreshold1ConfigFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="44"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xThreshold2ConfigFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="48"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xThreshold3ConfigFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="52"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xThreshold4ConfigFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="56"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="arrSegment" dataType="ARR_I_1_4" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="60"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="udtProjectDescription" dataType="udtProjectSpecification" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="64"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedNetFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="68"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedLumgateFileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="72"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedL20FileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="76"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold1FileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="80"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold2FileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="84"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold3FileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="88"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold4FileExist" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="92"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedLumgate" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="96"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedNetConfig" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="100"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedL20Config" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="104"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold1" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="108"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold2" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="112"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold3" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="116"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="xChangedThreshold4" dataType="BOOL" invertable="true" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="120"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="strLoadText" dataType="STRING" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="224"/>
+										</connectionPointOut>
+									</variable>
+									<variable formalParameter="rLoadMaker" dataType="REAL" hideable="true">
+										<connectionPointOut>
+											<relPosition x="57" y="228"/>
+										</connectionPointOut>
+									</variable>
+								</outputVariables>
+							</block>
+							<outVariable localId="190" width="16" height="2">
+								<position x="159" y="41"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="192"/>
+								</connectionPointIn>
+								<expression>xCommissioning</expression>
+							</outVariable>
+							<outVariable localId="191" width="15" height="2">
+								<position x="159" y="45"/>
+								<connectionPointIn>
+									<relPosition x="0" y="1"/>
+									<connection refLocalId="193">
+										<position x="159" y="46" pathnode="false"/>
+										<position x="158" y="46" pathnode="false"/>
+									</connection>
+								</connectionPointIn>
+								<expression>iCommissioning</expression>
+							</outVariable>
+							<inVariable localId="192" width="21" height="2">
+								<position x="138" y="41"/>
+								<connectionPointOut>
+									<relPosition x="21" y="1"/>
+								</connectionPointOut>
+								<expression>xWeb_Commissioning</expression>
+							</inVariable>
+							<inVariable localId="193" width="20" height="2">
+								<position x="138" y="45"/>
+								<connectionPointOut>
+									<relPosition x="20" y="1"/>
+								</connectionPointOut>
+								<expression>iSelectCommissioning</expression>
+							</inVariable>
+						</worksheet>
+					</FBD>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="ConfigurationT" xmlns="http://www.w3.org/1999/xhtml"/>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>

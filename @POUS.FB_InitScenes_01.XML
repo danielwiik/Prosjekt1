@@ -1,0 +1,173 @@
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kw-software.com/xml/PLCopen/TC6_XML_V10_KW.xsd">
+	<fileHeader companyName="Phoenix Contact" companyURL="https://www.phoenixcontact-software.com" productName="PC WORX" productVersion="6.30" productRelease="Build 245" creationDateTime="2017-11-14T14:32:34" contentDescription="###XMLINFO=1;1;"/>
+	<contentHeader name="ATSapplic_DW_01_GIT" version="1510666354" modificationDateTime="2017-11-14T14:32:34" connectionCheck="true">
+		<coordinateInfo>
+			<pageSize x="999" y="9999"/>
+			<fbd>
+				<scaling x="2" y="2"/>
+			</fbd>
+			<ld>
+				<scaling x="2" y="2"/>
+			</ld>
+			<sfc>
+				<scaling x="2" y="2"/>
+			</sfc>
+		</coordinateInfo>
+	</contentHeader>
+	<types>
+		<dataTypes/>
+		<pous>
+			<pou name="FB_InitScenes_01" pouType="functionBlock" pouGroup="Function_Blocks" lastChange="2016-11-16T10:03:58">
+				<interface>
+					<outputVars retain="false">
+						<variable name="xActive" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">FB is active</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="xDone" group="Output parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Init process is done</p>
+								</html>
+							</documentation>
+						</variable>
+					</outputVars>
+					<inputVars retain="false">
+						<variable name="xAxtivate" group="Input parameter">
+							<type>
+								<BOOL/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Activate FB</p>
+								</html>
+							</documentation>
+						</variable>
+					</inputVars>
+					<inOutVars retain="false">
+						<variable name="arrLumgates" group="In- Output paerameter">
+							<type>
+								<derived name="arr_1_240_udtLumgate"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Lumgate communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtLevelConfigurationL20_1" group="In- Output paerameter">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Threshold level comunication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="arrScenarioConfigurationL20_1" group="In- Output paerameter">
+							<type>
+								<derived name="ARR_1_25_1_5_Int"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scene / Scenario communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtScenarioMode" group="In- Output paerameter">
+							<type>
+								<derived name="udtScene"/>
+							</type>
+							<documentation>
+								<html xmlns="http://www.w3.org/1999/xhtml">
+									<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">Scene Mode communication structure</p>
+								</html>
+							</documentation>
+						</variable>
+						<variable name="udtLevelConfigurationL20_2" group="In- Output paerameter">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="udtLevelConfigurationL20_3" group="In- Output paerameter">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+						<variable name="udtLevelConfigurationL20_4" group="In- Output paerameter">
+							<type>
+								<derived name="udtL20Config"/>
+							</type>
+						</variable>
+					</inOutVars>
+					<localVars retain="false">
+						<variable name="xInit" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+						<variable name="iLoop" group="Default">
+							<type>
+								<INT/>
+							</type>
+						</variable>
+						<variable name="arrInputsL20" redundant="true" group="Default">
+							<type>
+								<derived name="arr_1_4_udtAnalogInput"/>
+							</type>
+						</variable>
+					</localVars>
+					<localVars retain="true">
+						<variable name="xRetainInit" group="Default">
+							<type>
+								<BOOL/>
+							</type>
+						</variable>
+					</localVars>
+				</interface>
+				<body>
+					<ST>
+						<worksheet name="FB_InitScenes_01">
+							<html xmlns="http://www.w3.org/1999/xhtml">
+								<p xml:space="preserve" xmlns="http://www.w3.org/1999/xhtml">If xAxtivate then<br/>	If not xRetainInit then<br/>		udtLevelConfigurationL20_1.xActive					:=	True;<br/>		udtLevelConfigurationL20_1.xActiveConfig1			:=	True;<br/>		udtLevelConfigurationL20_2.xActive					:=	True;<br/>		udtLevelConfigurationL20_2.xActiveConfig1			:=	True;<br/>		udtLevelConfigurationL20_3.xActive					:=	True;<br/>		udtLevelConfigurationL20_3.xActiveConfig1			:=	True;<br/>		udtLevelConfigurationL20_4.xActive					:=	True;<br/>		udtLevelConfigurationL20_4.xActiveConfig1			:=	True;<br/>		xRetainInit	:=	True;<br/>	End_if;<br/>	If not xInit then<br/>		For iLoop := 1 to 240 do<br/>			(* If arrLumgates[iLoop].iModuleLevel &lt;&gt; 2 then for Light an Building, to switch signs directly *)<br/>				arrLumgates[iLoop].xGraduallyOutputChanges	:=	True;<br/>			(* End_if; <br/>			arrLumgates[iLoop].xRelay1_NC					:=	True;*)<br/>		End_for;<br/>		xInit	:=	True;<br/>	End_if;<br/>End_if;<br/>
+									<br/>(* Deactivated code, cause of setted xInit flag. Only to use for tests and demonstration objects *)<br/>If xAxtivate and not xInit then<br/>	xActive	:=	True;<br/>	xDone	:=	xInit;<br/>	If not xInit then<br/>		xInit	:=	True;<br/>		For iLoop := 1 to 240 do<br/>			arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckError		:=	False;<br/>			arrLumgates[iLoop].udtCurrentCheck.xActiveCurrentCheckWarning	:=	False;<br/>			arrLumgates[iLoop].udtCurrentCheck.rPercentageError				:=	25.0;<br/>			arrLumgates[iLoop].udtCurrentCheck.rPercentageWarning			:=	5.50;<br/>
+									<br/>			arrLumgates[iLoop].xRelay1_NC				:=	True;<br/>			arrLumgates[iLoop].xFailMode				:=	True;<br/>
+									<br/>			If iLoop = 1 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	50;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	50;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	400;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	600;<br/>				arrLumgates[iLoop].arrDimmingScene[10].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[10].iValue	:=	800;<br/>				arrLumgates[iLoop].arrDimmingScene[11].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[11].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[12].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[12].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[13].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[13].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[14].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[14].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[15].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[15].iValue	:=	1000;<br/>				arrLumgates[iLoop].strDescription				:=	'Reinforcement High';<br/>			Elsif iLoop = 2 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	50;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	50;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	120;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	120;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	170;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	320;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	380;<br/>				arrLumgates[iLoop].arrDimmingScene[10].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[10].iValue	:=	480;<br/>				arrLumgates[iLoop].arrDimmingScene[11].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[11].iValue	:=	500;<br/>				arrLumgates[iLoop].arrDimmingScene[12].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[12].iValue	:=	700;<br/>				arrLumgates[iLoop].strDescription				:=	'Reinforcement Low';<br/>			Elsif iLoop = 3 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[10].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[10].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[11].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[11].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[12].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[12].iValue	:=	200;<br/>				arrLumgates[iLoop].strDescription				:=	'Continius Light Group1';<br/>			Elsif iLoop = 4 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[10].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[10].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[11].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[11].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[12].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[12].iValue	:=	200;<br/>				arrLumgates[iLoop].strDescription				:=	'Continius Light Group2';<br/>			Elsif iLoop = 5 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	150;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	250;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	280;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	300;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	320;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	350;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	350;<br/>				arrLumgates[iLoop].arrDimmingScene[10].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[10].iValue	:=	350;<br/>				arrLumgates[iLoop].strDescription				:=	'Reinforcement Out';<br/>			Elsif iLoop &gt; 5 and iLoop &lt; 7 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	50;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	50;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	400;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	600;<br/>				arrLumgates[iLoop].arrDimmingScene[10].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[10].iValue	:=	800;<br/>				arrLumgates[iLoop].arrDimmingScene[11].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[11].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[12].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[12].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[13].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[13].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[14].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[14].iValue	:=	1000;<br/>				arrLumgates[iLoop].arrDimmingScene[15].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[15].iValue	:=	1000;<br/>				arrLumgates[iLoop].strDescription				:=	'Reinforcement External';<br/>			Elsif iLoop = 7 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	100;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	0;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[10].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[10].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[11].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[11].iValue	:=	200;<br/>				arrLumgates[iLoop].arrDimmingScene[12].xUsed	:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[12].iValue	:=	200;<br/>				arrLumgates[iLoop].strDescription				:=	'Continius Light External';<br/>			Elsif iLoop &gt; 7 and iLoop &lt; 32 then<br/>				arrLumgates[iLoop].arrDimmingScene[1].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[1].iValue	:=	150;<br/>				arrLumgates[iLoop].arrDimmingScene[2].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[2].iValue	:=	300;<br/>				arrLumgates[iLoop].arrDimmingScene[3].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[3].iValue	:=	450;<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	600;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	750;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	900;<br/>				arrLumgates[iLoop].arrDimmingScene[7].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[7].iValue	:=	950;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	1070;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	0;<br/>			Elsif iLoop &gt; 31 then<br/>				arrLumgates[iLoop].arrDimmingScene[4].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[4].iValue	:=	525;<br/>				arrLumgates[iLoop].arrDimmingScene[5].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[5].iValue	:=	150;<br/>				arrLumgates[iLoop].arrDimmingScene[6].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[6].iValue	:=	810;<br/>				arrLumgates[iLoop].arrDimmingScene[8].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[8].iValue	:=	1070;<br/>				arrLumgates[iLoop].arrDimmingScene[9].xUsed		:=	True;<br/>				arrLumgates[iLoop].arrDimmingScene[9].iValue	:=	0;<br/>			End_If;<br/>
+									<br/>			arrLumgates[iLoop].xGraduallyOutputChanges		:=	True;<br/>			arrLumgates[iLoop].iOutputLevelFailsave			:=	525;<br/>			arrLumgates[iLoop].xTeachFailsave				:=	False;<br/>
+									<br/>			udtScenarioMode.arrMode[1]	:=	2;<br/>			udtScenarioMode.arrMode[2]	:=	2;<br/>		End_For;<br/>
+									<br/>		udtLevelConfigurationL20_1.xActive					:=	True;<br/>		udtLevelConfigurationL20_1.xActiveConfig1			:=	True;<br/>		udtLevelConfigurationL20_1.iDelay					:=	0;		(* Delay between scenarios in [s] (0 for Demo) *)<br/>		udtLevelConfigurationL20_1.arrScenarioActive[1]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[2]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[3]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[4]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[5]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[6]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[7]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[8]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[9]		:=	True;<br/>		udtLevelConfigurationL20_1.arrScenarioActive[10]	:=	True;<br/>
+									<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[1]	:=	100; (* 10% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[2]	:=	200; (* 20% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[3]	:=	300; (* 30% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[4]	:=	400; (* 40% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[5]	:=	500; (* 50% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[6]	:=	600; (* 60% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[7]	:=	700; (* 70% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[8]	:=	800; (* 80% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig1[9]	:=	900; (* 90% *)<br/>
+									<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[1]	:=	150; (* 15% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[2]	:=	250; (* 25% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[3]	:=	350; (* 35% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[4]	:=	450; (* 45% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[5]	:=	550; (* 55% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[6]	:=	650; (* 65% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[7]	:=	750; (* 75% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[8]	:=	850; (* 85% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig2[9]	:=	950; (* 95% *)<br/>
+									<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[1]	:=	50; (* 5% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[2]	:=	150; (* 15% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[3]	:=	200; (* 20% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[4]	:=	220; (* 22% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[5]	:=	260; (* 26% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[6]	:=	400; (* 40% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[7]	:=	550; (* 55% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[8]	:=	600; (* 60% *)<br/>		udtLevelConfigurationL20_1.arrScenarioConfig3[9]	:=	950; (* 95% *)<br/>
+									<br/>		arrScenarioConfigurationL20_1[1][1]		:=	1;<br/>		arrScenarioConfigurationL20_1[1][2]		:=	2;<br/>		arrScenarioConfigurationL20_1[2][1]		:=	3;<br/>		arrScenarioConfigurationL20_1[2][2]		:=	4;<br/>		arrScenarioConfigurationL20_1[3][1]		:=	5;<br/>		arrScenarioConfigurationL20_1[3][2]		:=	6;<br/>		arrScenarioConfigurationL20_1[4][1]		:=	7;<br/>		arrScenarioConfigurationL20_1[5][1]		:=	8;<br/>		arrScenarioConfigurationL20_1[6][1]		:=	9;<br/>		arrScenarioConfigurationL20_1[7][1]		:=	10;<br/>		arrScenarioConfigurationL20_1[8][1]		:=	11;<br/>		arrScenarioConfigurationL20_1[9][1]		:=	12;<br/>		arrScenarioConfigurationL20_1[10][1]	:=	13;<br/>
+									<br/>		arrInputsL20[1].xActive	:=	False;<br/>
+									<br/>	End_If;<br/>Else<br/>	xActive	:=	False;<br/>	xDone	:=	False;<br/>End_if;<br/>
+									<br/>(*strScenarioMode.arrMode[4]	:=	0;<br/>strScenarioMode.arrManualScenario[4]	:=	8;*)<br/>
+								</p>
+							</html>
+						</worksheet>
+					</ST>
+				</body>
+				<documentation>
+					<html xmlns="http://www.w3.org/1999/xhtml">
+						<div xml:space="preserve" id="MWTDESCRIPTION" wsName="FB_InitScenes_01T" xmlns="http://www.w3.org/1999/xhtml">V2.01 Changes:<br/>- delete relay settings<br/>- remanent xInit<br/>
+						</div>
+					</html>
+				</documentation>
+			</pou>
+		</pous>
+	</types>
+	<instances>
+		<configurations/>
+	</instances>
+</project>
