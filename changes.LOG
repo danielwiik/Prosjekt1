@@ -34,3 +34,5 @@
 <ADD>@HW.ZIP</ADD>
 <ADD>@HW.XML</ADD>
 <ADD>@POUS.DanielTests.XML</ADD>
+<REMOVE>@POUS.DanielTests.XML</REMOVE>
+<ADD>@POUS.DanielTests.XML</ADD>
